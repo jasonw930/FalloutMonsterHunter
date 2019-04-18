@@ -1,3 +1,3 @@
 ﻿Public Class Main
-    Dim bob As Integer = 0
+    Dim ricky As Integer = 3
 End Class
