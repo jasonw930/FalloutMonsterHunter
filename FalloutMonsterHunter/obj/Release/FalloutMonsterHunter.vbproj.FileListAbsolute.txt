@@ -1,0 +1,11 @@
+C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\bin\Release\FalloutMonsterHunter.exe.config
+C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\bin\Release\FalloutMonsterHunter.exe
+C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\bin\Release\FalloutMonsterHunter.pdb
+C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\bin\Release\FalloutMonsterHunter.xml
+C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\obj\Release\FalloutMonsterHunter.frmMain.resources
+C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\obj\Release\FalloutMonsterHunter.Resources.resources
+C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\obj\Release\FalloutMonsterHunter.vbproj.GenerateResource.cache
+C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\obj\Release\FalloutMonsterHunter.vbproj.CoreCompileInputs.cache
+C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\obj\Release\FalloutMonsterHunter.exe
+C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\obj\Release\FalloutMonsterHunter.xml
+C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\obj\Release\FalloutMonsterHunter.pdb
