@@ -74,7 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Items\Item.vb" />
-    <Compile Include="Classes\Items\ItemStack.vb" />
+    <Compile Include="Classes\Items\ItemArmor.vb" />
+    <Compile Include="Classes\ItemStack\ItemStack.vb" />
+    <Compile Include="Classes\Items\ItemWeapon.vb" />
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -97,7 +99,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Player.vb" />
+    <Compile Include="Classes\Player\Player.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmMain.resx">
