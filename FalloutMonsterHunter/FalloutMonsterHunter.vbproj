@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Items\Item.vb" />
+    <Compile Include="Classes\Items\ItemAccessory.vb" />
     <Compile Include="Classes\Items\ItemArmor.vb" />
     <Compile Include="Classes\ItemStack\ItemStack.vb" />
     <Compile Include="Classes\Items\ItemWeapon.vb" />

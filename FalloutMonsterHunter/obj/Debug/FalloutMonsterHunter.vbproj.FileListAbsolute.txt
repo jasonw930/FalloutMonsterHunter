@@ -10,3 +10,15 @@ C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\
 C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\FalloutMonsterHunter.exe
 C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\FalloutMonsterHunter.xml
 C:\Users\kevin\source\repos\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\FalloutMonsterHunter.pdb
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\bin\Debug\FalloutMonsterHunter.exe.config
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\bin\Debug\FalloutMonsterHunter.exe
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\bin\Debug\FalloutMonsterHunter.pdb
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\bin\Debug\FalloutMonsterHunter.xml
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\FalloutMonsterHunter.vbprojAssemblyReference.cache
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\FalloutMonsterHunter.frmMain.resources
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\FalloutMonsterHunter.Resources.resources
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\FalloutMonsterHunter.vbproj.GenerateResource.cache
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\FalloutMonsterHunter.vbproj.CoreCompileInputs.cache
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\FalloutMonsterHunter.exe
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\FalloutMonsterHunter.xml
+C:\Users\Jason\source\repos\jasonw930\FalloutMonsterHunter\FalloutMonsterHunter\obj\Debug\FalloutMonsterHunter.pdb
