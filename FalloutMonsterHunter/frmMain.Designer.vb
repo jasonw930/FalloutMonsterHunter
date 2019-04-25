@@ -22,36 +22,23 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Process1 = New System.Diagnostics.Process()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.components = New System.ComponentModel.Container()
         Me.pnlMainMenu = New System.Windows.Forms.Panel()
         Me.picBackdrop = New System.Windows.Forms.PictureBox()
+        Me.lblMoney = New System.Windows.Forms.Label()
+        Me.btnPlay = New System.Windows.Forms.Button()
+        Me.picFader = New System.Windows.Forms.PictureBox()
+        Me.fadeOutTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.fadeInTimer = New System.Windows.Forms.Timer(Me.components)
         Me.pnlMainMenu.SuspendLayout()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picBackdrop.SuspendLayout()
+        CType(Me.picFader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Process1
-        '
-        Me.Process1.StartInfo.Domain = ""
-        Me.Process1.StartInfo.LoadUserProfile = False
-        Me.Process1.StartInfo.Password = Nothing
-        Me.Process1.StartInfo.StandardErrorEncoding = Nothing
-        Me.Process1.StartInfo.StandardOutputEncoding = Nothing
-        Me.Process1.StartInfo.UserName = ""
-        Me.Process1.SynchronizingObject = Me
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(172, 36)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 17)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Label1"
         '
         'pnlMainMenu
         '
-        Me.pnlMainMenu.Controls.Add(Me.Label1)
+        Me.pnlMainMenu.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.uziCartiBigBaller
         Me.pnlMainMenu.Controls.Add(Me.picBackdrop)
         Me.pnlMainMenu.Location = New System.Drawing.Point(0, 0)
         Me.pnlMainMenu.Name = "pnlMainMenu"
@@ -60,7 +47,10 @@ Partial Class frmMain
         '
         'picBackdrop
         '
-        Me.picBackdrop.Image = Global.FalloutMonsterHunter.My.Resources.Resources.uziCartiBigBaller
+        Me.picBackdrop.Controls.Add(Me.lblMoney)
+        Me.picBackdrop.Controls.Add(Me.btnPlay)
+        Me.picBackdrop.Controls.Add(Me.picFader)
+        Me.picBackdrop.Image = Global.FalloutMonsterHunter.My.Resources.Resources.falloutMonsterHunterMainMenu1
         Me.picBackdrop.InitialImage = Nothing
         Me.picBackdrop.Location = New System.Drawing.Point(0, 0)
         Me.picBackdrop.Name = "picBackdrop"
@@ -69,27 +59,75 @@ Partial Class frmMain
         Me.picBackdrop.TabIndex = 0
         Me.picBackdrop.TabStop = False
         '
+        'lblMoney
+        '
+        Me.lblMoney.AutoSize = True
+        Me.lblMoney.BackColor = System.Drawing.Color.Transparent
+        Me.lblMoney.ForeColor = System.Drawing.Color.White
+        Me.lblMoney.Location = New System.Drawing.Point(266, 58)
+        Me.lblMoney.Name = "lblMoney"
+        Me.lblMoney.Size = New System.Drawing.Size(74, 17)
+        Me.lblMoney.TabIndex = 1
+        Me.lblMoney.Text = "Money: 50"
+        '
+        'btnPlay
+        '
+        Me.btnPlay.BackColor = System.Drawing.Color.Transparent
+        Me.btnPlay.FlatAppearance.BorderSize = 0
+        Me.btnPlay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btnPlay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPlay.Location = New System.Drawing.Point(819, 343)
+        Me.btnPlay.Name = "btnPlay"
+        Me.btnPlay.Size = New System.Drawing.Size(122, 34)
+        Me.btnPlay.TabIndex = 1
+        Me.btnPlay.UseVisualStyleBackColor = False
+        '
+        'picFader
+        '
+        Me.picFader.BackColor = System.Drawing.Color.Transparent
+        Me.picFader.Location = New System.Drawing.Point(0, 0)
+        Me.picFader.Name = "picFader"
+        Me.picFader.Size = New System.Drawing.Size(1000, 750)
+        Me.picFader.TabIndex = 2
+        Me.picFader.TabStop = False
+        Me.picFader.Visible = False
+        '
+        'fadeOutTimer
+        '
+        Me.fadeOutTimer.Interval = 20
+        '
+        'fadeInTimer
+        '
+        Me.fadeInTimer.Interval = 1
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackColor = System.Drawing.Color.Maroon
         Me.ClientSize = New System.Drawing.Size(1000, 750)
         Me.Controls.Add(Me.pnlMainMenu)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Fallout Monster Hunter"
         Me.pnlMainMenu.ResumeLayout(False)
-        Me.pnlMainMenu.PerformLayout()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picBackdrop.ResumeLayout(False)
+        Me.picBackdrop.PerformLayout()
+        CType(Me.picFader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Process1 As Process
     Friend WithEvents pnlMainMenu As Panel
-    Friend WithEvents Label1 As Label
     Friend WithEvents picBackdrop As PictureBox
+    Friend WithEvents btnPlay As Button
+    Friend WithEvents fadeOutTimer As Timer
+    Friend WithEvents lblMoney As Label
+    Friend WithEvents picFader As PictureBox
+    Friend WithEvents fadeInTimer As Timer
 End Class
