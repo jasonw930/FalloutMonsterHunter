@@ -24,6 +24,7 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.pnlMainMenu = New System.Windows.Forms.Panel()
+        Me.picFader2 = New System.Windows.Forms.PictureBox()
         Me.picBackdrop = New System.Windows.Forms.PictureBox()
         Me.lblMoney = New System.Windows.Forms.Label()
         Me.btnPlay = New System.Windows.Forms.Button()
@@ -31,6 +32,7 @@ Partial Class frmMain
         Me.fadeOutTimer = New System.Windows.Forms.Timer(Me.components)
         Me.fadeInTimer = New System.Windows.Forms.Timer(Me.components)
         Me.pnlMainMenu.SuspendLayout()
+        CType(Me.picFader2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picBackdrop.SuspendLayout()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,8 +47,19 @@ Partial Class frmMain
         Me.pnlMainMenu.Size = New System.Drawing.Size(1000, 750)
         Me.pnlMainMenu.TabIndex = 2
         '
+        'picFader2
+        '
+        Me.picFader2.BackColor = System.Drawing.Color.Transparent
+        Me.picFader2.Location = New System.Drawing.Point(0, 0)
+        Me.picFader2.Name = "picFader2"
+        Me.picFader2.Size = New System.Drawing.Size(1000, 750)
+        Me.picFader2.TabIndex = 3
+        Me.picFader2.TabStop = False
+        Me.picFader2.Visible = False
+        '
         'picBackdrop
         '
+        Me.picBackdrop.Controls.Add(Me.picFader2)
         Me.picBackdrop.Controls.Add(Me.lblMoney)
         Me.picBackdrop.Controls.Add(Me.btnPlay)
         Me.picBackdrop.Controls.Add(Me.picFader)
@@ -99,7 +112,7 @@ Partial Class frmMain
         '
         'fadeInTimer
         '
-        Me.fadeInTimer.Interval = 1
+        Me.fadeInTimer.Interval = 500
         '
         'frmMain
         '
@@ -116,6 +129,7 @@ Partial Class frmMain
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Fallout Monster Hunter"
         Me.pnlMainMenu.ResumeLayout(False)
+        CType(Me.picFader2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picBackdrop.ResumeLayout(False)
         Me.picBackdrop.PerformLayout()
@@ -130,4 +144,5 @@ Partial Class frmMain
     Friend WithEvents lblMoney As Label
     Friend WithEvents picFader As PictureBox
     Friend WithEvents fadeInTimer As Timer
+    Friend WithEvents picFader2 As PictureBox
 End Class
