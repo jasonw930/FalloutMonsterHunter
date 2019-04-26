@@ -24,17 +24,17 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.pnlMainMenu = New System.Windows.Forms.Panel()
-        Me.picFader2 = New System.Windows.Forms.PictureBox()
         Me.picBackdrop = New System.Windows.Forms.PictureBox()
+        Me.picFader2 = New System.Windows.Forms.PictureBox()
         Me.lblMoney = New System.Windows.Forms.Label()
         Me.btnPlay = New System.Windows.Forms.Button()
         Me.picFader = New System.Windows.Forms.PictureBox()
         Me.fadeOutTimer = New System.Windows.Forms.Timer(Me.components)
         Me.fadeInTimer = New System.Windows.Forms.Timer(Me.components)
         Me.pnlMainMenu.SuspendLayout()
-        CType(Me.picFader2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picBackdrop.SuspendLayout()
+        CType(Me.picFader2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -43,19 +43,10 @@ Partial Class frmMain
         Me.pnlMainMenu.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.uziCartiBigBaller
         Me.pnlMainMenu.Controls.Add(Me.picBackdrop)
         Me.pnlMainMenu.Location = New System.Drawing.Point(0, 0)
+        Me.pnlMainMenu.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlMainMenu.Name = "pnlMainMenu"
-        Me.pnlMainMenu.Size = New System.Drawing.Size(1000, 750)
+        Me.pnlMainMenu.Size = New System.Drawing.Size(1600, 1200)
         Me.pnlMainMenu.TabIndex = 2
-        '
-        'picFader2
-        '
-        Me.picFader2.BackColor = System.Drawing.Color.Transparent
-        Me.picFader2.Location = New System.Drawing.Point(0, 0)
-        Me.picFader2.Name = "picFader2"
-        Me.picFader2.Size = New System.Drawing.Size(1000, 750)
-        Me.picFader2.TabIndex = 3
-        Me.picFader2.TabStop = False
-        Me.picFader2.Visible = False
         '
         'picBackdrop
         '
@@ -66,20 +57,33 @@ Partial Class frmMain
         Me.picBackdrop.Image = Global.FalloutMonsterHunter.My.Resources.Resources.falloutMonsterHunterMainMenu1
         Me.picBackdrop.InitialImage = Nothing
         Me.picBackdrop.Location = New System.Drawing.Point(0, 0)
+        Me.picBackdrop.Margin = New System.Windows.Forms.Padding(5)
         Me.picBackdrop.Name = "picBackdrop"
-        Me.picBackdrop.Size = New System.Drawing.Size(1000, 750)
+        Me.picBackdrop.Size = New System.Drawing.Size(1600, 1200)
         Me.picBackdrop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.picBackdrop.TabIndex = 0
         Me.picBackdrop.TabStop = False
+        '
+        'picFader2
+        '
+        Me.picFader2.BackColor = System.Drawing.Color.Transparent
+        Me.picFader2.Location = New System.Drawing.Point(0, 0)
+        Me.picFader2.Margin = New System.Windows.Forms.Padding(5)
+        Me.picFader2.Name = "picFader2"
+        Me.picFader2.Size = New System.Drawing.Size(1600, 1200)
+        Me.picFader2.TabIndex = 3
+        Me.picFader2.TabStop = False
+        Me.picFader2.Visible = False
         '
         'lblMoney
         '
         Me.lblMoney.AutoSize = True
         Me.lblMoney.BackColor = System.Drawing.Color.Transparent
         Me.lblMoney.ForeColor = System.Drawing.Color.White
-        Me.lblMoney.Location = New System.Drawing.Point(266, 58)
+        Me.lblMoney.Location = New System.Drawing.Point(426, 93)
+        Me.lblMoney.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.lblMoney.Name = "lblMoney"
-        Me.lblMoney.Size = New System.Drawing.Size(74, 17)
+        Me.lblMoney.Size = New System.Drawing.Size(113, 25)
         Me.lblMoney.TabIndex = 1
         Me.lblMoney.Text = "Money: 50"
         '
@@ -90,9 +94,10 @@ Partial Class frmMain
         Me.btnPlay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnPlay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPlay.Location = New System.Drawing.Point(819, 343)
+        Me.btnPlay.Location = New System.Drawing.Point(1310, 549)
+        Me.btnPlay.Margin = New System.Windows.Forms.Padding(5)
         Me.btnPlay.Name = "btnPlay"
-        Me.btnPlay.Size = New System.Drawing.Size(122, 34)
+        Me.btnPlay.Size = New System.Drawing.Size(195, 54)
         Me.btnPlay.TabIndex = 1
         Me.btnPlay.UseVisualStyleBackColor = False
         '
@@ -100,8 +105,9 @@ Partial Class frmMain
         '
         Me.picFader.BackColor = System.Drawing.Color.Transparent
         Me.picFader.Location = New System.Drawing.Point(0, 0)
+        Me.picFader.Margin = New System.Windows.Forms.Padding(5)
         Me.picFader.Name = "picFader"
-        Me.picFader.Size = New System.Drawing.Size(1000, 750)
+        Me.picFader.Size = New System.Drawing.Size(1600, 1200)
         Me.picFader.TabIndex = 2
         Me.picFader.TabStop = False
         Me.picFader.Visible = False
@@ -112,27 +118,26 @@ Partial Class frmMain
         '
         'fadeInTimer
         '
-        Me.fadeInTimer.Interval = 500
+        Me.fadeInTimer.Interval = 20
         '
         'frmMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(192.0!, 192.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.Maroon
-        Me.ClientSize = New System.Drawing.Size(1000, 750)
+        Me.ClientSize = New System.Drawing.Size(1600, 1200)
         Me.Controls.Add(Me.pnlMainMenu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Fallout Monster Hunter"
         Me.pnlMainMenu.ResumeLayout(False)
-        CType(Me.picFader2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picBackdrop.ResumeLayout(False)
         Me.picBackdrop.PerformLayout()
+        CType(Me.picFader2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
