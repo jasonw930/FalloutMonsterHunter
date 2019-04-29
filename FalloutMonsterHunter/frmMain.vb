@@ -1,20 +1,36 @@
 ﻿Public Class frmMain
+    'Variables--------------------------------------------------------------------------------------------
     Dim fadingControls As New List(Of Object)
+    Dim targetScene As Panel
 
+    'Form Load--------------------------------------------------------------------------------------------
     Private Sub formLoad() Handles Me.Load
         Console.WriteLine("---------------------------------------------")
+        For Each pnl In Me.Controls.OfType(Of Panel)
+            pnl.Location = New System.Drawing.Point(0, 0)
+        Next
+        picFader.Location = New Point(0, 0)
+        picFader2.Location = New Point(0, 0)
+        pnlMainMenu.Visible = True
+        pnlMainMenu.BringToFront()
     End Sub
 
-    Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
-        Console.WriteLine("click")
-        'btnPlay.Visible = False
+    'Procedures-------------------------------------------------------------------------------------------
+    Private Sub transition(scene As Panel)
+        targetScene = scene
+        targetScene.Visible = False
+        targetScene.BringToFront()
         picFader.Visible = True
         picFader.BringToFront()
         picFader2.Visible = True
         picFader2.BringToFront()
 
         fadeOutTimer.Start()
-        'moveAllControls(pnlMainMenu, picFader)
+    End Sub
+
+    'Event Handles---------------------------------------------------------------------------------------
+    Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
+        transition(pnlIntro)
     End Sub
 
     Private Sub fadeOutTimerTick() Handles fadeOutTimer.Tick
@@ -29,6 +45,7 @@
 
         If alpha >= 100 Then
             alpha = 0
+            targetScene.Visible = True
             fadeOutTimer.Stop()
             fadeInTimer.Start()
         End If
@@ -36,7 +53,7 @@
 
     Private Sub fadeInTimerTick() Handles fadeInTimer.Tick
         Static alpha As Integer = 100
-        alpha -= 5
+        alpha -= 10
         Dim rectColor As System.Drawing.Color
         rectColor = Color.FromArgb(alpha, 0, 0, 0)
 
