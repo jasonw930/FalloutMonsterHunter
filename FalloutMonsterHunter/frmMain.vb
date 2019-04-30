@@ -13,6 +13,8 @@
         picFader2.Location = New Point(0, 0)
         pnlMainMenu.Visible = True
         pnlMainMenu.BringToFront()
+
+        Dim player As New Player()
     End Sub
 
     'Procedures-------------------------------------------------------------------------------------------
