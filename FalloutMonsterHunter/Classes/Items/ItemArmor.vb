@@ -5,12 +5,15 @@
     Private bonusHealth As Integer
     Private armorPosition As Integer
 
-    Public Sub New(name As String, defense As Integer, health As Integer, position As Integer)
-        MyBase.New(name)
+    Private displaySprite As Image
 
-        Me.defense = defense
-        Me.bonusHealth = health
-        Me.armorPosition = armorPosition
+    Public Sub New(name As String, tier As Integer, image As Bitmap, defense As Integer, health As Integer, position As Integer, display As Bitmap)
+        MyBase.New(name, tier, image)
+
+        Me.setDefense(defense)
+        Me.setBonusHealth(health)
+        Me.setArmorPos(position)
+        Me.setDisplaySprite(display)
     End Sub
 
     Public Sub setDefense(defense As Integer)
@@ -35,5 +38,13 @@
 
     Public Function getArmorPos()
         Return Me.armorPosition
+    End Function
+
+    Public Sub setDisplaySprite(sprite As Image)
+        Me.displaySprite = sprite
+    End Sub
+
+    Public Function getDisplaySprite()
+        Return Me.displaySprite
     End Function
 End Class

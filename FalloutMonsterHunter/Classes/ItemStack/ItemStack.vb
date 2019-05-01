@@ -15,7 +15,7 @@ Public Class ItemStack
         Me.itemType = item
     End Sub
 
-    Public Function getItem(item As Item)
+    Public Function getItem()
         Return Me.itemType
     End Function
 

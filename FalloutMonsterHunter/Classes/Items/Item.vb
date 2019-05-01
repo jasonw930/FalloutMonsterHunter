@@ -3,23 +3,25 @@
     Private itemTier As Integer
     Private itemSprite As Image
 
-    Shared itemRaptorClaws1 As New Item("Unpheasant Claw", 1, My.Resources.uziCartiBigBaller)
-    Shared itemRaptorHide1 As New Item("Unpheasant Hide", 1)
-    Shared itemRaptorBone1 As New Item("Unpheasant Bone", 1)
-    Shared itemRaptorSkull1 As New Item("Unpheasant Skull", 1)
-    Shared itemRaptorTail1 As New Item("Unpheasant Tail", 1)
+    Public Shared itemNull As New Item("null", 0, New Bitmap(0, 0))
 
-    Shared itemRaptorClaws2 As New Item("Mutahraptor Claw", 2)
-    Shared itemRaptorHide2 As New Item("Mutahraptor Hide", 2)
-    Shared itemRaptorBone2 As New Item("Mutahraptor Bone", 2)
-    Shared itemRaptorSkull2 As New Item("Mutahraptor Skull", 2)
-    Shared itemRaptorTail2 As New Item("Mutahraptor Tail", 2)
+    Public Shared itemRaptorClaws1 As New Item("Unpheasant Claw", 1, My.Resources.uziCartiBigBaller)
+    Public Shared itemRaptorHide1 As New Item("Unpheasant Hide", 1)
+    Public Shared itemRaptorBone1 As New Item("Unpheasant Bone", 1)
+    Public Shared itemRaptorSkull1 As New Item("Unpheasant Skull", 1)
+    Public Shared itemRaptorTail1 As New Item("Unpheasant Tail", 1)
 
-    Shared itemRaptorClaws3 As New Item("Uzirappter Claw", 3)
-    Shared itemRaptorHide3 As New Item("Uzirappter Hide", 3)
-    Shared itemRaptorBone3 As New Item("Uzirappter Bone", 3)
-    Shared itemRaptorSkull3 As New Item("Uzirappter Skull", 3)
-    Shared itemRaptorTail3 As New Item("Uzirappter Tail", 3)
+    Public Shared itemRaptorClaws2 As New Item("Mutahraptor Claw", 2)
+    Public Shared itemRaptorHide2 As New Item("Mutahraptor Hide", 2)
+    Public Shared itemRaptorBone2 As New Item("Mutahraptor Bone", 2)
+    Public Shared itemRaptorSkull2 As New Item("Mutahraptor Skull", 2)
+    Public Shared itemRaptorTail2 As New Item("Mutahraptor Tail", 2)
+
+    Public Shared itemRaptorClaws3 As New Item("Uzirappter Claw", 3)
+    Public Shared itemRaptorHide3 As New Item("Uzirappter Hide", 3)
+    Public Shared itemRaptorBone3 As New Item("Uzirappter Bone", 3)
+    Public Shared itemRaptorSkull3 As New Item("Uzirappter Skull", 3)
+    Public Shared itemRaptorTail3 As New Item("Uzirappter Tail", 3)
 
     Public Sub New(name As String, tier As Integer, image As Bitmap)
         Me.setItemName(name)
