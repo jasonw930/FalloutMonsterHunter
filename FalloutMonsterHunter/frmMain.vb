@@ -14,7 +14,9 @@
         pnlMainMenu.Visible = True
         pnlMainMenu.BringToFront()
 
-        Dim player As New Player()
+        Dim player As New Player("Bob")
+        Item.initialize()
+        Mob.initialize()
     End Sub
 
     'Procedures-------------------------------------------------------------------------------------------
