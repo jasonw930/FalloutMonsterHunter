@@ -78,6 +78,7 @@
     <Compile Include="Classes\Items\ItemArmor.vb" />
     <Compile Include="Classes\ItemStack\ItemStack.vb" />
     <Compile Include="Classes\Items\ItemWeapon.vb" />
+    <Compile Include="Classes\Mob\Mob.vb" />
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>

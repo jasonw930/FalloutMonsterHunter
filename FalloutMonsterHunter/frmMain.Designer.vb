@@ -24,62 +24,36 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.pnlMainMenu = New System.Windows.Forms.Panel()
-        Me.picFader2 = New System.Windows.Forms.PictureBox()
-        Me.picFader = New System.Windows.Forms.PictureBox()
-        Me.pnlIntro = New System.Windows.Forms.Panel()
         Me.picBackdrop = New System.Windows.Forms.PictureBox()
         Me.lblMoney = New System.Windows.Forms.Label()
         Me.btnPlay = New System.Windows.Forms.Button()
+        Me.picFader2 = New System.Windows.Forms.PictureBox()
+        Me.picFader = New System.Windows.Forms.PictureBox()
+        Me.pnlIntro = New System.Windows.Forms.Panel()
         Me.fadeOutTimer = New System.Windows.Forms.Timer(Me.components)
         Me.fadeInTimer = New System.Windows.Forms.Timer(Me.components)
         Me.pnlMainMenu.SuspendLayout()
-        CType(Me.picFader2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picFader, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picBackdrop.SuspendLayout()
+        CType(Me.picFader2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picFader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlMainMenu
         '
         Me.pnlMainMenu.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.uziCartiBigBaller
-        Me.Controls.Add(Me.pnlIntro)
         Me.pnlMainMenu.Controls.Add(Me.picBackdrop)
         Me.pnlMainMenu.Location = New System.Drawing.Point(0, 0)
         Me.pnlMainMenu.Name = "pnlMainMenu"
         Me.pnlMainMenu.Size = New System.Drawing.Size(1000, 750)
         Me.pnlMainMenu.TabIndex = 2
         '
-        'picFader2
-        '
-        Me.picFader2.BackColor = System.Drawing.Color.Transparent
-        Me.picFader2.Location = New System.Drawing.Point(0, 0)
-        Me.picFader2.Name = "picFader2"
-        Me.picFader2.Size = New System.Drawing.Size(1000, 750)
-        Me.picFader2.TabIndex = 5
-        Me.picFader2.TabStop = False
-        '
-        'picFader
-        '
-        Me.picFader.BackColor = System.Drawing.Color.Transparent
-        Me.picFader.Location = New System.Drawing.Point(0, 0)
-        Me.picFader.Name = "picFader"
-        Me.picFader.Size = New System.Drawing.Size(1000, 750)
-        Me.picFader.TabIndex = 4
-        Me.picFader.TabStop = False
-        '
-        'pnlIntro
-        '
-        Me.pnlIntro.Location = New System.Drawing.Point(986, 0)
-        Me.pnlIntro.Name = "pnlIntro"
-        Me.pnlIntro.Size = New System.Drawing.Size(1000, 750)
-        Me.pnlIntro.TabIndex = 3
-        '
         'picBackdrop
         '
         Me.picBackdrop.Controls.Add(Me.lblMoney)
         Me.picBackdrop.Controls.Add(Me.btnPlay)
-        Me.picBackdrop.Controls.Add(Me.picFader)
         Me.picBackdrop.Controls.Add(Me.picFader2)
+        Me.picBackdrop.Controls.Add(Me.picFader)
         Me.picBackdrop.Image = Global.FalloutMonsterHunter.My.Resources.Resources.falloutMonsterHunterMainMenu1
         Me.picBackdrop.InitialImage = Nothing
         Me.picBackdrop.Location = New System.Drawing.Point(0, 0)
@@ -113,6 +87,31 @@ Partial Class frmMain
         Me.btnPlay.TabIndex = 1
         Me.btnPlay.UseVisualStyleBackColor = False
         '
+        'picFader2
+        '
+        Me.picFader2.BackColor = System.Drawing.Color.Transparent
+        Me.picFader2.Location = New System.Drawing.Point(0, 0)
+        Me.picFader2.Name = "picFader2"
+        Me.picFader2.Size = New System.Drawing.Size(1000, 750)
+        Me.picFader2.TabIndex = 5
+        Me.picFader2.TabStop = False
+        '
+        'picFader
+        '
+        Me.picFader.BackColor = System.Drawing.Color.Transparent
+        Me.picFader.Location = New System.Drawing.Point(0, 0)
+        Me.picFader.Name = "picFader"
+        Me.picFader.Size = New System.Drawing.Size(1000, 750)
+        Me.picFader.TabIndex = 4
+        Me.picFader.TabStop = False
+        '
+        'pnlIntro
+        '
+        Me.pnlIntro.Location = New System.Drawing.Point(986, 0)
+        Me.pnlIntro.Name = "pnlIntro"
+        Me.pnlIntro.Size = New System.Drawing.Size(1000, 750)
+        Me.pnlIntro.TabIndex = 3
+        '
         'fadeOutTimer
         '
         Me.fadeOutTimer.Interval = 20
@@ -128,19 +127,20 @@ Partial Class frmMain
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1000, 750)
+        Me.Controls.Add(Me.pnlIntro)
         Me.Controls.Add(Me.pnlMainMenu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MaximizeBox = False
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Fallout Monster Hunter"
         Me.pnlMainMenu.ResumeLayout(False)
-        CType(Me.picFader2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picFader, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picBackdrop.ResumeLayout(False)
         Me.picBackdrop.PerformLayout()
+        CType(Me.picFader2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picFader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
