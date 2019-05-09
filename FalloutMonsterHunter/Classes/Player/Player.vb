@@ -43,6 +43,7 @@ Public Class Player
             Me.inventory.Add(New ItemStack(Item.itemNull, 1))
         Next
 
+
         Dim equippedWeapon As ItemStack = New ItemStack(Item.itemNull, 1)
         Dim equippedArmor0 As ItemStack = New ItemStack(Item.itemNull, 1)
         Dim equippedArmor1 As ItemStack = New ItemStack(Item.itemNull, 1)
