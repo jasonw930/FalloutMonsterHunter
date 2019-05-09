@@ -40,15 +40,14 @@ Public Class Player
         Me.attributeLuck = 0
 
         For x = 0 To 23
-            Me.inventory.Add(New ItemStack(Item.itemNull, 1))
+            'Me.inventory.Add(New ItemStack(Item.itemNull, 1))
         Next
 
-
-        Dim equippedWeapon As ItemStack = New ItemStack(Item.itemNull, 1)
-        Dim equippedArmor0 As ItemStack = New ItemStack(Item.itemNull, 1)
-        Dim equippedArmor1 As ItemStack = New ItemStack(Item.itemNull, 1)
-        Dim equippedArmor2 As ItemStack = New ItemStack(Item.itemNull, 1)
-        Dim equippedArmor3 As ItemStack = New ItemStack(Item.itemNull, 1)
+        'Dim equippedWeapon As ItemStack = New ItemStack(Item.itemNull, 1)
+        'Dim equippedArmor0 As ItemStack = New ItemStack(Item.itemNull, 1)
+        'Dim equippedArmor1 As ItemStack = New ItemStack(Item.itemNull, 1)
+        'Dim equippedArmor2 As ItemStack = New ItemStack(Item.itemNull, 1)
+        'Dim equippedArmor3 As ItemStack = New ItemStack(Item.itemNull, 1)
     End Sub
 
     Public Sub updateStats()
@@ -66,5 +65,24 @@ Public Class Player
 
         Me.luck = 0
     End Sub
+
+    Public Sub condenseInventory()
+        Dim emptySlots As New List(Of Integer)
+        For x = 0 To Me.inventory.Count - 1
+            If Me.inventory(x).Equals(Item.itemNull) Then
+                emptySlots.Add(x)
+            ElseIf emptySlots.Count > 0 Then
+                Me.inventory(emptySlots(0)) = Me.inventory(x)
+                Me.inventory(x) = New ItemStack(Item.itemNull, 1)
+                emptySlots(0) = Nothing
+                emptySlots.RemoveAt(0)
+                emptySlots.Sort()
+                emptySlots.TrimExcess()
+                emptySlots.Add(x)
+            End If
+        Next x
+    End Sub
+
+
 
 End Class
