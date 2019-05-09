@@ -40,14 +40,14 @@ Public Class Player
         Me.attributeLuck = 0
 
         For x = 0 To 23
-            Me.inventory.Add(New ItemStack(Item.itemNull, 1))
+            'Me.inventory.Add(New ItemStack(Item.itemNull, 1))
         Next
 
-        Dim equippedWeapon As ItemStack = New ItemStack(Item.itemNull, 1)
-        Dim equippedArmor0 As ItemStack = New ItemStack(Item.itemNull, 1)
-        Dim equippedArmor1 As ItemStack = New ItemStack(Item.itemNull, 1)
-        Dim equippedArmor2 As ItemStack = New ItemStack(Item.itemNull, 1)
-        Dim equippedArmor3 As ItemStack = New ItemStack(Item.itemNull, 1)
+        'Dim equippedWeapon As ItemStack = New ItemStack(Item.itemNull, 1)
+        'Dim equippedArmor0 As ItemStack = New ItemStack(Item.itemNull, 1)
+        'Dim equippedArmor1 As ItemStack = New ItemStack(Item.itemNull, 1)
+        'Dim equippedArmor2 As ItemStack = New ItemStack(Item.itemNull, 1)
+        'Dim equippedArmor3 As ItemStack = New ItemStack(Item.itemNull, 1)
     End Sub
 
     Public Sub updateStats()
