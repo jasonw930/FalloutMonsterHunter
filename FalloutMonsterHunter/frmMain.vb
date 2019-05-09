@@ -19,6 +19,7 @@
         panelsAndPics.Add(pnlMainMenu, PictureBox1)
 
         Dim player As New Player("Bob")
+
         'Item.initialize()
         'Mob.initialize()
     End Sub

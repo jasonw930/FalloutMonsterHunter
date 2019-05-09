@@ -66,4 +66,23 @@ Public Class Player
         Me.luck = 0
     End Sub
 
+    Public Sub condenseInventory()
+        Dim emptySlots As New List(Of Integer)
+        For x = 0 To Me.inventory.Count - 1
+            If Me.inventory(x).Equals(Item.itemNull) Then
+                emptySlots.Add(x)
+            ElseIf emptySlots.Count > 0 Then
+                Me.inventory(emptySlots(0)) = Me.inventory(x)
+                Me.inventory(x) = New ItemStack(Item.itemNull, 1)
+                emptySlots(0) = Nothing
+                emptySlots.RemoveAt(0)
+                emptySlots.Sort()
+                emptySlots.TrimExcess()
+                emptySlots.Add(x)
+            End If
+        Next x
+    End Sub
+
+
+
 End Class
