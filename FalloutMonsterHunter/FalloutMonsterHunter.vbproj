@@ -128,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\falloutMonsterHunterMainMenu11.png" />
+    <None Include="Resources\falloutMonsterHunterIntroCutscene.png" />
     <Content Include="Resources\uziCartiBigBaller.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
