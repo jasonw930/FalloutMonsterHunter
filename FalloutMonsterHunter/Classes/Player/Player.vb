@@ -1,27 +1,29 @@
 Public Class Player
 
-    Dim playerName As String = ""
+    Public playerName As String = ""
 
-    Dim money As Integer
+    Public money As Integer
 
-    Dim health As Integer
-    Dim defense As Integer
-    Dim attack As Integer
-    Dim critChance As Integer
-    Dim luck As Integer
+    Public currentHealth As Integer
 
-    Dim attributeVitality As Integer
-    Dim attributeToughness As Integer
-    Dim attributeStrength As Integer
-    Dim attributePrecision As Integer
-    Dim attributeLuck As Integer
+    Public health As Integer
+    Public defense As Integer
+    Public attack As Integer
+    Public critChance As Integer
+    Public luck As Integer
 
-    Dim inventory As List(Of ItemStack)
-    Dim equippedWeapon As ItemStack
-    Dim equippedArmor0 As ItemStack
-    Dim equippedArmor1 As ItemStack
-    Dim equippedArmor2 As ItemStack
-    Dim equippedArmor3 As ItemStack
+    Public attributeVitality As Integer
+    Public attributeToughness As Integer
+    Public attributeStrength As Integer
+    Public attributePrecision As Integer
+    Public attributeLuck As Integer
+
+    Public inventory As List(Of ItemStack)
+    Public equippedWeapon As ItemStack
+    Public equippedArmor0 As ItemStack
+    Public equippedArmor1 As ItemStack
+    Public equippedArmor2 As ItemStack
+    Public equippedArmor3 As ItemStack
 
     Public Sub New(name As String)
         Me.playerName = name
@@ -83,6 +85,22 @@ Public Class Player
         Next x
     End Sub
 
+    Public Sub addItemToInventory(itemStack As ItemStack)
+        If itemStack.getItem() <> Item.itemNull Then
+            For x = 0 To 23
+                If Me.inventory(x).getItem = itemStack.getItem Then
+                    Me.inventory(x).setSize(Me.inventory(x).getSize() + itemStack.getSize())
+                    Exit Sub
+                End If
+            Next
 
+            For x = 0 To 23
+                If Me.inventory(x).getItem = Item.itemNull Then
+                    Me.inventory(x) = itemStack
+                    Exit Sub
+                End If
+            Next
+        End If
+    End Sub
 
 End Class

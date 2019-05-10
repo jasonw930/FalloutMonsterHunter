@@ -3,6 +3,9 @@
     Dim fadingControls As New List(Of Object)
     Dim targetScene As Panel
     Dim panelsAndPics As New Dictionary(Of Panel, PictureBox)
+    Dim player As Player
+    Dim currentCity As Panel
+    Dim currentUnlockedCity As Panel
 
     'Form Load--------------------------------------------------------------------------------------------
     Private Sub formLoad() Handles Me.Load
@@ -18,7 +21,7 @@
         panelsAndPics.Add(pnlIntro, picBackdrop)
         panelsAndPics.Add(pnlMainMenu, PictureBox1)
 
-        Dim player As New Player("Bob")
+        player = New Player("Bob")
 
         'Item.initialize()
         'Mob.initialize()
@@ -102,6 +105,43 @@
         Return True
     End Function
 
+    Public Sub fight(player As Player, mob As Mob)
+        Dim result As Boolean
+        'Fight
+        transition(pnlFujiCity)
+        player.updateStats()
+        player.currentHealth = player.health
+        mob.currentHealth = mob.health
+        Do While True
+            Randomize()
+            Dim attackValue As Integer
+            'Player Attack
+            attackValue = (player.attack - mob.defense) * If(Rnd() <= player.critChance / 100, 2, 1)
+            mob.currentHealth -= attackValue
+            If mob.currentHealth <= 0 Then
+                result = True
+                Exit Do
+            End If
+            'Mob Attack
+            attackValue = (mob.attack - player.defense) * If(Rnd() <= mob.critChance / 100, 2, 1)
+            player.currentHealth -= attackValue
+            If player.currentHealth <= 0 Then
+                result = False
+                Exit Do
+            End If
+        Loop
+        'Result
+        If result Then
+            For x = 0 To mob.dropItems.Length - 1
+                Randomize()
+                Dim item As Item = mob.dropItems(x)
+                Dim amount As Integer = If(Rnd() <= mob.dropChance(x), Int(Rnd() * mob.dropAmount(x)) + 1, 0)
+                Dim itemStack As ItemStack = If(amount > 0, New ItemStack(item, amount), New ItemStack(Item.itemNull, 1))
+                player.addItemToInventory(itemStack)
+            Next
+        End If
+    End Sub
+
     'Event Handles---------------------------------------------------------------------------------------
     Public Sub pauseTimerEnd() Handles pauseTimer.Tick
         pauseTimer.Stop()
@@ -111,6 +151,10 @@
     Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
         Console.WriteLine("now we're running")
         transition(pnlIntro)
+    End Sub
+
+    Private Sub pnlIntroClick() Handles pnlIntro.Click
+        transition(pnlFujiCity)
     End Sub
 
     Private Sub fadeOutTimerTick() Handles fadeOutTimer.Tick

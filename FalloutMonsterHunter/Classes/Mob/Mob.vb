@@ -1,16 +1,18 @@
 ﻿Public Class Mob
 
-    Dim mobName As String = ""
-    Dim mobSprite As Image
+    Public Dim mobName As String = ""
+    Public Dim mobSprite As Image
 
-    Dim health As Integer
-    Dim defense As Integer
-    Dim attack As Integer
-    Dim critChance As Integer
+    Public Dim currentHealth As Integer
 
-    Dim dropItems As Item()
-    Dim dropChance As Double()
-    Dim dropAmount As Double()
+    Public Dim health As Integer
+    Public Dim defense As Integer
+    Public Dim attack As Integer
+    Public Dim critChance As Integer
+
+    Public Dim dropItems As Item()
+    Public Dim dropChance As Double()
+    Public Dim dropAmount As Double()
 
     Public Shared mobRaptor1 As Mob
 

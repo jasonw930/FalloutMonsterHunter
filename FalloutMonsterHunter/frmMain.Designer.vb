@@ -35,8 +35,9 @@ Partial Class frmMain
         Me.picFader2 = New System.Windows.Forms.PictureBox()
         Me.picFader = New System.Windows.Forms.PictureBox()
         Me.pnlIntro = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.pnlFujiCity = New System.Windows.Forms.Panel()
         Me.pnlMainMenu.SuspendLayout()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picBackdrop.SuspendLayout()
@@ -138,16 +139,6 @@ Partial Class frmMain
         Me.pnlIntro.Size = New System.Drawing.Size(1000, 750)
         Me.pnlIntro.TabIndex = 3
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(115, 58)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(74, 17)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Money: 52"
-        '
         'PictureBox1
         '
         Me.PictureBox1.Controls.Add(Me.Label1)
@@ -158,6 +149,24 @@ Partial Class frmMain
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Location = New System.Drawing.Point(115, 58)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(74, 17)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Money: 52"
+        '
+        'pnlFujiCity
+        '
+        Me.pnlFujiCity.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.uziCartiBigBaller
+        Me.pnlFujiCity.Location = New System.Drawing.Point(0, 0)
+        Me.pnlFujiCity.Name = "pnlFujiCity"
+        Me.pnlFujiCity.Size = New System.Drawing.Size(1000, 750)
+        Me.pnlFujiCity.TabIndex = 4
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -165,6 +174,7 @@ Partial Class frmMain
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1000, 750)
+        Me.Controls.Add(Me.pnlFujiCity)
         Me.Controls.Add(Me.pnlIntro)
         Me.Controls.Add(Me.pnlMainMenu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -199,4 +209,5 @@ Partial Class frmMain
     Friend WithEvents intervalPauseTimer As Timer
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents pnlFujiCity As Panel
 End Class
