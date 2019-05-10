@@ -24,7 +24,7 @@
     Public Shared itemRaptorTail3 As Item
 
     Public Shared Sub initialize()
-        itemNull = New Item("null", 0, New Bitmap(0, 0))
+        itemNull = New Item("null", 0, My.Resources.uziCartiBigBaller)
 
         itemRaptorClaws1 = New Item("Unpheasant Claw", 1, My.Resources.uziCartiBigBaller)
         itemRaptorHide1 = New Item("Unpheasant Hide", 1, My.Resources.uziCartiBigBaller)

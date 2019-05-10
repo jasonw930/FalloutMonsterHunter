@@ -24,7 +24,7 @@
         player = New Player("Bob")
 
         'Item.initialize()
-        'Mob.initialize()
+        Mob.initialize()
     End Sub
 
     'Procedures-------------------------------------------------------------------------------------------
@@ -155,6 +155,7 @@
 
     Private Sub pnlIntroClick() Handles pnlIntro.Click
         transition(pnlFujiCity)
+        fight(player, Mob.mobRaptor1)
     End Sub
 
     Private Sub fadeOutTimerTick() Handles fadeOutTimer.Tick
@@ -204,5 +205,6 @@
             fadeInTimer.Stop()
         End If
     End Sub
+
 
 End Class
