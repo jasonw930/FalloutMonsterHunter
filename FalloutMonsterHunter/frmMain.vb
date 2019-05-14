@@ -3,13 +3,18 @@
     Dim fadingControls As New List(Of Object)
     Dim targetScene As Panel
     Dim panelsAndPics As New Dictionary(Of Panel, PictureBox)
-    Dim player As Player
     Dim currentCity As Panel
     Dim currentUnlockedCity As Panel
+    Dim dialogLines As String() = {
+        "<Walkie-Talkie>Hello? Hello?? Is anybody there???(clkCont)",
+        "<sANS>dOOT DOOT DOOT DOOT DOOT DOOOT DOOT DOOOOO DOOO DOOO DOOOOT(clkCont)"
+    }
 
     'Form Load--------------------------------------------------------------------------------------------
     Private Sub formLoad() Handles Me.Load
         Console.WriteLine("---------------------------------------------")
+
+
         For Each pnl In Me.Controls.OfType(Of Panel)
             pnl.Location = New System.Drawing.Point(0, 0)
         Next
@@ -19,9 +24,9 @@
         pnlMainMenu.BringToFront()
 
         panelsAndPics.Add(pnlIntro, picBackdrop)
-        panelsAndPics.Add(pnlMainMenu, PictureBox1)
+        panelsAndPics.Add(pnlMainMenu, picIntro)
 
-        player = New Player("Bob")
+        Player.player = New Player("Bob")
 
         'Item.initialize()
         Mob.initialize()
@@ -87,7 +92,6 @@
         'picFader.SendToBack()
         'picFader2.Refresh()
         'picFader2.SendToBack()
-
     End Sub
 
     Public Function pause(milliseconds As Integer) 'Handles intervalPauseTimer.Tick
@@ -142,6 +146,55 @@
         End If
     End Sub
 
+
+
+    Public Function wait(Optional sender As Object = Nothing, Optional e As EventArgs = Nothing, Optional duration As Integer = 0) Handles textDisplayTimer.Tick
+        Console.WriteLine("went into wait")
+        If duration > 0 Then
+            textDisplayTimer.Interval = duration
+            textDisplayTimer.Start()
+            Console.WriteLine("started timer at " & duration.ToString() & " seconds to tick")
+            Return False
+        Else
+            textDisplayTimer.Stop()
+            Console.WriteLine("stopped timer")
+            Return True
+        End If
+    End Function
+
+    Dim toVisible As Object
+
+    Public Function visibleAfterDelay(sender As Object, e As EventArgs) Handles textDisplayTimer.Tick
+        toVisible.Visible = True
+    End Function
+
+    Public Function displayText(dialogRollStart As Integer, dialogRollEnd As Integer)
+        Application.DoEvents()
+        Threading.Thread.Sleep(2000)
+        Application.DoEvents()
+        pnlDialog.Visible = True
+        Application.DoEvents()
+
+        For i As Integer = dialogRollStart To dialogRollEnd
+            Application.DoEvents()
+            Dim speaker As String = dialogLines(i).Substring(1, dialogLines(i).IndexOf(">") - 1)
+            Dim text As String = dialogLines(i).Substring(dialogLines(i).IndexOf(">") + 1, dialogLines(i).IndexOf("(") - dialogLines(i).IndexOf(">") - 1)
+            Dim contMethod As String
+            lblSpeaker.Text = speaker
+            lblDialog.Text = text
+
+            For x As Integer = 1 To text.Length
+                Threading.Thread.Sleep(100)
+                lblDialog.Text = text.Substring(0, x)
+                If x < text.Length Then
+                    lblDialog.Text = lblDialog.Text & "_"
+                End If
+                Application.DoEvents()
+            Next
+
+        Next
+    End Function
+
     'Event Handles---------------------------------------------------------------------------------------
     Public Sub pauseTimerEnd() Handles pauseTimer.Tick
         pauseTimer.Stop()
@@ -151,11 +204,14 @@
     Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
         Console.WriteLine("now we're running")
         transition(pnlIntro)
+        'Threading.Thread.Sleep(2000)
+        Application.DoEvents()
+        displayText(0, 1)
     End Sub
 
     Private Sub pnlIntroClick() Handles pnlIntro.Click
         transition(pnlFujiCity)
-        fight(player, Mob.mobRaptor1)
+        fight(Player.player, Mob.mobRaptor1)
     End Sub
 
     Private Sub fadeOutTimerTick() Handles fadeOutTimer.Tick
@@ -205,6 +261,5 @@
             fadeInTimer.Stop()
         End If
     End Sub
-
 
 End Class

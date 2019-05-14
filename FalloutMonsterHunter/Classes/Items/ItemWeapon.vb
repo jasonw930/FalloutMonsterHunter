@@ -6,6 +6,10 @@
 
     Private displaySprite As Image
 
+    Public Shared Sub initialize()
+
+    End Sub
+
     Public Sub New(name As String, tier As Integer, image As Bitmap, damage As Integer, critChance As Integer, display As Bitmap)
         MyBase.New(name, tier, image)
 

@@ -25,6 +25,8 @@ Public Class Player
     Public equippedArmor2 As ItemStack
     Public equippedArmor3 As ItemStack
 
+    Public Shared player As Player
+
     Public Sub New(name As String)
         Me.playerName = name
         Me.money = 0
@@ -58,6 +60,12 @@ Public Class Player
         Me.health += If(TypeOf (equippedArmor1.getItem()) Is ItemArmor, DirectCast(equippedArmor1.getItem(), ItemArmor).getBonusHealth, 0)
         Me.health += If(TypeOf (equippedArmor2.getItem()) Is ItemArmor, DirectCast(equippedArmor2.getItem(), ItemArmor).getBonusHealth, 0)
         Me.health += If(TypeOf (equippedArmor3.getItem()) Is ItemArmor, DirectCast(equippedArmor3.getItem(), ItemArmor).getBonusHealth, 0)
+
+        Me.defense = 10
+        Me.defense += If(TypeOf (equippedArmor0.getItem()) Is ItemArmor, DirectCast(equippedArmor0.getItem(), ItemArmor).getDefence, 0)
+        Me.defense += If(TypeOf (equippedArmor1.getItem()) Is ItemArmor, DirectCast(equippedArmor1.getItem(), ItemArmor).getDefence, 0)
+        Me.defense += If(TypeOf (equippedArmor2.getItem()) Is ItemArmor, DirectCast(equippedArmor2.getItem(), ItemArmor).getDefence, 0)
+        Me.defense += If(TypeOf (equippedArmor3.getItem()) Is ItemArmor, DirectCast(equippedArmor3.getItem(), ItemArmor).getDefence, 0)
 
         Me.attack = 25
         Me.attack += If(TypeOf (equippedWeapon.getItem()) Is ItemWeapon, DirectCast(equippedWeapon.getItem(), ItemWeapon).getDamage, 0)

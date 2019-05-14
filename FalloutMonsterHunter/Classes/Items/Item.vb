@@ -3,7 +3,7 @@
     Private itemTier As Integer
     Private itemSprite As Image
 
-    Public Shared itemNull As New Item("null", 0, New Bitmap(0, 0))
+    Public Shared itemNull As Item
 
     Public Shared itemRaptorClaws1 As Item
     Public Shared itemRaptorHide1 As Item
@@ -26,11 +26,11 @@
     Public Shared Sub initialize()
         itemNull = New Item("null", 0, My.Resources.uziCartiBigBaller)
 
-        itemRaptorClaws1 = New Item("Unpheasant Claw", 1, My.Resources.uziCartiBigBaller)
-        itemRaptorHide1 = New Item("Unpheasant Hide", 1, My.Resources.uziCartiBigBaller)
-        itemRaptorBone1 = New Item("Unpheasant Bone", 1, My.Resources.uziCartiBigBaller)
-        itemRaptorSkull1 = New Item("Unpheasant Skull", 1, My.Resources.uziCartiBigBaller)
-        itemRaptorTail1 = New Item("Unpheasant Tail", 1, My.Resources.uziCartiBigBaller)
+        itemRaptorClaws1 = New Item("Unpheasant Claw", 1, My.Resources.itemRaptorClaws1)
+        itemRaptorHide1 = New Item("Unpheasant Hide", 1, My.Resources.itemRaptorHide1)
+        itemRaptorBone1 = New Item("Unpheasant Bone", 1, My.Resources.itemRaptorBone1)
+        itemRaptorSkull1 = New Item("Unpheasant Skull", 1, My.Resources.itemRaptorSkull1)
+        itemRaptorTail1 = New Item("Unpheasant Tail", 1, My.Resources.itemRaptorTail1)
 
         itemRaptorClaws2 = New Item("Mutahraptor Claw", 2, My.Resources.uziCartiBigBaller)
         itemRaptorHide2 = New Item("Mutahraptor Hide", 2, My.Resources.uziCartiBigBaller)
