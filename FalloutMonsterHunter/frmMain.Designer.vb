@@ -29,14 +29,15 @@ Partial Class frmMain
         Me.pauseTimer = New System.Windows.Forms.Timer(Me.components)
         Me.intervalPauseTimer = New System.Windows.Forms.Timer(Me.components)
         Me.pnlIntro = New System.Windows.Forms.Panel()
-        Me.textDisplayTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.pnlFujiCity = New System.Windows.Forms.Panel()
         Me.picIntro = New System.Windows.Forms.PictureBox()
         Me.pnlDialog = New System.Windows.Forms.Panel()
         Me.txtUserIn = New System.Windows.Forms.TextBox()
         Me.lblDialog = New System.Windows.Forms.Label()
+        Me.lblClickCont = New System.Windows.Forms.Label()
         Me.lblBigOutline = New System.Windows.Forms.Label()
         Me.lblSpeaker = New System.Windows.Forms.Label()
+        Me.textDisplayTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.pnlFujiCity = New System.Windows.Forms.Panel()
         Me.pnlMainMenu = New System.Windows.Forms.Panel()
         Me.picBackdrop = New System.Windows.Forms.PictureBox()
         Me.lblMoney = New System.Windows.Forms.Label()
@@ -47,6 +48,7 @@ Partial Class frmMain
         CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picIntro.SuspendLayout()
         Me.pnlDialog.SuspendLayout()
+        Me.lblDialog.SuspendLayout()
         Me.pnlMainMenu.SuspendLayout()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picBackdrop.SuspendLayout()
@@ -79,17 +81,6 @@ Partial Class frmMain
         Me.pnlIntro.Size = New System.Drawing.Size(1000, 750)
         Me.pnlIntro.TabIndex = 3
         '
-        'textDisplayTimer
-        '
-        '
-        'pnlFujiCity
-        '
-        Me.pnlFujiCity.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.fujiCity
-        Me.pnlFujiCity.Location = New System.Drawing.Point(1000, 750)
-        Me.pnlFujiCity.Name = "pnlFujiCity"
-        Me.pnlFujiCity.Size = New System.Drawing.Size(1000, 750)
-        Me.pnlFujiCity.TabIndex = 4
-        '
         'picIntro
         '
         Me.picIntro.Controls.Add(Me.pnlDialog)
@@ -117,6 +108,7 @@ Partial Class frmMain
         '
         Me.txtUserIn.BackColor = System.Drawing.Color.Black
         Me.txtUserIn.Font = New System.Drawing.Font("Courier New", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUserIn.ForeColor = System.Drawing.Color.White
         Me.txtUserIn.Location = New System.Drawing.Point(17, 208)
         Me.txtUserIn.Name = "txtUserIn"
         Me.txtUserIn.Size = New System.Drawing.Size(276, 28)
@@ -126,6 +118,7 @@ Partial Class frmMain
         'lblDialog
         '
         Me.lblDialog.BackColor = System.Drawing.Color.Black
+        Me.lblDialog.Controls.Add(Me.lblClickCont)
         Me.lblDialog.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDialog.ForeColor = System.Drawing.Color.White
         Me.lblDialog.Location = New System.Drawing.Point(3, 39)
@@ -133,6 +126,19 @@ Partial Class frmMain
         Me.lblDialog.Padding = New System.Windows.Forms.Padding(10, 10, 0, 0)
         Me.lblDialog.Size = New System.Drawing.Size(846, 211)
         Me.lblDialog.TabIndex = 1
+        '
+        'lblClickCont
+        '
+        Me.lblClickCont.AutoSize = True
+        Me.lblClickCont.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblClickCont.ForeColor = System.Drawing.Color.White
+        Me.lblClickCont.Location = New System.Drawing.Point(650, 174)
+        Me.lblClickCont.Name = "lblClickCont"
+        Me.lblClickCont.Size = New System.Drawing.Size(179, 20)
+        Me.lblClickCont.TabIndex = 5
+        Me.lblClickCont.Tag = "650, 174"
+        Me.lblClickCont.Text = "click to continue"
+        Me.lblClickCont.Visible = False
         '
         'lblBigOutline
         '
@@ -153,9 +159,17 @@ Partial Class frmMain
         Me.lblSpeaker.ForeColor = System.Drawing.Color.White
         Me.lblSpeaker.Location = New System.Drawing.Point(0, 0)
         Me.lblSpeaker.Name = "lblSpeaker"
-        Me.lblSpeaker.Size = New System.Drawing.Size(178, 37)
+        Me.lblSpeaker.Size = New System.Drawing.Size(224, 37)
         Me.lblSpeaker.TabIndex = 2
         Me.lblSpeaker.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'pnlFujiCity
+        '
+        Me.pnlFujiCity.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.fujiCity
+        Me.pnlFujiCity.Location = New System.Drawing.Point(1000, 750)
+        Me.pnlFujiCity.Name = "pnlFujiCity"
+        Me.pnlFujiCity.Size = New System.Drawing.Size(1000, 750)
+        Me.pnlFujiCity.TabIndex = 4
         '
         'pnlMainMenu
         '
@@ -244,6 +258,8 @@ Partial Class frmMain
         Me.picIntro.ResumeLayout(False)
         Me.pnlDialog.ResumeLayout(False)
         Me.pnlDialog.PerformLayout()
+        Me.lblDialog.ResumeLayout(False)
+        Me.lblDialog.PerformLayout()
         Me.pnlMainMenu.ResumeLayout(False)
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picBackdrop.ResumeLayout(False)
@@ -273,4 +289,5 @@ Partial Class frmMain
     Friend WithEvents lblBigOutline As Label
     Friend WithEvents txtUserIn As TextBox
     Friend WithEvents textDisplayTimer As Timer
+    Friend WithEvents lblClickCont As Label
 End Class

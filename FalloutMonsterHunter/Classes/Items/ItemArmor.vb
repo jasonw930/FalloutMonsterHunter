@@ -12,10 +12,10 @@
     Public Shared armorUnpheasantLeggings As ItemArmor
     Public Shared armorUnpheasantBoots As ItemArmor
 
-    Public Shared Sub initialize()
+    Overloads Public Shared Sub initialize()
         armorUnpheasantHelmet = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 6, 5, 0, My.Resources.uziCartiBigBaller)
-        armorUnpheasantHelmet = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 6, 5, 1, My.Resources.uziCartiBigBaller)
-        armorUnpheasantHelmet = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 6, 5, 2, My.Resources.uziCartiBigBaller)
+        armorUnpheasantHelmet = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 10, 5, 1, My.Resources.uziCartiBigBaller)
+        armorUnpheasantHelmet = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 8, 5, 2, My.Resources.uziCartiBigBaller)
         armorUnpheasantHelmet = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 6, 5, 3, My.Resources.uziCartiBigBaller)
     End Sub
 

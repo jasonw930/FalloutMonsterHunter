@@ -6,8 +6,10 @@
 
     Private displaySprite As Image
 
-    Public Shared Sub initialize()
+    Public Shared weaponUnpheasantSword As ItemWeapon
 
+    Overloads Public Shared Sub initialize()
+        weaponUnpheasantSword = New ItemWeapon("Unpheasant Sword", 1, My.Resources.uziCartiBigBaller, 35, 3, My.Resources.uziCartiBigBaller)
     End Sub
 
     Public Sub New(name As String, tier As Integer, image As Bitmap, damage As Integer, critChance As Integer, display As Bitmap)

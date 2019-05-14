@@ -56,22 +56,22 @@ Public Class Player
 
     Public Sub updateStats()
         Me.health = 100
-        Me.health += If(TypeOf (equippedArmor0.getItem()) Is ItemArmor, DirectCast(equippedArmor0.getItem(), ItemArmor).getBonusHealth, 0)
-        Me.health += If(TypeOf (equippedArmor1.getItem()) Is ItemArmor, DirectCast(equippedArmor1.getItem(), ItemArmor).getBonusHealth, 0)
-        Me.health += If(TypeOf (equippedArmor2.getItem()) Is ItemArmor, DirectCast(equippedArmor2.getItem(), ItemArmor).getBonusHealth, 0)
-        Me.health += If(TypeOf (equippedArmor3.getItem()) Is ItemArmor, DirectCast(equippedArmor3.getItem(), ItemArmor).getBonusHealth, 0)
+        Me.health += If(TypeOf equippedArmor0.getItem() Is ItemArmor, DirectCast(equippedArmor0.getItem(), ItemArmor).getBonusHealth, 0)
+        Me.health += If(TypeOf equippedArmor1.getItem() Is ItemArmor, DirectCast(equippedArmor1.getItem(), ItemArmor).getBonusHealth, 0)
+        Me.health += If(TypeOf equippedArmor2.getItem() Is ItemArmor, DirectCast(equippedArmor2.getItem(), ItemArmor).getBonusHealth, 0)
+        Me.health += If(TypeOf equippedArmor3.getItem() Is ItemArmor, DirectCast(equippedArmor3.getItem(), ItemArmor).getBonusHealth, 0)
 
         Me.defense = 10
-        Me.defense += If(TypeOf (equippedArmor0.getItem()) Is ItemArmor, DirectCast(equippedArmor0.getItem(), ItemArmor).getDefence, 0)
-        Me.defense += If(TypeOf (equippedArmor1.getItem()) Is ItemArmor, DirectCast(equippedArmor1.getItem(), ItemArmor).getDefence, 0)
-        Me.defense += If(TypeOf (equippedArmor2.getItem()) Is ItemArmor, DirectCast(equippedArmor2.getItem(), ItemArmor).getDefence, 0)
-        Me.defense += If(TypeOf (equippedArmor3.getItem()) Is ItemArmor, DirectCast(equippedArmor3.getItem(), ItemArmor).getDefence, 0)
+        Me.defense += If(TypeOf equippedArmor0.getItem() Is ItemArmor, DirectCast(equippedArmor0.getItem(), ItemArmor).getDefence, 0)
+        Me.defense += If(TypeOf equippedArmor1.getItem() Is ItemArmor, DirectCast(equippedArmor1.getItem(), ItemArmor).getDefence, 0)
+        Me.defense += If(TypeOf equippedArmor2.getItem() Is ItemArmor, DirectCast(equippedArmor2.getItem(), ItemArmor).getDefence, 0)
+        Me.defense += If(TypeOf equippedArmor3.getItem() Is ItemArmor, DirectCast(equippedArmor3.getItem(), ItemArmor).getDefence, 0)
 
         Me.attack = 25
-        Me.attack += If(TypeOf (equippedWeapon.getItem()) Is ItemWeapon, DirectCast(equippedWeapon.getItem(), ItemWeapon).getDamage, 0)
+        Me.attack += If(TypeOf equippedWeapon.getItem() Is ItemWeapon, DirectCast(equippedWeapon.getItem(), ItemWeapon).getDamage, 0)
 
         Me.critChance = 5
-        Me.attack += If(TypeOf (equippedWeapon.getItem()) Is ItemWeapon, DirectCast(equippedWeapon.getItem(), ItemWeapon).getCritChance, 0)
+        Me.attack += If(TypeOf equippedWeapon.getItem() Is ItemWeapon, DirectCast(equippedWeapon.getItem(), ItemWeapon).getCritChance, 0)
 
         Me.luck = 0
     End Sub
@@ -108,6 +108,41 @@ Public Class Player
                     Exit Sub
                 End If
             Next
+        End If
+    End Sub
+
+    Public Function getPosOfItem(item As Item)
+        For x = 0 To 23
+            If Me.inventory(x).getItem = item Then
+                Return x
+            End If
+        Next
+        Return -1
+    End Function
+
+    Public Sub equipItem(pos As Integer)
+        If pos <= 23 And pos >= 0 Then
+            If TypeOf Me.inventory(pos).getItem Is ItemArmor Then
+                Select Case DirectCast(Me.inventory(pos).getItem, ItemArmor).getArmorPos
+                    Case 0
+                        Me.equippedArmor0 = Me.inventory(pos)
+                        Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                    Case 1
+                        Me.equippedArmor1 = Me.inventory(pos)
+                        Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                    Case 2
+                        Me.equippedArmor2 = Me.inventory(pos)
+                        Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                    Case 3
+                        Me.equippedArmor3 = Me.inventory(pos)
+                        Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                End Select
+            End If
+
+            If TypeOf Me.inventory(pos).getItem Is ItemWeapon Then
+                Me.equippedWeapon = Me.inventory(pos)
+                Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+            End If
         End If
     End Sub
 
