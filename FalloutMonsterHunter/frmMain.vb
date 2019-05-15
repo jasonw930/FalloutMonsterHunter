@@ -1,7 +1,6 @@
 ﻿Public Class frmMain
     'Variables--------------------------------------------------------------------------------------------
     Dim fadingControls As New List(Of Object)
-    Dim targetScene As Panel
     Dim panelsAndPics As New Dictionary(Of Panel, PictureBox)
     Dim currentCity As Panel
     Dim currentUnlockedCity As Panel
@@ -23,8 +22,8 @@
         pnlMainMenu.Visible = True
         pnlMainMenu.BringToFront()
 
-        panelsAndPics.Add(pnlIntro, picBackdrop)
-        panelsAndPics.Add(pnlMainMenu, picIntro)
+        panelsAndPics.Add(pnlIntro, picIntro)
+        panelsAndPics.Add(pnlMainMenu, picBackdrop)
 
         Player.player = New Player("Bob")
 
@@ -33,6 +32,8 @@
         ' clkCont --> wait for user to click before continuing
         ' usrIn --> wait for user to input something (that is not "", even when trimmed) and click before continuing
         ' delayAutoCont --> wait for 500 milliseconds before continuing to next line automatically. if user clicks to interrupt, stop typing (whole line will not be displayed) and wait 500 milliseconds before going to next line
+
+        'key: 0-21 = intro; 
         dialogLines = {
             "<Walkie-Talkie>Hello? Hello?? Is anybody there???(clkCont)",
             "<You>[Tiredly] Yes. Who is this?(clkCont)",
@@ -54,12 +55,13 @@
             "<You>Yes! I am still here, my love. But why--(delayAutoCont)",
             "<Misa>Our child is safe. But the second machine...(clkCont)",
             "<You>No...(clkCont)",
-            "<Misa>I am sorry, my love. You must survive this. You must survive to ensure our child does, too. I love you, " & "|" & ", I always will. I lo--(delayAutoCont)"
+            "<Misa>I am sorry, my love. You must survive this. You must survive to ensure our child does, too. I love you, " & "|" & ", I always will. I lo--(atomBlast)",
+            "<...>[You hear a deafening burst]" & vbCrLf & vbCrLf & "[Your vision fills with white]" & vbCrLf & vbCrLf & "[You start to feel yourself slipping...](clkCont)"
         }
 
-        'Item.initialize()
-        'ItemArmor.initialize()
-        'ItemWeapon.initialize()
+        Item.initialize()
+        ItemArmor.initialize()
+        ItemWeapon.initialize()
         Mob.initialize()
     End Sub
 
@@ -67,12 +69,15 @@
     Private Sub transition(scene As Panel)
         scene.BringToFront()
         scene.Visible = True
+        If scene.Name = "pnlFujiCity" Or scene.Name = "pnlKyoto" Or scene.Name = "pnlHiroshima" Then
+            currentCity = scene
+        End If
     End Sub
 
-    Public Sub fight(player As Player, mob As Mob)
+    Public Sub fight(player As Player, mob As Mob, Optional prevCity As Panel = Nothing)
         Dim result As Boolean
         'Fight
-        transition(pnlFujiCity)
+        transition(pnlFight)
         player.updateStats()
         player.currentHealth = player.health
         mob.currentHealth = mob.health
@@ -82,17 +87,49 @@
             'Player Attack
             attackValue = (player.attack - mob.defense) * If(Rnd() <= player.critChance / 100, 2, 1)
             mob.currentHealth -= attackValue
+            Console.WriteLine(mob.currentHealth & " is Raptor's health")
+
+            For x = 80 To 300 Step 22
+                pnlPlayer.Location = New Point(x, 400)
+                Threading.Thread.Sleep(25)
+                Application.DoEvents()
+            Next
+            For x = 300 To 80 Step -22
+                pnlPlayer.Location = New Point(x, 400)
+                Threading.Thread.Sleep(25)
+                Application.DoEvents()
+            Next
+
             If mob.currentHealth <= 0 Then
                 result = True
                 Exit Do
             End If
+
+            Threading.Thread.Sleep(1000)
+            Application.DoEvents()
             'Mob Attack
             attackValue = (mob.attack - player.defense) * If(Rnd() <= mob.critChance / 100, 2, 1)
             player.currentHealth -= attackValue
+            Console.WriteLine(player.currentHealth & " is Player's health")
+
+            For x = 480 To 260 Step -22
+                pnlMob.Location = New Point(x, 420)
+                Threading.Thread.Sleep(25)
+                Application.DoEvents()
+            Next
+            For x = 260 To 480 Step 22
+                pnlMob.Location = New Point(x, 420)
+                Threading.Thread.Sleep(25)
+                Application.DoEvents()
+            Next
+
             If player.currentHealth <= 0 Then
                 result = False
                 Exit Do
             End If
+
+            Threading.Thread.Sleep(1000)
+            Application.DoEvents()
         Loop
         'Result
         If result Then
@@ -102,14 +139,17 @@
                 Dim amount As Integer = If(Rnd() <= mob.dropChance(x), Int(Rnd() * mob.dropAmount(x)) + 1, 0)
                 Dim itemStack As ItemStack = If(amount > 0, New ItemStack(item, amount), New ItemStack(Item.itemNull, 1))
                 player.addItemToInventory(itemStack)
+                Console.WriteLine(itemStack.getSize() & " " & itemStack.getItem().getItemName() & " was dropped")
             Next
         End If
+        Console.WriteLine("finished fighting")
+        transition(currentCity)
     End Sub
 
     Dim toVisible As Object
     Dim hasClickedToContinue As Boolean = False
 
-    Public Sub displayText(dialogRollStart As Integer, dialogRollEnd As Integer)
+    Public Sub displayText(dialogRollStart As Integer, dialogRollEnd As Integer, Optional targetPanel As Panel = Nothing)
         Application.DoEvents()
         Threading.Thread.Sleep(2000)
         Application.DoEvents()
@@ -125,7 +165,7 @@
             lblSpeaker.Text = speaker
             lblDialog.Text = text
 
-            If contMethod.Equals("delayAutoCont") Then
+            If contMethod.Equals("delayAutoCont") Or contMethod.Equals("atomBlast") Then
                 isAutoCont = True
             End If
 
@@ -166,8 +206,21 @@
                 txtUserIn.Visible = False
                 lblClickCont.Visible = False
                 hasClickedToContinue = False
+                If Player.player.playerName = "skipCutscene" Then
+                    Exit For
+                End If
             ElseIf contMethod.Equals("delayAutoCont") Then
                 Threading.Thread.Sleep(500)
+                Application.DoEvents()
+                isAutoCont = False
+            ElseIf contMethod.Equals("atomBlast") Then
+                Threading.Thread.Sleep(500)
+                Application.DoEvents()
+                Dim currentPicbox As PictureBox = panelsAndPics.Item(currentCity)
+                Console.WriteLine(currentPicbox.Name)
+                currentPicbox.Image = Nothing
+                currentPicbox.BackColor = Color.White
+                Threading.Thread.Sleep(2000)
                 Application.DoEvents()
                 isAutoCont = False
             End If
@@ -175,6 +228,10 @@
         Threading.Thread.Sleep(300)
         Application.DoEvents()
         pnlDialog.Visible = False
+        If targetPanel IsNot Nothing Then
+            transition(targetPanel)
+        End If
+
     End Sub
 
     'Event Handles---------------------------------------------------------------------------------------
@@ -188,33 +245,33 @@
         transition(pnlIntro)
         'Threading.Thread.Sleep(2000)
         Application.DoEvents()
-        displayText(0, dialogLines.Length - 1)
+        displayText(0, 21, pnlFujiCity)
+        'displayText(22, )
     End Sub
 
 
-
-    Private Sub pnlIntroClick() Handles pnlIntro.Click
-        transition(pnlFujiCity)
+    Private Sub pnlFujiCity_Click() Handles pnlFujiCity.Click
         fight(Player.player, Mob.mobRaptor1)
     End Sub
 
-    Private Sub fadeOutTimerTick() Handles fadeOutTimer.Tick
-        Static alpha As Integer = 0
-        alpha += 5
-        Dim rectColor As System.Drawing.Color
-        rectColor = Color.FromArgb(alpha, 0, 0, 0)
 
-        Console.WriteLine("picFader: Fade in at opacity " & alpha)
-        picFader.BringToFront()
-        picFader.CreateGraphics.FillRectangle(New SolidBrush(rectColor), 0, 0, 1000, 750)
+    'Private Sub fadeOutTimerTick() Handles fadeOutTimer.Tick
+    '    Static alpha As Integer = 0
+    '    alpha += 5
+    '    Dim rectColor As System.Drawing.Color
+    '    rectColor = Color.FromArgb(alpha, 0, 0, 0)
 
-        If alpha >= 100 Then
-            alpha = 0
-            targetScene.Visible = True
-            fadeOutTimer.Stop()
-            fadeInTimer.Start()
-        End If
-    End Sub
+    '    Console.WriteLine("picFader: Fade in at opacity " & alpha)
+    '    picFader.BringToFront()
+    '    picFader.CreateGraphics.FillRectangle(New SolidBrush(rectColor), 0, 0, 1000, 750)
+
+    '    If alpha >= 100 Then
+    '        alpha = 0
+    '        targetScene.Visible = True
+    '        fadeOutTimer.Stop()
+    '        fadeInTimer.Start()
+    '    End If
+    'End Sub
 
     Private Sub fadeInTimerTick() Handles fadeInTimer.Tick
         Static alpha As Integer = 100

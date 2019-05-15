@@ -43,15 +43,17 @@ Public Class Player
         Me.attributePrecision = 0
         Me.attributeLuck = 0
 
+        inventory = New List(Of ItemStack)
+
         For x = 0 To 23
-            'Me.inventory.Add(New ItemStack(Item.itemNull, 1))
+            Me.inventory.Add(New ItemStack(Item.itemNull, 1))
         Next
 
-        'Dim equippedWeapon As ItemStack = New ItemStack(Item.itemNull, 1)
-        'Dim equippedArmor0 As ItemStack = New ItemStack(Item.itemNull, 1)
-        'Dim equippedArmor1 As ItemStack = New ItemStack(Item.itemNull, 1)
-        'Dim equippedArmor2 As ItemStack = New ItemStack(Item.itemNull, 1)
-        'Dim equippedArmor3 As ItemStack = New ItemStack(Item.itemNull, 1)
+        Me.equippedWeapon = New ItemStack(Item.itemNull, 1)
+        Me.equippedArmor0 = New ItemStack(Item.itemNull, 1)
+        Me.equippedArmor1 = New ItemStack(Item.itemNull, 1)
+        Me.equippedArmor2 = New ItemStack(Item.itemNull, 1)
+        Me.equippedArmor3 = New ItemStack(Item.itemNull, 1)
     End Sub
 
     Public Sub updateStats()
@@ -94,16 +96,16 @@ Public Class Player
     End Sub
 
     Public Sub addItemToInventory(itemStack As ItemStack)
-        If itemStack.getItem() <> Item.itemNull Then
+        If itemStack.getItem() IsNot Item.itemNull Then
             For x = 0 To 23
-                If Me.inventory(x).getItem = itemStack.getItem Then
+                If Me.inventory(x).getItem Is itemStack.getItem Then
                     Me.inventory(x).setSize(Me.inventory(x).getSize() + itemStack.getSize())
                     Exit Sub
                 End If
             Next
 
             For x = 0 To 23
-                If Me.inventory(x).getItem = Item.itemNull Then
+                If Me.inventory(x).getItem Is Item.itemNull Then
                     Me.inventory(x) = itemStack
                     Exit Sub
                 End If
@@ -144,6 +146,7 @@ Public Class Player
                 Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
             End If
         End If
+        Me.updateStats()
     End Sub
 
 End Class

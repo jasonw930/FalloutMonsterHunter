@@ -44,6 +44,9 @@ Partial Class frmMain
         Me.btnPlay = New System.Windows.Forms.Button()
         Me.picFader2 = New System.Windows.Forms.PictureBox()
         Me.picFader = New System.Windows.Forms.PictureBox()
+        Me.pnlFight = New System.Windows.Forms.Panel()
+        Me.pnlMob = New System.Windows.Forms.Panel()
+        Me.pnlPlayer = New System.Windows.Forms.Panel()
         Me.pnlIntro.SuspendLayout()
         CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picIntro.SuspendLayout()
@@ -54,6 +57,7 @@ Partial Class frmMain
         Me.picBackdrop.SuspendLayout()
         CType(Me.picFader2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlFight.SuspendLayout()
         Me.SuspendLayout()
         '
         'fadeOutTimer
@@ -76,7 +80,7 @@ Partial Class frmMain
         '
         Me.pnlIntro.BackColor = System.Drawing.Color.Maroon
         Me.pnlIntro.Controls.Add(Me.picIntro)
-        Me.pnlIntro.Location = New System.Drawing.Point(0, 0)
+        Me.pnlIntro.Location = New System.Drawing.Point(1000, 193)
         Me.pnlIntro.Name = "pnlIntro"
         Me.pnlIntro.Size = New System.Drawing.Size(1000, 750)
         Me.pnlIntro.TabIndex = 3
@@ -237,6 +241,32 @@ Partial Class frmMain
         Me.picFader.TabIndex = 4
         Me.picFader.TabStop = False
         '
+        'pnlFight
+        '
+        Me.pnlFight.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.uziCartiBigBaller
+        Me.pnlFight.Controls.Add(Me.pnlMob)
+        Me.pnlFight.Controls.Add(Me.pnlPlayer)
+        Me.pnlFight.Location = New System.Drawing.Point(0, 0)
+        Me.pnlFight.Name = "pnlFight"
+        Me.pnlFight.Size = New System.Drawing.Size(1000, 750)
+        Me.pnlFight.TabIndex = 5
+        '
+        'pnlMob
+        '
+        Me.pnlMob.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.fmhRaptor1
+        Me.pnlMob.Location = New System.Drawing.Point(480, 420)
+        Me.pnlMob.Name = "pnlMob"
+        Me.pnlMob.Size = New System.Drawing.Size(440, 180)
+        Me.pnlMob.TabIndex = 3
+        '
+        'pnlPlayer
+        '
+        Me.pnlPlayer.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorBone1
+        Me.pnlPlayer.Location = New System.Drawing.Point(80, 400)
+        Me.pnlPlayer.Name = "pnlPlayer"
+        Me.pnlPlayer.Size = New System.Drawing.Size(160, 200)
+        Me.pnlPlayer.TabIndex = 2
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -244,6 +274,7 @@ Partial Class frmMain
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1000, 750)
+        Me.Controls.Add(Me.pnlFight)
         Me.Controls.Add(Me.pnlFujiCity)
         Me.Controls.Add(Me.pnlIntro)
         Me.Controls.Add(Me.pnlMainMenu)
@@ -266,6 +297,7 @@ Partial Class frmMain
         Me.picBackdrop.PerformLayout()
         CType(Me.picFader2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlFight.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -290,4 +322,9 @@ Partial Class frmMain
     Friend WithEvents txtUserIn As TextBox
     Friend WithEvents textDisplayTimer As Timer
     Friend WithEvents lblClickCont As Label
+    Friend WithEvents pnlFight As Panel
+    Friend WithEvents picMob As PictureBox
+    Friend WithEvents picPlayer As PictureBox
+    Friend WithEvents pnlMob As Panel
+    Friend WithEvents pnlPlayer As Panel
 End Class
