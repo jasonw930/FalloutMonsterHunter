@@ -7,6 +7,8 @@
 
     Private displaySprite As Image
 
+    Public craftingComponents As ItemStack()
+
     Public Shared armorUnpheasantHelmet As ItemArmor
     Public Shared armorUnpheasantChestplate As ItemArmor
     Public Shared armorUnpheasantLeggings As ItemArmor
@@ -14,6 +16,8 @@
 
     Overloads Public Shared Sub initialize()
         armorUnpheasantHelmet = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 6, 5, 0, My.Resources.uziCartiBigBaller)
+        armorUnpheasantHelmet.craftingComponents = {}
+
         armorUnpheasantHelmet = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 10, 5, 1, My.Resources.uziCartiBigBaller)
         armorUnpheasantHelmet = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 8, 5, 2, My.Resources.uziCartiBigBaller)
         armorUnpheasantHelmet = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 6, 5, 3, My.Resources.uziCartiBigBaller)

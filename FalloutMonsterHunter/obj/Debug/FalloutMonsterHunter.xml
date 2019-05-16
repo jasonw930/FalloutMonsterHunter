@@ -32,6 +32,11 @@ FalloutMonsterHunter
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.fmhFightScene">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.fmhRaptor1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -63,6 +68,11 @@ FalloutMonsterHunter
 </summary>
 </member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.itemRaptorTail1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.mobRaptor1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

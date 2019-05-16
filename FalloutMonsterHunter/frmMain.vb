@@ -3,6 +3,7 @@
     Dim fadingControls As New List(Of Object)
     Dim panelsAndPics As New Dictionary(Of Panel, PictureBox)
     Dim currentCity As Panel
+    Dim currentScene As Panel
     Dim currentUnlockedCity As Panel
 
     Dim isAutoCont As Boolean = False
@@ -71,10 +72,13 @@
         scene.Visible = True
         If scene.Name = "pnlFujiCity" Or scene.Name = "pnlKyoto" Or scene.Name = "pnlHiroshima" Then
             currentCity = scene
+            currentScene = scene
+        Else
+            currentScene = scene
         End If
     End Sub
 
-    Public Sub fight(player As Player, mob As Mob, Optional prevCity As Panel = Nothing)
+    Public Async Sub fight(player As Player, mob As Mob, Optional prevCity As Panel = Nothing)
         Dim result As Boolean
         'Fight
         transition(pnlFight)
@@ -91,12 +95,14 @@
 
             For x = 80 To 300 Step 22
                 pnlPlayer.Location = New Point(x, 400)
-                Threading.Thread.Sleep(25)
+                'Threading.Thread.Sleep(25)
+                Await Task.Delay(25)
                 Application.DoEvents()
             Next
             For x = 300 To 80 Step -22
                 pnlPlayer.Location = New Point(x, 400)
-                Threading.Thread.Sleep(25)
+                'Threading.Thread.Sleep(25)
+                Await Task.Delay(25)
                 Application.DoEvents()
             Next
 
@@ -114,12 +120,14 @@
 
             For x = 480 To 260 Step -22
                 pnlMob.Location = New Point(x, 420)
-                Threading.Thread.Sleep(25)
+                'Threading.Thread.Sleep(25)
+                Await Task.Delay(25)
                 Application.DoEvents()
             Next
             For x = 260 To 480 Step 22
                 pnlMob.Location = New Point(x, 420)
-                Threading.Thread.Sleep(25)
+                'Threading.Thread.Sleep(25)
+                Await Task.Delay(25)
                 Application.DoEvents()
             Next
 
@@ -216,7 +224,7 @@
             ElseIf contMethod.Equals("atomBlast") Then
                 Threading.Thread.Sleep(500)
                 Application.DoEvents()
-                Dim currentPicbox As PictureBox = panelsAndPics.Item(currentCity)
+                Dim currentPicbox As PictureBox = panelsAndPics.Item(currentScene)
                 Console.WriteLine(currentPicbox.Name)
                 currentPicbox.Image = Nothing
                 currentPicbox.BackColor = Color.White
@@ -309,4 +317,7 @@
         End If
     End Sub
 
+    Private Sub pnlFujiCity_Click(sender As Object, e As EventArgs) Handles pnlFujiCity.Click
+
+    End Sub
 End Class
