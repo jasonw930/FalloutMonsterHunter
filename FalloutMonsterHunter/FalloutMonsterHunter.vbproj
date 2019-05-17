@@ -138,6 +138,7 @@
     <None Include="Resources\fmhFightScene.png" />
     <Content Include="Resources\fmhRaptor1.png" />
     <None Include="Resources\mobRaptor1.png" />
+    <None Include="Resources\pnlInventory.png" />
     <Content Include="Resources\uziCartiBigBaller.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

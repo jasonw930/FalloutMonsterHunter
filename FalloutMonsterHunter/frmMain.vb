@@ -78,7 +78,60 @@
         End If
     End Sub
 
-    Public Async Sub fight(player As Player, mob As Mob, Optional prevCity As Panel = Nothing)
+    'Dim xInterval As Integer = 25
+    'Dim currentLeftX As Integer = 0
+    'Dim currentRightX As Integer = 0
+    'Dim currentY As Integer = 0
+    'Dim currentMover As Panel = pnlPlayer
+    'Dim hasFinishedMoving As Boolean = False
+    'Dim hasMovedLeft As Boolean = False
+    'Dim hasMovedRight As Boolean = False
+
+    'Private Sub moveMob() Handles timerMove.Tick
+    '    Dim pnlX As Integer = currentMover.Location.X
+    '    If xInterval > 0 Then ' move right
+    '        If pnlX + xInterval > currentRightX Then
+    '            currentMover.Location = New Point(currentRightX, currentY)
+    '            xInterval = -1 * xInterval
+    '            hasMovedRight = True
+    '        Else
+    '            currentMover.Location = New Point(pnlX + xInterval, currentY)
+    '        End If
+    '    Else ' move left
+    '        If pnlX + xInterval < currentLeftX Then
+    '            currentMover.Location = New Point(currentLeftX, currentY)
+    '            xInterval = -1 * xInterval
+    '            hasMovedLeft = True
+    '        Else
+    '            currentMover.Location = New Point(pnlX + xInterval, currentY)
+    '        End If
+    '    End If
+
+    '    If hasMovedLeft And hasMovedRight Then
+    '        hasMovedLeft = False
+    '        hasMovedRight = False
+    '        hasFinishedMoving = True
+    '        timerMove.Stop()
+    '    End If
+    'End Sub
+
+    Dim waitDone As Boolean = False
+
+    Public Sub waitTimerWaiter() Handles waitTimer.Tick
+        waitTimer.Stop()
+        waitDone = True
+    End Sub
+
+    Public Sub wait(time As Integer)
+        waitTimer.Interval = time
+        waitTimer.Start()
+        Do Until waitDone
+            Application.DoEvents
+        Loop
+        waitDone = False
+    End Sub
+
+    Public Sub fight(player As Player, mob As Mob, Optional prevCity As Panel = Nothing)
         Dim result As Boolean
         'Fight
         transition(pnlFight)
@@ -93,43 +146,30 @@
             mob.currentHealth -= attackValue
             Console.WriteLine(mob.currentHealth & " is Raptor's health")
 
-            For x = 80 To 300 Step 22
-                pnlPlayer.Location = New Point(x, 400)
-                'Threading.Thread.Sleep(25)
-                Await Task.Delay(25)
-                Application.DoEvents()
-            Next
-            For x = 300 To 80 Step -22
-                pnlPlayer.Location = New Point(x, 400)
-                'Threading.Thread.Sleep(25)
-                Await Task.Delay(25)
-                Application.DoEvents()
-            Next
+
+            pnlPlayer.Location = New Point(290, 479)
+            wait(1000)
+            Application.DoEvents()
+            pnlPlayer.Location = New Point(90, 479)
+            wait(1000)
+            Application.DoEvents()
 
             If mob.currentHealth <= 0 Then
                 result = True
                 Exit Do
             End If
 
-            Threading.Thread.Sleep(1000)
-            Application.DoEvents()
             'Mob Attack
             attackValue = (mob.attack - player.defense) * If(Rnd() <= mob.critChance / 100, 2, 1)
             player.currentHealth -= attackValue
             Console.WriteLine(player.currentHealth & " is Player's health")
 
-            For x = 480 To 260 Step -22
-                pnlMob.Location = New Point(x, 420)
-                'Threading.Thread.Sleep(25)
-                Await Task.Delay(25)
-                Application.DoEvents()
-            Next
-            For x = 260 To 480 Step 22
-                pnlMob.Location = New Point(x, 420)
-                'Threading.Thread.Sleep(25)
-                Await Task.Delay(25)
-                Application.DoEvents()
-            Next
+            pnlMob.Location = New Point(270, 499)
+            wait(1000)
+            Application.DoEvents()
+            pnlMob.Location = New Point(470, 499)
+            wait(1000)
+            Application.DoEvents()
 
             If player.currentHealth <= 0 Then
                 result = False
@@ -243,10 +283,6 @@
     End Sub
 
     'Event Handles---------------------------------------------------------------------------------------
-    Public Sub pauseTimerEnd() Handles pauseTimer.Tick
-        pauseTimer.Stop()
-        pauseTimer.Enabled = False
-    End Sub
 
     Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
         Console.WriteLine("now we're running")
@@ -281,35 +317,35 @@
     '    End If
     'End Sub
 
-    Private Sub fadeInTimerTick() Handles fadeInTimer.Tick
-        Static alpha As Integer = 100
-        alpha -= 10
-        Dim rectColor As System.Drawing.Color
-        rectColor = Color.FromArgb(alpha, 0, 0, 0)
+    'Private Sub fadeInTimerTick() Handles fadeInTimer.Tick
+    '    Static alpha As Integer = 100
+    '    alpha -= 10
+    '    Dim rectColor As System.Drawing.Color
+    '    rectColor = Color.FromArgb(alpha, 0, 0, 0)
 
-        If alpha Mod 10 = 0 Then
-            Console.WriteLine("picFader: Fade out at opacity " & alpha)
-            picFader.BringToFront()
-            picFader.Refresh()
-            picFader.CreateGraphics.FillRectangle(New SolidBrush(rectColor), 0, 0, 1000, 750)
-            picFader2.Refresh()
-        ElseIf alpha Mod 10 = 5 Then
-            Console.WriteLine("picFader2: Fade in at opacity " & alpha)
-            picFader2.BringToFront()
-            picFader2.Refresh()
-            picFader2.CreateGraphics.FillRectangle(New SolidBrush(rectColor), 0, 0, 1000, 750)
-            picFader.Refresh()
-        End If
+    '    If alpha Mod 10 = 0 Then
+    '        Console.WriteLine("picFader: Fade out at opacity " & alpha)
+    '        picFader.BringToFront()
+    '        picFader.Refresh()
+    '        picFader.CreateGraphics.FillRectangle(New SolidBrush(rectColor), 0, 0, 1000, 750)
+    '        picFader2.Refresh()
+    '    ElseIf alpha Mod 10 = 5 Then
+    '        Console.WriteLine("picFader2: Fade in at opacity " & alpha)
+    '        picFader2.BringToFront()
+    '        picFader2.Refresh()
+    '        picFader2.CreateGraphics.FillRectangle(New SolidBrush(rectColor), 0, 0, 1000, 750)
+    '        picFader.Refresh()
+    '    End If
 
-        If alpha <= 0 Then
-            alpha = 100
-            picFader.Refresh()
-            picFader.SendToBack()
-            picFader2.Refresh()
-            picFader2.SendToBack()
-            fadeInTimer.Stop()
-        End If
-    End Sub
+    '    If alpha <= 0 Then
+    '        alpha = 100
+    '        picFader.Refresh()
+    '        picFader.SendToBack()
+    '        picFader2.Refresh()
+    '        picFader2.SendToBack()
+    '        fadeInTimer.Stop()
+    '    End If
+    'End Sub
 
     Private Sub lblDialog_lblClickCont_Click(sender As Object, e As EventArgs) Handles lblDialog.Click, lblClickCont.Click
         If txtUserIn.Visible = False Or txtUserIn.Text.Trim() <> "" Then
