@@ -25,6 +25,10 @@ Public Class Player
     Public equippedArmor2 As ItemStack
     Public equippedArmor3 As ItemStack
 
+    Public inventorySlotLabels(23) As Label
+    Public inventorySlotPicBox(23) As PictureBox
+    Public inventoryUninitiated As Boolean = True
+
     Public Shared player As Player
 
     Public Sub New(name As String)
@@ -48,6 +52,7 @@ Public Class Player
 
         For x = 0 To 23
             Dim newIStack = New ItemStack(Item.itemNull, 1)
+            'Console.WriteLine(newIStack.getItem().getItemName())
             Me.inventory.Add(newIStack)
             'Console.WriteLine("added " & Me.inventory(x).getItem().getItemName() & "; inv count is now " & Me.inventory.Count.ToString())
         Next
@@ -81,6 +86,15 @@ Public Class Player
         Me.luck = 0
     End Sub
 
+    Public Function getPosOfItem(item As Item)
+        For x = 0 To 23
+            If Me.inventory(x).getItem = item Then
+                Return x
+            End If
+        Next
+        Return -1
+    End Function
+
     Public Sub condenseInventory()
         Dim emptySlots As New List(Of Integer)
         For x = 0 To Me.inventory.Count - 1
@@ -99,7 +113,7 @@ Public Class Player
     End Sub
 
     Public Sub addItemToInventory(itemStack As ItemStack)
-        If itemStack.getItem() IsNot Nothing Then
+        If Not itemStack.getItem().Equals(Item.itemNull) Then
             For x = 0 To 23
                 If Me.inventory(x).getItem().Equals(itemStack.getItem()) Then
                     Me.inventory(x).setSize(Me.inventory(x).getSize() + itemStack.getSize())
@@ -117,14 +131,57 @@ Public Class Player
         End If
     End Sub
 
-    Public Function getPosOfItem(item As Item)
-        For x = 0 To 23
-            If Me.inventory(x).getItem = item Then
-                Return x
+
+    Public Sub updateInventoryVisuals()
+        Dim slotCount As Integer = 0
+        For Each pic In frmMain.pnlInventory.Controls.OfType(Of PictureBox)
+            If pic.Name.Substring(0, 10).Equals("picInvSlot") Then
+                Dim lengthOfDigits As Integer = pic.Name.Length - 10
+                slotCount = CInt(pic.Name.Substring(10, lengthOfDigits))
+
+                If inventoryUninitiated Then ' initiate
+
+                    Dim newLabel As New Label
+                    pic.Controls.Add(newLabel)
+                    inventorySlotPicBox(slotCount) = pic
+                    newLabel.Name = "lblInvSlot" & slotCount.ToString()
+                    If Player.player.inventory(slotCount).getItem().getItemName().Equals("nil") Then
+                        newLabel.Text = ""
+                        pic.Image = Nothing
+                    Else
+                        newLabel.Text = "x" & Player.player.inventory(slotCount).getSize()
+                        pic.Image = Player.player.inventory(slotCount).getItem().getItemSprite()
+                    End If
+                    newLabel.Font = New Font("Courier New", 8, FontStyle.Bold)
+                    newLabel.ForeColor = Color.White
+                    newLabel.BackColor = Color.Transparent
+                    newLabel.AutoSize = False
+                    newLabel.TextAlign = ContentAlignment.MiddleRight
+                    newLabel.Size = New Point(72, 25)
+                    newLabel.Location = New Point(0, 47)
+                    newLabel.BringToFront()
+                    newLabel.Visible = True
+
+                    inventorySlotLabels(slotCount) = newLabel
+                Else ' already initiated
+                    If Player.player.inventory(slotCount).getItem().getItemName().Equals("nil") Then
+                        Console.WriteLine("itemNull")
+                        inventorySlotLabels(slotCount).Text = ""
+                        inventorySlotPicBox(slotCount).Image = Nothing
+                        inventorySlotPicBox(slotCount).Refresh()
+                    Else
+                        inventorySlotLabels(slotCount).Text = "x" & Player.player.inventory(slotCount).getSize
+                        inventorySlotPicBox(slotCount).Image = Player.player.inventory(slotCount).getItem().getItemSprite()
+                        inventorySlotPicBox(slotCount).Refresh()
+                    End If
+                End If
+
             End If
         Next
-        Return -1
-    End Function
+        inventoryUninitiated = False
+    End Sub
+
+
 
     Public Sub equipItem(pos As Integer)
         If pos <= 23 And pos >= 0 Then
@@ -151,6 +208,16 @@ Public Class Player
             End If
         End If
         Me.updateStats()
+    End Sub
+
+    Public Sub craftItem(item As Item)
+        Dim valid As Boolean = True
+
+        If TypeOf item Is ItemArmor Then
+            For Each itemStack In DirectCast(item, ItemArmor).craftingComponents
+                
+            Next
+        End If
     End Sub
 
 End Class

@@ -7,6 +7,9 @@
     Dim currentUnlockedCity As Panel
     Dim isFighting As Boolean = False
 
+    'Dim inventorySlotLabels As New List(Of Label)
+    'Dim inventorySlotPicBox As New List(Of PictureBox)
+
     Dim isAutoCont As Boolean = False
 
     Dim dialogLines As String()
@@ -15,10 +18,10 @@
     Private Sub formLoad() Handles Me.Load
         Console.WriteLine("---------------------------------------------")
 
-
         For Each pnl In Me.Controls.OfType(Of Panel)
             pnl.Location = New System.Drawing.Point(0, 0)
         Next
+
         picFader.Location = New Point(0, 0)
         picFader2.Location = New Point(0, 0)
         pnlMainMenu.Visible = True
@@ -65,6 +68,7 @@
         ItemArmor.initialize()
         ItemWeapon.initialize()
         Mob.initialize()
+        Player.player = New Player("Bob")
     End Sub
 
     'Procedures-------------------------------------------------------------------------------------------
@@ -79,46 +83,6 @@
         End If
     End Sub
 
-    Dim inventorySlotLabels As New List(Of Label)
-
-    Function initiateInventoryLabels()
-        Dim slotCount As Integer = 0
-        'Dim neeLabel As New Label
-        'neeLabel.Name = "lblSlot44"
-        'neeLabel.Location = New Point(0, 0)
-        'neeLabel.Size = New Point(72, 25)
-        'neeLabel.Visible = True
-        'pnlInventory.Controls.Add(neeLabel)
-        'neeLabel.BringToFront()
-        For Each pic In pnlInventory.Controls.OfType(Of PictureBox)
-            If pic.Name.Substring(0, 10).Equals("picInvSlot") Then
-                Dim lengthOfDigits As Integer = pic.Name.Length - 10
-                slotCount = pic.Name.Substring(10, lengthOfDigits)
-                Dim newLabel As New Label
-                pic.Controls.Add(newLabel)
-                newLabel.Name = "lblInvSlot" & slotCount.ToString()
-                Console.WriteLine(slotCount.ToString())
-                'If Player.player.inventory(slotCount - 1).getItem().getItemName().Equals("null") Then
-                '    Console.WriteLine("itemNull")
-                '    newLabel.Text = "nil"
-                'Else
-                newLabel.Text = "x" & Player.player.inventory(slotCount - 1).getSize
-                'End If
-                'Player.player.inventory(slotCount - 1).getItem().getItemName() &
-                newLabel.Font = New Font("Courier New", 8, FontStyle.Bold)
-                newLabel.ForeColor = Color.White
-                newLabel.BackColor = Color.Transparent
-                newLabel.AutoSize = False
-                newLabel.TextAlign = ContentAlignment.MiddleRight
-                newLabel.Size = New Point(72, 25)
-                newLabel.Location = New Point(0, 47)
-                newLabel.BringToFront()
-                newLabel.Visible = True
-                inventorySlotLabels.Add(newLabel)
-            End If
-        Next
-
-    End Function
 
     'Dim xInterval As Integer = 25
     'Dim currentLeftX As Integer = 0
@@ -235,7 +199,7 @@
         Console.WriteLine("finished fighting")
         isFighting = False
         transition(pnlInventory)
-        initiateInventoryLabels()
+        Player.player.updateInventoryVisuals()
     End Sub
 
     Dim toVisible As Object
@@ -330,13 +294,12 @@
 
     Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
         Console.WriteLine("now we're running")
-        'transition(pnlInventory)
-        'initiateInventoryLabels()
-        transition(pnlIntro)
-        'Threading.Thread.Sleep(2000)
-        Application.DoEvents()
-        displayText(0, 21, pnlFujiCity)
-        'displayText(22, )
+        'transition(pnlIntro)
+        'Application.DoEvents()
+        'displayText(0, 21, pnlFujiCity)
+
+        transition(pnlFujiCity)
+
     End Sub
 
 
@@ -403,10 +366,6 @@
     End Sub
 
     Private Sub pnlInventory_Click(sender As Object, e As EventArgs) Handles pnlInventory.Click
-        For i As Integer = 0 To 23
-            Console.WriteLine("removing #" & i)
-            inventorySlotLabels.RemoveAt(0)
-        Next
         transition(currentCity)
     End Sub
 End Class

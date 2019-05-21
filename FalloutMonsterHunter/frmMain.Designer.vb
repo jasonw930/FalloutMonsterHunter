@@ -35,15 +35,13 @@ Partial Class frmMain
         Me.timerMove = New System.Windows.Forms.Timer(Me.components)
         Me.waitTimer = New System.Windows.Forms.Timer(Me.components)
         Me.pnlInventory = New System.Windows.Forms.Panel()
+        Me.lblCount = New System.Windows.Forms.Label()
         Me.picPlayerPreview = New System.Windows.Forms.PictureBox()
         Me.picSlotHelmet = New System.Windows.Forms.PictureBox()
         Me.picSlotChestplate = New System.Windows.Forms.PictureBox()
         Me.picSlotLeggings = New System.Windows.Forms.PictureBox()
         Me.picSlotBoots = New System.Windows.Forms.PictureBox()
         Me.picSlotWeapon = New System.Windows.Forms.PictureBox()
-        Me.picInvSlot24 = New System.Windows.Forms.PictureBox()
-        Me.picInvSlot16 = New System.Windows.Forms.PictureBox()
-        Me.picInvSlot8 = New System.Windows.Forms.PictureBox()
         Me.picInvSlot23 = New System.Windows.Forms.PictureBox()
         Me.picInvSlot15 = New System.Windows.Forms.PictureBox()
         Me.picInvSlot7 = New System.Windows.Forms.PictureBox()
@@ -65,6 +63,9 @@ Partial Class frmMain
         Me.picInvSlot17 = New System.Windows.Forms.PictureBox()
         Me.picInvSlot9 = New System.Windows.Forms.PictureBox()
         Me.picInvSlot1 = New System.Windows.Forms.PictureBox()
+        Me.picInvSlot16 = New System.Windows.Forms.PictureBox()
+        Me.picInvSlot8 = New System.Windows.Forms.PictureBox()
+        Me.picInvSlot0 = New System.Windows.Forms.PictureBox()
         Me.pnlFight = New System.Windows.Forms.Panel()
         Me.pnlMob = New System.Windows.Forms.Panel()
         Me.picFighting = New System.Windows.Forms.PictureBox()
@@ -76,7 +77,6 @@ Partial Class frmMain
         Me.btnPlay = New System.Windows.Forms.Button()
         Me.picFader2 = New System.Windows.Forms.PictureBox()
         Me.picFader = New System.Windows.Forms.PictureBox()
-        Me.lblCount = New System.Windows.Forms.Label()
         Me.pnlIntro.SuspendLayout()
         CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picIntro.SuspendLayout()
@@ -89,9 +89,6 @@ Partial Class frmMain
         CType(Me.picSlotLeggings, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picSlotBoots, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picSlotWeapon, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picInvSlot24, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picInvSlot16, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picInvSlot8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picInvSlot23, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picInvSlot15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picInvSlot7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,6 +110,10 @@ Partial Class frmMain
         CType(Me.picInvSlot17, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picInvSlot9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picInvSlot1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picInvSlot16, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picInvSlot8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picInvSlot0, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picInvSlot0.SuspendLayout()
         Me.pnlFight.SuspendLayout()
         CType(Me.picFighting, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picFighting.SuspendLayout()
@@ -225,16 +226,12 @@ Partial Class frmMain
         'pnlInventory
         '
         Me.pnlInventory.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.pnlInventory
-        Me.pnlInventory.Controls.Add(Me.lblCount)
         Me.pnlInventory.Controls.Add(Me.picPlayerPreview)
         Me.pnlInventory.Controls.Add(Me.picSlotHelmet)
         Me.pnlInventory.Controls.Add(Me.picSlotChestplate)
         Me.pnlInventory.Controls.Add(Me.picSlotLeggings)
         Me.pnlInventory.Controls.Add(Me.picSlotBoots)
         Me.pnlInventory.Controls.Add(Me.picSlotWeapon)
-        Me.pnlInventory.Controls.Add(Me.picInvSlot24)
-        Me.pnlInventory.Controls.Add(Me.picInvSlot16)
-        Me.pnlInventory.Controls.Add(Me.picInvSlot8)
         Me.pnlInventory.Controls.Add(Me.picInvSlot23)
         Me.pnlInventory.Controls.Add(Me.picInvSlot15)
         Me.pnlInventory.Controls.Add(Me.picInvSlot7)
@@ -256,10 +253,26 @@ Partial Class frmMain
         Me.pnlInventory.Controls.Add(Me.picInvSlot17)
         Me.pnlInventory.Controls.Add(Me.picInvSlot9)
         Me.pnlInventory.Controls.Add(Me.picInvSlot1)
+        Me.pnlInventory.Controls.Add(Me.picInvSlot16)
+        Me.pnlInventory.Controls.Add(Me.picInvSlot8)
+        Me.pnlInventory.Controls.Add(Me.picInvSlot0)
         Me.pnlInventory.Location = New System.Drawing.Point(0, 0)
         Me.pnlInventory.Name = "pnlInventory"
         Me.pnlInventory.Size = New System.Drawing.Size(1000, 750)
         Me.pnlInventory.TabIndex = 6
+        '
+        'lblCount
+        '
+        Me.lblCount.BackColor = System.Drawing.Color.Transparent
+        Me.lblCount.Font = New System.Drawing.Font("Courier New", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCount.ForeColor = System.Drawing.Color.White
+        Me.lblCount.Location = New System.Drawing.Point(0, 47)
+        Me.lblCount.Name = "lblCount"
+        Me.lblCount.Size = New System.Drawing.Size(72, 25)
+        Me.lblCount.TabIndex = 30
+        Me.lblCount.Text = "x19"
+        Me.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblCount.Visible = False
         '
         'picPlayerPreview
         '
@@ -316,226 +329,226 @@ Partial Class frmMain
         Me.picSlotWeapon.TabIndex = 24
         Me.picSlotWeapon.TabStop = False
         '
-        'picInvSlot24
-        '
-        Me.picInvSlot24.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot24.Location = New System.Drawing.Point(744, 624)
-        Me.picInvSlot24.Name = "picInvSlot24"
-        Me.picInvSlot24.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot24.TabIndex = 23
-        Me.picInvSlot24.TabStop = False
-        '
-        'picInvSlot16
-        '
-        Me.picInvSlot16.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot16.Location = New System.Drawing.Point(744, 544)
-        Me.picInvSlot16.Name = "picInvSlot16"
-        Me.picInvSlot16.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot16.TabIndex = 22
-        Me.picInvSlot16.TabStop = False
-        '
-        'picInvSlot8
-        '
-        Me.picInvSlot8.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot8.Location = New System.Drawing.Point(744, 464)
-        Me.picInvSlot8.Name = "picInvSlot8"
-        Me.picInvSlot8.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot8.TabIndex = 21
-        Me.picInvSlot8.TabStop = False
-        '
         'picInvSlot23
         '
         Me.picInvSlot23.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot23.Location = New System.Drawing.Point(664, 624)
+        Me.picInvSlot23.Location = New System.Drawing.Point(744, 624)
         Me.picInvSlot23.Name = "picInvSlot23"
         Me.picInvSlot23.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot23.TabIndex = 20
+        Me.picInvSlot23.TabIndex = 23
         Me.picInvSlot23.TabStop = False
         '
         'picInvSlot15
         '
         Me.picInvSlot15.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot15.Location = New System.Drawing.Point(664, 544)
+        Me.picInvSlot15.Location = New System.Drawing.Point(744, 544)
         Me.picInvSlot15.Name = "picInvSlot15"
         Me.picInvSlot15.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot15.TabIndex = 19
+        Me.picInvSlot15.TabIndex = 22
         Me.picInvSlot15.TabStop = False
         '
         'picInvSlot7
         '
         Me.picInvSlot7.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot7.Location = New System.Drawing.Point(664, 464)
+        Me.picInvSlot7.Location = New System.Drawing.Point(744, 464)
         Me.picInvSlot7.Name = "picInvSlot7"
         Me.picInvSlot7.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot7.TabIndex = 18
+        Me.picInvSlot7.TabIndex = 21
         Me.picInvSlot7.TabStop = False
         '
         'picInvSlot22
         '
         Me.picInvSlot22.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot22.Location = New System.Drawing.Point(584, 624)
+        Me.picInvSlot22.Location = New System.Drawing.Point(664, 624)
         Me.picInvSlot22.Name = "picInvSlot22"
         Me.picInvSlot22.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot22.TabIndex = 17
+        Me.picInvSlot22.TabIndex = 20
         Me.picInvSlot22.TabStop = False
         '
         'picInvSlot14
         '
         Me.picInvSlot14.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot14.Location = New System.Drawing.Point(584, 544)
+        Me.picInvSlot14.Location = New System.Drawing.Point(664, 544)
         Me.picInvSlot14.Name = "picInvSlot14"
         Me.picInvSlot14.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot14.TabIndex = 16
+        Me.picInvSlot14.TabIndex = 19
         Me.picInvSlot14.TabStop = False
         '
         'picInvSlot6
         '
         Me.picInvSlot6.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot6.Location = New System.Drawing.Point(584, 464)
+        Me.picInvSlot6.Location = New System.Drawing.Point(664, 464)
         Me.picInvSlot6.Name = "picInvSlot6"
         Me.picInvSlot6.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot6.TabIndex = 15
+        Me.picInvSlot6.TabIndex = 18
         Me.picInvSlot6.TabStop = False
         '
         'picInvSlot21
         '
         Me.picInvSlot21.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot21.Location = New System.Drawing.Point(504, 624)
+        Me.picInvSlot21.Location = New System.Drawing.Point(584, 624)
         Me.picInvSlot21.Name = "picInvSlot21"
         Me.picInvSlot21.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot21.TabIndex = 14
+        Me.picInvSlot21.TabIndex = 17
         Me.picInvSlot21.TabStop = False
         '
         'picInvSlot13
         '
         Me.picInvSlot13.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot13.Location = New System.Drawing.Point(504, 544)
+        Me.picInvSlot13.Location = New System.Drawing.Point(584, 544)
         Me.picInvSlot13.Name = "picInvSlot13"
         Me.picInvSlot13.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot13.TabIndex = 13
+        Me.picInvSlot13.TabIndex = 16
         Me.picInvSlot13.TabStop = False
         '
         'picInvSlot5
         '
         Me.picInvSlot5.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot5.Location = New System.Drawing.Point(504, 464)
+        Me.picInvSlot5.Location = New System.Drawing.Point(584, 464)
         Me.picInvSlot5.Name = "picInvSlot5"
         Me.picInvSlot5.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot5.TabIndex = 12
+        Me.picInvSlot5.TabIndex = 15
         Me.picInvSlot5.TabStop = False
         '
         'picInvSlot20
         '
         Me.picInvSlot20.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot20.Location = New System.Drawing.Point(424, 624)
+        Me.picInvSlot20.Location = New System.Drawing.Point(504, 624)
         Me.picInvSlot20.Name = "picInvSlot20"
         Me.picInvSlot20.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot20.TabIndex = 11
+        Me.picInvSlot20.TabIndex = 14
         Me.picInvSlot20.TabStop = False
         '
         'picInvSlot12
         '
         Me.picInvSlot12.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot12.Location = New System.Drawing.Point(424, 544)
+        Me.picInvSlot12.Location = New System.Drawing.Point(504, 544)
         Me.picInvSlot12.Name = "picInvSlot12"
         Me.picInvSlot12.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot12.TabIndex = 10
+        Me.picInvSlot12.TabIndex = 13
         Me.picInvSlot12.TabStop = False
         '
         'picInvSlot4
         '
         Me.picInvSlot4.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot4.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorClaws1_InventorySmall
-        Me.picInvSlot4.Location = New System.Drawing.Point(424, 464)
+        Me.picInvSlot4.Location = New System.Drawing.Point(504, 464)
         Me.picInvSlot4.Name = "picInvSlot4"
         Me.picInvSlot4.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot4.TabIndex = 9
+        Me.picInvSlot4.TabIndex = 12
         Me.picInvSlot4.TabStop = False
         '
         'picInvSlot19
         '
         Me.picInvSlot19.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot19.Location = New System.Drawing.Point(344, 624)
+        Me.picInvSlot19.Location = New System.Drawing.Point(424, 624)
         Me.picInvSlot19.Name = "picInvSlot19"
         Me.picInvSlot19.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot19.TabIndex = 8
+        Me.picInvSlot19.TabIndex = 11
         Me.picInvSlot19.TabStop = False
         '
         'picInvSlot11
         '
         Me.picInvSlot11.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot11.Location = New System.Drawing.Point(344, 544)
+        Me.picInvSlot11.Location = New System.Drawing.Point(424, 544)
         Me.picInvSlot11.Name = "picInvSlot11"
         Me.picInvSlot11.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot11.TabIndex = 7
+        Me.picInvSlot11.TabIndex = 10
         Me.picInvSlot11.TabStop = False
         '
         'picInvSlot3
         '
         Me.picInvSlot3.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot3.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorHide1_InventorySmall
-        Me.picInvSlot3.Location = New System.Drawing.Point(344, 464)
+        Me.picInvSlot3.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorClaws1_InventorySmall
+        Me.picInvSlot3.Location = New System.Drawing.Point(424, 464)
         Me.picInvSlot3.Name = "picInvSlot3"
         Me.picInvSlot3.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot3.TabIndex = 6
+        Me.picInvSlot3.TabIndex = 9
         Me.picInvSlot3.TabStop = False
         '
         'picInvSlot18
         '
         Me.picInvSlot18.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot18.Location = New System.Drawing.Point(264, 624)
+        Me.picInvSlot18.Location = New System.Drawing.Point(344, 624)
         Me.picInvSlot18.Name = "picInvSlot18"
         Me.picInvSlot18.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot18.TabIndex = 5
+        Me.picInvSlot18.TabIndex = 8
         Me.picInvSlot18.TabStop = False
         '
         'picInvSlot10
         '
         Me.picInvSlot10.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot10.Location = New System.Drawing.Point(264, 544)
+        Me.picInvSlot10.Location = New System.Drawing.Point(344, 544)
         Me.picInvSlot10.Name = "picInvSlot10"
         Me.picInvSlot10.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot10.TabIndex = 4
+        Me.picInvSlot10.TabIndex = 7
         Me.picInvSlot10.TabStop = False
         '
         'picInvSlot2
         '
         Me.picInvSlot2.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot2.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
-        Me.picInvSlot2.Location = New System.Drawing.Point(264, 464)
+        Me.picInvSlot2.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorHide1_InventorySmall
+        Me.picInvSlot2.Location = New System.Drawing.Point(344, 464)
         Me.picInvSlot2.Name = "picInvSlot2"
         Me.picInvSlot2.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot2.TabIndex = 3
+        Me.picInvSlot2.TabIndex = 6
         Me.picInvSlot2.TabStop = False
         '
         'picInvSlot17
         '
         Me.picInvSlot17.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot17.Location = New System.Drawing.Point(184, 624)
+        Me.picInvSlot17.Location = New System.Drawing.Point(264, 624)
         Me.picInvSlot17.Name = "picInvSlot17"
         Me.picInvSlot17.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot17.TabIndex = 2
+        Me.picInvSlot17.TabIndex = 5
         Me.picInvSlot17.TabStop = False
         '
         'picInvSlot9
         '
         Me.picInvSlot9.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot9.Location = New System.Drawing.Point(184, 544)
+        Me.picInvSlot9.Location = New System.Drawing.Point(264, 544)
         Me.picInvSlot9.Name = "picInvSlot9"
         Me.picInvSlot9.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot9.TabIndex = 1
+        Me.picInvSlot9.TabIndex = 4
         Me.picInvSlot9.TabStop = False
         '
         'picInvSlot1
         '
         Me.picInvSlot1.BackColor = System.Drawing.Color.Transparent
-        Me.picInvSlot1.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorTail1_InventorySmall
-        Me.picInvSlot1.Location = New System.Drawing.Point(184, 464)
+        Me.picInvSlot1.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
+        Me.picInvSlot1.Location = New System.Drawing.Point(264, 464)
         Me.picInvSlot1.Name = "picInvSlot1"
         Me.picInvSlot1.Size = New System.Drawing.Size(72, 72)
-        Me.picInvSlot1.TabIndex = 0
+        Me.picInvSlot1.TabIndex = 3
         Me.picInvSlot1.TabStop = False
-        Me.picInvSlot1.Controls.Add(lblCount)
+        '
+        'picInvSlot16
+        '
+        Me.picInvSlot16.BackColor = System.Drawing.Color.Transparent
+        Me.picInvSlot16.Location = New System.Drawing.Point(184, 624)
+        Me.picInvSlot16.Name = "picInvSlot16"
+        Me.picInvSlot16.Size = New System.Drawing.Size(72, 72)
+        Me.picInvSlot16.TabIndex = 2
+        Me.picInvSlot16.TabStop = False
+        '
+        'picInvSlot8
+        '
+        Me.picInvSlot8.BackColor = System.Drawing.Color.Transparent
+        Me.picInvSlot8.Location = New System.Drawing.Point(184, 544)
+        Me.picInvSlot8.Name = "picInvSlot8"
+        Me.picInvSlot8.Size = New System.Drawing.Size(72, 72)
+        Me.picInvSlot8.TabIndex = 1
+        Me.picInvSlot8.TabStop = False
+        '
+        'picInvSlot0
+        '
+        Me.picInvSlot0.BackColor = System.Drawing.Color.Transparent
+        Me.picInvSlot0.Controls.Add(Me.lblCount)
+        Me.picInvSlot0.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorTail1_InventorySmall
+        Me.picInvSlot0.Location = New System.Drawing.Point(184, 464)
+        Me.picInvSlot0.Name = "picInvSlot0"
+        Me.picInvSlot0.Size = New System.Drawing.Size(72, 72)
+        Me.picInvSlot0.TabIndex = 0
+        Me.picInvSlot0.TabStop = False
         '
         'pnlFight
         '
@@ -654,19 +667,6 @@ Partial Class frmMain
         Me.picFader.TabIndex = 4
         Me.picFader.TabStop = False
         '
-        'lblCount
-        '
-        Me.lblCount.BackColor = System.Drawing.Color.Transparent
-        Me.lblCount.Font = New System.Drawing.Font("Courier New", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCount.ForeColor = System.Drawing.Color.White
-        Me.lblCount.Location = New System.Drawing.Point(0, 47)
-        Me.lblCount.Name = "lblCount"
-        Me.lblCount.Size = New System.Drawing.Size(72, 25)
-        Me.lblCount.TabIndex = 30
-        Me.lblCount.Text = "x19"
-        Me.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblCount.Visible = False
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -699,9 +699,6 @@ Partial Class frmMain
         CType(Me.picSlotLeggings, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picSlotBoots, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picSlotWeapon, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picInvSlot24, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picInvSlot16, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picInvSlot8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picInvSlot23, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picInvSlot15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picInvSlot7, System.ComponentModel.ISupportInitialize).EndInit()
@@ -723,6 +720,10 @@ Partial Class frmMain
         CType(Me.picInvSlot17, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picInvSlot9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picInvSlot1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picInvSlot16, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picInvSlot8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picInvSlot0, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picInvSlot0.ResumeLayout(False)
         Me.pnlFight.ResumeLayout(False)
         CType(Me.picFighting, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picFighting.ResumeLayout(False)
@@ -766,9 +767,6 @@ Partial Class frmMain
     Friend WithEvents picSlotLeggings As PictureBox
     Friend WithEvents picSlotBoots As PictureBox
     Friend WithEvents picSlotWeapon As PictureBox
-    Friend WithEvents picInvSlot24 As PictureBox
-    Friend WithEvents picInvSlot16 As PictureBox
-    Friend WithEvents picInvSlot8 As PictureBox
     Friend WithEvents picInvSlot23 As PictureBox
     Friend WithEvents picInvSlot15 As PictureBox
     Friend WithEvents picInvSlot7 As PictureBox
@@ -790,5 +788,8 @@ Partial Class frmMain
     Friend WithEvents picInvSlot17 As PictureBox
     Friend WithEvents picInvSlot9 As PictureBox
     Friend WithEvents picInvSlot1 As PictureBox
+    Friend WithEvents picInvSlot16 As PictureBox
+    Friend WithEvents picInvSlot8 As PictureBox
+    Friend WithEvents picInvSlot0 As PictureBox
     Friend WithEvents lblCount As Label
 End Class
