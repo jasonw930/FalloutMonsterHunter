@@ -1,6 +1,6 @@
 Public Class ItemStack
-    Private itemType As Item
-    Private stackSize As Integer
+    Public itemType As Item
+    Public stackSize As Integer
 
     Public Sub New(item As Item, size As Integer)
         Me.setItem(item)

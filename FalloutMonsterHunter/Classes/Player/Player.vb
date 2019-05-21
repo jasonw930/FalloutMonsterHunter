@@ -28,6 +28,7 @@ Public Class Player
     Public Shared player As Player
 
     Public Sub New(name As String)
+
         Me.playerName = name
         Me.money = 0
 
@@ -46,7 +47,9 @@ Public Class Player
         inventory = New List(Of ItemStack)
 
         For x = 0 To 23
-            Me.inventory.Add(New ItemStack(Item.itemNull, 1))
+            Dim newIStack = New ItemStack(Item.itemNull, 1)
+            Me.inventory.Add(newIStack)
+            'Console.WriteLine("added " & Me.inventory(x).getItem().getItemName() & "; inv count is now " & Me.inventory.Count.ToString())
         Next
 
         Me.equippedWeapon = New ItemStack(Item.itemNull, 1)
@@ -96,17 +99,18 @@ Public Class Player
     End Sub
 
     Public Sub addItemToInventory(itemStack As ItemStack)
-        If itemStack.getItem() IsNot Item.itemNull Then
+        If itemStack.getItem() IsNot Nothing Then
             For x = 0 To 23
-                If Me.inventory(x).getItem Is itemStack.getItem Then
+                If Me.inventory(x).getItem().Equals(itemStack.getItem()) Then
                     Me.inventory(x).setSize(Me.inventory(x).getSize() + itemStack.getSize())
                     Exit Sub
                 End If
             Next
 
             For x = 0 To 23
-                If Me.inventory(x).getItem Is Item.itemNull Then
+                If Me.inventory(x).getItem().Equals(Item.itemNull) Then
                     Me.inventory(x) = itemStack
+                    Console.WriteLine("added " & itemStack.getItem().getItemName() & " to slot " & x.ToString())
                     Exit Sub
                 End If
             Next

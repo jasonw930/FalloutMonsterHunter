@@ -133,9 +133,6 @@
   <data name="fmhRaptor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fmhRaptor1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="itemRaptorBone1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\itemRaptorBone1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="itemRaptorClaws1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemRaptorClaws1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -156,5 +153,23 @@
   </data>
   <data name="pnlInventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pnlInventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="itemRaptorBone1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemRaptorBone1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="itemRaptorBone1_InventorySmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemRaptorBone1-InventorySmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="itemRaptorClaws1_InventorySmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemRaptorClaws1-InventorySmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="itemRaptorHide1_InventorySmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemRaptorHide1-InventorySmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="itemRaptorSkull1_InventorySmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemRaptorSkull1-InventorySmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="itemRaptorTail1_InventorySmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemRaptorTail1-InventorySmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

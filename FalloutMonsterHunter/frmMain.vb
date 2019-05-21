@@ -5,6 +5,7 @@
     Dim currentCity As Panel
     Dim currentScene As Panel
     Dim currentUnlockedCity As Panel
+    Dim isFighting As Boolean = False
 
     Dim isAutoCont As Boolean = False
 
@@ -77,6 +78,47 @@
             currentScene = scene
         End If
     End Sub
+
+    Dim inventorySlotLabels As New List(Of Label)
+
+    Function initiateInventoryLabels()
+        Dim slotCount As Integer = 0
+        'Dim neeLabel As New Label
+        'neeLabel.Name = "lblSlot44"
+        'neeLabel.Location = New Point(0, 0)
+        'neeLabel.Size = New Point(72, 25)
+        'neeLabel.Visible = True
+        'pnlInventory.Controls.Add(neeLabel)
+        'neeLabel.BringToFront()
+        For Each pic In pnlInventory.Controls.OfType(Of PictureBox)
+            If pic.Name.Substring(0, 10).Equals("picInvSlot") Then
+                Dim lengthOfDigits As Integer = pic.Name.Length - 10
+                slotCount = pic.Name.Substring(10, lengthOfDigits)
+                Dim newLabel As New Label
+                pic.Controls.Add(newLabel)
+                newLabel.Name = "lblInvSlot" & slotCount.ToString()
+                Console.WriteLine(slotCount.ToString())
+                'If Player.player.inventory(slotCount - 1).getItem().getItemName().Equals("null") Then
+                '    Console.WriteLine("itemNull")
+                '    newLabel.Text = "nil"
+                'Else
+                newLabel.Text = "x" & Player.player.inventory(slotCount - 1).getSize
+                'End If
+                'Player.player.inventory(slotCount - 1).getItem().getItemName() &
+                newLabel.Font = New Font("Courier New", 8, FontStyle.Bold)
+                newLabel.ForeColor = Color.White
+                newLabel.BackColor = Color.Transparent
+                newLabel.AutoSize = False
+                newLabel.TextAlign = ContentAlignment.MiddleRight
+                newLabel.Size = New Point(72, 25)
+                newLabel.Location = New Point(0, 47)
+                newLabel.BringToFront()
+                newLabel.Visible = True
+                inventorySlotLabels.Add(newLabel)
+            End If
+        Next
+
+    End Function
 
     'Dim xInterval As Integer = 25
     'Dim currentLeftX As Integer = 0
@@ -191,7 +233,9 @@
             Next
         End If
         Console.WriteLine("finished fighting")
-        transition(currentCity)
+        isFighting = False
+        transition(pnlInventory)
+        initiateInventoryLabels()
     End Sub
 
     Dim toVisible As Object
@@ -286,6 +330,8 @@
 
     Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
         Console.WriteLine("now we're running")
+        'transition(pnlInventory)
+        'initiateInventoryLabels()
         transition(pnlIntro)
         'Threading.Thread.Sleep(2000)
         Application.DoEvents()
@@ -295,7 +341,10 @@
 
 
     Private Sub pnlFujiCity_Click() Handles pnlFujiCity.Click
-        fight(Player.player, Mob.mobRaptor1)
+        If Not isFighting Then
+            isFighting = True
+            fight(Player.player, Mob.mobRaptor1)
+        End If
     End Sub
 
 
@@ -353,7 +402,11 @@
         End If
     End Sub
 
-    Private Sub pnlFujiCity_Click(sender As Object, e As EventArgs) Handles pnlFujiCity.Click
-
+    Private Sub pnlInventory_Click(sender As Object, e As EventArgs) Handles pnlInventory.Click
+        For i As Integer = 0 To 23
+            Console.WriteLine("removing #" & i)
+            inventorySlotLabels.RemoveAt(0)
+        Next
+        transition(currentCity)
     End Sub
 End Class
