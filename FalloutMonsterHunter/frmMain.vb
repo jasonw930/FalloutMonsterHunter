@@ -14,6 +14,9 @@
 
     Dim dialogLines As String()
 
+    Dim cheatSkipCutscene As Boolean
+    Dim cheatFastFight As Boolean
+
     'Form Load--------------------------------------------------------------------------------------------
     Private Sub formLoad() Handles Me.Load
         Console.WriteLine("---------------------------------------------")
@@ -29,6 +32,9 @@
 
         panelsAndPics.Add(pnlIntro, picIntro)
         panelsAndPics.Add(pnlMainMenu, picBackdrop)
+
+        cheatSkipCutscene = False
+        cheatFastFight = False
 
         Player.player = New Player("Bob")
 
@@ -147,6 +153,8 @@
         Do While True
             Randomize()
             Dim attackValue As Integer
+            Dim animationSpeed As Integer = If(cheatFastFight, 50, 1000)
+
             'Player Attack
             attackValue = (player.attack - mob.defense) * If(Rnd() <= player.critChance / 100, 2, 1)
             mob.currentHealth -= attackValue
@@ -154,10 +162,10 @@
 
 
             pnlPlayer.Location = New Point(290, 479)
-            wait(1000)
+            wait(animationSpeed)
             Application.DoEvents()
             pnlPlayer.Location = New Point(90, 479)
-            wait(1000)
+            wait(animationSpeed)
             Application.DoEvents()
 
             If mob.currentHealth <= 0 Then
@@ -171,10 +179,10 @@
             Console.WriteLine(player.currentHealth & " is Player's health")
 
             pnlMob.Location = New Point(270, 499)
-            wait(1000)
+            wait(animationSpeed)
             Application.DoEvents()
             pnlMob.Location = New Point(470, 499)
-            wait(1000)
+            wait(animationSpeed)
             Application.DoEvents()
 
             If player.currentHealth <= 0 Then
@@ -259,10 +267,19 @@
                     Application.DoEvents()
                 Loop
                 Player.player.playerName = txtUserIn.Text
+
+                'Player Cheats Enable
+                If Player.player.playerName.Contains("skipCutscene") Then
+                    cheatSkipCutscene = True
+                End If
+                If Player.player.playerName.Contains("fastFight") Then
+                    cheatFastFight = True
+                End If
+
                 txtUserIn.Visible = False
                 lblClickCont.Visible = False
                 hasClickedToContinue = False
-                If Player.player.playerName = "skipCutscene" Then
+                If cheatSkipCutscene Then
                     Exit For
                 End If
             ElseIf contMethod.Equals("delayAutoCont") Then
@@ -294,9 +311,9 @@
 
     Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
         Console.WriteLine("now we're running")
-        'transition(pnlIntro)
-        'Application.DoEvents()
-        'displayText(0, 21, pnlFujiCity)
+        transition(pnlIntro)
+        Application.DoEvents()
+        displayText(0, 21, pnlFujiCity)
 
         transition(pnlFujiCity)
 
@@ -367,5 +384,9 @@
 
     Private Sub pnlInventory_Click(sender As Object, e As EventArgs) Handles pnlInventory.Click
         transition(currentCity)
+    End Sub
+
+    Private Sub picInvSlot23_Click() Handles picInvSlot23.Click
+        Player.player.craftItem(ItemArmor.armorUnpheasantLeggings)
     End Sub
 End Class

@@ -88,7 +88,7 @@ Public Class Player
 
     Public Function getPosOfItem(item As Item)
         For x = 0 To 23
-            If Me.inventory(x).getItem = item Then
+            If Me.inventory(x).getItem.Equals(item) Then
                 Return x
             End If
         Next
@@ -109,7 +109,11 @@ Public Class Player
                 emptySlots.TrimExcess()
                 emptySlots.Add(x)
             End If
-        Next x
+        Next
+
+        For x = 0 To Me.inventory.Count - 1
+            Me.inventory(x) = If(Me.inventory(x).getSize <= 0, New ItemStack(Item.itemNull, 1), Me.inventory(x))
+        Next
     End Sub
 
     Public Sub addItemToInventory(itemStack As ItemStack)
@@ -129,6 +133,9 @@ Public Class Player
                 End If
             Next
         End If
+
+        Me.condenseInventory()
+        Me.updateInventoryVisuals()
     End Sub
 
 
@@ -200,24 +207,62 @@ Public Class Player
                         Me.equippedArmor3 = Me.inventory(pos)
                         Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
                 End Select
-            End If
-
-            If TypeOf Me.inventory(pos).getItem Is ItemWeapon Then
+            ElseIf TypeOf Me.inventory(pos).getItem Is ItemWeapon Then
                 Me.equippedWeapon = Me.inventory(pos)
                 Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
             End If
         End If
+
         Me.updateStats()
+        Me.condenseInventory()
+        Me.updateInventoryVisuals()
     End Sub
 
     Public Sub craftItem(item As Item)
-        Dim valid As Boolean = True
+        Dim possible As Boolean = True
 
         If TypeOf item Is ItemArmor Then
             For Each itemStack In DirectCast(item, ItemArmor).craftingComponents
-                
+                If Me.getPosOfItem(itemStack.getItem) > -1 Then
+                    possible = possible And Me.inventory(Me.getPosOfItem(itemStack.getItem)).getSize >= itemStack.getSize
+                Else
+                    possible = False
+                End If
             Next
+
+            If possible Then
+                For Each itemStack In DirectCast(item, ItemArmor).craftingComponents
+                    Dim newSize As Integer = Me.inventory(Me.getPosOfItem(itemStack.getItem)).getSize - itemStack.getSize
+                    Me.inventory(Me.getPosOfItem(itemStack.getItem)).setSize(newSize)
+                Next
+
+                Me.condenseInventory()
+                Me.addItemToInventory(New ItemStack(item, 1))
+                Me.condenseInventory()
+            End If
+        ElseIf TypeOf item Is ItemWeapon Then
+            For Each itemStack In DirectCast(item, ItemWeapon).craftingComponents
+                If Me.getPosOfItem(itemStack.getItem) > -1 Then
+                    possible = possible And Me.inventory(Me.getPosOfItem(itemStack.getItem)).getSize >= itemStack.getSize
+                Else
+                    possible = False
+                End If
+            Next
+
+            If possible Then
+                For Each itemStack In DirectCast(item, ItemWeapon).craftingComponents
+                    Dim newSize As Integer = Me.inventory(Me.getPosOfItem(itemStack.getItem)).getSize - itemStack.getSize
+                    Me.inventory(Me.getPosOfItem(itemStack.getItem)).setSize(newSize)
+                Next
+
+                Me.condenseInventory()
+                Me.addItemToInventory(New ItemStack(item, 1))
+                Me.condenseInventory()
+            End If
         End If
+
+        Me.condenseInventory()
+        Me.updateInventoryVisuals()
     End Sub
 
 End Class
