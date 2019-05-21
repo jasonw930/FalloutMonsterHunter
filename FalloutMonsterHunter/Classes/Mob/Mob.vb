@@ -1,24 +1,38 @@
 ﻿Public Class Mob
 
-    Dim mobName As String = ""
-    Dim mobSprite As Image
+    Public Dim mobName As String = ""
+    Public Dim mobSprite As Image
 
-    Dim health As Integer
-    Dim defense As Integer
-    Dim attack As Integer
-    Dim critChance As Integer
+    Public Dim currentHealth As Integer
 
-    Dim dropItems As Item()
-    Dim dropChance As Double()
-    Dim dropAmount As Double()
+    Public Dim health As Integer
+    Public Dim defense As Integer
+    Public Dim attack As Integer
+    Public Dim critChance As Integer
+
+    Public Dim dropItems As Item()
+    Public Dim dropChance As Double()
+    Public Dim dropAmount As Double()
 
     Public Shared mobRaptor1 As Mob
+    Public Shared mobRaptor2 As Mob
+    Public Shared mobRaptor3 As Mob
 
     Public Shared Sub initialize()
-        mobRaptor1 = New Mob("Unpheasant", 100, 5, 25, 5, New Bitmap(0, 0))
+        mobRaptor1 = New Mob("Unpheasant", 100, 5, 25, 5, My.Resources.fmhRaptor1)
         mobRaptor1.dropItems = {Item.itemRaptorClaws1, Item.itemRaptorHide1, Item.itemRaptorBone1, Item.itemRaptorSkull1, Item.itemRaptorTail1}
         mobRaptor1.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
-        mobRaptor1.dropAmount = {6, 6, 6, 1.8, 1.8}
+        mobRaptor1.dropAmount = {6, 6, 6, 1.2, 1.2}
+
+        mobRaptor2 = New Mob("Mutahraptor", 200, 20, 60, 5, My.Resources.uziCartiBigBaller)
+        mobRaptor2.dropItems = {Item.itemRaptorClaws2, Item.itemRaptorHide2, Item.itemRaptorBone2, Item.itemRaptorSkull2, Item.itemRaptorTail2}
+        mobRaptor2.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
+        mobRaptor2.dropAmount = {6, 6, 6, 1.2, 1.2}
+
+        mobRaptor3 = New Mob("Uzirappter", 450, 40, 130, 10, My.Resources.uziCartiBigBaller)
+        mobRaptor3.dropItems = {Item.itemRaptorClaws3, Item.itemRaptorHide3, Item.itemRaptorBone3, Item.itemRaptorSkull3, Item.itemRaptorTail3}
+        mobRaptor3.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
+        mobRaptor3.dropAmount = {6, 6, 6, 1.2, 1.2}
     End Sub
 
     Public Sub New(name As String, health As Integer, defense As Integer, attack As Integer, critChance As Integer, sprite As Bitmap)

@@ -129,6 +129,21 @@
   <ItemGroup>
     <None Include="Resources\falloutMonsterHunterMainMenu11.png" />
     <None Include="Resources\falloutMonsterHunterIntroCutscene.png" />
+    <None Include="Resources\fujiCity.png" />
+    <None Include="Resources\itemRaptorBone1.png" />
+    <None Include="Resources\itemRaptorClaws1.png" />
+    <None Include="Resources\itemRaptorHide1.png" />
+    <None Include="Resources\itemRaptorSkull1.png" />
+    <None Include="Resources\itemRaptorTail1.png" />
+    <None Include="Resources\fmhFightScene.png" />
+    <Content Include="Resources\fmhRaptor1.png" />
+    <None Include="Resources\mobRaptor1.png" />
+    <None Include="Resources\pnlInventory.png" />
+    <None Include="Resources\itemRaptorBone1-InventorySmall.png" />
+    <None Include="Resources\itemRaptorClaws1-InventorySmall.png" />
+    <None Include="Resources\itemRaptorHide1-InventorySmall.png" />
+    <None Include="Resources\itemRaptorSkull1-InventorySmall.png" />
+    <None Include="Resources\itemRaptorTail1-InventorySmall.png" />
     <Content Include="Resources\uziCartiBigBaller.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
