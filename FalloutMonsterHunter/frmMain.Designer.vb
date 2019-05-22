@@ -25,6 +25,13 @@ Partial Class frmMain
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.pnlIntro = New System.Windows.Forms.Panel()
+        Me.picIntro = New System.Windows.Forms.PictureBox()
+        Me.pnlDialog = New System.Windows.Forms.Panel()
+        Me.txtUserIn = New System.Windows.Forms.TextBox()
+        Me.lblDialog = New System.Windows.Forms.Label()
+        Me.lblClickCont = New System.Windows.Forms.Label()
+        Me.lblBigOutline = New System.Windows.Forms.Label()
+        Me.lblSpeaker = New System.Windows.Forms.Label()
         Me.timerMove = New System.Windows.Forms.Timer(Me.components)
         Me.waitTimer = New System.Windows.Forms.Timer(Me.components)
         Me.pnlInventory = New System.Windows.Forms.Panel()
@@ -65,24 +72,25 @@ Partial Class frmMain
         Me.picFighting = New System.Windows.Forms.PictureBox()
         Me.pnlPlayer = New System.Windows.Forms.Panel()
         Me.pnlFujiCity = New System.Windows.Forms.Panel()
+        Me.btnUnpheasantRaptor = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnCrafting = New System.Windows.Forms.Button()
         Me.btnInventory = New System.Windows.Forms.Button()
-        Me.picIntro = New System.Windows.Forms.PictureBox()
-        Me.pnlDialog = New System.Windows.Forms.Panel()
-        Me.txtUserIn = New System.Windows.Forms.TextBox()
-        Me.lblDialog = New System.Windows.Forms.Label()
-        Me.lblClickCont = New System.Windows.Forms.Label()
-        Me.lblBigOutline = New System.Windows.Forms.Label()
-        Me.lblSpeaker = New System.Windows.Forms.Label()
         Me.pnlMainMenu = New System.Windows.Forms.Panel()
         Me.picBackdrop = New System.Windows.Forms.PictureBox()
         Me.lblMoney = New System.Windows.Forms.Label()
         Me.btnPlay = New System.Windows.Forms.Button()
         Me.picFader2 = New System.Windows.Forms.PictureBox()
         Me.picFader = New System.Windows.Forms.PictureBox()
-        Me.btnUnpheasantRaptor = New System.Windows.Forms.Button()
+        Me.pnlDropMenu = New System.Windows.Forms.Panel()
+        Me.lblReceived = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.pnlIntro.SuspendLayout()
+        CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picIntro.SuspendLayout()
+        Me.pnlDialog.SuspendLayout()
+        Me.lblDialog.SuspendLayout()
         Me.pnlInventory.SuspendLayout()
         CType(Me.picPlayerPreview, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picSlotHelmet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -120,15 +128,14 @@ Partial Class frmMain
         Me.picFighting.SuspendLayout()
         Me.pnlFujiCity.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.picIntro.SuspendLayout()
-        Me.pnlDialog.SuspendLayout()
-        Me.lblDialog.SuspendLayout()
         Me.pnlMainMenu.SuspendLayout()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picBackdrop.SuspendLayout()
         CType(Me.picFader2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlDropMenu.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlIntro
@@ -139,6 +146,88 @@ Partial Class frmMain
         Me.pnlIntro.Name = "pnlIntro"
         Me.pnlIntro.Size = New System.Drawing.Size(1000, 750)
         Me.pnlIntro.TabIndex = 3
+        '
+        'picIntro
+        '
+        Me.picIntro.Controls.Add(Me.pnlDialog)
+        Me.picIntro.Image = Global.FalloutMonsterHunter.My.Resources.Resources.falloutMonsterHunterIntroCutscene
+        Me.picIntro.Location = New System.Drawing.Point(0, 0)
+        Me.picIntro.Name = "picIntro"
+        Me.picIntro.Size = New System.Drawing.Size(1000, 750)
+        Me.picIntro.TabIndex = 0
+        Me.picIntro.TabStop = False
+        '
+        'pnlDialog
+        '
+        Me.pnlDialog.BackColor = System.Drawing.Color.Transparent
+        Me.pnlDialog.Controls.Add(Me.txtUserIn)
+        Me.pnlDialog.Controls.Add(Me.lblDialog)
+        Me.pnlDialog.Controls.Add(Me.lblBigOutline)
+        Me.pnlDialog.Controls.Add(Me.lblSpeaker)
+        Me.pnlDialog.Location = New System.Drawing.Point(74, 423)
+        Me.pnlDialog.Name = "pnlDialog"
+        Me.pnlDialog.Size = New System.Drawing.Size(852, 253)
+        Me.pnlDialog.TabIndex = 3
+        Me.pnlDialog.Visible = False
+        '
+        'txtUserIn
+        '
+        Me.txtUserIn.BackColor = System.Drawing.Color.Black
+        Me.txtUserIn.Font = New System.Drawing.Font("Courier New", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUserIn.ForeColor = System.Drawing.Color.White
+        Me.txtUserIn.Location = New System.Drawing.Point(17, 208)
+        Me.txtUserIn.Name = "txtUserIn"
+        Me.txtUserIn.Size = New System.Drawing.Size(276, 28)
+        Me.txtUserIn.TabIndex = 4
+        Me.txtUserIn.Visible = False
+        '
+        'lblDialog
+        '
+        Me.lblDialog.BackColor = System.Drawing.Color.Black
+        Me.lblDialog.Controls.Add(Me.lblClickCont)
+        Me.lblDialog.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDialog.ForeColor = System.Drawing.Color.White
+        Me.lblDialog.Location = New System.Drawing.Point(3, 39)
+        Me.lblDialog.Name = "lblDialog"
+        Me.lblDialog.Padding = New System.Windows.Forms.Padding(10, 10, 0, 0)
+        Me.lblDialog.Size = New System.Drawing.Size(846, 211)
+        Me.lblDialog.TabIndex = 1
+        '
+        'lblClickCont
+        '
+        Me.lblClickCont.AutoSize = True
+        Me.lblClickCont.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblClickCont.ForeColor = System.Drawing.Color.White
+        Me.lblClickCont.Location = New System.Drawing.Point(650, 174)
+        Me.lblClickCont.Name = "lblClickCont"
+        Me.lblClickCont.Size = New System.Drawing.Size(179, 20)
+        Me.lblClickCont.TabIndex = 5
+        Me.lblClickCont.Tag = "650, 174"
+        Me.lblClickCont.Text = "click to continue"
+        Me.lblClickCont.Visible = False
+        '
+        'lblBigOutline
+        '
+        Me.lblBigOutline.BackColor = System.Drawing.Color.White
+        Me.lblBigOutline.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBigOutline.ForeColor = System.Drawing.Color.White
+        Me.lblBigOutline.Location = New System.Drawing.Point(0, 36)
+        Me.lblBigOutline.Name = "lblBigOutline"
+        Me.lblBigOutline.Padding = New System.Windows.Forms.Padding(10, 10, 0, 0)
+        Me.lblBigOutline.Size = New System.Drawing.Size(852, 217)
+        Me.lblBigOutline.TabIndex = 3
+        Me.lblBigOutline.Text = "Hello? Hello?? Is anybody there???"
+        '
+        'lblSpeaker
+        '
+        Me.lblSpeaker.BackColor = System.Drawing.Color.Black
+        Me.lblSpeaker.Font = New System.Drawing.Font("Courier New", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSpeaker.ForeColor = System.Drawing.Color.White
+        Me.lblSpeaker.Location = New System.Drawing.Point(0, 0)
+        Me.lblSpeaker.Name = "lblSpeaker"
+        Me.lblSpeaker.Size = New System.Drawing.Size(224, 37)
+        Me.lblSpeaker.TabIndex = 2
+        Me.lblSpeaker.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'timerMove
         '
@@ -493,9 +582,10 @@ Partial Class frmMain
         '
         Me.pnlFight.BackColor = System.Drawing.Color.Transparent
         Me.pnlFight.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.fmhFightScene
+        Me.pnlFight.Controls.Add(Me.pnlDropMenu)
         Me.pnlFight.Controls.Add(Me.pnlMob)
         Me.pnlFight.Controls.Add(Me.picFighting)
-        Me.pnlFight.Location = New System.Drawing.Point(1000, 12)
+        Me.pnlFight.Location = New System.Drawing.Point(0, 0)
         Me.pnlFight.Name = "pnlFight"
         Me.pnlFight.Size = New System.Drawing.Size(1000, 750)
         Me.pnlFight.TabIndex = 5
@@ -539,10 +629,24 @@ Partial Class frmMain
         Me.pnlFujiCity.Controls.Add(Me.PictureBox1)
         Me.pnlFujiCity.Controls.Add(Me.btnCrafting)
         Me.pnlFujiCity.Controls.Add(Me.btnInventory)
-        Me.pnlFujiCity.Location = New System.Drawing.Point(0, 0)
+        Me.pnlFujiCity.Location = New System.Drawing.Point(893, 28)
         Me.pnlFujiCity.Name = "pnlFujiCity"
         Me.pnlFujiCity.Size = New System.Drawing.Size(1000, 750)
         Me.pnlFujiCity.TabIndex = 4
+        '
+        'btnUnpheasantRaptor
+        '
+        Me.btnUnpheasantRaptor.BackColor = System.Drawing.Color.Transparent
+        Me.btnUnpheasantRaptor.FlatAppearance.BorderSize = 0
+        Me.btnUnpheasantRaptor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btnUnpheasantRaptor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btnUnpheasantRaptor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUnpheasantRaptor.Image = Global.FalloutMonsterHunter.My.Resources.Resources.fmhRaptorHead1_86Icon_NoGlow
+        Me.btnUnpheasantRaptor.Location = New System.Drawing.Point(624, 395)
+        Me.btnUnpheasantRaptor.Name = "btnUnpheasantRaptor"
+        Me.btnUnpheasantRaptor.Size = New System.Drawing.Size(99, 99)
+        Me.btnUnpheasantRaptor.TabIndex = 6
+        Me.btnUnpheasantRaptor.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -581,88 +685,6 @@ Partial Class frmMain
         Me.btnInventory.TabIndex = 2
         Me.btnInventory.Text = "inventory"
         Me.btnInventory.UseVisualStyleBackColor = False
-        '
-        'picIntro
-        '
-        Me.picIntro.Controls.Add(Me.pnlDialog)
-        Me.picIntro.Image = Global.FalloutMonsterHunter.My.Resources.Resources.falloutMonsterHunterIntroCutscene
-        Me.picIntro.Location = New System.Drawing.Point(0, 0)
-        Me.picIntro.Name = "picIntro"
-        Me.picIntro.Size = New System.Drawing.Size(1000, 750)
-        Me.picIntro.TabIndex = 0
-        Me.picIntro.TabStop = False
-        '
-        'pnlDialog
-        '
-        Me.pnlDialog.BackColor = System.Drawing.Color.Transparent
-        Me.pnlDialog.Controls.Add(Me.txtUserIn)
-        Me.pnlDialog.Controls.Add(Me.lblDialog)
-        Me.pnlDialog.Controls.Add(Me.lblBigOutline)
-        Me.pnlDialog.Controls.Add(Me.lblSpeaker)
-        Me.pnlDialog.Location = New System.Drawing.Point(74, 423)
-        Me.pnlDialog.Name = "pnlDialog"
-        Me.pnlDialog.Size = New System.Drawing.Size(852, 253)
-        Me.pnlDialog.TabIndex = 3
-        Me.pnlDialog.Visible = False
-        '
-        'txtUserIn
-        '
-        Me.txtUserIn.BackColor = System.Drawing.Color.Black
-        Me.txtUserIn.Font = New System.Drawing.Font("Courier New", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUserIn.ForeColor = System.Drawing.Color.White
-        Me.txtUserIn.Location = New System.Drawing.Point(17, 208)
-        Me.txtUserIn.Name = "txtUserIn"
-        Me.txtUserIn.Size = New System.Drawing.Size(276, 28)
-        Me.txtUserIn.TabIndex = 4
-        Me.txtUserIn.Visible = False
-        '
-        'lblDialog
-        '
-        Me.lblDialog.BackColor = System.Drawing.Color.Black
-        Me.lblDialog.Controls.Add(Me.lblClickCont)
-        Me.lblDialog.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDialog.ForeColor = System.Drawing.Color.White
-        Me.lblDialog.Location = New System.Drawing.Point(3, 39)
-        Me.lblDialog.Name = "lblDialog"
-        Me.lblDialog.Padding = New System.Windows.Forms.Padding(10, 10, 0, 0)
-        Me.lblDialog.Size = New System.Drawing.Size(846, 211)
-        Me.lblDialog.TabIndex = 1
-        '
-        'lblClickCont
-        '
-        Me.lblClickCont.AutoSize = True
-        Me.lblClickCont.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblClickCont.ForeColor = System.Drawing.Color.White
-        Me.lblClickCont.Location = New System.Drawing.Point(650, 174)
-        Me.lblClickCont.Name = "lblClickCont"
-        Me.lblClickCont.Size = New System.Drawing.Size(179, 20)
-        Me.lblClickCont.TabIndex = 5
-        Me.lblClickCont.Tag = "650, 174"
-        Me.lblClickCont.Text = "click to continue"
-        Me.lblClickCont.Visible = False
-        '
-        'lblBigOutline
-        '
-        Me.lblBigOutline.BackColor = System.Drawing.Color.White
-        Me.lblBigOutline.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBigOutline.ForeColor = System.Drawing.Color.White
-        Me.lblBigOutline.Location = New System.Drawing.Point(0, 36)
-        Me.lblBigOutline.Name = "lblBigOutline"
-        Me.lblBigOutline.Padding = New System.Windows.Forms.Padding(10, 10, 0, 0)
-        Me.lblBigOutline.Size = New System.Drawing.Size(852, 217)
-        Me.lblBigOutline.TabIndex = 3
-        Me.lblBigOutline.Text = "Hello? Hello?? Is anybody there???"
-        '
-        'lblSpeaker
-        '
-        Me.lblSpeaker.BackColor = System.Drawing.Color.Black
-        Me.lblSpeaker.Font = New System.Drawing.Font("Courier New", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSpeaker.ForeColor = System.Drawing.Color.White
-        Me.lblSpeaker.Location = New System.Drawing.Point(0, 0)
-        Me.lblSpeaker.Name = "lblSpeaker"
-        Me.lblSpeaker.Size = New System.Drawing.Size(224, 37)
-        Me.lblSpeaker.TabIndex = 2
-        Me.lblSpeaker.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'pnlMainMenu
         '
@@ -730,19 +752,47 @@ Partial Class frmMain
         Me.picFader.TabIndex = 4
         Me.picFader.TabStop = False
         '
-        'btnUnpheasantRaptor
+        'pnlDropMenu
         '
-        Me.btnUnpheasantRaptor.BackColor = System.Drawing.Color.Transparent
-        Me.btnUnpheasantRaptor.FlatAppearance.BorderSize = 0
-        Me.btnUnpheasantRaptor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.btnUnpheasantRaptor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.btnUnpheasantRaptor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUnpheasantRaptor.Image = Global.FalloutMonsterHunter.My.Resources.Resources.fmhRaptorHead1_86Icon_NoGlow
-        Me.btnUnpheasantRaptor.Location = New System.Drawing.Point(624, 395)
-        Me.btnUnpheasantRaptor.Name = "btnUnpheasantRaptor"
-        Me.btnUnpheasantRaptor.Size = New System.Drawing.Size(99, 99)
-        Me.btnUnpheasantRaptor.TabIndex = 6
-        Me.btnUnpheasantRaptor.UseVisualStyleBackColor = False
+        Me.pnlDropMenu.BackColor = System.Drawing.Color.DimGray
+        Me.pnlDropMenu.Controls.Add(Me.PictureBox3)
+        Me.pnlDropMenu.Controls.Add(Me.PictureBox2)
+        Me.pnlDropMenu.Controls.Add(Me.lblReceived)
+        Me.pnlDropMenu.Location = New System.Drawing.Point(270, 95)
+        Me.pnlDropMenu.Name = "pnlDropMenu"
+        Me.pnlDropMenu.Size = New System.Drawing.Size(460, 560)
+        Me.pnlDropMenu.TabIndex = 5
+        '
+        'lblReceived
+        '
+        Me.lblReceived.Font = New System.Drawing.Font("Courier New", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblReceived.ForeColor = System.Drawing.Color.White
+        Me.lblReceived.Location = New System.Drawing.Point(0, 24)
+        Me.lblReceived.Name = "lblReceived"
+        Me.lblReceived.Size = New System.Drawing.Size(460, 43)
+        Me.lblReceived.TabIndex = 0
+        Me.lblReceived.Text = "You Won!"
+        Me.lblReceived.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorBone1_InventorySmall
+        Me.PictureBox2.Location = New System.Drawing.Point(40, 100)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(72, 72)
+        Me.PictureBox2.TabIndex = 1
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorBone1_InventorySmall
+        Me.PictureBox3.Location = New System.Drawing.Point(40, 169)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(72, 72)
+        Me.PictureBox3.TabIndex = 2
+        Me.PictureBox3.TabStop = False
         '
         'frmMain
         '
@@ -763,6 +813,12 @@ Partial Class frmMain
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Fallout Monster Hunter"
         Me.pnlIntro.ResumeLayout(False)
+        CType(Me.picIntro, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picIntro.ResumeLayout(False)
+        Me.pnlDialog.ResumeLayout(False)
+        Me.pnlDialog.PerformLayout()
+        Me.lblDialog.ResumeLayout(False)
+        Me.lblDialog.PerformLayout()
         Me.pnlInventory.ResumeLayout(False)
         Me.pnlInventory.PerformLayout()
         CType(Me.picPlayerPreview, System.ComponentModel.ISupportInitialize).EndInit()
@@ -801,18 +857,15 @@ Partial Class frmMain
         Me.picFighting.ResumeLayout(False)
         Me.pnlFujiCity.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picIntro, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.picIntro.ResumeLayout(False)
-        Me.pnlDialog.ResumeLayout(False)
-        Me.pnlDialog.PerformLayout()
-        Me.lblDialog.ResumeLayout(False)
-        Me.lblDialog.PerformLayout()
         Me.pnlMainMenu.ResumeLayout(False)
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picBackdrop.ResumeLayout(False)
         Me.picBackdrop.PerformLayout()
         CType(Me.picFader2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlDropMenu.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -877,4 +930,8 @@ Partial Class frmMain
     Friend WithEvents btnCrafting As Button
     Friend WithEvents btnInventory As Button
     Friend WithEvents btnUnpheasantRaptor As Button
+    Friend WithEvents pnlDropMenu As Panel
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents lblReceived As Label
+    Friend WithEvents PictureBox3 As PictureBox
 End Class

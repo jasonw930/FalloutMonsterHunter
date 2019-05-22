@@ -138,7 +138,7 @@
         waitTimer.Interval = time
         waitTimer.Start()
         Do Until waitDone
-            Application.DoEvents
+            Application.DoEvents()
         Loop
         waitDone = False
     End Sub
