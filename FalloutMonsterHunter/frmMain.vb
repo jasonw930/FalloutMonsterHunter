@@ -303,14 +303,6 @@
     End Sub
 
 
-    Private Sub pnlFujiCity_Click() Handles pnlFujiCity.Click
-        If Not isFighting Then
-            isFighting = True
-            fight(Player.player, Mob.mobRaptor1)
-        End If
-    End Sub
-
-
     'Private Sub fadeOutTimerTick() Handles fadeOutTimer.Tick
     '    Static alpha As Integer = 0
     '    alpha += 5
@@ -365,7 +357,19 @@
         End If
     End Sub
 
-    Private Sub pnlInventory_Click(sender As Object, e As EventArgs) Handles pnlInventory.Click
+    Private Sub lblExitInventory_Click(sender As Object, e As EventArgs) Handles lblExitInventory.Click
         transition(currentCity)
+    End Sub
+
+    Private Sub btnUnpheasantRaptor_Click(sender As Object, e As EventArgs) Handles btnUnpheasantRaptor.Click
+        If Not isFighting Then
+            isFighting = True
+            fight(Player.player, Mob.mobRaptor1)
+        End If
+    End Sub
+
+    Private Sub btnInventory_Click(sender As Object, e As EventArgs) Handles btnInventory.Click
+        Player.player.updateInventoryVisuals()
+        transition(pnlInventory)
     End Sub
 End Class
