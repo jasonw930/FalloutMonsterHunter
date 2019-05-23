@@ -2,6 +2,10 @@
     'Variables--------------------------------------------------------------------------------------------
     Dim fadingControls As New List(Of Object)
     Dim panelsAndPics As New Dictionary(Of Panel, PictureBox)
+
+    Dim dropPics(5) As PictureBox
+    Dim dropLbls(5) As Label
+
     Dim currentCity As Panel
     Dim currentScene As Panel
     Dim currentUnlockedCity As Panel
@@ -25,6 +29,30 @@
             pnl.Location = New System.Drawing.Point(0, 0)
         Next
 
+        For Each picBox In pnlDropMenu.Controls.OfType(Of PictureBox) ' add drop menu pics to array
+            Dim lengthOfDigits As Integer = picBox.Name.Length - 7
+            Dim dropPos = CInt(picBox.Name.Substring(7, lengthOfDigits))
+            dropPics(dropPos) = picBox
+        Next
+
+        For Each lbl In pnlDropMenu.Controls.OfType(Of Label) ' add drop menu labels to array
+            If lbl.Name.Contains("lblDrop") Then
+                Dim lengthOfDigits As Integer = lbl.Name.Length - 7
+                Dim dropPos = CInt(lbl.Name.Substring(7, lengthOfDigits))
+                dropLbls(dropPos) = lbl
+            End If
+        Next
+
+        For Each scenepnl In Me.Controls.OfType(Of Panel)
+            If scenepnl.Name.Contains("City") Then
+                For Each btn In scenepnl.Controls.OfType(Of Button)
+                    If btn.Name.Contains("Fight") Then
+                        AddHandler btn.Click, AddressOf btnFightMob_Click
+                    End If
+                Next
+            End If
+        Next
+
         picFader.Location = New Point(0, 0)
         picFader2.Location = New Point(0, 0)
         pnlMainMenu.Visible = True
@@ -32,6 +60,8 @@
 
         panelsAndPics.Add(pnlIntro, picIntro)
         panelsAndPics.Add(pnlMainMenu, picBackdrop)
+
+
 
         cheatSkipCutscene = False
         cheatFastFight = False
@@ -88,44 +118,6 @@
             currentScene = scene
         End If
     End Sub
-
-
-    'Dim xInterval As Integer = 25
-    'Dim currentLeftX As Integer = 0
-    'Dim currentRightX As Integer = 0
-    'Dim currentY As Integer = 0
-    'Dim currentMover As Panel = pnlPlayer
-    'Dim hasFinishedMoving As Boolean = False
-    'Dim hasMovedLeft As Boolean = False
-    'Dim hasMovedRight As Boolean = False
-
-    'Private Sub moveMob() Handles timerMove.Tick
-    '    Dim pnlX As Integer = currentMover.Location.X
-    '    If xInterval > 0 Then ' move right
-    '        If pnlX + xInterval > currentRightX Then
-    '            currentMover.Location = New Point(currentRightX, currentY)
-    '            xInterval = -1 * xInterval
-    '            hasMovedRight = True
-    '        Else
-    '            currentMover.Location = New Point(pnlX + xInterval, currentY)
-    '        End If
-    '    Else ' move left
-    '        If pnlX + xInterval < currentLeftX Then
-    '            currentMover.Location = New Point(currentLeftX, currentY)
-    '            xInterval = -1 * xInterval
-    '            hasMovedLeft = True
-    '        Else
-    '            currentMover.Location = New Point(pnlX + xInterval, currentY)
-    '        End If
-    '    End If
-
-    '    If hasMovedLeft And hasMovedRight Then
-    '        hasMovedLeft = False
-    '        hasMovedRight = False
-    '        hasFinishedMoving = True
-    '        timerMove.Stop()
-    '    End If
-    'End Sub
 
     Dim waitDone As Boolean = False
 
@@ -195,6 +187,7 @@
         Loop
         'Result
         If result Then
+            Dim numDrops As Integer = 0
             For x = 0 To mob.dropItems.Length - 1
                 Randomize()
                 Dim item As Item = mob.dropItems(x)
@@ -202,12 +195,17 @@
                 Dim itemStack As ItemStack = If(amount > 0, New ItemStack(item, amount), New ItemStack(Item.itemNull, 1))
                 player.addItemToInventory(itemStack)
                 Console.WriteLine(itemStack.getSize() & " " & itemStack.getItem().getItemName() & " was dropped")
+                ' update drop menu
+                If amount > 0 Then
+                    dropPics(numDrops).Image = item.getItemSprite()
+                    dropLbls(numDrops).Text = "x" & amount.ToString() & " " & item.getItemName()
+                    numDrops += 1
+                End If
             Next
         End If
         Console.WriteLine("finished fighting")
         isFighting = False
-        transition(pnlInventory)
-        Player.player.updateInventoryVisuals()
+        pnlDropMenu.Visible = True
     End Sub
 
     Dim toVisible As Object
@@ -319,62 +317,13 @@
 
     End Sub
 
-
-    Private Sub pnlFujiCity_Click() Handles pnlFujiCity.Click
+    Private Sub btnFightMob_Click()
         If Not isFighting Then
             isFighting = True
             fight(Player.player, Mob.mobRaptor1)
         End If
     End Sub
 
-
-    'Private Sub fadeOutTimerTick() Handles fadeOutTimer.Tick
-    '    Static alpha As Integer = 0
-    '    alpha += 5
-    '    Dim rectColor As System.Drawing.Color
-    '    rectColor = Color.FromArgb(alpha, 0, 0, 0)
-
-    '    Console.WriteLine("picFader: Fade in at opacity " & alpha)
-    '    picFader.BringToFront()
-    '    picFader.CreateGraphics.FillRectangle(New SolidBrush(rectColor), 0, 0, 1000, 750)
-
-    '    If alpha >= 100 Then
-    '        alpha = 0
-    '        targetScene.Visible = True
-    '        fadeOutTimer.Stop()
-    '        fadeInTimer.Start()
-    '    End If
-    'End Sub
-
-    'Private Sub fadeInTimerTick() Handles fadeInTimer.Tick
-    '    Static alpha As Integer = 100
-    '    alpha -= 10
-    '    Dim rectColor As System.Drawing.Color
-    '    rectColor = Color.FromArgb(alpha, 0, 0, 0)
-
-    '    If alpha Mod 10 = 0 Then
-    '        Console.WriteLine("picFader: Fade out at opacity " & alpha)
-    '        picFader.BringToFront()
-    '        picFader.Refresh()
-    '        picFader.CreateGraphics.FillRectangle(New SolidBrush(rectColor), 0, 0, 1000, 750)
-    '        picFader2.Refresh()
-    '    ElseIf alpha Mod 10 = 5 Then
-    '        Console.WriteLine("picFader2: Fade in at opacity " & alpha)
-    '        picFader2.BringToFront()
-    '        picFader2.Refresh()
-    '        picFader2.CreateGraphics.FillRectangle(New SolidBrush(rectColor), 0, 0, 1000, 750)
-    '        picFader.Refresh()
-    '    End If
-
-    '    If alpha <= 0 Then
-    '        alpha = 100
-    '        picFader.Refresh()
-    '        picFader.SendToBack()
-    '        picFader2.Refresh()
-    '        picFader2.SendToBack()
-    '        fadeInTimer.Stop()
-    '    End If
-    'End Sub
 
     Private Sub lblDialog_lblClickCont_Click(sender As Object, e As EventArgs) Handles lblDialog.Click, lblClickCont.Click
         If txtUserIn.Visible = False Or txtUserIn.Text.Trim() <> "" Then
@@ -390,7 +339,27 @@
         Player.player.craftItem(ItemArmor.armorUnpheasantLeggings)
     End Sub
 
-    Private Sub formLoad(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub lblExitDropMenu_Click(sender As Object, e As EventArgs) Handles lblExitDropMenu.Click
+        For invisIndex As Integer = 0 To dropPics.Length - 1
+            dropPics(invisIndex).Image = Nothing
+            dropLbls(invisIndex).Text = Nothing
+        Next
+
+        pnlDropMenu.Visible = False
+        transition(pnlInventory)
+        Player.player.updateInventoryVisuals()
+    End Sub
+
+    Private Sub lblExitInventory_Click(sender As Object, e As EventArgs) Handles lblExitInventory.Click
+        transition(currentCity)
+    End Sub
+
+    Private Sub btnInventory_Click(sender As Object, e As EventArgs) Handles btnInventory.Click
+        transition(pnlInventory)
+        Player.player.updateInventoryVisuals()
+    End Sub
+
+    Private Sub picInvSlot23_Click(sender As Object, e As EventArgs) Handles picInvSlot23.Click
 
     End Sub
 End Class

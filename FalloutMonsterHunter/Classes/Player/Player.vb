@@ -62,6 +62,8 @@ Public Class Player
         Me.equippedArmor1 = New ItemStack(Item.itemNull, 1)
         Me.equippedArmor2 = New ItemStack(Item.itemNull, 1)
         Me.equippedArmor3 = New ItemStack(Item.itemNull, 1)
+
+        updateStats()
     End Sub
 
     Public Sub updateStats()
@@ -84,6 +86,11 @@ Public Class Player
         Me.attack += If(TypeOf equippedWeapon.getItem() Is ItemWeapon, DirectCast(equippedWeapon.getItem(), ItemWeapon).getCritChance, 0)
 
         Me.luck = 0
+
+        frmMain.lblStats.Text = "Health: " & Me.health & " HP" & vbCrLf & vbCrLf & vbCrLf & vbCrLf & vbCrLf &
+            "Defense: " & Me.defense & vbCrLf & vbCrLf & vbCrLf & vbCrLf & vbCrLf &
+            "Attack: " & Me.attack & vbCrLf & vbCrLf & vbCrLf & vbCrLf & vbCrLf &
+            "Criticals: " & Me.critChance & "%"
     End Sub
 
     Public Function getPosOfItem(item As Item)
@@ -117,6 +124,8 @@ Public Class Player
     End Sub
 
     Public Sub addItemToInventory(itemStack As ItemStack)
+        Me.condenseInventory()
+
         If Not itemStack.getItem().Equals(Item.itemNull) Then
             For x = 0 To 23
                 If Me.inventory(x).getItem().Equals(itemStack.getItem()) Then
@@ -141,8 +150,8 @@ Public Class Player
 
     Public Sub updateInventoryVisuals()
         Dim slotCount As Integer = 0
-        For Each pic In frmMain.pnlInventory.Controls.OfType(Of PictureBox)
-            If pic.Name.Substring(0, 10).Equals("picInvSlot") Then
+        For Each pic In frmMain.pnlInventory.Controls.OfType(Of PictureBox) ' inventory labels
+            If pic.Name.Contains("picInvSlot") Then
                 Dim lengthOfDigits As Integer = pic.Name.Length - 10
                 slotCount = CInt(pic.Name.Substring(10, lengthOfDigits))
 
@@ -182,34 +191,57 @@ Public Class Player
                         inventorySlotPicBox(slotCount).Refresh()
                     End If
                 End If
-
             End If
         Next
+
+        If inventoryUninitiated Then
+            For Each label As Label In inventorySlotLabels
+                AddHandler label.MouseDoubleClick, AddressOf inventorSlot_MouseDoubleClick
+            Next
+
+            For Each pictBx As PictureBox In inventorySlotPicBox
+                AddHandler pictBx.MouseDoubleClick, AddressOf inventorSlot_MouseDoubleClick
+            Next
+        End If
+
         inventoryUninitiated = False
+
     End Sub
 
 
 
     Public Sub equipItem(pos As Integer)
         If pos <= 23 And pos >= 0 Then
+            Dim previousItem As ItemStack
+
             If TypeOf Me.inventory(pos).getItem Is ItemArmor Then
                 Select Case DirectCast(Me.inventory(pos).getItem, ItemArmor).getArmorPos
                     Case 0
+                        previousItem = Me.equippedArmor0
                         Me.equippedArmor0 = Me.inventory(pos)
                         Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                        Me.addItemToInventory(previousItem)
                     Case 1
+                        previousItem = Me.equippedArmor1
                         Me.equippedArmor1 = Me.inventory(pos)
                         Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                        Me.addItemToInventory(previousItem)
                     Case 2
+                        previousItem = Me.equippedArmor2
                         Me.equippedArmor2 = Me.inventory(pos)
                         Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                        Me.addItemToInventory(previousItem)
                     Case 3
+                        previousItem = Me.equippedArmor3
                         Me.equippedArmor3 = Me.inventory(pos)
                         Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                        Me.addItemToInventory(previousItem)
                 End Select
             ElseIf TypeOf Me.inventory(pos).getItem Is ItemWeapon Then
+                previousItem = Me.equippedWeapon
                 Me.equippedWeapon = Me.inventory(pos)
                 Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                Me.addItemToInventory(previousItem)
             End If
         End If
 
@@ -265,4 +297,7 @@ Public Class Player
         Me.updateInventoryVisuals()
     End Sub
 
+    Public Sub inventorSlot_MouseDoubleClick(sender As Object, e As EventArgs)
+        Console.WriteLine(sender.name & " has been double clicked")
+    End Sub
 End Class

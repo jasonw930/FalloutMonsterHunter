@@ -44,4 +44,16 @@
         Me.mobSprite = sprite
     End Sub
 
+    Public Shared Function getMobFromName(name As String)
+        Select Case name
+            Case "Unpheasant"
+                Return mobRaptor1
+            Case "Mutahraptor"
+                Return mobRaptor2
+            Case "Uzirappter"
+                Return mobRaptor3
+            Case Else
+                Return Nothing
+        End Select
+    End Function
 End Class
