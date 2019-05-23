@@ -68,6 +68,21 @@ Partial Class frmMain
         Me.picInvSlot0 = New System.Windows.Forms.PictureBox()
         Me.lblCount = New System.Windows.Forms.Label()
         Me.pnlFight = New System.Windows.Forms.Panel()
+        Me.pnlDropMenu = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblDrop6 = New System.Windows.Forms.Label()
+        Me.picDrop6 = New System.Windows.Forms.PictureBox()
+        Me.lblDrop5 = New System.Windows.Forms.Label()
+        Me.lblDrop4 = New System.Windows.Forms.Label()
+        Me.picDrop5 = New System.Windows.Forms.PictureBox()
+        Me.picDrop4 = New System.Windows.Forms.PictureBox()
+        Me.lblDrop3 = New System.Windows.Forms.Label()
+        Me.lblDrop2 = New System.Windows.Forms.Label()
+        Me.lblDrop1 = New System.Windows.Forms.Label()
+        Me.picDrop3 = New System.Windows.Forms.PictureBox()
+        Me.picDrop2 = New System.Windows.Forms.PictureBox()
+        Me.picDrop1 = New System.Windows.Forms.PictureBox()
+        Me.lblReceived = New System.Windows.Forms.Label()
         Me.pnlMob = New System.Windows.Forms.Panel()
         Me.picFighting = New System.Windows.Forms.PictureBox()
         Me.pnlPlayer = New System.Windows.Forms.Panel()
@@ -82,10 +97,6 @@ Partial Class frmMain
         Me.btnPlay = New System.Windows.Forms.Button()
         Me.picFader2 = New System.Windows.Forms.PictureBox()
         Me.picFader = New System.Windows.Forms.PictureBox()
-        Me.pnlDropMenu = New System.Windows.Forms.Panel()
-        Me.lblReceived = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.pnlIntro.SuspendLayout()
         CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picIntro.SuspendLayout()
@@ -124,6 +135,13 @@ Partial Class frmMain
         CType(Me.picInvSlot0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picInvSlot0.SuspendLayout()
         Me.pnlFight.SuspendLayout()
+        Me.pnlDropMenu.SuspendLayout()
+        CType(Me.picDrop6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDrop5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDrop4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDrop3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDrop2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDrop1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFighting, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picFighting.SuspendLayout()
         Me.pnlFujiCity.SuspendLayout()
@@ -133,9 +151,6 @@ Partial Class frmMain
         Me.picBackdrop.SuspendLayout()
         CType(Me.picFader2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlDropMenu.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlIntro
@@ -271,7 +286,7 @@ Partial Class frmMain
         Me.pnlInventory.Controls.Add(Me.picInvSlot16)
         Me.pnlInventory.Controls.Add(Me.picInvSlot8)
         Me.pnlInventory.Controls.Add(Me.picInvSlot0)
-        Me.pnlInventory.Location = New System.Drawing.Point(1000, 750)
+        Me.pnlInventory.Location = New System.Drawing.Point(990, 55)
         Me.pnlInventory.Name = "pnlInventory"
         Me.pnlInventory.Size = New System.Drawing.Size(1000, 750)
         Me.pnlInventory.TabIndex = 6
@@ -590,6 +605,172 @@ Partial Class frmMain
         Me.pnlFight.Size = New System.Drawing.Size(1000, 750)
         Me.pnlFight.TabIndex = 5
         '
+        'pnlDropMenu
+        '
+        Me.pnlDropMenu.BackColor = System.Drawing.Color.DimGray
+        Me.pnlDropMenu.Controls.Add(Me.Label6)
+        Me.pnlDropMenu.Controls.Add(Me.lblDrop6)
+        Me.pnlDropMenu.Controls.Add(Me.picDrop6)
+        Me.pnlDropMenu.Controls.Add(Me.lblDrop5)
+        Me.pnlDropMenu.Controls.Add(Me.lblDrop4)
+        Me.pnlDropMenu.Controls.Add(Me.picDrop5)
+        Me.pnlDropMenu.Controls.Add(Me.picDrop4)
+        Me.pnlDropMenu.Controls.Add(Me.lblDrop3)
+        Me.pnlDropMenu.Controls.Add(Me.lblDrop2)
+        Me.pnlDropMenu.Controls.Add(Me.lblDrop1)
+        Me.pnlDropMenu.Controls.Add(Me.picDrop3)
+        Me.pnlDropMenu.Controls.Add(Me.picDrop2)
+        Me.pnlDropMenu.Controls.Add(Me.picDrop1)
+        Me.pnlDropMenu.Controls.Add(Me.lblReceived)
+        Me.pnlDropMenu.Location = New System.Drawing.Point(270, 42)
+        Me.pnlDropMenu.Name = "pnlDropMenu"
+        Me.pnlDropMenu.Size = New System.Drawing.Size(460, 652)
+        Me.pnlDropMenu.TabIndex = 5
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.DimGray
+        Me.Label6.Font = New System.Drawing.Font("Courier New", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(391, 24)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(42, 43)
+        Me.Label6.TabIndex = 31
+        Me.Label6.Text = "X"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblDrop6
+        '
+        Me.lblDrop6.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDrop6.ForeColor = System.Drawing.Color.White
+        Me.lblDrop6.Location = New System.Drawing.Point(118, 545)
+        Me.lblDrop6.Name = "lblDrop6"
+        Me.lblDrop6.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
+        Me.lblDrop6.Size = New System.Drawing.Size(302, 72)
+        Me.lblDrop6.TabIndex = 12
+        Me.lblDrop6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'picDrop6
+        '
+        Me.picDrop6.BackColor = System.Drawing.Color.Transparent
+        Me.picDrop6.Location = New System.Drawing.Point(40, 545)
+        Me.picDrop6.Name = "picDrop6"
+        Me.picDrop6.Size = New System.Drawing.Size(72, 72)
+        Me.picDrop6.TabIndex = 11
+        Me.picDrop6.TabStop = False
+        '
+        'lblDrop5
+        '
+        Me.lblDrop5.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDrop5.ForeColor = System.Drawing.Color.White
+        Me.lblDrop5.Location = New System.Drawing.Point(118, 456)
+        Me.lblDrop5.Name = "lblDrop5"
+        Me.lblDrop5.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
+        Me.lblDrop5.Size = New System.Drawing.Size(302, 72)
+        Me.lblDrop5.TabIndex = 10
+        Me.lblDrop5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblDrop4
+        '
+        Me.lblDrop4.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDrop4.ForeColor = System.Drawing.Color.White
+        Me.lblDrop4.Location = New System.Drawing.Point(118, 367)
+        Me.lblDrop4.Name = "lblDrop4"
+        Me.lblDrop4.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
+        Me.lblDrop4.Size = New System.Drawing.Size(302, 72)
+        Me.lblDrop4.TabIndex = 9
+        Me.lblDrop4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'picDrop5
+        '
+        Me.picDrop5.BackColor = System.Drawing.Color.Transparent
+        Me.picDrop5.Location = New System.Drawing.Point(40, 456)
+        Me.picDrop5.Name = "picDrop5"
+        Me.picDrop5.Size = New System.Drawing.Size(72, 72)
+        Me.picDrop5.TabIndex = 8
+        Me.picDrop5.TabStop = False
+        '
+        'picDrop4
+        '
+        Me.picDrop4.BackColor = System.Drawing.Color.Transparent
+        Me.picDrop4.Location = New System.Drawing.Point(40, 367)
+        Me.picDrop4.Name = "picDrop4"
+        Me.picDrop4.Size = New System.Drawing.Size(72, 72)
+        Me.picDrop4.TabIndex = 7
+        Me.picDrop4.TabStop = False
+        '
+        'lblDrop3
+        '
+        Me.lblDrop3.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDrop3.ForeColor = System.Drawing.Color.White
+        Me.lblDrop3.Location = New System.Drawing.Point(118, 278)
+        Me.lblDrop3.Name = "lblDrop3"
+        Me.lblDrop3.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
+        Me.lblDrop3.Size = New System.Drawing.Size(302, 72)
+        Me.lblDrop3.TabIndex = 6
+        Me.lblDrop3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblDrop2
+        '
+        Me.lblDrop2.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDrop2.ForeColor = System.Drawing.Color.White
+        Me.lblDrop2.Location = New System.Drawing.Point(118, 189)
+        Me.lblDrop2.Name = "lblDrop2"
+        Me.lblDrop2.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
+        Me.lblDrop2.Size = New System.Drawing.Size(302, 72)
+        Me.lblDrop2.TabIndex = 5
+        Me.lblDrop2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblDrop1
+        '
+        Me.lblDrop1.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDrop1.ForeColor = System.Drawing.Color.White
+        Me.lblDrop1.Location = New System.Drawing.Point(118, 100)
+        Me.lblDrop1.Name = "lblDrop1"
+        Me.lblDrop1.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
+        Me.lblDrop1.Size = New System.Drawing.Size(302, 72)
+        Me.lblDrop1.TabIndex = 4
+        Me.lblDrop1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'picDrop3
+        '
+        Me.picDrop3.BackColor = System.Drawing.Color.Transparent
+        Me.picDrop3.Location = New System.Drawing.Point(40, 278)
+        Me.picDrop3.Name = "picDrop3"
+        Me.picDrop3.Size = New System.Drawing.Size(72, 72)
+        Me.picDrop3.TabIndex = 3
+        Me.picDrop3.TabStop = False
+        '
+        'picDrop2
+        '
+        Me.picDrop2.BackColor = System.Drawing.Color.Transparent
+        Me.picDrop2.Location = New System.Drawing.Point(40, 189)
+        Me.picDrop2.Name = "picDrop2"
+        Me.picDrop2.Size = New System.Drawing.Size(72, 72)
+        Me.picDrop2.TabIndex = 2
+        Me.picDrop2.TabStop = False
+        '
+        'picDrop1
+        '
+        Me.picDrop1.BackColor = System.Drawing.Color.Transparent
+        Me.picDrop1.Location = New System.Drawing.Point(40, 100)
+        Me.picDrop1.Name = "picDrop1"
+        Me.picDrop1.Size = New System.Drawing.Size(72, 72)
+        Me.picDrop1.TabIndex = 1
+        Me.picDrop1.TabStop = False
+        '
+        'lblReceived
+        '
+        Me.lblReceived.Font = New System.Drawing.Font("Courier New", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblReceived.ForeColor = System.Drawing.Color.White
+        Me.lblReceived.Location = New System.Drawing.Point(0, 24)
+        Me.lblReceived.Name = "lblReceived"
+        Me.lblReceived.Size = New System.Drawing.Size(460, 43)
+        Me.lblReceived.TabIndex = 0
+        Me.lblReceived.Text = "You Won!"
+        Me.lblReceived.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'pnlMob
         '
         Me.pnlMob.BackColor = System.Drawing.Color.Transparent
@@ -752,48 +933,6 @@ Partial Class frmMain
         Me.picFader.TabIndex = 4
         Me.picFader.TabStop = False
         '
-        'pnlDropMenu
-        '
-        Me.pnlDropMenu.BackColor = System.Drawing.Color.DimGray
-        Me.pnlDropMenu.Controls.Add(Me.PictureBox3)
-        Me.pnlDropMenu.Controls.Add(Me.PictureBox2)
-        Me.pnlDropMenu.Controls.Add(Me.lblReceived)
-        Me.pnlDropMenu.Location = New System.Drawing.Point(270, 95)
-        Me.pnlDropMenu.Name = "pnlDropMenu"
-        Me.pnlDropMenu.Size = New System.Drawing.Size(460, 560)
-        Me.pnlDropMenu.TabIndex = 5
-        '
-        'lblReceived
-        '
-        Me.lblReceived.Font = New System.Drawing.Font("Courier New", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblReceived.ForeColor = System.Drawing.Color.White
-        Me.lblReceived.Location = New System.Drawing.Point(0, 24)
-        Me.lblReceived.Name = "lblReceived"
-        Me.lblReceived.Size = New System.Drawing.Size(460, 43)
-        Me.lblReceived.TabIndex = 0
-        Me.lblReceived.Text = "You Won!"
-        Me.lblReceived.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorBone1_InventorySmall
-        Me.PictureBox2.Location = New System.Drawing.Point(40, 100)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(72, 72)
-        Me.PictureBox2.TabIndex = 1
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox3.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorBone1_InventorySmall
-        Me.PictureBox3.Location = New System.Drawing.Point(40, 169)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(72, 72)
-        Me.PictureBox3.TabIndex = 2
-        Me.PictureBox3.TabStop = False
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -853,6 +992,14 @@ Partial Class frmMain
         CType(Me.picInvSlot0, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picInvSlot0.ResumeLayout(False)
         Me.pnlFight.ResumeLayout(False)
+        Me.pnlDropMenu.ResumeLayout(False)
+        Me.pnlDropMenu.PerformLayout()
+        CType(Me.picDrop6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDrop5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDrop4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDrop3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDrop2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDrop1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFighting, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picFighting.ResumeLayout(False)
         Me.pnlFujiCity.ResumeLayout(False)
@@ -863,9 +1010,6 @@ Partial Class frmMain
         Me.picBackdrop.PerformLayout()
         CType(Me.picFader2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlDropMenu.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -931,7 +1075,18 @@ Partial Class frmMain
     Friend WithEvents btnInventory As Button
     Friend WithEvents btnUnpheasantRaptor As Button
     Friend WithEvents pnlDropMenu As Panel
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents picDrop1 As PictureBox
     Friend WithEvents lblReceived As Label
-    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents picDrop2 As PictureBox
+    Friend WithEvents lblDrop6 As Label
+    Friend WithEvents picDrop6 As PictureBox
+    Friend WithEvents lblDrop5 As Label
+    Friend WithEvents lblDrop4 As Label
+    Friend WithEvents picDrop5 As PictureBox
+    Friend WithEvents picDrop4 As PictureBox
+    Friend WithEvents lblDrop3 As Label
+    Friend WithEvents lblDrop2 As Label
+    Friend WithEvents lblDrop1 As Label
+    Friend WithEvents picDrop3 As PictureBox
+    Friend WithEvents Label6 As Label
 End Class

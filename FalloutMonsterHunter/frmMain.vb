@@ -389,4 +389,8 @@
     Private Sub picInvSlot23_Click() Handles picInvSlot23.Click
         Player.player.craftItem(ItemArmor.armorUnpheasantLeggings)
     End Sub
+
+    Private Sub formLoad(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
