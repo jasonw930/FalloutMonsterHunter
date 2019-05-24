@@ -21,6 +21,9 @@
     Dim cheatSkipCutscene As Boolean
     Dim cheatFastFight As Boolean
 
+    Dim craftingMenuItems As New List(Of Panel)
+    Dim craftCount As Integer = 0
+
     'Form Load--------------------------------------------------------------------------------------------
     Private Sub formLoad() Handles Me.Load
         Console.WriteLine("---------------------------------------------")
@@ -43,7 +46,7 @@
             End If
         Next
 
-        For Each scenepnl In Me.Controls.OfType(Of Panel)
+        For Each scenepnl In Me.Controls.OfType(Of Panel) ' add handlers to fight buttons
             If scenepnl.Name.Contains("City") Then
                 For Each btn In scenepnl.Controls.OfType(Of Button)
                     If btn.Name.Contains("Fight") Then
@@ -65,8 +68,6 @@
 
         cheatSkipCutscene = False
         cheatFastFight = False
-
-        Player.player = New Player("Bob")
 
         ' note: '|' stands for Player.player.playerName; replaced at runtime of the line, so we don't affix the Player.player.playerName before user inputs it
         ' the transitions/continue to next line methods are: 
@@ -105,6 +106,47 @@
         ItemWeapon.initialize()
         Mob.initialize()
         Player.player = New Player("Bob")
+
+        For indixx As Integer = 0 To Item.allCraftables.Length - 1 ' initialize crafting menu
+            If Item.allCraftables(indixx) Is Nothing Then
+                Exit For
+            End If
+            Dim newPanel As New Panel
+            pnlCraftingList.Controls.Add(newPanel)
+            craftingMenuItems.Add(newPanel)
+            newPanel.Name = "pnlCraft" & craftCount.ToString()
+            newPanel.Size = New Point(349, 90)
+            newPanel.BackColor = Color.Silver
+            newPanel.Location = New Point(0, craftCount * 90)
+            Dim newCraftPic As New PictureBox
+            newPanel.Controls.Add(newCraftPic)
+            newCraftPic.Name = "picCraft" & craftCount.ToString()
+            newCraftPic.Size = New Point(72, 72)
+            newCraftPic.Location = New Point(12, 9)
+            newCraftPic.BackColor = Color.Transparent
+            newCraftPic.Image = Item.allCraftables(indixx).getItemSprite()
+            Dim newCraftLbl As New Label
+            newPanel.Controls.Add(newCraftLbl)
+            newCraftLbl.Name = "lblCraft" & craftCount.ToString()
+            newCraftLbl.Size = New Point(72, 72)
+            newCraftLbl.Location = New Point(96, 9)
+            newCraftLbl.Font = New Font("Courier New", 10, FontStyle.Bold)
+            newCraftLbl.ForeColor = Color.White
+            newCraftLbl.BackColor = Color.Transparent
+            newCraftLbl.Text = Item.allCraftables(indixx).getItemName()
+            newCraftLbl.TextAlign = ContentAlignment.MiddleLeft
+            craftCount += 1
+        Next
+
+        For indixx As Integer = 0 To craftingMenuItems.Count - 1
+            For Each crftPic In craftingMenuItems(indixx).Controls.OfType(Of PictureBox)
+                crftPic.Image = Item.allCraftables(indixx).getItemSprite()
+            Next
+            For Each crftLbl In craftingMenuItems(indixx).Controls.OfType(Of Label)
+                crftLbl.Text = Item.allCraftables(indixx).getItemName()
+            Next
+        Next
+
     End Sub
 
     'Procedures-------------------------------------------------------------------------------------------
@@ -305,6 +347,10 @@
 
     End Sub
 
+
+
+
+
     'Event Handles---------------------------------------------------------------------------------------
 
     Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
@@ -336,7 +382,7 @@
     End Sub
 
     Private Sub picInvSlot23_Click() Handles picInvSlot23.Click
-        Player.player.craftItem(ItemArmor.armorUnpheasantLeggings)
+        Player.player.craftItem(ItemArmor.armorRaptorLeggings1)
     End Sub
 
     Private Sub lblExitDropMenu_Click(sender As Object, e As EventArgs) Handles lblExitDropMenu.Click
@@ -359,7 +405,7 @@
         Player.player.updateInventoryVisuals()
     End Sub
 
-    Private Sub picInvSlot23_Click(sender As Object, e As EventArgs) Handles picInvSlot23.Click
-
+    Private Sub btnCrafting_Click(sender As Object, e As EventArgs) Handles btnCrafting.Click
+        transition(pnlCraftingMenu)
     End Sub
 End Class

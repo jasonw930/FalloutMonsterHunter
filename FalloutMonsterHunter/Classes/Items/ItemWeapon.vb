@@ -16,6 +16,7 @@
             New ItemStack(Item.itemRaptorClaws1, 6),
             New ItemStack(Item.itemRaptorHide1, 4),
             New ItemStack(Item.itemRaptorBone1, 6)}
+        allCraftables(4) = weaponUnpheasantSword
     End Sub
 
     Public Sub New(name As String, tier As Integer, image As Bitmap, damage As Integer, critChance As Integer, display As Bitmap)

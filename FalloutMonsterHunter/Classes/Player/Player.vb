@@ -298,6 +298,6 @@ Public Class Player
     End Sub
 
     Public Sub inventorSlot_MouseDoubleClick(sender As Object, e As EventArgs)
-        Console.WriteLine(sender.name & " has been double clicked")
+        equipItem(sender.name.Substring(10))
     End Sub
 End Class

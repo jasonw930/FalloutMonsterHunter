@@ -9,37 +9,42 @@
 
     Public craftingComponents As ItemStack()
 
-    Public Shared armorUnpheasantHelmet As ItemArmor
-    Public Shared armorUnpheasantChestplate As ItemArmor
-    Public Shared armorUnpheasantLeggings As ItemArmor
-    Public Shared armorUnpheasantBoots As ItemArmor
+    Public Shared armorRaptorHelmet1 As ItemArmor
+    Public Shared armorRaptorChestplate1 As ItemArmor
+    Public Shared armorRaptorLeggings1 As ItemArmor
+    Public Shared armorRaptorBoots1 As ItemArmor
 
-    Overloads Public Shared Sub initialize()
-        armorUnpheasantHelmet = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 6, 5, 0, My.Resources.uziCartiBigBaller)
-        armorUnpheasantHelmet.craftingComponents = {
+    Public Overloads Shared Sub initialize()
+        armorRaptorHelmet1 = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 6, 5, 0, My.Resources.uziCartiBigBaller)
+        armorRaptorHelmet1.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws1, 2),
             New ItemStack(Item.itemRaptorHide1, 5),
             New ItemStack(Item.itemRaptorBone1, 5),
             New ItemStack(Item.itemRaptorSkull1, 2)}
+        allCraftables(0) = armorRaptorHelmet1
 
-        armorUnpheasantChestplate = New ItemArmor("Unpheasant Chestplate", 1, My.Resources.uziCartiBigBaller, 10, 5, 1, My.Resources.uziCartiBigBaller)
-        armorUnpheasantChestplate.craftingComponents = {
+        armorRaptorChestplate1 = New ItemArmor("Unpheasant Chestplate", 1, My.Resources.uziCartiBigBaller, 10, 5, 1, My.Resources.uziCartiBigBaller)
+        armorRaptorChestplate1.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws1, 3),
             New ItemStack(Item.itemRaptorHide1, 6),
             New ItemStack(Item.itemRaptorBone1, 6)}
+        allCraftables(1) = armorRaptorChestplate1
 
-        armorUnpheasantLeggings = New ItemArmor("Unpheasant Leggings", 1, My.Resources.uziCartiBigBaller, 8, 5, 2, My.Resources.uziCartiBigBaller)
-        armorUnpheasantLeggings.craftingComponents = {
+        armorRaptorLeggings1 = New ItemArmor("Unpheasant Leggings", 1, My.Resources.uziCartiBigBaller, 8, 5, 2, My.Resources.uziCartiBigBaller)
+        armorRaptorLeggings1.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws1, 3),
             New ItemStack(Item.itemRaptorHide1, 6),
             New ItemStack(Item.itemRaptorBone1, 5)}
+        allCraftables(2) = armorRaptorLeggings1
 
-        armorUnpheasantBoots = New ItemArmor("Unpheasant Boots", 1, My.Resources.uziCartiBigBaller, 6, 5, 3, My.Resources.uziCartiBigBaller)
-        armorUnpheasantBoots.craftingComponents = {
+        armorRaptorBoots1 = New ItemArmor("Unpheasant Boots", 1, My.Resources.uziCartiBigBaller, 6, 5, 3, My.Resources.uziCartiBigBaller)
+        armorRaptorBoots1.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws1, 2),
             New ItemStack(Item.itemRaptorHide1, 5),
             New ItemStack(Item.itemRaptorBone1, 4),
             New ItemStack(Item.itemRaptorTail1, 2)}
+        allCraftables(3) = armorRaptorBoots1
+
 
     End Sub
 

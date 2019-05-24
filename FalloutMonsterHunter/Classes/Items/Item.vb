@@ -23,6 +23,8 @@
     Public Shared itemRaptorSkull3 As Item
     Public Shared itemRaptorTail3 As Item
 
+    Public Shared allCraftables(30) As Item
+
     Public Shared Sub initialize()
         itemNull = New Item("nil", 0, My.Resources.uziCartiBigBaller)
 
@@ -43,7 +45,10 @@
         itemRaptorBone3 = New Item("Uzirappter Bone", 3, My.Resources.uziCartiBigBaller)
         itemRaptorSkull3 = New Item("Uzirappter Skull", 3, My.Resources.uziCartiBigBaller)
         itemRaptorTail3 = New Item("Uzirappter Tail", 3, My.Resources.uziCartiBigBaller)
+
+        'allCraftables = New Item(30)
     End Sub
+
 
     Public Sub New(name As String, tier As Integer, image As Bitmap)
         Me.setItemName(name)
