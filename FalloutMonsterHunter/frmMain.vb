@@ -22,7 +22,10 @@
     Dim cheatFastFight As Boolean
 
     Dim craftingMenuItems As New List(Of Panel)
-    Dim craftCount As Integer = 0
+    Dim selectedCraftingItem As Item
+
+    Dim componentImage As New List(Of PictureBox)
+    Dim componentLabel As New List(Of Label)
 
     'Form Load--------------------------------------------------------------------------------------------
     Private Sub formLoad() Handles Me.Load
@@ -109,33 +112,41 @@
 
         For indixx As Integer = 0 To Item.allCraftables.Length - 1 ' initialize crafting menu
             If Item.allCraftables(indixx) Is Nothing Then
+                pnlScrollFrame.Size = New Point(349, indixx * 90)
+                scrlCraftingList.Minimum = 0
+                scrlCraftingList.Maximum = Math.Max(0, indixx * 90 - pnlCraftingList.Size.Height)
+                scrlCraftingList.SmallChange = 6
+                scrlCraftingList.LargeChange = 9
                 Exit For
             End If
             Dim newPanel As New Panel
-            pnlCraftingList.Controls.Add(newPanel)
+            pnlScrollFrame.Controls.Add(newPanel)
             craftingMenuItems.Add(newPanel)
-            newPanel.Name = "pnlCraft" & craftCount.ToString()
+            newPanel.Name = "pnlCraft" & indixx.ToString()
             newPanel.Size = New Point(349, 90)
             newPanel.BackColor = Color.Silver
-            newPanel.Location = New Point(0, craftCount * 90)
+            newPanel.Location = New Point(0, indixx * 90)
+            AddHandler newPanel.Click, AddressOf pnlCraftItem_Click
             Dim newCraftPic As New PictureBox
             newPanel.Controls.Add(newCraftPic)
-            newCraftPic.Name = "picCraft" & craftCount.ToString()
+            newCraftPic.Name = "picCraft" & indixx.ToString()
             newCraftPic.Size = New Point(72, 72)
             newCraftPic.Location = New Point(12, 9)
             newCraftPic.BackColor = Color.Transparent
             newCraftPic.Image = Item.allCraftables(indixx).getItemSprite()
+            AddHandler newCraftPic.Click, AddressOf pnlCraftItem_Click
             Dim newCraftLbl As New Label
             newPanel.Controls.Add(newCraftLbl)
-            newCraftLbl.Name = "lblCraft" & craftCount.ToString()
-            newCraftLbl.Size = New Point(72, 72)
+            newCraftLbl.Name = "lblCraft" & indixx.ToString()
+            newCraftLbl.Size = New Point(240, 72)
             newCraftLbl.Location = New Point(96, 9)
             newCraftLbl.Font = New Font("Courier New", 10, FontStyle.Bold)
             newCraftLbl.ForeColor = Color.White
             newCraftLbl.BackColor = Color.Transparent
             newCraftLbl.Text = Item.allCraftables(indixx).getItemName()
             newCraftLbl.TextAlign = ContentAlignment.MiddleLeft
-            craftCount += 1
+            AddHandler newCraftLbl.Click, AddressOf pnlCraftItem_Click
+
         Next
 
         For indixx As Integer = 0 To craftingMenuItems.Count - 1
@@ -146,6 +157,20 @@
                 crftLbl.Text = Item.allCraftables(indixx).getItemName()
             Next
         Next
+
+        selectedCraftingItem = Item.itemNull
+
+        componentImage.Add(picComponent0)
+        componentImage.Add(picComponent1)
+        componentImage.Add(picComponent2)
+        componentImage.Add(picComponent3)
+        componentImage.Add(picComponent4)
+
+        componentLabel.Add(lblCraftingComponent0)
+        componentLabel.Add(lblCraftingComponent1)
+        componentLabel.Add(lblCraftingComponent2)
+        componentLabel.Add(lblCraftingComponent3)
+        componentLabel.Add(lblCraftingComponent4)
 
     End Sub
 
@@ -407,5 +432,66 @@
 
     Private Sub btnCrafting_Click(sender As Object, e As EventArgs) Handles btnCrafting.Click
         transition(pnlCraftingMenu)
+    End Sub
+
+    Private Sub scrlCraftingList_Scroll(sender As Object, e As ScrollEventArgs) Handles scrlCraftingList.Scroll
+        pnlScrollFrame.Location = New Point(0, scrlCraftingList.Value * -1)
+    End Sub
+
+    Private Sub pnlCraftItem_Click(sender As Object, e As EventArgs)
+        selectedCraftingItem = Item.allCraftables(CInt(sender.name.SubString(8)))
+        lblCraftName.Text = selectedCraftingItem.getItemName()
+
+        If TypeOf selectedCraftingItem Is ItemArmor Then
+            Dim craftItem As ItemArmor = DirectCast(selectedCraftingItem, ItemArmor)
+            lblCraftStats.Text = "Health +" & craftItem.getBonusHealth().ToString() & vbCrLf & vbCrLf & "Defence +" & craftItem.getDefence().ToString() & vbCrLf & vbCrLf & "Luck: +0"
+            For index As Integer = 0 To 4
+                If index < craftItem.craftingComponents.Length Then
+                    componentImage(index).Image = craftItem.craftingComponents(index).getItem().getItemSprite()
+                    componentLabel(index).Text = "x" & craftItem.craftingComponents(index).getSize()
+                    If Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem()) > -1 Then
+                        componentLabel(index).ForeColor = If(Player.player.inventory(Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem())).getSize() >= craftItem.craftingComponents(index).getSize(), Color.White, Color.Black)
+                    Else
+                        componentLabel(index).ForeColor = Color.Black
+                    End If
+                Else
+                    componentImage(index).Image = Nothing
+                    componentImage(index).BackColor = Color.Transparent
+                    componentLabel(index).Text = Nothing
+                End If
+            Next
+        ElseIf TypeOf selectedCraftingItem Is ItemWeapon Then
+            Dim craftItem As ItemWeapon = DirectCast(selectedCraftingItem, ItemWeapon)
+            lblCraftStats.Text = "Attack +" & craftItem.getDamage().ToString() & vbCrLf & vbCrLf & "Criticals +" & craftItem.getCritChance().ToString()
+            For index As Integer = 0 To 4
+                If index < craftItem.craftingComponents.Length Then
+                    componentImage(index).Image = craftItem.craftingComponents(index).getItem().getItemSprite()
+                    componentLabel(index).Text = "x" & craftItem.craftingComponents(index).getSize()
+                    If Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem()) > -1 Then
+                        componentLabel(index).ForeColor = If(Player.player.inventory(Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem())).getSize() >= craftItem.craftingComponents(index).getSize(), Color.White, Color.Black)
+                    Else
+                        componentLabel(index).ForeColor = Color.Black
+                    End If
+                Else
+                    componentImage(index).Image = Nothing
+                    componentImage(index).BackColor = Color.Transparent
+                    componentLabel(index).Text = Nothing
+                End If
+            Next
+        Else
+            lblCraftName.Text = Nothing
+            picCraftPic.Image = Nothing
+            lblCraftStats.Text = Nothing
+            For Each picture In componentImage
+                picture.Image = Nothing
+            Next
+            For Each label In componentLabel
+                label.Text = Nothing
+            Next
+        End If
+    End Sub
+
+    Private Sub pnlCraftButton(sender As Object, e As EventArgs) Handles btnCrafting.Click
+        Player.player.craftItem(selectedCraftingItem)
     End Sub
 End Class
