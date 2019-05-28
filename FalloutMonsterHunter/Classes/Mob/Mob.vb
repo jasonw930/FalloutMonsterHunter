@@ -29,7 +29,7 @@
         mobRaptor2.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
         mobRaptor2.dropAmount = {6, 6, 6, 1.2, 1.2}
 
-        mobRaptor3 = New Mob("Uzirappter", 450, 40, 130, 10, My.Resources.uziCartiBigBaller)
+        mobRaptor3 = New Mob("Uzirappter", 350, 70, 110, 10, My.Resources.uziCartiBigBaller)
         mobRaptor3.dropItems = {Item.itemRaptorClaws3, Item.itemRaptorHide3, Item.itemRaptorBone3, Item.itemRaptorSkull3, Item.itemRaptorTail3}
         mobRaptor3.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
         mobRaptor3.dropAmount = {6, 6, 6, 1.2, 1.2}

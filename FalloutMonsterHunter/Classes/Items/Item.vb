@@ -46,11 +46,6 @@
         itemRaptorSkull3 = New Item("Uzirappter Skull", 3, My.Resources.uziCartiBigBaller)
         itemRaptorTail3 = New Item("Uzirappter Tail", 3, My.Resources.uziCartiBigBaller)
 
-        allCraftables(5) = itemRaptorClaws1
-        allCraftables(6) = itemRaptorClaws1
-        allCraftables(7) = itemRaptorClaws1
-        allCraftables(8) = itemRaptorClaws1
-
         'allCraftables = New Item(30)
     End Sub
 

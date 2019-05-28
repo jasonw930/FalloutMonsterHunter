@@ -83,7 +83,7 @@ Public Class Player
         Me.attack += If(TypeOf equippedWeapon.getItem() Is ItemWeapon, DirectCast(equippedWeapon.getItem(), ItemWeapon).getDamage, 0)
 
         Me.critChance = 5
-        Me.attack += If(TypeOf equippedWeapon.getItem() Is ItemWeapon, DirectCast(equippedWeapon.getItem(), ItemWeapon).getCritChance, 0)
+        Me.critChance += If(TypeOf equippedWeapon.getItem() Is ItemWeapon, DirectCast(equippedWeapon.getItem(), ItemWeapon).getCritChance, 0)
 
         Me.luck = 0
 
@@ -181,7 +181,6 @@ Public Class Player
                     inventorySlotLabels(slotCount) = newLabel
                 Else ' already initiated
                     If Player.player.inventory(slotCount).getItem().getItemName().Equals("nil") Then
-                        Console.WriteLine("itemNull")
                         inventorySlotLabels(slotCount).Text = ""
                         inventorySlotPicBox(slotCount).Image = Nothing
                         inventorySlotPicBox(slotCount).Refresh()
@@ -202,9 +201,21 @@ Public Class Player
             For Each pictBx As PictureBox In inventorySlotPicBox
                 AddHandler pictBx.MouseDoubleClick, AddressOf inventorSlot_MouseDoubleClick
             Next
+
+            AddHandler frmMain.picSlotHelmet.MouseDoubleClick, AddressOf unequipItem
+            AddHandler frmMain.picSlotChestplate.MouseDoubleClick, AddressOf unequipItem
+            AddHandler frmMain.picSlotLeggings.MouseDoubleClick, AddressOf unequipItem
+            AddHandler frmMain.picSlotBoots.MouseDoubleClick, AddressOf unequipItem
+            AddHandler frmMain.picSlotWeapon.MouseDoubleClick, AddressOf unequipItem
         End If
 
         inventoryUninitiated = False
+
+        frmMain.picSlotHelmet.Image = If(Me.equippedArmor0.getItem() IsNot Item.itemNull, Me.equippedArmor0.getItem().getItemSprite(), Nothing)
+        frmMain.picSlotChestplate.Image = If(Me.equippedArmor1.getItem() IsNot Item.itemNull, Me.equippedArmor1.getItem().getItemSprite(), Nothing)
+        frmMain.picSlotLeggings.Image = If(Me.equippedArmor2.getItem() IsNot Item.itemNull, Me.equippedArmor2.getItem().getItemSprite(), Nothing)
+        frmMain.picSlotBoots.Image = If(Me.equippedArmor3.getItem() IsNot Item.itemNull, Me.equippedArmor3.getItem().getItemSprite(), Nothing)
+        frmMain.picSlotWeapon.Image = If(Me.equippedWeapon.getItem() IsNot Item.itemNull, Me.equippedWeapon.getItem().getItemSprite(), Nothing)
 
     End Sub
 
@@ -215,10 +226,11 @@ Public Class Player
             Dim previousItem As ItemStack
 
             If TypeOf Me.inventory(pos).getItem Is ItemArmor Then
-                Select Case DirectCast(Me.inventory(pos).getItem, ItemArmor).getArmorPos
+                Select Case DirectCast(Me.inventory(pos).getItem(), ItemArmor).getArmorPos()
                     Case 0
                         previousItem = Me.equippedArmor0
                         Me.equippedArmor0 = Me.inventory(pos)
+
                         Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
                         Me.addItemToInventory(previousItem)
                     Case 1
@@ -250,7 +262,31 @@ Public Class Player
         Me.updateInventoryVisuals()
     End Sub
 
-    Public Sub craftItem(item As Item)
+    Public Sub unequipItem(sender As Object, e As EventArgs)
+        Select Case sender.Name
+            Case "picSlotHelmet"
+                Me.addItemToInventory(Me.equippedArmor0)
+                Me.equippedArmor0 = New ItemStack(Item.itemNull, 1)
+            Case "picSlotChestplate"
+                Me.addItemToInventory(Me.equippedArmor1)
+                Me.equippedArmor1 = New ItemStack(Item.itemNull, 1)
+            Case "picSlotLeggings"
+                Me.addItemToInventory(Me.equippedArmor2)
+                Me.equippedArmor2 = New ItemStack(Item.itemNull, 1)
+            Case "picSlotBoots"
+                Me.addItemToInventory(Me.equippedArmor3)
+                Me.equippedArmor3 = New ItemStack(Item.itemNull, 1)
+            Case "picSlotWeapon"
+                Me.addItemToInventory(Me.equippedWeapon)
+                Me.equippedWeapon = New ItemStack(Item.itemNull, 1)
+        End Select
+
+        Me.updateStats()
+        Me.condenseInventory()
+        Me.updateInventoryVisuals()
+    End Sub
+
+    Public Function craftItem(item As Item)
         Dim possible As Boolean = True
 
         If TypeOf item Is ItemArmor Then
@@ -295,7 +331,9 @@ Public Class Player
 
         Me.condenseInventory()
         Me.updateInventoryVisuals()
-    End Sub
+
+        return possible
+    End Function
 
     Public Sub inventorSlot_MouseDoubleClick(sender As Object, e As EventArgs)
         equipItem(sender.name.Substring(10))

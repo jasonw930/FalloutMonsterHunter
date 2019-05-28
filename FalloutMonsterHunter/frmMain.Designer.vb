@@ -99,7 +99,9 @@ Partial Class frmMain
         Me.picFader2 = New System.Windows.Forms.PictureBox()
         Me.picFader = New System.Windows.Forms.PictureBox()
         Me.pnlCraftingMenu = New System.Windows.Forms.Panel()
+        Me.lblCloseCrafting = New System.Windows.Forms.Label()
         Me.pnlCraftingItem = New System.Windows.Forms.Panel()
+        Me.btnCraftEquipment = New System.Windows.Forms.Button()
         Me.picComponent4 = New System.Windows.Forms.PictureBox()
         Me.lblCraftingComponent4 = New System.Windows.Forms.Label()
         Me.picComponent3 = New System.Windows.Forms.PictureBox()
@@ -122,8 +124,6 @@ Partial Class frmMain
         Me.pnlCraftNegativeOne = New System.Windows.Forms.Panel()
         Me.picCraft0 = New System.Windows.Forms.PictureBox()
         Me.lblCraft0 = New System.Windows.Forms.Label()
-        Me.btnCraftEquipment = New System.Windows.Forms.Button()
-        Me.lblCloseCrafting = New System.Windows.Forms.Label()
         Me.pnlIntro.SuspendLayout()
         CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picIntro.SuspendLayout()
@@ -1004,6 +1004,19 @@ Partial Class frmMain
         Me.pnlCraftingMenu.Size = New System.Drawing.Size(1000, 750)
         Me.pnlCraftingMenu.TabIndex = 7
         '
+        'lblCloseCrafting
+        '
+        Me.lblCloseCrafting.AutoSize = True
+        Me.lblCloseCrafting.BackColor = System.Drawing.Color.DarkGray
+        Me.lblCloseCrafting.Font = New System.Drawing.Font("Courier New", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCloseCrafting.ForeColor = System.Drawing.Color.White
+        Me.lblCloseCrafting.Location = New System.Drawing.Point(933, 20)
+        Me.lblCloseCrafting.Name = "lblCloseCrafting"
+        Me.lblCloseCrafting.Size = New System.Drawing.Size(42, 43)
+        Me.lblCloseCrafting.TabIndex = 31
+        Me.lblCloseCrafting.Text = "X"
+        Me.lblCloseCrafting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'pnlCraftingItem
         '
         Me.pnlCraftingItem.BackColor = System.Drawing.Color.DarkGray
@@ -1021,6 +1034,21 @@ Partial Class frmMain
         Me.pnlCraftingItem.Size = New System.Drawing.Size(370, 540)
         Me.pnlCraftingItem.TabIndex = 3
         '
+        'btnCraftEquipment
+        '
+        Me.btnCraftEquipment.BackColor = System.Drawing.Color.Gainsboro
+        Me.btnCraftEquipment.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnCraftEquipment.FlatAppearance.BorderSize = 0
+        Me.btnCraftEquipment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCraftEquipment.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCraftEquipment.ForeColor = System.Drawing.Color.Black
+        Me.btnCraftEquipment.Location = New System.Drawing.Point(243, 461)
+        Me.btnCraftEquipment.Name = "btnCraftEquipment"
+        Me.btnCraftEquipment.Size = New System.Drawing.Size(72, 30)
+        Me.btnCraftEquipment.TabIndex = 13
+        Me.btnCraftEquipment.Text = "craft"
+        Me.btnCraftEquipment.UseVisualStyleBackColor = False
+        '
         'picComponent4
         '
         Me.picComponent4.Controls.Add(Me.lblCraftingComponent4)
@@ -1034,6 +1062,7 @@ Partial Class frmMain
         'lblCraftingComponent4
         '
         Me.lblCraftingComponent4.AutoSize = True
+        Me.lblCraftingComponent4.BackColor = System.Drawing.Color.Transparent
         Me.lblCraftingComponent4.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCraftingComponent4.Location = New System.Drawing.Point(43, 52)
         Me.lblCraftingComponent4.Name = "lblCraftingComponent4"
@@ -1055,6 +1084,7 @@ Partial Class frmMain
         'lblCraftingComponent3
         '
         Me.lblCraftingComponent3.AutoSize = True
+        Me.lblCraftingComponent3.BackColor = System.Drawing.Color.Transparent
         Me.lblCraftingComponent3.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCraftingComponent3.Location = New System.Drawing.Point(43, 52)
         Me.lblCraftingComponent3.Name = "lblCraftingComponent3"
@@ -1076,6 +1106,7 @@ Partial Class frmMain
         'lblCraftingComponent2
         '
         Me.lblCraftingComponent2.AutoSize = True
+        Me.lblCraftingComponent2.BackColor = System.Drawing.Color.Transparent
         Me.lblCraftingComponent2.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCraftingComponent2.Location = New System.Drawing.Point(43, 52)
         Me.lblCraftingComponent2.Name = "lblCraftingComponent2"
@@ -1097,6 +1128,7 @@ Partial Class frmMain
         'lblCraftingComponent1
         '
         Me.lblCraftingComponent1.AutoSize = True
+        Me.lblCraftingComponent1.BackColor = System.Drawing.Color.Transparent
         Me.lblCraftingComponent1.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCraftingComponent1.Location = New System.Drawing.Point(43, 52)
         Me.lblCraftingComponent1.Name = "lblCraftingComponent1"
@@ -1118,6 +1150,7 @@ Partial Class frmMain
         'lblCraftingComponent0
         '
         Me.lblCraftingComponent0.AutoSize = True
+        Me.lblCraftingComponent0.BackColor = System.Drawing.Color.Transparent
         Me.lblCraftingComponent0.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCraftingComponent0.ForeColor = System.Drawing.Color.White
         Me.lblCraftingComponent0.Location = New System.Drawing.Point(43, 52)
@@ -1253,34 +1286,6 @@ Partial Class frmMain
         Me.lblCraft0.TabIndex = 1
         Me.lblCraft0.Text = "Unpheasant Chestplate"
         Me.lblCraft0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'btnCraftEquipment
-        '
-        Me.btnCraftEquipment.BackColor = System.Drawing.Color.Gainsboro
-        Me.btnCraftEquipment.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnCraftEquipment.FlatAppearance.BorderSize = 0
-        Me.btnCraftEquipment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCraftEquipment.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCraftEquipment.ForeColor = System.Drawing.Color.Black
-        Me.btnCraftEquipment.Location = New System.Drawing.Point(243, 461)
-        Me.btnCraftEquipment.Name = "btnCraftEquipment"
-        Me.btnCraftEquipment.Size = New System.Drawing.Size(72, 30)
-        Me.btnCraftEquipment.TabIndex = 13
-        Me.btnCraftEquipment.Text = "craft"
-        Me.btnCraftEquipment.UseVisualStyleBackColor = False
-        '
-        'lblCloseCrafting
-        '
-        Me.lblCloseCrafting.AutoSize = True
-        Me.lblCloseCrafting.BackColor = System.Drawing.Color.DarkGray
-        Me.lblCloseCrafting.Font = New System.Drawing.Font("Courier New", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCloseCrafting.ForeColor = System.Drawing.Color.White
-        Me.lblCloseCrafting.Location = New System.Drawing.Point(933, 20)
-        Me.lblCloseCrafting.Name = "lblCloseCrafting"
-        Me.lblCloseCrafting.Size = New System.Drawing.Size(42, 43)
-        Me.lblCloseCrafting.TabIndex = 31
-        Me.lblCloseCrafting.Text = "X"
-        Me.lblCloseCrafting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmMain
         '

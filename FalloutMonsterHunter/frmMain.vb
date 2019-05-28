@@ -20,6 +20,7 @@
 
     Dim cheatSkipCutscene As Boolean
     Dim cheatFastFight As Boolean
+    Dim cheatGodMode As Boolean
 
     Dim craftingMenuItems As New List(Of Panel)
     Dim selectedCraftingItem As Item
@@ -71,6 +72,8 @@
 
         cheatSkipCutscene = False
         cheatFastFight = False
+        cheatGodMode = False
+
 
         ' note: '|' stands for Player.player.playerName; replaced at runtime of the line, so we don't affix the Player.player.playerName before user inputs it
         ' the transitions/continue to next line methods are: 
@@ -216,6 +219,7 @@
 
             'Player Attack
             attackValue = (player.attack - mob.defense) * If(Rnd() <= player.critChance / 100, 2, 1)
+            attackValue += If(cheatGodMode, 9001, 0)
             mob.currentHealth -= attackValue
             Console.WriteLine(mob.currentHealth & " is Raptor's health")
 
@@ -334,12 +338,9 @@
                 Player.player.playerName = txtUserIn.Text
 
                 'Player Cheats Enable
-                If Player.player.playerName.Contains("skipCutscene") Then
-                    cheatSkipCutscene = True
-                End If
-                If Player.player.playerName.Contains("fastFight") Then
-                    cheatFastFight = True
-                End If
+                cheatSkipCutscene = Player.player.playerName.Contains("skipCutscene") Or Player.player.playerName.Contains("ALL")
+                cheatFastFight = Player.player.playerName.Contains("fastFight") Or Player.player.playerName.Contains("ALL")
+                cheatGodMode = Player.player.playerName.Contains("godMode") Or Player.player.playerName.Contains("ALL")
 
                 txtUserIn.Visible = False
                 lblClickCont.Visible = False
@@ -372,9 +373,57 @@
 
     End Sub
 
-
-
-
+    Private Sub updateCraftability()
+        If TypeOf selectedCraftingItem Is ItemArmor Then
+            Dim craftItem As ItemArmor = DirectCast(selectedCraftingItem, ItemArmor)
+            lblCraftStats.Text = "Health +" & craftItem.getBonusHealth().ToString() & vbCrLf & vbCrLf & "Defence +" & craftItem.getDefence().ToString() & vbCrLf & vbCrLf & "Luck: +0"
+            For index As Integer = 0 To 4
+                If index < craftItem.craftingComponents.Length Then
+                    componentImage(index).Image = craftItem.craftingComponents(index).getItem().getItemSprite()
+                    componentLabel(index).Text = "x" & craftItem.craftingComponents(index).getSize()
+                    If Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem()) > -1 Then
+                        componentLabel(index).ForeColor = If(Player.player.inventory(Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem())).getSize() >= craftItem.craftingComponents(index).getSize(), Color.White, Color.Black)
+                    Else
+                        componentLabel(index).ForeColor = Color.Black
+                    End If
+                Else
+                    componentImage(index).Image = Nothing
+                    componentImage(index).BackColor = Color.Transparent
+                    componentLabel(index).Text = Nothing
+                End If
+            Next
+            picCraftPic.Image = craftItem.getItemSprite()
+        ElseIf TypeOf selectedCraftingItem Is ItemWeapon Then
+            Dim craftItem As ItemWeapon = DirectCast(selectedCraftingItem, ItemWeapon)
+            lblCraftStats.Text = "Attack +" & craftItem.getDamage().ToString() & vbCrLf & vbCrLf & "Criticals +" & craftItem.getCritChance().ToString()
+            For index As Integer = 0 To 4
+                If index < craftItem.craftingComponents.Length Then
+                    componentImage(index).Image = craftItem.craftingComponents(index).getItem().getItemSprite()
+                    componentLabel(index).Text = "x" & craftItem.craftingComponents(index).getSize()
+                    If Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem()) > -1 Then
+                        componentLabel(index).ForeColor = If(Player.player.inventory(Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem())).getSize() >= craftItem.craftingComponents(index).getSize(), Color.White, Color.Black)
+                    Else
+                        componentLabel(index).ForeColor = Color.Black
+                    End If
+                Else
+                    componentImage(index).Image = Nothing
+                    componentImage(index).BackColor = Color.Transparent
+                    componentLabel(index).Text = Nothing
+                End If
+            Next
+            picCraftPic.Image = craftItem.getItemSprite()
+        Else
+            lblCraftName.Text = Nothing
+            picCraftPic.Image = Nothing
+            lblCraftStats.Text = Nothing
+            For Each picture In componentImage
+                picture.Image = Nothing
+            Next
+            For Each label In componentLabel
+                label.Text = Nothing
+            Next
+        End If
+    End Sub
 
     'Event Handles---------------------------------------------------------------------------------------
 
@@ -434,6 +483,7 @@
 
     Private Sub btnCrafting_Click(sender As Object, e As EventArgs) Handles btnCrafting.Click
         transition(pnlCraftingMenu)
+        updateCraftability()
     End Sub
 
     Private Sub scrlCraftingList_Scroll(sender As Object, e As ScrollEventArgs) Handles scrlCraftingList.Scroll
@@ -443,59 +493,17 @@
     Private Sub pnlCraftItem_Click(sender As Object, e As EventArgs)
         selectedCraftingItem = Item.allCraftables(CInt(sender.name.SubString(8)))
         lblCraftName.Text = selectedCraftingItem.getItemName()
-
-        If TypeOf selectedCraftingItem Is ItemArmor Then
-            Dim craftItem As ItemArmor = DirectCast(selectedCraftingItem, ItemArmor)
-            lblCraftStats.Text = "Health +" & craftItem.getBonusHealth().ToString() & vbCrLf & vbCrLf & "Defence +" & craftItem.getDefence().ToString() & vbCrLf & vbCrLf & "Luck: +0"
-            For index As Integer = 0 To 4
-                If index < craftItem.craftingComponents.Length Then
-                    componentImage(index).Image = craftItem.craftingComponents(index).getItem().getItemSprite()
-                    componentLabel(index).Text = "x" & craftItem.craftingComponents(index).getSize()
-                    If Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem()) > -1 Then
-                        componentLabel(index).ForeColor = If(Player.player.inventory(Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem())).getSize() >= craftItem.craftingComponents(index).getSize(), Color.White, Color.Black)
-                    Else
-                        componentLabel(index).ForeColor = Color.Black
-                    End If
-                Else
-                    componentImage(index).Image = Nothing
-                    componentImage(index).BackColor = Color.Transparent
-                    componentLabel(index).Text = Nothing
-                End If
-            Next
-        ElseIf TypeOf selectedCraftingItem Is ItemWeapon Then
-            Dim craftItem As ItemWeapon = DirectCast(selectedCraftingItem, ItemWeapon)
-            lblCraftStats.Text = "Attack +" & craftItem.getDamage().ToString() & vbCrLf & vbCrLf & "Criticals +" & craftItem.getCritChance().ToString()
-            For index As Integer = 0 To 4
-                If index < craftItem.craftingComponents.Length Then
-                    componentImage(index).Image = craftItem.craftingComponents(index).getItem().getItemSprite()
-                    componentLabel(index).Text = "x" & craftItem.craftingComponents(index).getSize()
-                    If Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem()) > -1 Then
-                        componentLabel(index).ForeColor = If(Player.player.inventory(Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem())).getSize() >= craftItem.craftingComponents(index).getSize(), Color.White, Color.Black)
-                    Else
-                        componentLabel(index).ForeColor = Color.Black
-                    End If
-                Else
-                    componentImage(index).Image = Nothing
-                    componentImage(index).BackColor = Color.Transparent
-                    componentLabel(index).Text = Nothing
-                End If
-            Next
-        Else
-            lblCraftName.Text = Nothing
-            picCraftPic.Image = Nothing
-            lblCraftStats.Text = Nothing
-            For Each picture In componentImage
-                picture.Image = Nothing
-            Next
-            For Each label In componentLabel
-                label.Text = Nothing
-            Next
-        End If
+        updateCraftability()
     End Sub
 
     Private Sub pnlCraftButton(sender As Object, e As EventArgs) Handles btnCraftEquipment.Click
-        Player.player.craftItem(selectedCraftingItem)
-        Console.WriteLine("crafted " & selectedCraftingItem.getItemName())
+        If Player.player.craftItem(selectedCraftingItem) Then
+            Console.WriteLine("crafted " & selectedCraftingItem.getItemName())
+            lblCraftName.Text = "Successfully crafted " & selectedCraftingItem.getItemName()
+            updateCraftability()
+            wait(2250)
+            lblCraftName.Text = selectedCraftingItem.getItemName()
+        End If
     End Sub
 
     Private Sub lblCloseCrafting_Click(sender As Object, e As EventArgs) Handles lblCloseCrafting.Click
