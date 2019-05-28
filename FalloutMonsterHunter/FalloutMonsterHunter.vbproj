@@ -147,6 +147,7 @@
     <None Include="Resources\itemRaptorTail1-InventorySmall.png" />
     <None Include="Resources\fmhRaptorHead1-86Icon-NoGlow.png" />
     <None Include="Resources\Player.png" />
+    <None Include="Resources\Player-Small160.png" />
     <Content Include="Resources\uziCartiBigBaller.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

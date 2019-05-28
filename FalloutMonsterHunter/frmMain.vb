@@ -425,6 +425,8 @@
         transition(currentCity)
     End Sub
 
+
+
     Private Sub btnInventory_Click(sender As Object, e As EventArgs) Handles btnInventory.Click
         transition(pnlInventory)
         Player.player.updateInventoryVisuals()
@@ -491,7 +493,12 @@
         End If
     End Sub
 
-    Private Sub pnlCraftButton(sender As Object, e As EventArgs) Handles btnCrafting.Click
+    Private Sub pnlCraftButton(sender As Object, e As EventArgs) Handles btnCraftEquipment.Click
         Player.player.craftItem(selectedCraftingItem)
+        Console.WriteLine("crafted " & selectedCraftingItem.getItemName())
+    End Sub
+
+    Private Sub lblCloseCrafting_Click(sender As Object, e As EventArgs) Handles lblCloseCrafting.Click
+        transition(currentCity)
     End Sub
 End Class

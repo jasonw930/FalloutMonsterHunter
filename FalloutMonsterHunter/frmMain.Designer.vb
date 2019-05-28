@@ -123,6 +123,7 @@ Partial Class frmMain
         Me.picCraft0 = New System.Windows.Forms.PictureBox()
         Me.lblCraft0 = New System.Windows.Forms.Label()
         Me.btnCraftEquipment = New System.Windows.Forms.Button()
+        Me.lblCloseCrafting = New System.Windows.Forms.Label()
         Me.pnlIntro.SuspendLayout()
         CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picIntro.SuspendLayout()
@@ -856,7 +857,7 @@ Partial Class frmMain
         'pnlPlayer
         '
         Me.pnlPlayer.BackColor = System.Drawing.Color.Transparent
-        Me.pnlPlayer.BackgroundImage = CType(resources.GetObject("pnlPlayer.BackgroundImage"), System.Drawing.Image)
+        Me.pnlPlayer.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.Player_Small160
         Me.pnlPlayer.Location = New System.Drawing.Point(90, 479)
         Me.pnlPlayer.Name = "pnlPlayer"
         Me.pnlPlayer.Size = New System.Drawing.Size(160, 200)
@@ -995,6 +996,7 @@ Partial Class frmMain
         'pnlCraftingMenu
         '
         Me.pnlCraftingMenu.BackColor = System.Drawing.Color.DimGray
+        Me.pnlCraftingMenu.Controls.Add(Me.lblCloseCrafting)
         Me.pnlCraftingMenu.Controls.Add(Me.pnlCraftingItem)
         Me.pnlCraftingMenu.Controls.Add(Me.pnlCraftingList)
         Me.pnlCraftingMenu.Location = New System.Drawing.Point(0, 0)
@@ -1267,6 +1269,19 @@ Partial Class frmMain
         Me.btnCraftEquipment.Text = "craft"
         Me.btnCraftEquipment.UseVisualStyleBackColor = False
         '
+        'lblCloseCrafting
+        '
+        Me.lblCloseCrafting.AutoSize = True
+        Me.lblCloseCrafting.BackColor = System.Drawing.Color.DarkGray
+        Me.lblCloseCrafting.Font = New System.Drawing.Font("Courier New", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCloseCrafting.ForeColor = System.Drawing.Color.White
+        Me.lblCloseCrafting.Location = New System.Drawing.Point(933, 20)
+        Me.lblCloseCrafting.Name = "lblCloseCrafting"
+        Me.lblCloseCrafting.Size = New System.Drawing.Size(42, 43)
+        Me.lblCloseCrafting.TabIndex = 31
+        Me.lblCloseCrafting.Text = "X"
+        Me.lblCloseCrafting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -1346,6 +1361,7 @@ Partial Class frmMain
         CType(Me.picFader2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlCraftingMenu.ResumeLayout(False)
+        Me.pnlCraftingMenu.PerformLayout()
         Me.pnlCraftingItem.ResumeLayout(False)
         CType(Me.picComponent4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picComponent4.ResumeLayout(False)
@@ -1474,4 +1490,5 @@ Partial Class frmMain
     Friend WithEvents lblCraftingComponent4 As Label
     Friend WithEvents picComponent4 As PictureBox
     Friend WithEvents btnCraftEquipment As Button
+    Friend WithEvents lblCloseCrafting As Label
 End Class
