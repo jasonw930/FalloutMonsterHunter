@@ -34,17 +34,17 @@
         itemRaptorSkull1 = New Item("Unpheasant Skull", 1, My.Resources.itemRaptorSkull1_InventorySmall)
         itemRaptorTail1 = New Item("Unpheasant Tail", 1, My.Resources.itemRaptorTail1_InventorySmall)
 
-        itemRaptorClaws2 = New Item("Mutahraptor Claw", 2, My.Resources.uziCartiBigBaller)
-        itemRaptorHide2 = New Item("Mutahraptor Hide", 2, My.Resources.uziCartiBigBaller)
-        itemRaptorBone2 = New Item("Mutahraptor Bone", 2, My.Resources.uziCartiBigBaller)
-        itemRaptorSkull2 = New Item("Mutahraptor Skull", 2, My.Resources.uziCartiBigBaller)
-        itemRaptorTail2 = New Item("Mutahraptor Tail", 2, My.Resources.uziCartiBigBaller)
+        itemRaptorClaws2 = New Item("Mutahraptor Claw", 2, My.Resources.itemRaptorClaws2)
+        itemRaptorHide2 = New Item("Mutahraptor Hide", 2, My.Resources.itemRaptorHide2)
+        itemRaptorBone2 = New Item("Mutahraptor Bone", 2, My.Resources.itemRaptorBone2)
+        itemRaptorSkull2 = New Item("Mutahraptor Skull", 2, My.Resources.itemRaptorSkull2)
+        itemRaptorTail2 = New Item("Mutahraptor Tail", 2, My.Resources.itemRaptorTail2)
 
-        itemRaptorClaws3 = New Item("Uzirappter Claw", 3, My.Resources.uziCartiBigBaller)
-        itemRaptorHide3 = New Item("Uzirappter Hide", 3, My.Resources.uziCartiBigBaller)
-        itemRaptorBone3 = New Item("Uzirappter Bone", 3, My.Resources.uziCartiBigBaller)
-        itemRaptorSkull3 = New Item("Uzirappter Skull", 3, My.Resources.uziCartiBigBaller)
-        itemRaptorTail3 = New Item("Uzirappter Tail", 3, My.Resources.uziCartiBigBaller)
+        itemRaptorClaws3 = New Item("Uzirappter Claw", 3, My.Resources.itemRaptorClaws3)
+        itemRaptorHide3 = New Item("Uzirappter Hide", 3, My.Resources.itemRaptorHide3)
+        itemRaptorBone3 = New Item("Uzirappter Bone", 3, My.Resources.itemRaptorBone3)
+        itemRaptorSkull3 = New Item("Uzirappter Skull", 3, My.Resources.itemRaptorSkull3)
+        itemRaptorTail3 = New Item("Uzirappter Tail", 3, My.Resources.itemRaptorTail3)
 
         'allCraftables = New Item(30)
     End Sub
@@ -78,5 +78,5 @@
 
     Public Function getItemSprite()
         Return Me.itemSprite
-    End Function
+    End Function)
 End Class

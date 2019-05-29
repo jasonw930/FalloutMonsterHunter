@@ -89,10 +89,31 @@ Public Class Player
 
         Me.luck = 0
 
+        If equippedArmor0.getItem().getTier() = equippedArmor1.getItem().getTier() = equippedArmor2.getItem().getTier() =
+            equippedArmor3.getItem().getTier() = equippedWeapon.getItem().getTier() Then
+            Select Case equippedArmor0.getItem().getTier()
+                Case 1
+                    Me.health += 10
+                    Me.defense += 5
+                    Me.attack += 5
+                    Me.critChance += 1
+                Case 2
+                    Me.health += 15
+                    Me.defense += 8
+                    Me.attack += 8
+                    Me.critChance += 2
+                Case 3
+                    Me.health += 20
+                    Me.defense += 10
+                    Me.attack += 10
+                    Me.critChance += 2
+            End Select
+        End If
+
         frmMain.lblStats.Text = "Health: " & Me.health & " HP" & vbCrLf & vbCrLf & vbCrLf & vbCrLf & vbCrLf &
-            "Defense: " & Me.defense & vbCrLf & vbCrLf & vbCrLf & vbCrLf & vbCrLf &
-            "Attack: " & Me.attack & vbCrLf & vbCrLf & vbCrLf & vbCrLf & vbCrLf &
-            "Criticals: " & Me.critChance & "%"
+        "Defense: " & Me.defense & vbCrLf & vbCrLf & vbCrLf & vbCrLf & vbCrLf &
+        "Attack: " & Me.attack & vbCrLf & vbCrLf & vbCrLf & vbCrLf & vbCrLf &
+        "Criticals: " & Me.critChance & "%"
     End Sub
 
     Public Function getPosOfItem(item As Item)
