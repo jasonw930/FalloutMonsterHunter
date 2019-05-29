@@ -105,7 +105,7 @@ Public Class Player
     Public Sub condenseInventory()
         Dim emptySlots As New List(Of Integer)
         For x = 0 To Me.inventory.Count - 1
-            If Me.inventory(x).Equals(Item.itemNull) Then
+            If Me.inventory(x).getItem().Equals(Item.itemNull) Then
                 emptySlots.Add(x)
             ElseIf emptySlots.Count > 0 Then
                 Me.inventory(emptySlots(0)) = Me.inventory(x)
@@ -186,7 +186,7 @@ Public Class Player
                         inventorySlotPicBox(slotCount).Refresh()
                     Else
                         inventorySlotLabels(slotCount).Text = "x" & Player.player.inventory(slotCount).getSize
-                        inventorySlotPicBox(slotCount).Image = Player.player.inventory(slotCount).getItem().getItemSprite()
+                        inventorySlotPicBox(slotCount).Image = frmMain.resizeImage(Player.player.inventory(slotCount).getItem().getItemSprite(), 72, 72)
                         inventorySlotPicBox(slotCount).Refresh()
                     End If
                 End If
@@ -211,11 +211,18 @@ Public Class Player
 
         inventoryUninitiated = False
 
-        frmMain.picSlotHelmet.Image = If(Me.equippedArmor0.getItem() IsNot Item.itemNull, Me.equippedArmor0.getItem().getItemSprite(), Nothing)
-        frmMain.picSlotChestplate.Image = If(Me.equippedArmor1.getItem() IsNot Item.itemNull, Me.equippedArmor1.getItem().getItemSprite(), Nothing)
-        frmMain.picSlotLeggings.Image = If(Me.equippedArmor2.getItem() IsNot Item.itemNull, Me.equippedArmor2.getItem().getItemSprite(), Nothing)
-        frmMain.picSlotBoots.Image = If(Me.equippedArmor3.getItem() IsNot Item.itemNull, Me.equippedArmor3.getItem().getItemSprite(), Nothing)
-        frmMain.picSlotWeapon.Image = If(Me.equippedWeapon.getItem() IsNot Item.itemNull, Me.equippedWeapon.getItem().getItemSprite(), Nothing)
+        frmMain.picSlotHelmet.Image = If(Me.equippedArmor0.getItem() IsNot Item.itemNull, frmMain.resizeImage(Me.equippedArmor0.getItem().getItemSprite(), 72, 72), Nothing)
+        frmMain.picSlotChestplate.Image = If(Me.equippedArmor1.getItem() IsNot Item.itemNull, frmMain.resizeImage(Me.equippedArmor1.getItem().getItemSprite(), 72, 72), Nothing)
+        frmMain.picSlotLeggings.Image = If(Me.equippedArmor2.getItem() IsNot Item.itemNull, frmMain.resizeImage(Me.equippedArmor2.getItem().getItemSprite(), 72, 72), Nothing)
+        frmMain.picSlotBoots.Image = If(Me.equippedArmor3.getItem() IsNot Item.itemNull, frmMain.resizeImage(Me.equippedArmor3.getItem().getItemSprite(), 72, 72), Nothing)
+        frmMain.picSlotWeapon.Image = If(Me.equippedWeapon.getItem() IsNot Item.itemNull, frmMain.resizeImage(Me.equippedWeapon.getItem().getItemSprite(), 72, 72), Nothing)
+
+        frmMain.picBigHelmet.Image = If(TypeOf Player.player.equippedArmor0.getItem() Is ItemArmor, frmMain.resizeImage(Player.player.equippedArmor0.getItem().getBigDisplaySprite(), 320, 400), Nothing)
+        frmMain.picBigChestplate.Image = If(TypeOf Player.player.equippedArmor1.getItem() Is ItemArmor, frmMain.resizeImage(Player.player.equippedArmor1.getItem().getBigDisplaySprite(), 320, 400), Nothing)
+        frmMain.picBigLeggings.Image = If(TypeOf Player.player.equippedArmor2.getItem() Is ItemArmor, frmMain.resizeImage(Player.player.equippedArmor2.getItem().getBigDisplaySprite(), 320, 400), Nothing)
+        frmMain.picBigBoots.Image = If(TypeOf Player.player.equippedArmor3.getItem() Is ItemArmor, frmMain.resizeImage(Player.player.equippedArmor3.getItem().getBigDisplaySprite(), 320, 400), Nothing)
+        frmMain.picBigWeapon.Image = If(TypeOf Player.player.equippedWeapon.getItem() Is ItemWeapon, frmMain.resizeImage(Player.player.equippedWeapon.getItem().getBigDisplaySprite(), 320, 400), My.Resources.arms)
+        frmMain.pnlPlayerPreview.BackgroundImage = If(TypeOf Player.player.equippedArmor3.getItem() Is ItemArmor, My.Resources.Player_Shoeless, My.Resources.Player)
 
     End Sub
 
@@ -232,28 +239,53 @@ Public Class Player
                         Me.equippedArmor0 = Me.inventory(pos)
 
                         Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
-                        Me.addItemToInventory(previousItem)
+                        If previousItem.getItem() Is Item.itemNull Then
+                            Console.WriteLine("imbalanced")
+                            Me.condenseInventory()
+                        Else
+                            Me.addItemToInventory(previousItem)
+                        End If
                     Case 1
                         previousItem = Me.equippedArmor1
                         Me.equippedArmor1 = Me.inventory(pos)
                         Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
-                        Me.addItemToInventory(previousItem)
+                        If previousItem.getItem() Is Item.itemNull Then
+                            Console.WriteLine("imbalanced")
+                            Me.condenseInventory()
+                        Else
+                            Me.addItemToInventory(previousItem)
+                        End If
                     Case 2
                         previousItem = Me.equippedArmor2
                         Me.equippedArmor2 = Me.inventory(pos)
                         Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
-                        Me.addItemToInventory(previousItem)
+                        If previousItem.getItem() Is Item.itemNull Then
+                            Console.WriteLine("imbalanced")
+                            Me.condenseInventory()
+                        Else
+                            Me.addItemToInventory(previousItem)
+                        End If
                     Case 3
                         previousItem = Me.equippedArmor3
                         Me.equippedArmor3 = Me.inventory(pos)
                         Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
-                        Me.addItemToInventory(previousItem)
+                        If previousItem.getItem() Is Item.itemNull Then
+                            Console.WriteLine("imbalanced")
+                            Me.condenseInventory()
+                        Else
+                            Me.addItemToInventory(previousItem)
+                        End If
                 End Select
             ElseIf TypeOf Me.inventory(pos).getItem Is ItemWeapon Then
                 previousItem = Me.equippedWeapon
                 Me.equippedWeapon = Me.inventory(pos)
                 Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
-                Me.addItemToInventory(previousItem)
+                If previousItem.getItem() Is Item.itemNull Then
+                    Console.WriteLine("imbalanced")
+                    Me.condenseInventory()
+                Else
+                    Me.addItemToInventory(previousItem)
+                End If
             End If
         End If
 

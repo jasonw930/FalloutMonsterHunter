@@ -35,9 +35,13 @@ Partial Class frmMain
         Me.timerMove = New System.Windows.Forms.Timer(Me.components)
         Me.waitTimer = New System.Windows.Forms.Timer(Me.components)
         Me.pnlInventory = New System.Windows.Forms.Panel()
+        Me.pnlPlayerPreview = New System.Windows.Forms.Panel()
+        Me.picBigBoots = New System.Windows.Forms.PictureBox()
+        Me.picBigLeggings = New System.Windows.Forms.PictureBox()
+        Me.picBigChestplate = New System.Windows.Forms.PictureBox()
+        Me.picBigHelmet = New System.Windows.Forms.PictureBox()
         Me.lblStats = New System.Windows.Forms.Label()
         Me.lblExitInventory = New System.Windows.Forms.Label()
-        Me.picPlayerPreview = New System.Windows.Forms.PictureBox()
         Me.picSlotHelmet = New System.Windows.Forms.PictureBox()
         Me.picSlotChestplate = New System.Windows.Forms.PictureBox()
         Me.picSlotLeggings = New System.Windows.Forms.PictureBox()
@@ -87,6 +91,11 @@ Partial Class frmMain
         Me.pnlMob = New System.Windows.Forms.Panel()
         Me.picFighting = New System.Windows.Forms.PictureBox()
         Me.pnlPlayer = New System.Windows.Forms.Panel()
+        Me.picBoots = New System.Windows.Forms.PictureBox()
+        Me.picLeggings = New System.Windows.Forms.PictureBox()
+        Me.picChestplate = New System.Windows.Forms.PictureBox()
+        Me.picHelmet = New System.Windows.Forms.PictureBox()
+        Me.picWeapon = New System.Windows.Forms.PictureBox()
         Me.pnlFujiCity = New System.Windows.Forms.Panel()
         Me.btnFightUnpheasantRaptor = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -124,13 +133,21 @@ Partial Class frmMain
         Me.pnlCraftNegativeOne = New System.Windows.Forms.Panel()
         Me.picCraft0 = New System.Windows.Forms.PictureBox()
         Me.lblCraft0 = New System.Windows.Forms.Label()
+        Me.picBigWeapon = New System.Windows.Forms.PictureBox()
         Me.pnlIntro.SuspendLayout()
         CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picIntro.SuspendLayout()
         Me.pnlDialog.SuspendLayout()
         Me.lblDialog.SuspendLayout()
         Me.pnlInventory.SuspendLayout()
-        CType(Me.picPlayerPreview, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlPlayerPreview.SuspendLayout()
+        CType(Me.picBigBoots, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picBigBoots.SuspendLayout()
+        CType(Me.picBigLeggings, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picBigLeggings.SuspendLayout()
+        CType(Me.picBigChestplate, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picBigChestplate.SuspendLayout()
+        CType(Me.picBigHelmet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picSlotHelmet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picSlotChestplate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picSlotLeggings, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,6 +188,16 @@ Partial Class frmMain
         CType(Me.picDrop0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFighting, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picFighting.SuspendLayout()
+        Me.pnlPlayer.SuspendLayout()
+        CType(Me.picBoots, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picBoots.SuspendLayout()
+        CType(Me.picLeggings, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picLeggings.SuspendLayout()
+        CType(Me.picChestplate, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picChestplate.SuspendLayout()
+        CType(Me.picHelmet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picHelmet.SuspendLayout()
+        CType(Me.picWeapon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlFujiCity.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMainMenu.SuspendLayout()
@@ -197,6 +224,7 @@ Partial Class frmMain
         Me.pnlCraftingList.SuspendLayout()
         Me.pnlCraftNegativeOne.SuspendLayout()
         CType(Me.picCraft0, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBigWeapon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlIntro
@@ -301,9 +329,9 @@ Partial Class frmMain
         'pnlInventory
         '
         Me.pnlInventory.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.pnlInventory
+        Me.pnlInventory.Controls.Add(Me.pnlPlayerPreview)
         Me.pnlInventory.Controls.Add(Me.lblStats)
         Me.pnlInventory.Controls.Add(Me.lblExitInventory)
-        Me.pnlInventory.Controls.Add(Me.picPlayerPreview)
         Me.pnlInventory.Controls.Add(Me.picSlotHelmet)
         Me.pnlInventory.Controls.Add(Me.picSlotChestplate)
         Me.pnlInventory.Controls.Add(Me.picSlotLeggings)
@@ -333,10 +361,60 @@ Partial Class frmMain
         Me.pnlInventory.Controls.Add(Me.picInvSlot16)
         Me.pnlInventory.Controls.Add(Me.picInvSlot8)
         Me.pnlInventory.Controls.Add(Me.picInvSlot0)
-        Me.pnlInventory.Location = New System.Drawing.Point(895, 76)
+        Me.pnlInventory.Location = New System.Drawing.Point(0, 0)
         Me.pnlInventory.Name = "pnlInventory"
         Me.pnlInventory.Size = New System.Drawing.Size(1000, 750)
         Me.pnlInventory.TabIndex = 6
+        '
+        'pnlPlayerPreview
+        '
+        Me.pnlPlayerPreview.BackColor = System.Drawing.Color.Transparent
+        Me.pnlPlayerPreview.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.Player_Shoeless
+        Me.picBigHelmet.Controls.Add(Me.picBigWeapon)
+        Me.pnlPlayerPreview.Controls.Add(Me.picBigBoots)
+        Me.pnlPlayerPreview.Location = New System.Drawing.Point(284, 34)
+        Me.pnlPlayerPreview.Name = "pnlPlayerPreview"
+        Me.pnlPlayerPreview.Size = New System.Drawing.Size(312, 392)
+        Me.pnlPlayerPreview.TabIndex = 33
+        '
+        'picBigBoots
+        '
+        Me.picBigBoots.Controls.Add(Me.picBigLeggings)
+        Me.picBigBoots.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorBoots1
+        Me.picBigBoots.Location = New System.Drawing.Point(0, 0)
+        Me.picBigBoots.Name = "picBigBoots"
+        Me.picBigBoots.Size = New System.Drawing.Size(312, 392)
+        Me.picBigBoots.TabIndex = 0
+        Me.picBigBoots.TabStop = False
+        '
+        'picBigLeggings
+        '
+        Me.picBigLeggings.Controls.Add(Me.picBigChestplate)
+        Me.picBigLeggings.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorLeggings1
+        Me.picBigLeggings.Location = New System.Drawing.Point(0, 0)
+        Me.picBigLeggings.Name = "picBigLeggings"
+        Me.picBigLeggings.Size = New System.Drawing.Size(312, 392)
+        Me.picBigLeggings.TabIndex = 1
+        Me.picBigLeggings.TabStop = False
+        '
+        'picBigChestplate
+        '
+        Me.picBigChestplate.Controls.Add(Me.picBigHelmet)
+        Me.picBigChestplate.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorChestplate1
+        Me.picBigChestplate.Location = New System.Drawing.Point(0, 0)
+        Me.picBigChestplate.Name = "picBigChestplate"
+        Me.picBigChestplate.Size = New System.Drawing.Size(312, 392)
+        Me.picBigChestplate.TabIndex = 2
+        Me.picBigChestplate.TabStop = False
+        '
+        'picBigHelmet
+        '
+        Me.picBigHelmet.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorHelmet1
+        Me.picBigHelmet.Location = New System.Drawing.Point(0, 0)
+        Me.picBigHelmet.Name = "picBigHelmet"
+        Me.picBigHelmet.Size = New System.Drawing.Size(312, 392)
+        Me.picBigHelmet.TabIndex = 3
+        Me.picBigHelmet.TabStop = False
         '
         'lblStats
         '
@@ -362,16 +440,6 @@ Partial Class frmMain
         Me.lblExitInventory.TabIndex = 30
         Me.lblExitInventory.Text = "X"
         Me.lblExitInventory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'picPlayerPreview
-        '
-        Me.picPlayerPreview.BackColor = System.Drawing.Color.Transparent
-        Me.picPlayerPreview.Image = Global.FalloutMonsterHunter.My.Resources.Resources.Player
-        Me.picPlayerPreview.Location = New System.Drawing.Point(284, 34)
-        Me.picPlayerPreview.Name = "picPlayerPreview"
-        Me.picPlayerPreview.Size = New System.Drawing.Size(312, 392)
-        Me.picPlayerPreview.TabIndex = 29
-        Me.picPlayerPreview.TabStop = False
         '
         'picSlotHelmet
         '
@@ -659,7 +727,7 @@ Partial Class frmMain
         Me.pnlFight.Controls.Add(Me.pnlDropMenu)
         Me.pnlFight.Controls.Add(Me.pnlMob)
         Me.pnlFight.Controls.Add(Me.picFighting)
-        Me.pnlFight.Location = New System.Drawing.Point(815, 180)
+        Me.pnlFight.Location = New System.Drawing.Point(0, 0)
         Me.pnlFight.Name = "pnlFight"
         Me.pnlFight.Size = New System.Drawing.Size(1000, 750)
         Me.pnlFight.TabIndex = 5
@@ -857,11 +925,66 @@ Partial Class frmMain
         'pnlPlayer
         '
         Me.pnlPlayer.BackColor = System.Drawing.Color.Transparent
-        Me.pnlPlayer.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.Player_Small160
+        Me.pnlPlayer.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.Player_Shoeless_Small160
+        Me.pnlPlayer.Controls.Add(Me.picBoots)
         Me.pnlPlayer.Location = New System.Drawing.Point(90, 479)
         Me.pnlPlayer.Name = "pnlPlayer"
         Me.pnlPlayer.Size = New System.Drawing.Size(160, 200)
         Me.pnlPlayer.TabIndex = 2
+        '
+        'picBoots
+        '
+        Me.picBoots.BackColor = System.Drawing.Color.Transparent
+        Me.picBoots.Controls.Add(Me.picLeggings)
+        Me.picBoots.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorBoots1_Small160
+        Me.picBoots.Location = New System.Drawing.Point(0, 0)
+        Me.picBoots.Name = "picBoots"
+        Me.picBoots.Size = New System.Drawing.Size(160, 200)
+        Me.picBoots.TabIndex = 0
+        Me.picBoots.TabStop = False
+        '
+        'picLeggings
+        '
+        Me.picLeggings.BackColor = System.Drawing.Color.Transparent
+        Me.picLeggings.Controls.Add(Me.picChestplate)
+        Me.picLeggings.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorLeggings1_Small160
+        Me.picLeggings.Location = New System.Drawing.Point(0, 0)
+        Me.picLeggings.Name = "picLeggings"
+        Me.picLeggings.Size = New System.Drawing.Size(160, 200)
+        Me.picLeggings.TabIndex = 1
+        Me.picLeggings.TabStop = False
+        '
+        'picChestplate
+        '
+        Me.picChestplate.BackColor = System.Drawing.Color.Transparent
+        Me.picChestplate.Controls.Add(Me.picHelmet)
+        Me.picChestplate.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorChestplate1_Small160
+        Me.picChestplate.Location = New System.Drawing.Point(0, 0)
+        Me.picChestplate.Name = "picChestplate"
+        Me.picChestplate.Size = New System.Drawing.Size(160, 200)
+        Me.picChestplate.TabIndex = 1
+        Me.picChestplate.TabStop = False
+        '
+        'picHelmet
+        '
+        Me.picHelmet.BackColor = System.Drawing.Color.Transparent
+        Me.picHelmet.Controls.Add(Me.picWeapon)
+        Me.picHelmet.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorHelmet1_Small160
+        Me.picHelmet.Location = New System.Drawing.Point(0, 0)
+        Me.picHelmet.Name = "picHelmet"
+        Me.picHelmet.Size = New System.Drawing.Size(160, 200)
+        Me.picHelmet.TabIndex = 1
+        Me.picHelmet.TabStop = False
+        '
+        'picWeapon
+        '
+        Me.picWeapon.BackColor = System.Drawing.Color.Transparent
+        Me.picWeapon.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorWeapon1_Small160
+        Me.picWeapon.Location = New System.Drawing.Point(0, 0)
+        Me.picWeapon.Name = "picWeapon"
+        Me.picWeapon.Size = New System.Drawing.Size(160, 200)
+        Me.picWeapon.TabIndex = 1
+        Me.picWeapon.TabStop = False
         '
         'pnlFujiCity
         '
@@ -999,7 +1122,7 @@ Partial Class frmMain
         Me.pnlCraftingMenu.Controls.Add(Me.lblCloseCrafting)
         Me.pnlCraftingMenu.Controls.Add(Me.pnlCraftingItem)
         Me.pnlCraftingMenu.Controls.Add(Me.pnlCraftingList)
-        Me.pnlCraftingMenu.Location = New System.Drawing.Point(0, 0)
+        Me.pnlCraftingMenu.Location = New System.Drawing.Point(0, 1000)
         Me.pnlCraftingMenu.Name = "pnlCraftingMenu"
         Me.pnlCraftingMenu.Size = New System.Drawing.Size(1000, 750)
         Me.pnlCraftingMenu.TabIndex = 7
@@ -1287,6 +1410,15 @@ Partial Class frmMain
         Me.lblCraft0.Text = "Unpheasant Chestplate"
         Me.lblCraft0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'picBigWeapon
+        '
+        Me.picBigWeapon.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorWeapon1
+        Me.picBigWeapon.Location = New System.Drawing.Point(0, 0)
+        Me.picBigWeapon.Name = "picBigWeapon"
+        Me.picBigWeapon.Size = New System.Drawing.Size(312, 392)
+        Me.picBigWeapon.TabIndex = 4
+        Me.picBigWeapon.TabStop = False
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -1315,7 +1447,14 @@ Partial Class frmMain
         Me.lblDialog.PerformLayout()
         Me.pnlInventory.ResumeLayout(False)
         Me.pnlInventory.PerformLayout()
-        CType(Me.picPlayerPreview, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlPlayerPreview.ResumeLayout(False)
+        CType(Me.picBigBoots, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picBigBoots.ResumeLayout(False)
+        CType(Me.picBigLeggings, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picBigLeggings.ResumeLayout(False)
+        CType(Me.picBigChestplate, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picBigChestplate.ResumeLayout(False)
+        CType(Me.picBigHelmet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picSlotHelmet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picSlotChestplate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picSlotLeggings, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1357,6 +1496,16 @@ Partial Class frmMain
         CType(Me.picDrop0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFighting, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picFighting.ResumeLayout(False)
+        Me.pnlPlayer.ResumeLayout(False)
+        CType(Me.picBoots, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picBoots.ResumeLayout(False)
+        CType(Me.picLeggings, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picLeggings.ResumeLayout(False)
+        CType(Me.picChestplate, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picChestplate.ResumeLayout(False)
+        CType(Me.picHelmet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picHelmet.ResumeLayout(False)
+        CType(Me.picWeapon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlFujiCity.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMainMenu.ResumeLayout(False)
@@ -1390,6 +1539,7 @@ Partial Class frmMain
         Me.pnlCraftingList.ResumeLayout(False)
         Me.pnlCraftNegativeOne.ResumeLayout(False)
         CType(Me.picCraft0, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBigWeapon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1418,7 +1568,6 @@ Partial Class frmMain
     Friend WithEvents timerMove As Timer
     Friend WithEvents waitTimer As Timer
     Friend WithEvents pnlInventory As Panel
-    Friend WithEvents picPlayerPreview As PictureBox
     Friend WithEvents picSlotHelmet As PictureBox
     Friend WithEvents picSlotChestplate As PictureBox
     Friend WithEvents picSlotLeggings As PictureBox
@@ -1496,4 +1645,15 @@ Partial Class frmMain
     Friend WithEvents picComponent4 As PictureBox
     Friend WithEvents btnCraftEquipment As Button
     Friend WithEvents lblCloseCrafting As Label
+    Friend WithEvents picBoots As PictureBox
+    Friend WithEvents picLeggings As PictureBox
+    Friend WithEvents picChestplate As PictureBox
+    Friend WithEvents picHelmet As PictureBox
+    Friend WithEvents picWeapon As PictureBox
+    Friend WithEvents pnlPlayerPreview As Panel
+    Friend WithEvents picBigBoots As PictureBox
+    Friend WithEvents picBigLeggings As PictureBox
+    Friend WithEvents picBigChestplate As PictureBox
+    Friend WithEvents picBigHelmet As PictureBox
+    Friend WithEvents picBigWeapon As PictureBox
 End Class

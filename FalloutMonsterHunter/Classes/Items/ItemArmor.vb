@@ -7,6 +7,8 @@
 
     Private displaySprite As Image
 
+    Private bigDisplaySprite As Image
+
     Public craftingComponents As ItemStack()
 
     Public Shared armorRaptorHelmet1 As ItemArmor
@@ -20,7 +22,7 @@
     Public Shared armorRaptorBoots2 As ItemArmor
 
     Public Overloads Shared Sub initialize()
-        armorRaptorHelmet1 = New ItemArmor("Unpheasant Helmet", 1, My.Resources.uziCartiBigBaller, 6, 5, 0, My.Resources.uziCartiBigBaller)
+        armorRaptorHelmet1 = New ItemArmor("Unpheasant Helmet", 1, My.Resources.raptorHelmet1_256, 6, 5, 0, My.Resources.raptorHelmet1_Small160, My.Resources.raptorHelmet1)
         armorRaptorHelmet1.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws1, 2),
             New ItemStack(Item.itemRaptorHide1, 5),
@@ -28,21 +30,21 @@
             New ItemStack(Item.itemRaptorSkull1, 2)}
         allCraftables(0) = armorRaptorHelmet1
 
-        armorRaptorChestplate1 = New ItemArmor("Unpheasant Chestplate", 1, My.Resources.fmhProtagonistHeadPNG, 10, 5, 1, My.Resources.fmhProtagonistHeadPNG)
+        armorRaptorChestplate1 = New ItemArmor("Unpheasant Chestplate", 1, My.Resources.raptorChestplate1_256, 10, 5, 1, My.Resources.raptorChestplate1_Small160, My.Resources.raptorChestplate1)
         armorRaptorChestplate1.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws1, 3),
             New ItemStack(Item.itemRaptorHide1, 6),
             New ItemStack(Item.itemRaptorBone1, 6)}
         allCraftables(1) = armorRaptorChestplate1
 
-        armorRaptorLeggings1 = New ItemArmor("Unpheasant Leggings", 1, My.Resources.uziCartiBigBaller, 8, 5, 2, My.Resources.uziCartiBigBaller)
+        armorRaptorLeggings1 = New ItemArmor("Unpheasant Leggings", 1, My.Resources.raptorLeggings1_256, 8, 5, 2, My.Resources.raptorLeggings1_Small160, My.Resources.raptorLeggings1)
         armorRaptorLeggings1.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws1, 3),
             New ItemStack(Item.itemRaptorHide1, 6),
             New ItemStack(Item.itemRaptorBone1, 5)}
         allCraftables(2) = armorRaptorLeggings1
 
-        armorRaptorBoots1 = New ItemArmor("Unpheasant Boots", 1, My.Resources.uziCartiBigBaller, 6, 5, 3, My.Resources.uziCartiBigBaller)
+        armorRaptorBoots1 = New ItemArmor("Unpheasant Boots", 1, My.Resources.raptorBoots1_256, 6, 5, 3, My.Resources.raptorBoots1_Small160, My.Resources.raptorBoots1)
         armorRaptorBoots1.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws1, 2),
             New ItemStack(Item.itemRaptorHide1, 5),
@@ -64,13 +66,14 @@
 
     End Sub
 
-    Public Sub New(name As String, tier As Integer, image As Bitmap, defense As Integer, health As Integer, position As Integer, display As Bitmap)
+    Public Sub New(name As String, tier As Integer, image As Bitmap, defense As Integer, health As Integer, position As Integer, display As Bitmap, Optional bigDisplay As Bitmap = Nothing)
         MyBase.New(name, tier, image)
 
         Me.setDefense(defense)
         Me.setBonusHealth(health)
         Me.setArmorPos(position)
         Me.setDisplaySprite(display)
+        Me.setBigDisplaySprite(If(bigDisplay Is Nothing, display, bigDisplay))
     End Sub
 
     Public Sub setDefense(defense As Integer)
@@ -103,5 +106,13 @@
 
     Public Function getDisplaySprite()
         Return Me.displaySprite
+    End Function
+
+    Public Sub setBigDisplaySprite(sprite As Image)
+        Me.bigDisplaySprite = sprite
+    End Sub
+
+    Public Function getBigDisplaySprite()
+        Return Me.bigDisplaySprite
     End Function
 End Class

@@ -6,13 +6,15 @@
 
     Private displaySprite As Image
 
+    Private bigDisplaySprite As Image
+
     Public craftingComponents As ItemStack()
 
     Public Shared weaponRaptorSword1 As ItemWeapon
     Public Shared weaponRaptorSword2 As ItemWeapon
 
-    Overloads Public Shared Sub initialize()
-        weaponRaptorSword1 = New ItemWeapon("Unpheasant Sword", 1, My.Resources.uziCartiBigBaller, 35, 3, My.Resources.uziCartiBigBaller)
+    Public Overloads Shared Sub initialize()
+        weaponRaptorSword1 = New ItemWeapon("Unpheasant Sword", 1, My.Resources.raptorWeapon1_256, 35, 3, My.Resources.raptorWeapon1_Small160, My.Resources.raptorWeapon1)
         weaponRaptorSword1.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws1, 6),
             New ItemStack(Item.itemRaptorHide1, 4),
@@ -23,12 +25,13 @@
         allCraftables(9) = weaponRaptorSword2
     End Sub
 
-    Public Sub New(name As String, tier As Integer, image As Bitmap, damage As Integer, critChance As Integer, display As Bitmap)
+    Public Sub New(name As String, tier As Integer, image As Bitmap, damage As Integer, critChance As Integer, display As Bitmap, Optional bigDisplay As Bitmap = Nothing)
         MyBase.New(name, tier, image)
 
         Me.setDamage(damage)
         Me.setCritChance(critChance)
         Me.setDisplaySprite(display)
+        Me.setBigDisplaySprite(If(bigDisplay Is Nothing, display, bigDisplay))
     End Sub
 
     Public Sub setDamage(damage As Integer)
@@ -53,5 +56,13 @@
 
     Public Function getDisplaySprite()
         Return Me.displaySprite
+    End Function
+
+    Public Sub setBigDisplaySprite(sprite As Image)
+        Me.bigDisplaySprite = sprite
+    End Sub
+
+    Public Function getBigDisplaySprite()
+        Return Me.bigDisplaySprite
     End Function
 End Class

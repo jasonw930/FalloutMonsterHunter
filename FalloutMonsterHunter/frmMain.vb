@@ -29,6 +29,30 @@
     Dim componentLabel As New List(Of Label)
 
     'Form Load--------------------------------------------------------------------------------------------
+    Public Function resizeImage(source As Bitmap, x As Integer, y As Integer)
+        Dim sourceImg As Bitmap
+        sourceImg = source
+
+        If sourceImg.Width = x And sourceImg.Height = y Then
+            Return sourceImg
+        End If
+
+        ' Make a bitmap for the result.
+        Dim resultBitmap As New Bitmap(x, y)
+
+        ' Make a Graphics object for the result Bitmap.
+        Dim resultGraphics As Graphics = Graphics.FromImage(resultBitmap)
+
+        ' Copy the source image into the destination bitmap.
+        resultGraphics.DrawImage(sourceImg, 0, 0,
+        resultBitmap.Width + 1,
+        resultBitmap.Height + 1)
+
+        ' Display the result.
+        Return resultBitmap
+    End Function
+
+
     Private Sub formLoad() Handles Me.Load
         Console.WriteLine("---------------------------------------------")
 
@@ -136,7 +160,7 @@
             newCraftPic.Size = New Point(72, 72)
             newCraftPic.Location = New Point(12, 9)
             newCraftPic.BackColor = Color.Transparent
-            newCraftPic.Image = Item.allCraftables(indixx).getItemSprite()
+            newCraftPic.Image = resizeImage(Item.allCraftables(indixx).getItemSprite(), 72, 72)
             AddHandler newCraftPic.Click, AddressOf pnlCraftItem_Click
             Dim newCraftLbl As New Label
             newPanel.Controls.Add(newCraftLbl)
@@ -152,14 +176,14 @@
 
         Next
 
-        For indixx As Integer = 0 To craftingMenuItems.Count - 1
-            For Each crftPic In craftingMenuItems(indixx).Controls.OfType(Of PictureBox)
-                crftPic.Image = Item.allCraftables(indixx).getItemSprite()
-            Next
-            For Each crftLbl In craftingMenuItems(indixx).Controls.OfType(Of Label)
-                crftLbl.Text = Item.allCraftables(indixx).getItemName()
-            Next
-        Next
+        'For indixx As Integer = 0 To craftingMenuItems.Count - 1
+        '    For Each crftPic In craftingMenuItems(indixx).Controls.OfType(Of PictureBox)
+        '        crftPic.Image = Item.allCraftables(indixx).getItemSprite()
+        '    Next
+        '    For Each crftLbl In craftingMenuItems(indixx).Controls.OfType(Of Label)
+        '        crftLbl.Text = Item.allCraftables(indixx).getItemName()
+        '    Next
+        'Next
 
         selectedCraftingItem = Item.itemNull
 
@@ -212,6 +236,14 @@
         player.updateStats()
         player.currentHealth = player.health
         mob.currentHealth = mob.health
+
+        picHelmet.Image = If(TypeOf Player.player.equippedArmor0.getItem() Is ItemArmor, Player.player.equippedArmor0.getItem().getDisplaySprite(), Nothing)
+        picChestplate.Image = If(TypeOf Player.player.equippedArmor1.getItem() Is ItemArmor, Player.player.equippedArmor1.getItem().getDisplaySprite(), Nothing)
+        picLeggings.Image = If(TypeOf Player.player.equippedArmor2.getItem() Is ItemArmor, Player.player.equippedArmor2.getItem().getDisplaySprite(), Nothing)
+        picBoots.Image = If(TypeOf Player.player.equippedArmor3.getItem() Is ItemArmor, Player.player.equippedArmor3.getItem().getDisplaySprite(), Nothing)
+        picWeapon.Image = If(TypeOf Player.player.equippedWeapon.getItem() Is ItemWeapon, Player.player.equippedWeapon.getItem().getDisplaySprite(), resizeImage(My.Resources.arms, 160, 200))
+        pnlPlayer.BackgroundImage = If(TypeOf Player.player.equippedArmor3.getItem() Is ItemArmor, My.Resources.Player_Shoeless_Small160, My.Resources.Player_Small160)
+
         Do While True
             Randomize()
             Dim attackValue As Integer
@@ -268,7 +300,7 @@
                 Console.WriteLine(itemStack.getSize() & " " & itemStack.getItem().getItemName() & " was dropped")
                 ' update drop menu
                 If amount > 0 Then
-                    dropPics(numDrops).Image = item.getItemSprite()
+                    dropPics(numDrops).Image = resizeImage(item.getItemSprite(), 72, 72)
                     dropLbls(numDrops).Text = "x" & amount.ToString() & " " & item.getItemName()
                     numDrops += 1
                 End If
@@ -451,14 +483,6 @@
         End If
     End Sub
 
-    Private Sub pnlInventory_Click(sender As Object, e As EventArgs) Handles pnlInventory.Click
-        transition(currentCity)
-    End Sub
-
-    Private Sub picInvSlot23_Click() Handles picInvSlot23.Click
-        Player.player.craftItem(ItemArmor.armorRaptorLeggings1)
-    End Sub
-
     Private Sub lblExitDropMenu_Click(sender As Object, e As EventArgs) Handles lblExitDropMenu.Click
         For invisIndex As Integer = 0 To dropPics.Length - 1
             dropPics(invisIndex).Image = Nothing
@@ -466,8 +490,7 @@
         Next
 
         pnlDropMenu.Visible = False
-        transition(pnlInventory)
-        Player.player.updateInventoryVisuals()
+        transition(currentCity)
     End Sub
 
     Private Sub lblExitInventory_Click(sender As Object, e As EventArgs) Handles lblExitInventory.Click
