@@ -30,26 +30,30 @@
 
     'Form Load--------------------------------------------------------------------------------------------
     Public Function resizeImage(source As Bitmap, x As Integer, y As Integer)
-        Dim sourceImg As Bitmap
-        sourceImg = source
+        'Dim sourceImg As Bitmap
+        'sourceImg = source
 
-        If sourceImg.Width = x And sourceImg.Height = y Then
-            Return sourceImg
+        'If sourceImg.Width = x And sourceImg.Height = y Then
+        '    Return sourceImg
+        'End If
+
+        '' Make a bitmap for the result.
+        'Dim resultBitmap As New Bitmap(x, y)
+
+        '' Make a Graphics object for the result Bitmap.
+        'Dim resultGraphics As Graphics = Graphics.FromImage(resultBitmap)
+
+        '' Copy the source image into the destination bitmap.
+        'resultGraphics.DrawImage(sourceImg, 0, 0,
+        'resultBitmap.Width + 1,
+        'resultBitmap.Height + 1)
+
+        '' Display the result.
+        'Return resultBitmap
+        If source.Width = x And source.Height = y Then
+            Return source
         End If
-
-        ' Make a bitmap for the result.
-        Dim resultBitmap As New Bitmap(x, y)
-
-        ' Make a Graphics object for the result Bitmap.
-        Dim resultGraphics As Graphics = Graphics.FromImage(resultBitmap)
-
-        ' Copy the source image into the destination bitmap.
-        resultGraphics.DrawImage(sourceImg, 0, 0,
-        resultBitmap.Width + 1,
-        resultBitmap.Height + 1)
-
-        ' Display the result.
-        Return resultBitmap
+        Return New Bitmap(source, New Size(x, y))
     End Function
 
 
