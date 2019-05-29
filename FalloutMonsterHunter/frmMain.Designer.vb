@@ -35,11 +35,16 @@ Partial Class frmMain
         Me.timerMove = New System.Windows.Forms.Timer(Me.components)
         Me.waitTimer = New System.Windows.Forms.Timer(Me.components)
         Me.pnlInventory = New System.Windows.Forms.Panel()
+        Me.pnlDeletion = New System.Windows.Forms.Panel()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.lblDeleteConfirm = New System.Windows.Forms.Label()
         Me.pnlPlayerPreview = New System.Windows.Forms.Panel()
         Me.picBigBoots = New System.Windows.Forms.PictureBox()
         Me.picBigLeggings = New System.Windows.Forms.PictureBox()
         Me.picBigChestplate = New System.Windows.Forms.PictureBox()
         Me.picBigHelmet = New System.Windows.Forms.PictureBox()
+        Me.picBigWeapon = New System.Windows.Forms.PictureBox()
         Me.lblStats = New System.Windows.Forms.Label()
         Me.lblExitInventory = New System.Windows.Forms.Label()
         Me.picSlotHelmet = New System.Windows.Forms.PictureBox()
@@ -133,13 +138,13 @@ Partial Class frmMain
         Me.pnlCraftNegativeOne = New System.Windows.Forms.Panel()
         Me.picCraft0 = New System.Windows.Forms.PictureBox()
         Me.lblCraft0 = New System.Windows.Forms.Label()
-        Me.picBigWeapon = New System.Windows.Forms.PictureBox()
         Me.pnlIntro.SuspendLayout()
         CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picIntro.SuspendLayout()
         Me.pnlDialog.SuspendLayout()
         Me.lblDialog.SuspendLayout()
         Me.pnlInventory.SuspendLayout()
+        Me.pnlDeletion.SuspendLayout()
         Me.pnlPlayerPreview.SuspendLayout()
         CType(Me.picBigBoots, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picBigBoots.SuspendLayout()
@@ -148,6 +153,8 @@ Partial Class frmMain
         CType(Me.picBigChestplate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picBigChestplate.SuspendLayout()
         CType(Me.picBigHelmet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picBigHelmet.SuspendLayout()
+        CType(Me.picBigWeapon, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picSlotHelmet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picSlotChestplate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picSlotLeggings, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -224,7 +231,6 @@ Partial Class frmMain
         Me.pnlCraftingList.SuspendLayout()
         Me.pnlCraftNegativeOne.SuspendLayout()
         CType(Me.picCraft0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picBigWeapon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlIntro
@@ -329,6 +335,7 @@ Partial Class frmMain
         'pnlInventory
         '
         Me.pnlInventory.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.pnlInventory
+        Me.pnlInventory.Controls.Add(Me.pnlDeletion)
         Me.pnlInventory.Controls.Add(Me.pnlPlayerPreview)
         Me.pnlInventory.Controls.Add(Me.lblStats)
         Me.pnlInventory.Controls.Add(Me.lblExitInventory)
@@ -366,11 +373,62 @@ Partial Class frmMain
         Me.pnlInventory.Size = New System.Drawing.Size(1000, 750)
         Me.pnlInventory.TabIndex = 6
         '
+        'pnlDeletion
+        '
+        Me.pnlDeletion.BackColor = System.Drawing.Color.Silver
+        Me.pnlDeletion.Controls.Add(Me.btnCancel)
+        Me.pnlDeletion.Controls.Add(Me.btnDelete)
+        Me.pnlDeletion.Controls.Add(Me.lblDeleteConfirm)
+        Me.pnlDeletion.Location = New System.Drawing.Point(250, 290)
+        Me.pnlDeletion.Name = "pnlDeletion"
+        Me.pnlDeletion.Size = New System.Drawing.Size(500, 170)
+        Me.pnlDeletion.TabIndex = 34
+        Me.pnlDeletion.Visible = False
+        '
+        'btnCancel
+        '
+        Me.btnCancel.BackColor = System.Drawing.Color.DarkGray
+        Me.btnCancel.FlatAppearance.BorderSize = 0
+        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancel.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.White
+        Me.btnCancel.Location = New System.Drawing.Point(258, 119)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(100, 30)
+        Me.btnCancel.TabIndex = 2
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = False
+        '
+        'btnDelete
+        '
+        Me.btnDelete.BackColor = System.Drawing.Color.DarkGray
+        Me.btnDelete.FlatAppearance.BorderSize = 0
+        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDelete.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.ForeColor = System.Drawing.Color.OrangeRed
+        Me.btnDelete.Location = New System.Drawing.Point(136, 119)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(100, 30)
+        Me.btnDelete.TabIndex = 1
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.UseVisualStyleBackColor = False
+        '
+        'lblDeleteConfirm
+        '
+        Me.lblDeleteConfirm.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDeleteConfirm.ForeColor = System.Drawing.Color.White
+        Me.lblDeleteConfirm.Location = New System.Drawing.Point(0, 0)
+        Me.lblDeleteConfirm.Name = "lblDeleteConfirm"
+        Me.lblDeleteConfirm.Padding = New System.Windows.Forms.Padding(5)
+        Me.lblDeleteConfirm.Size = New System.Drawing.Size(500, 119)
+        Me.lblDeleteConfirm.TabIndex = 0
+        Me.lblDeleteConfirm.Text = "Are you sure you want to delete Unpheasant Tail (x3)?"
+        Me.lblDeleteConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'pnlPlayerPreview
         '
         Me.pnlPlayerPreview.BackColor = System.Drawing.Color.Transparent
         Me.pnlPlayerPreview.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.Player_Shoeless
-        Me.picBigHelmet.Controls.Add(Me.picBigWeapon)
         Me.pnlPlayerPreview.Controls.Add(Me.picBigBoots)
         Me.pnlPlayerPreview.Location = New System.Drawing.Point(284, 34)
         Me.pnlPlayerPreview.Name = "pnlPlayerPreview"
@@ -409,12 +467,22 @@ Partial Class frmMain
         '
         'picBigHelmet
         '
+        Me.picBigHelmet.Controls.Add(Me.picBigWeapon)
         Me.picBigHelmet.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorHelmet1
         Me.picBigHelmet.Location = New System.Drawing.Point(0, 0)
         Me.picBigHelmet.Name = "picBigHelmet"
         Me.picBigHelmet.Size = New System.Drawing.Size(312, 392)
         Me.picBigHelmet.TabIndex = 3
         Me.picBigHelmet.TabStop = False
+        '
+        'picBigWeapon
+        '
+        Me.picBigWeapon.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorWeapon1
+        Me.picBigWeapon.Location = New System.Drawing.Point(0, 0)
+        Me.picBigWeapon.Name = "picBigWeapon"
+        Me.picBigWeapon.Size = New System.Drawing.Size(312, 392)
+        Me.picBigWeapon.TabIndex = 4
+        Me.picBigWeapon.TabStop = False
         '
         'lblStats
         '
@@ -1410,15 +1478,6 @@ Partial Class frmMain
         Me.lblCraft0.Text = "Unpheasant Chestplate"
         Me.lblCraft0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'picBigWeapon
-        '
-        Me.picBigWeapon.Image = Global.FalloutMonsterHunter.My.Resources.Resources.raptorWeapon1
-        Me.picBigWeapon.Location = New System.Drawing.Point(0, 0)
-        Me.picBigWeapon.Name = "picBigWeapon"
-        Me.picBigWeapon.Size = New System.Drawing.Size(312, 392)
-        Me.picBigWeapon.TabIndex = 4
-        Me.picBigWeapon.TabStop = False
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -1447,6 +1506,7 @@ Partial Class frmMain
         Me.lblDialog.PerformLayout()
         Me.pnlInventory.ResumeLayout(False)
         Me.pnlInventory.PerformLayout()
+        Me.pnlDeletion.ResumeLayout(False)
         Me.pnlPlayerPreview.ResumeLayout(False)
         CType(Me.picBigBoots, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picBigBoots.ResumeLayout(False)
@@ -1455,6 +1515,8 @@ Partial Class frmMain
         CType(Me.picBigChestplate, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picBigChestplate.ResumeLayout(False)
         CType(Me.picBigHelmet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picBigHelmet.ResumeLayout(False)
+        CType(Me.picBigWeapon, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picSlotHelmet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picSlotChestplate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picSlotLeggings, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1539,7 +1601,6 @@ Partial Class frmMain
         Me.pnlCraftingList.ResumeLayout(False)
         Me.pnlCraftNegativeOne.ResumeLayout(False)
         CType(Me.picCraft0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picBigWeapon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1656,4 +1717,8 @@ Partial Class frmMain
     Friend WithEvents picBigChestplate As PictureBox
     Friend WithEvents picBigHelmet As PictureBox
     Friend WithEvents picBigWeapon As PictureBox
+    Friend WithEvents pnlDeletion As Panel
+    Friend WithEvents lblDeleteConfirm As Label
+    Friend WithEvents btnCancel As Button
+    Friend WithEvents btnDelete As Button
 End Class

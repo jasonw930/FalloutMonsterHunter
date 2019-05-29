@@ -15,11 +15,16 @@
     Public Shared armorRaptorChestplate1 As ItemArmor
     Public Shared armorRaptorLeggings1 As ItemArmor
     Public Shared armorRaptorBoots1 As ItemArmor
-
+                                
     Public Shared armorRaptorHelmet2 As ItemArmor
     Public Shared armorRaptorChestplate2 As ItemArmor
-    Public Shared armorRaptorLegging2 As ItemArmor
+    Public Shared armorRaptorLeggings2 As ItemArmor
     Public Shared armorRaptorBoots2 As ItemArmor
+
+    Public Shared armorRaptorHelmet3 As ItemArmor
+    Public Shared armorRaptorChestplate3 As ItemArmor
+    Public Shared armorRaptorLeggings3 As ItemArmor
+    Public Shared armorRaptorBoots3 As ItemArmor
 
     Public Overloads Shared Sub initialize()
         armorRaptorHelmet1 = New ItemArmor("Unpheasant Helmet", 1, My.Resources.raptorHelmet1_256, 6, 5, 0, My.Resources.raptorHelmet1_Small160, My.Resources.raptorHelmet1)
@@ -53,16 +58,64 @@
         allCraftables(3) = armorRaptorBoots1
 
         armorRaptorHelmet2 = New ItemArmor("Mutahraptor Helmet", 2, My.Resources.uziCartiBigBaller, 15, 10, 0, My.Resources.uziCartiBigBaller)
+        armorRaptorHelmet2.craftingComponents = {
+            New ItemStack(Item.itemRaptorClaws2, 3),
+            New ItemStack(Item.itemRaptorHide2, 6),
+            New ItemStack(Item.itemRaptorBone2, 6),
+            New ItemStack(Item.itemRaptorSkull2, 2)}
         allCraftables(5) = armorRaptorHelmet2
 
         armorRaptorChestplate2 = New ItemArmor("Mutahraptor Chestplate", 2, My.Resources.uziCartiBigBaller, 25, 15, 1, My.Resources.uziCartiBigBaller)
+        armorRaptorChestplate2.craftingComponents = {
+            New ItemStack(Item.itemRaptorClaws2, 4),
+            New ItemStack(Item.itemRaptorHide2, 7),
+            New ItemStack(Item.itemRaptorBone2, 7)}
         allCraftables(6) = armorRaptorChestplate2
 
-        armorRaptorLegging2 = New ItemArmor("Mutahraptor Leggings", 2, My.Resources.uziCartiBigBaller, 20, 15, 2, My.Resources.uziCartiBigBaller)
-        allCraftables(7) = armorRaptorLegging2
+        armorRaptorLeggings2 = New ItemArmor("Mutahraptor Leggings", 2, My.Resources.uziCartiBigBaller, 20, 15, 2, My.Resources.uziCartiBigBaller)
+        armorRaptorLeggings2.craftingComponents = {
+            New ItemStack(Item.itemRaptorClaws2, 4),
+            New ItemStack(Item.itemRaptorHide2, 7),
+            New ItemStack(Item.itemRaptorBone2, 6)}
+        allCraftables(7) = armorRaptorLeggings2
 
         armorRaptorBoots2 = New ItemArmor("Mutahraptor Boots", 2, My.Resources.uziCartiBigBaller, 15, 10, 3, My.Resources.uziCartiBigBaller)
-        allCraftables(8) = armorRaptorBoots2
+        armorRaptorBoots2.craftingComponents = {
+            New ItemStack(Item.itemRaptorClaws2, 3),
+            New ItemStack(Item.itemRaptorHide2, 6),
+            New ItemStack(Item.itemRaptorBone2, 5),
+            New ItemStack(Item.itemRaptorTail2, 2)}
+        allCraftables(8) = armorRaptorBoots3
+
+        armorRaptorHelmet3 = New ItemArmor("Uzirappter Helmet", 3, My.Resources.uziCartiBigBaller, 25, 15, 0, My.Resources.uziCartiBigBaller)
+        armorRaptorHelmet3.craftingComponents = {
+            New ItemStack(Item.itemRaptorClaws3, 4),
+            New ItemStack(Item.itemRaptorHide3, 7),
+            New ItemStack(Item.itemRaptorBone3, 7),
+            New ItemStack(Item.itemRaptorSkull3, 2)}
+        allCraftables(10) = armorRaptorHelmet3
+
+        armorRaptorChestplate3 = New ItemArmor("Uzirappter Chestplate", 3, My.Resources.uziCartiBigBaller, 40, 20, 1, My.Resources.uziCartiBigBaller)
+        armorRaptorChestplate3.craftingComponents = {
+            New ItemStack(Item.itemRaptorClaws3, 5),
+            New ItemStack(Item.itemRaptorHide3, 8),
+            New ItemStack(Item.itemRaptorBone3, 8)}
+        allCraftables(11) = armorRaptorChestplate3
+
+        armorRaptorLeggings3 = New ItemArmor("Uzirappter Leggings", 3, My.Resources.uziCartiBigBaller, 30, 20, 2, My.Resources.uziCartiBigBaller)
+        armorRaptorLeggings3.craftingComponents = {
+            New ItemStack(Item.itemRaptorClaws3, 5),
+            New ItemStack(Item.itemRaptorHide3, 8),
+            New ItemStack(Item.itemRaptorBone3, 7)}
+        allCraftables(12) = armorRaptorLeggings3
+
+        armorRaptorBoots3 = New ItemArmor("Uzirappter Boots", 3, My.Resources.uziCartiBigBaller, 25, 15, 3, My.Resources.uziCartiBigBaller)
+        armorRaptorBoots3.craftingComponents = {
+            New ItemStack(Item.itemRaptorClaws3, 4),
+            New ItemStack(Item.itemRaptorHide3, 7),
+            New ItemStack(Item.itemRaptorBone3, 6),
+            New ItemStack(Item.itemRaptorTail3, 2)}
+        allCraftables(13) = armorRaptorBoots3
 
     End Sub
 

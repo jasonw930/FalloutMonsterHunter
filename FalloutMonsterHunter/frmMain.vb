@@ -498,8 +498,11 @@
     End Sub
 
     Private Sub lblExitInventory_Click(sender As Object, e As EventArgs) Handles lblExitInventory.Click
-        transition(currentCity)
+        If Not Player.player.isDeleting Then
+            transition(currentCity)
+        End If
     End Sub
+
 
 
 
@@ -535,5 +538,15 @@
 
     Private Sub lblCloseCrafting_Click(sender As Object, e As EventArgs) Handles lblCloseCrafting.Click
         transition(currentCity)
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Player.player.finalDelete = 1
+        Player.player.deleteItem(Player.player.toDelete)
+    End Sub
+
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        Player.player.finalDelete = 0
+        Player.player.deleteItem(Player.player.toDelete)
     End Sub
 End Class

@@ -29,6 +29,8 @@ Public Class Player
     Public inventorySlotPicBox(23) As PictureBox
     Public inventoryUninitiated As Boolean = True
 
+    Public isDeleting As Boolean = False
+
     Public Shared player As Player
 
     Public Sub New(name As String)
@@ -127,12 +129,14 @@ Public Class Player
         Me.condenseInventory()
 
         If Not itemStack.getItem().Equals(Item.itemNull) Then
-            For x = 0 To 23
-                If Me.inventory(x).getItem().Equals(itemStack.getItem()) Then
-                    Me.inventory(x).setSize(Me.inventory(x).getSize() + itemStack.getSize())
-                    Exit Sub
-                End If
-            Next
+            If Not (TypeOf itemStack.getItem() Is ItemArmor Or TypeOf itemStack.getItem() Is ItemWeapon) Then
+                For x = 0 To 23
+                    If Me.inventory(x).getItem().Equals(itemStack.getItem()) Then
+                        Me.inventory(x).setSize(Me.inventory(x).getSize() + itemStack.getSize())
+                        Exit Sub
+                    End If
+                Next
+            End If
 
             For x = 0 To 23
                 If Me.inventory(x).getItem().Equals(Item.itemNull) Then
@@ -195,11 +199,13 @@ Public Class Player
 
         If inventoryUninitiated Then
             For Each label As Label In inventorySlotLabels
-                AddHandler label.MouseDoubleClick, AddressOf inventorSlot_MouseDoubleClick
+                AddHandler label.MouseDoubleClick, AddressOf inventorySlot_MouseDoubleClick
+                AddHandler label.MouseDown, AddressOf inventorySlot_MouseRightClick
             Next
 
             For Each pictBx As PictureBox In inventorySlotPicBox
-                AddHandler pictBx.MouseDoubleClick, AddressOf inventorSlot_MouseDoubleClick
+                AddHandler pictBx.MouseDoubleClick, AddressOf inventorySlot_MouseDoubleClick
+                AddHandler pictBx.MouseDown, AddressOf inventorySlot_MouseRightClick
             Next
 
             AddHandler frmMain.picSlotHelmet.MouseDoubleClick, AddressOf unequipItem
@@ -229,93 +235,100 @@ Public Class Player
 
 
     Public Sub equipItem(pos As Integer)
-        If pos <= 23 And pos >= 0 Then
-            Dim previousItem As ItemStack
 
-            If TypeOf Me.inventory(pos).getItem Is ItemArmor Then
-                Select Case DirectCast(Me.inventory(pos).getItem(), ItemArmor).getArmorPos()
-                    Case 0
-                        previousItem = Me.equippedArmor0
-                        Me.equippedArmor0 = Me.inventory(pos)
+        If Not isDeleting Then
+            If pos <= 23 And pos >= 0 Then
+                Dim previousItem As ItemStack
 
-                        Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
-                        If previousItem.getItem() Is Item.itemNull Then
-                            Console.WriteLine("imbalanced")
-                            Me.condenseInventory()
-                        Else
-                            Me.addItemToInventory(previousItem)
-                        End If
-                    Case 1
-                        previousItem = Me.equippedArmor1
-                        Me.equippedArmor1 = Me.inventory(pos)
-                        Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
-                        If previousItem.getItem() Is Item.itemNull Then
-                            Console.WriteLine("imbalanced")
-                            Me.condenseInventory()
-                        Else
-                            Me.addItemToInventory(previousItem)
-                        End If
-                    Case 2
-                        previousItem = Me.equippedArmor2
-                        Me.equippedArmor2 = Me.inventory(pos)
-                        Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
-                        If previousItem.getItem() Is Item.itemNull Then
-                            Console.WriteLine("imbalanced")
-                            Me.condenseInventory()
-                        Else
-                            Me.addItemToInventory(previousItem)
-                        End If
-                    Case 3
-                        previousItem = Me.equippedArmor3
-                        Me.equippedArmor3 = Me.inventory(pos)
-                        Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
-                        If previousItem.getItem() Is Item.itemNull Then
-                            Console.WriteLine("imbalanced")
-                            Me.condenseInventory()
-                        Else
-                            Me.addItemToInventory(previousItem)
-                        End If
-                End Select
-            ElseIf TypeOf Me.inventory(pos).getItem Is ItemWeapon Then
-                previousItem = Me.equippedWeapon
-                Me.equippedWeapon = Me.inventory(pos)
-                Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
-                If previousItem.getItem() Is Item.itemNull Then
-                    Console.WriteLine("imbalanced")
-                    Me.condenseInventory()
-                Else
-                    Me.addItemToInventory(previousItem)
+                If TypeOf Me.inventory(pos).getItem Is ItemArmor Then
+                    Select Case DirectCast(Me.inventory(pos).getItem(), ItemArmor).getArmorPos()
+                        Case 0
+                            previousItem = Me.equippedArmor0
+                            Me.equippedArmor0 = Me.inventory(pos)
+
+                            Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                            If previousItem.getItem() Is Item.itemNull Then
+                                Console.WriteLine("imbalanced")
+                                Me.condenseInventory()
+                            Else
+                                Me.addItemToInventory(previousItem)
+                            End If
+                        Case 1
+                            previousItem = Me.equippedArmor1
+                            Me.equippedArmor1 = Me.inventory(pos)
+                            Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                            If previousItem.getItem() Is Item.itemNull Then
+                                Console.WriteLine("imbalanced")
+                                Me.condenseInventory()
+                            Else
+                                Me.addItemToInventory(previousItem)
+                            End If
+                        Case 2
+                            previousItem = Me.equippedArmor2
+                            Me.equippedArmor2 = Me.inventory(pos)
+                            Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                            If previousItem.getItem() Is Item.itemNull Then
+                                Console.WriteLine("imbalanced")
+                                Me.condenseInventory()
+                            Else
+                                Me.addItemToInventory(previousItem)
+                            End If
+                        Case 3
+                            previousItem = Me.equippedArmor3
+                            Me.equippedArmor3 = Me.inventory(pos)
+                            Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                            If previousItem.getItem() Is Item.itemNull Then
+                                Console.WriteLine("imbalanced")
+                                Me.condenseInventory()
+                            Else
+                                Me.addItemToInventory(previousItem)
+                            End If
+                    End Select
+                ElseIf TypeOf Me.inventory(pos).getItem Is ItemWeapon Then
+                    previousItem = Me.equippedWeapon
+                    Me.equippedWeapon = Me.inventory(pos)
+                    Me.inventory(pos) = New ItemStack(Item.itemNull, 0)
+                    If previousItem.getItem() Is Item.itemNull Then
+                        Console.WriteLine("imbalanced")
+                        Me.condenseInventory()
+                    Else
+                        Me.addItemToInventory(previousItem)
+                    End If
                 End If
             End If
+
+            Me.updateStats()
+            Me.condenseInventory()
+            Me.updateInventoryVisuals()
         End If
 
-        Me.updateStats()
-        Me.condenseInventory()
-        Me.updateInventoryVisuals()
     End Sub
 
     Public Sub unequipItem(sender As Object, e As EventArgs)
-        Select Case sender.Name
-            Case "picSlotHelmet"
-                Me.addItemToInventory(Me.equippedArmor0)
-                Me.equippedArmor0 = New ItemStack(Item.itemNull, 1)
-            Case "picSlotChestplate"
-                Me.addItemToInventory(Me.equippedArmor1)
-                Me.equippedArmor1 = New ItemStack(Item.itemNull, 1)
-            Case "picSlotLeggings"
-                Me.addItemToInventory(Me.equippedArmor2)
-                Me.equippedArmor2 = New ItemStack(Item.itemNull, 1)
-            Case "picSlotBoots"
-                Me.addItemToInventory(Me.equippedArmor3)
-                Me.equippedArmor3 = New ItemStack(Item.itemNull, 1)
-            Case "picSlotWeapon"
-                Me.addItemToInventory(Me.equippedWeapon)
-                Me.equippedWeapon = New ItemStack(Item.itemNull, 1)
-        End Select
 
-        Me.updateStats()
-        Me.condenseInventory()
-        Me.updateInventoryVisuals()
+        If Not isDeleting Then
+            Select Case sender.Name
+                Case "picSlotHelmet"
+                    Me.addItemToInventory(Me.equippedArmor0)
+                    Me.equippedArmor0 = New ItemStack(Item.itemNull, 1)
+                Case "picSlotChestplate"
+                    Me.addItemToInventory(Me.equippedArmor1)
+                    Me.equippedArmor1 = New ItemStack(Item.itemNull, 1)
+                Case "picSlotLeggings"
+                    Me.addItemToInventory(Me.equippedArmor2)
+                    Me.equippedArmor2 = New ItemStack(Item.itemNull, 1)
+                Case "picSlotBoots"
+                    Me.addItemToInventory(Me.equippedArmor3)
+                    Me.equippedArmor3 = New ItemStack(Item.itemNull, 1)
+                Case "picSlotWeapon"
+                    Me.addItemToInventory(Me.equippedWeapon)
+                    Me.equippedWeapon = New ItemStack(Item.itemNull, 1)
+            End Select
+
+            Me.updateStats()
+            Me.condenseInventory()
+            Me.updateInventoryVisuals()
+        End If
     End Sub
 
     Public Function craftItem(item As Item)
@@ -364,10 +377,48 @@ Public Class Player
         Me.condenseInventory()
         Me.updateInventoryVisuals()
 
-        return possible
+        Return possible
     End Function
 
-    Public Sub inventorSlot_MouseDoubleClick(sender As Object, e As EventArgs)
-        equipItem(sender.name.Substring(10))
+    Public toDelete As Integer = 24
+    Public finalDelete As Integer = -1
+
+    Public Function deleteItem(pos As Integer)
+        If pos <= 23 And pos >= 0 Then
+            Select Case finalDelete
+                Case -1
+                    If Me.inventory(pos).getItem() IsNot Item.itemNull Then
+                        toDelete = pos
+                        frmMain.lblDeleteConfirm.Text = "Are you sure you want to delete " & Me.inventory(pos).getItem().getItemName() & " (x" & Me.inventory(pos).getSize().ToString() & ")?"
+                        frmMain.pnlDeletion.Visible = True
+                    End If
+                Case 0
+                    frmMain.pnlDeletion.Visible = False
+                    toDelete = 24
+                    finalDelete = -1
+                Case 1
+                    Me.inventory(pos) = New ItemStack(Item.itemNull, 1)
+                    Me.condenseInventory()
+                    Me.updateInventoryVisuals()
+                    frmMain.pnlDeletion.Visible = False
+                    toDelete = 24
+                    finalDelete = -1
+            End Select
+        End If
+    End Function
+
+    Public Sub inventorySlot_MouseDoubleClick(sender As Object, e As EventArgs)
+        If Not isDeleting Then
+            equipItem(sender.name.Substring(10))
+        End If
+    End Sub
+
+    Public Sub inventorySlot_MouseRightClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+        Console.WriteLine(sender.Name)
+        If Not isDeleting Then
+            If e.Button = MouseButtons.Right Then
+                deleteItem(sender.name.Substring(10))
+            End If
+        End If
     End Sub
 End Class
