@@ -482,12 +482,7 @@
     Private Sub btnFightMob_Click(sender As Object, e As EventArgs)
         If Not isFighting Then
             isFighting = True
-            Select Case sender.Name
-                Case "btnFightUnpheasantRaptor"
-                    fight(Player.player, Mob.mobRaptor1)
-                Case "btnFightMutahraptor"
-                    fight(Player.player, Mob.mobRaptor2)
-            End Select
+            fight(Player.player, Mob.getMobFromName(sender.Name.Substring(8)))
         End If
     End Sub
 

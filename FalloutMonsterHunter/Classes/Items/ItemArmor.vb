@@ -87,7 +87,7 @@
             New ItemStack(Item.itemRaptorTail2, 2)}
         allCraftables(8) = armorRaptorBoots2
 
-        armorRaptorHelmet3 = New ItemArmor("Uzirappter Helmet", 3, My.Resources.uziCartiBigBaller, 25, 15, 0, My.Resources.uziCartiBigBaller)
+        armorRaptorHelmet3 = New ItemArmor("Uzirappter Helmet", 3, My.Resources.raptorHelmet3, 25, 15, 0, My.Resources.raptorHelmet3_Small320)
         armorRaptorHelmet3.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws3, 4),
             New ItemStack(Item.itemRaptorHide3, 7),
@@ -95,21 +95,21 @@
             New ItemStack(Item.itemRaptorSkull3, 2)}
         allCraftables(10) = armorRaptorHelmet3
 
-        armorRaptorChestplate3 = New ItemArmor("Uzirappter Chestplate", 3, My.Resources.uziCartiBigBaller, 40, 20, 1, My.Resources.uziCartiBigBaller)
+        armorRaptorChestplate3 = New ItemArmor("Uzirappter Chestplate", 3, My.Resources.raptorChestplate3, 40, 20, 1, My.Resources.raptorChestplate3_Small320)
         armorRaptorChestplate3.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws3, 5),
             New ItemStack(Item.itemRaptorHide3, 8),
             New ItemStack(Item.itemRaptorBone3, 8)}
         allCraftables(11) = armorRaptorChestplate3
 
-        armorRaptorLeggings3 = New ItemArmor("Uzirappter Leggings", 3, My.Resources.uziCartiBigBaller, 30, 20, 2, My.Resources.uziCartiBigBaller)
+        armorRaptorLeggings3 = New ItemArmor("Uzirappter Leggings", 3, My.Resources.raptorLeggings3, 30, 20, 2, My.Resources.raptorLeggings3_Small320)
         armorRaptorLeggings3.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws3, 5),
             New ItemStack(Item.itemRaptorHide3, 8),
             New ItemStack(Item.itemRaptorBone3, 7)}
         allCraftables(12) = armorRaptorLeggings3
 
-        armorRaptorBoots3 = New ItemArmor("Uzirappter Boots", 3, My.Resources.uziCartiBigBaller, 25, 15, 3, My.Resources.uziCartiBigBaller)
+        armorRaptorBoots3 = New ItemArmor("Uzirappter Boots", 3, My.Resources.raptorBoots3, 25, 15, 3, My.Resources.raptorBoots3_Small320)
         armorRaptorBoots3.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws3, 4),
             New ItemStack(Item.itemRaptorHide3, 7),

@@ -72,6 +72,11 @@ FalloutMonsterHunter
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.fmhRaptorHead3_86Icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.fujiCity">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -187,6 +192,11 @@ FalloutMonsterHunter
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.mobRaptor3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.Player">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -242,6 +252,16 @@ FalloutMonsterHunter
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorBoots3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorBoots3_Small320">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorChestplate1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -268,6 +288,16 @@ FalloutMonsterHunter
 </summary>
 </member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorChestplate2_Small160">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorChestplate3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorChestplate3_Small320">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -302,6 +332,16 @@ FalloutMonsterHunter
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorHelmet3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorHelmet3_Small320">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorLeggings1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -332,6 +372,16 @@ FalloutMonsterHunter
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorLeggings3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorLeggings3_Small320">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorWeapon1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -358,6 +408,16 @@ FalloutMonsterHunter
 </summary>
 </member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorWeapon2_Small160">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorWeapon3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorWeapon3_Small320">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

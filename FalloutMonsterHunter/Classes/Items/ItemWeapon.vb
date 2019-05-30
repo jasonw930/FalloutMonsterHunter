@@ -29,7 +29,7 @@
             New ItemStack(Item.itemRaptorBone2, 7)}
         allCraftables(9) = weaponRaptorSword2
 
-        weaponRaptorSword3 = New ItemWeapon("Uzirappter Sword", 3, My.Resources.uziCartiBigBaller, 120, 6, My.Resources.uziCartiBigBaller)
+        weaponRaptorSword3 = New ItemWeapon("Uzirappter Sword", 3, My.Resources.raptorWeapon3, 120, 6, My.Resources.raptorWeapon3_Small320)
         weaponRaptorSword3.craftingComponents = {
             New ItemStack(Item.itemRaptorClaws3, 9),
             New ItemStack(Item.itemRaptorHide3, 6),

@@ -19,7 +19,7 @@
     Public Shared mobRaptor3 As Mob
 
     Public Shared Sub initialize()
-        mobRaptor1 = New Mob("Unpheasant", 100, 5, 25, 5, My.Resources.mobRaptor1)
+        mobRaptor1 = New Mob("UnpheasantRaptor", 100, 5, 25, 5, My.Resources.mobRaptor1)
         mobRaptor1.dropItems = {Item.itemRaptorClaws1, Item.itemRaptorHide1, Item.itemRaptorBone1, Item.itemRaptorSkull1, Item.itemRaptorTail1}
         mobRaptor1.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
         mobRaptor1.dropAmount = {6, 6, 6, 1.2, 1.2}
@@ -29,7 +29,7 @@
         mobRaptor2.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
         mobRaptor2.dropAmount = {6, 6, 6, 1.2, 1.2}
 
-        mobRaptor3 = New Mob("Uzirappter", 350, 70, 110, 10, My.Resources.uziCartiBigBaller)
+        mobRaptor3 = New Mob("Uzirappter", 350, 70, 110, 10, My.Resources.mobRaptor3)
         mobRaptor3.dropItems = {Item.itemRaptorClaws3, Item.itemRaptorHide3, Item.itemRaptorBone3, Item.itemRaptorSkull3, Item.itemRaptorTail3}
         mobRaptor3.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
         mobRaptor3.dropAmount = {6, 6, 6, 1.2, 1.2}
@@ -46,7 +46,7 @@
 
     Public Shared Function getMobFromName(name As String)
         Select Case name
-            Case "Unpheasant"
+            Case "UnpheasantRaptor"
                 Return mobRaptor1
             Case "Mutahraptor"
                 Return mobRaptor2
