@@ -148,6 +148,7 @@
                 scrlCraftingList.Maximum = Math.Max(0, indixx * 90 - pnlCraftingList.Size.Height)
                 scrlCraftingList.SmallChange = 6
                 scrlCraftingList.LargeChange = 9
+                Console.WriteLine("ended at " & indixx.ToString())
                 Exit For
             End If
             Dim newPanel As New Panel
@@ -241,12 +242,14 @@
         player.currentHealth = player.health
         mob.currentHealth = mob.health
 
-        picHelmet.Image = If(TypeOf Player.player.equippedArmor0.getItem() Is ItemArmor, Player.player.equippedArmor0.getItem().getDisplaySprite(), Nothing)
-        picChestplate.Image = If(TypeOf Player.player.equippedArmor1.getItem() Is ItemArmor, Player.player.equippedArmor1.getItem().getDisplaySprite(), Nothing)
-        picLeggings.Image = If(TypeOf Player.player.equippedArmor2.getItem() Is ItemArmor, Player.player.equippedArmor2.getItem().getDisplaySprite(), Nothing)
-        picBoots.Image = If(TypeOf Player.player.equippedArmor3.getItem() Is ItemArmor, Player.player.equippedArmor3.getItem().getDisplaySprite(), Nothing)
-        picWeapon.Image = If(TypeOf Player.player.equippedWeapon.getItem() Is ItemWeapon, Player.player.equippedWeapon.getItem().getDisplaySprite(), resizeImage(My.Resources.arms, 160, 200))
+        picHelmet.Image = If(TypeOf Player.player.equippedArmor0.getItem() Is ItemArmor, resizeImage(Player.player.equippedArmor0.getItem().getDisplaySprite(), 160, 200), Nothing)
+        picChestplate.Image = If(TypeOf Player.player.equippedArmor1.getItem() Is ItemArmor, resizeImage(Player.player.equippedArmor1.getItem().getDisplaySprite(), 160, 200), Nothing)
+        picLeggings.Image = If(TypeOf Player.player.equippedArmor2.getItem() Is ItemArmor, resizeImage(Player.player.equippedArmor2.getItem().getDisplaySprite(), 160, 200), Nothing)
+        picBoots.Image = If(TypeOf Player.player.equippedArmor3.getItem() Is ItemArmor, resizeImage(Player.player.equippedArmor3.getItem().getDisplaySprite(), 160, 200), Nothing)
+        picWeapon.Image = If(TypeOf Player.player.equippedWeapon.getItem() Is ItemWeapon, resizeImage(Player.player.equippedWeapon.getItem().getDisplaySprite(), 160, 200), resizeImage(My.Resources.arms, 160, 200))
         pnlPlayer.BackgroundImage = If(TypeOf Player.player.equippedArmor3.getItem() Is ItemArmor, My.Resources.Player_Shoeless_Small160, My.Resources.Player_Small160)
+
+        pnlMob.BackgroundImage = mob.mobSprite
 
         Do While True
             Randomize()
@@ -294,6 +297,7 @@
         Loop
         'Result
         If result Then
+            lblReceived.Text = "You Won!"
             Dim numDrops As Integer = 0
             For x = 0 To mob.dropItems.Length - 1
                 Randomize()
@@ -309,6 +313,8 @@
                     numDrops += 1
                 End If
             Next
+        Else
+            lblReceived.Text = "Defeat!"
         End If
         Console.WriteLine("finished fighting")
         isFighting = False
@@ -415,7 +421,7 @@
             lblCraftStats.Text = "Health +" & craftItem.getBonusHealth().ToString() & vbCrLf & vbCrLf & "Defence +" & craftItem.getDefence().ToString() & vbCrLf & vbCrLf & "Luck: +0"
             For index As Integer = 0 To 4
                 If index < craftItem.craftingComponents.Length Then
-                    componentImage(index).Image = craftItem.craftingComponents(index).getItem().getItemSprite()
+                    componentImage(index).Image = resizeImage(craftItem.craftingComponents(index).getItem().getItemSprite(), 72, 72)
                     componentLabel(index).Text = "x" & craftItem.craftingComponents(index).getSize()
                     If Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem()) > -1 Then
                         componentLabel(index).ForeColor = If(Player.player.inventory(Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem())).getSize() >= craftItem.craftingComponents(index).getSize(), Color.White, Color.Black)
@@ -434,7 +440,7 @@
             lblCraftStats.Text = "Attack +" & craftItem.getDamage().ToString() & vbCrLf & vbCrLf & "Criticals +" & craftItem.getCritChance().ToString()
             For index As Integer = 0 To 4
                 If index < craftItem.craftingComponents.Length Then
-                    componentImage(index).Image = craftItem.craftingComponents(index).getItem().getItemSprite()
+                    componentImage(index).Image = resizeImage(craftItem.craftingComponents(index).getItem().getItemSprite(), 72, 72)
                     componentLabel(index).Text = "x" & craftItem.craftingComponents(index).getSize()
                     If Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem()) > -1 Then
                         componentLabel(index).ForeColor = If(Player.player.inventory(Player.player.getPosOfItem(craftItem.craftingComponents(index).getItem())).getSize() >= craftItem.craftingComponents(index).getSize(), Color.White, Color.Black)
@@ -473,10 +479,15 @@
 
     End Sub
 
-    Private Sub btnFightMob_Click()
+    Private Sub btnFightMob_Click(sender As Object, e As EventArgs)
         If Not isFighting Then
             isFighting = True
-            fight(Player.player, Mob.mobRaptor1)
+            Select Case sender.Name
+                Case "btnFightUnpheasantRaptor"
+                    fight(Player.player, Mob.mobRaptor1)
+                Case "btnFightMutahraptor"
+                    fight(Player.player, Mob.mobRaptor2)
+            End Select
         End If
     End Sub
 

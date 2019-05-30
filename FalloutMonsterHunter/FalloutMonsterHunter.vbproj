@@ -183,6 +183,19 @@
     <None Include="Resources\itemRaptorSkull3.png" />
     <None Include="Resources\itemRaptorTail2.png" />
     <None Include="Resources\itemRaptorTail3.png" />
+    <None Include="Resources\fmhRaptorHead2-86Icon.png" />
+    <None Include="Resources\fmhRaptor2-2.png" />
+    <None Include="Resources\mobRaptor2.png" />
+    <None Include="Resources\raptorBoots2.png" />
+    <None Include="Resources\raptorBoots2-Small160.png" />
+    <None Include="Resources\raptorChestplate2.png" />
+    <None Include="Resources\raptorChestplate2-Small160.png" />
+    <None Include="Resources\raptorHelmet2.png" />
+    <None Include="Resources\raptorHelmet2-Small160.png" />
+    <None Include="Resources\raptorLeggings2.png" />
+    <None Include="Resources\raptorLeggings2-Small160.png" />
+    <None Include="Resources\raptorWeapon2.png" />
+    <None Include="Resources\raptorWeapon2-Small160.png" />
     <Content Include="Resources\uziCartiBigBaller.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

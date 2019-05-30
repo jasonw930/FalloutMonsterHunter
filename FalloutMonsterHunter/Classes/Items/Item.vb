@@ -78,5 +78,5 @@
 
     Public Function getItemSprite()
         Return Me.itemSprite
-    End Function)
+    End Function
 End Class

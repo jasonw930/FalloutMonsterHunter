@@ -25,15 +25,34 @@ Partial Class frmMain
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.pnlIntro = New System.Windows.Forms.Panel()
-        Me.picIntro = New System.Windows.Forms.PictureBox()
-        Me.pnlDialog = New System.Windows.Forms.Panel()
-        Me.txtUserIn = New System.Windows.Forms.TextBox()
-        Me.lblDialog = New System.Windows.Forms.Label()
-        Me.lblClickCont = New System.Windows.Forms.Label()
-        Me.lblBigOutline = New System.Windows.Forms.Label()
-        Me.lblSpeaker = New System.Windows.Forms.Label()
         Me.timerMove = New System.Windows.Forms.Timer(Me.components)
         Me.waitTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.pnlCraftingMenu = New System.Windows.Forms.Panel()
+        Me.lblCloseCrafting = New System.Windows.Forms.Label()
+        Me.pnlCraftingItem = New System.Windows.Forms.Panel()
+        Me.btnCraftEquipment = New System.Windows.Forms.Button()
+        Me.lblCraftName = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.pnlCraftingList = New System.Windows.Forms.Panel()
+        Me.scrlCraftingList = New System.Windows.Forms.VScrollBar()
+        Me.pnlScrollFrame = New System.Windows.Forms.Panel()
+        Me.pnlCraftNegativeOne = New System.Windows.Forms.Panel()
+        Me.lblCraft0 = New System.Windows.Forms.Label()
+        Me.picComponent4 = New System.Windows.Forms.PictureBox()
+        Me.lblCraftingComponent4 = New System.Windows.Forms.Label()
+        Me.picComponent3 = New System.Windows.Forms.PictureBox()
+        Me.lblCraftingComponent3 = New System.Windows.Forms.Label()
+        Me.picComponent2 = New System.Windows.Forms.PictureBox()
+        Me.lblCraftingComponent2 = New System.Windows.Forms.Label()
+        Me.picComponent1 = New System.Windows.Forms.PictureBox()
+        Me.lblCraftingComponent1 = New System.Windows.Forms.Label()
+        Me.picComponent0 = New System.Windows.Forms.PictureBox()
+        Me.lblCraftingComponent0 = New System.Windows.Forms.Label()
+        Me.picCraftPic = New System.Windows.Forms.PictureBox()
+        Me.lblCraftStats = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.picCraft0 = New System.Windows.Forms.PictureBox()
         Me.pnlInventory = New System.Windows.Forms.Panel()
         Me.pnlDeletion = New System.Windows.Forms.Panel()
         Me.btnCancel = New System.Windows.Forms.Button()
@@ -102,47 +121,44 @@ Partial Class frmMain
         Me.picHelmet = New System.Windows.Forms.PictureBox()
         Me.picWeapon = New System.Windows.Forms.PictureBox()
         Me.pnlFujiCity = New System.Windows.Forms.Panel()
+        Me.btnFightMutahraptor = New System.Windows.Forms.Button()
         Me.btnFightUnpheasantRaptor = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnCrafting = New System.Windows.Forms.Button()
         Me.btnInventory = New System.Windows.Forms.Button()
+        Me.picIntro = New System.Windows.Forms.PictureBox()
+        Me.pnlDialog = New System.Windows.Forms.Panel()
+        Me.txtUserIn = New System.Windows.Forms.TextBox()
+        Me.lblDialog = New System.Windows.Forms.Label()
+        Me.lblClickCont = New System.Windows.Forms.Label()
+        Me.lblBigOutline = New System.Windows.Forms.Label()
+        Me.lblSpeaker = New System.Windows.Forms.Label()
         Me.pnlMainMenu = New System.Windows.Forms.Panel()
         Me.picBackdrop = New System.Windows.Forms.PictureBox()
         Me.lblMoney = New System.Windows.Forms.Label()
         Me.btnPlay = New System.Windows.Forms.Button()
         Me.picFader2 = New System.Windows.Forms.PictureBox()
         Me.picFader = New System.Windows.Forms.PictureBox()
-        Me.pnlCraftingMenu = New System.Windows.Forms.Panel()
-        Me.lblCloseCrafting = New System.Windows.Forms.Label()
-        Me.pnlCraftingItem = New System.Windows.Forms.Panel()
-        Me.btnCraftEquipment = New System.Windows.Forms.Button()
-        Me.picComponent4 = New System.Windows.Forms.PictureBox()
-        Me.lblCraftingComponent4 = New System.Windows.Forms.Label()
-        Me.picComponent3 = New System.Windows.Forms.PictureBox()
-        Me.lblCraftingComponent3 = New System.Windows.Forms.Label()
-        Me.picComponent2 = New System.Windows.Forms.PictureBox()
-        Me.lblCraftingComponent2 = New System.Windows.Forms.Label()
-        Me.picComponent1 = New System.Windows.Forms.PictureBox()
-        Me.lblCraftingComponent1 = New System.Windows.Forms.Label()
-        Me.picComponent0 = New System.Windows.Forms.PictureBox()
-        Me.lblCraftingComponent0 = New System.Windows.Forms.Label()
-        Me.picCraftPic = New System.Windows.Forms.PictureBox()
-        Me.lblCraftStats = New System.Windows.Forms.Label()
-        Me.lblCraftName = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.pnlCraftingList = New System.Windows.Forms.Panel()
-        Me.scrlCraftingList = New System.Windows.Forms.VScrollBar()
-        Me.pnlScrollFrame = New System.Windows.Forms.Panel()
-        Me.pnlCraftNegativeOne = New System.Windows.Forms.Panel()
-        Me.picCraft0 = New System.Windows.Forms.PictureBox()
-        Me.lblCraft0 = New System.Windows.Forms.Label()
         Me.pnlIntro.SuspendLayout()
-        CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.picIntro.SuspendLayout()
-        Me.pnlDialog.SuspendLayout()
-        Me.lblDialog.SuspendLayout()
+        Me.pnlCraftingMenu.SuspendLayout()
+        Me.pnlCraftingItem.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.pnlCraftingList.SuspendLayout()
+        Me.pnlCraftNegativeOne.SuspendLayout()
+        CType(Me.picComponent4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picComponent4.SuspendLayout()
+        CType(Me.picComponent3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picComponent3.SuspendLayout()
+        CType(Me.picComponent2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picComponent2.SuspendLayout()
+        CType(Me.picComponent1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picComponent1.SuspendLayout()
+        CType(Me.picComponent0, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picComponent0.SuspendLayout()
+        CType(Me.picCraftPic, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picCraftPic.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picCraft0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlInventory.SuspendLayout()
         Me.pnlDeletion.SuspendLayout()
         Me.pnlPlayerPreview.SuspendLayout()
@@ -207,30 +223,15 @@ Partial Class frmMain
         CType(Me.picWeapon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlFujiCity.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picIntro.SuspendLayout()
+        Me.pnlDialog.SuspendLayout()
+        Me.lblDialog.SuspendLayout()
         Me.pnlMainMenu.SuspendLayout()
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picBackdrop.SuspendLayout()
         CType(Me.picFader2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlCraftingMenu.SuspendLayout()
-        Me.pnlCraftingItem.SuspendLayout()
-        CType(Me.picComponent4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.picComponent4.SuspendLayout()
-        CType(Me.picComponent3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.picComponent3.SuspendLayout()
-        CType(Me.picComponent2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.picComponent2.SuspendLayout()
-        CType(Me.picComponent1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.picComponent1.SuspendLayout()
-        CType(Me.picComponent0, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.picComponent0.SuspendLayout()
-        CType(Me.picCraftPic, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.picCraftPic.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlCraftingList.SuspendLayout()
-        Me.pnlCraftNegativeOne.SuspendLayout()
-        CType(Me.picCraft0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlIntro
@@ -242,88 +243,6 @@ Partial Class frmMain
         Me.pnlIntro.Size = New System.Drawing.Size(1000, 750)
         Me.pnlIntro.TabIndex = 3
         '
-        'picIntro
-        '
-        Me.picIntro.Controls.Add(Me.pnlDialog)
-        Me.picIntro.Image = Global.FalloutMonsterHunter.My.Resources.Resources.falloutMonsterHunterIntroCutscene
-        Me.picIntro.Location = New System.Drawing.Point(0, 0)
-        Me.picIntro.Name = "picIntro"
-        Me.picIntro.Size = New System.Drawing.Size(1000, 750)
-        Me.picIntro.TabIndex = 0
-        Me.picIntro.TabStop = False
-        '
-        'pnlDialog
-        '
-        Me.pnlDialog.BackColor = System.Drawing.Color.Transparent
-        Me.pnlDialog.Controls.Add(Me.txtUserIn)
-        Me.pnlDialog.Controls.Add(Me.lblDialog)
-        Me.pnlDialog.Controls.Add(Me.lblBigOutline)
-        Me.pnlDialog.Controls.Add(Me.lblSpeaker)
-        Me.pnlDialog.Location = New System.Drawing.Point(74, 423)
-        Me.pnlDialog.Name = "pnlDialog"
-        Me.pnlDialog.Size = New System.Drawing.Size(852, 253)
-        Me.pnlDialog.TabIndex = 3
-        Me.pnlDialog.Visible = False
-        '
-        'txtUserIn
-        '
-        Me.txtUserIn.BackColor = System.Drawing.Color.Black
-        Me.txtUserIn.Font = New System.Drawing.Font("Courier New", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUserIn.ForeColor = System.Drawing.Color.White
-        Me.txtUserIn.Location = New System.Drawing.Point(17, 208)
-        Me.txtUserIn.Name = "txtUserIn"
-        Me.txtUserIn.Size = New System.Drawing.Size(276, 28)
-        Me.txtUserIn.TabIndex = 4
-        Me.txtUserIn.Visible = False
-        '
-        'lblDialog
-        '
-        Me.lblDialog.BackColor = System.Drawing.Color.Black
-        Me.lblDialog.Controls.Add(Me.lblClickCont)
-        Me.lblDialog.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDialog.ForeColor = System.Drawing.Color.White
-        Me.lblDialog.Location = New System.Drawing.Point(3, 39)
-        Me.lblDialog.Name = "lblDialog"
-        Me.lblDialog.Padding = New System.Windows.Forms.Padding(10, 10, 0, 0)
-        Me.lblDialog.Size = New System.Drawing.Size(846, 211)
-        Me.lblDialog.TabIndex = 1
-        '
-        'lblClickCont
-        '
-        Me.lblClickCont.AutoSize = True
-        Me.lblClickCont.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblClickCont.ForeColor = System.Drawing.Color.White
-        Me.lblClickCont.Location = New System.Drawing.Point(650, 174)
-        Me.lblClickCont.Name = "lblClickCont"
-        Me.lblClickCont.Size = New System.Drawing.Size(179, 20)
-        Me.lblClickCont.TabIndex = 5
-        Me.lblClickCont.Tag = "650, 174"
-        Me.lblClickCont.Text = "click to continue"
-        Me.lblClickCont.Visible = False
-        '
-        'lblBigOutline
-        '
-        Me.lblBigOutline.BackColor = System.Drawing.Color.White
-        Me.lblBigOutline.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBigOutline.ForeColor = System.Drawing.Color.White
-        Me.lblBigOutline.Location = New System.Drawing.Point(0, 36)
-        Me.lblBigOutline.Name = "lblBigOutline"
-        Me.lblBigOutline.Padding = New System.Windows.Forms.Padding(10, 10, 0, 0)
-        Me.lblBigOutline.Size = New System.Drawing.Size(852, 217)
-        Me.lblBigOutline.TabIndex = 3
-        Me.lblBigOutline.Text = "Hello? Hello?? Is anybody there???"
-        '
-        'lblSpeaker
-        '
-        Me.lblSpeaker.BackColor = System.Drawing.Color.Black
-        Me.lblSpeaker.Font = New System.Drawing.Font("Courier New", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSpeaker.ForeColor = System.Drawing.Color.White
-        Me.lblSpeaker.Location = New System.Drawing.Point(0, 0)
-        Me.lblSpeaker.Name = "lblSpeaker"
-        Me.lblSpeaker.Size = New System.Drawing.Size(224, 37)
-        Me.lblSpeaker.TabIndex = 2
-        Me.lblSpeaker.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'timerMove
         '
         Me.timerMove.Interval = 50
@@ -331,6 +250,300 @@ Partial Class frmMain
         'waitTimer
         '
         Me.waitTimer.Interval = 1000
+        '
+        'pnlCraftingMenu
+        '
+        Me.pnlCraftingMenu.BackColor = System.Drawing.Color.DimGray
+        Me.pnlCraftingMenu.Controls.Add(Me.lblCloseCrafting)
+        Me.pnlCraftingMenu.Controls.Add(Me.pnlCraftingItem)
+        Me.pnlCraftingMenu.Controls.Add(Me.pnlCraftingList)
+        Me.pnlCraftingMenu.Location = New System.Drawing.Point(0, 1000)
+        Me.pnlCraftingMenu.Name = "pnlCraftingMenu"
+        Me.pnlCraftingMenu.Size = New System.Drawing.Size(1000, 750)
+        Me.pnlCraftingMenu.TabIndex = 7
+        '
+        'lblCloseCrafting
+        '
+        Me.lblCloseCrafting.AutoSize = True
+        Me.lblCloseCrafting.BackColor = System.Drawing.Color.DarkGray
+        Me.lblCloseCrafting.Font = New System.Drawing.Font("Courier New", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCloseCrafting.ForeColor = System.Drawing.Color.White
+        Me.lblCloseCrafting.Location = New System.Drawing.Point(933, 20)
+        Me.lblCloseCrafting.Name = "lblCloseCrafting"
+        Me.lblCloseCrafting.Size = New System.Drawing.Size(42, 43)
+        Me.lblCloseCrafting.TabIndex = 31
+        Me.lblCloseCrafting.Text = "X"
+        Me.lblCloseCrafting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'pnlCraftingItem
+        '
+        Me.pnlCraftingItem.BackColor = System.Drawing.Color.DarkGray
+        Me.pnlCraftingItem.Controls.Add(Me.btnCraftEquipment)
+        Me.pnlCraftingItem.Controls.Add(Me.picComponent4)
+        Me.pnlCraftingItem.Controls.Add(Me.picComponent3)
+        Me.pnlCraftingItem.Controls.Add(Me.picComponent2)
+        Me.pnlCraftingItem.Controls.Add(Me.picComponent1)
+        Me.pnlCraftingItem.Controls.Add(Me.picComponent0)
+        Me.pnlCraftingItem.Controls.Add(Me.picCraftPic)
+        Me.pnlCraftingItem.Controls.Add(Me.lblCraftName)
+        Me.pnlCraftingItem.Controls.Add(Me.Panel2)
+        Me.pnlCraftingItem.Location = New System.Drawing.Point(494, 101)
+        Me.pnlCraftingItem.Name = "pnlCraftingItem"
+        Me.pnlCraftingItem.Size = New System.Drawing.Size(370, 540)
+        Me.pnlCraftingItem.TabIndex = 3
+        '
+        'btnCraftEquipment
+        '
+        Me.btnCraftEquipment.BackColor = System.Drawing.Color.Gainsboro
+        Me.btnCraftEquipment.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnCraftEquipment.FlatAppearance.BorderSize = 0
+        Me.btnCraftEquipment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCraftEquipment.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCraftEquipment.ForeColor = System.Drawing.Color.Black
+        Me.btnCraftEquipment.Location = New System.Drawing.Point(243, 461)
+        Me.btnCraftEquipment.Name = "btnCraftEquipment"
+        Me.btnCraftEquipment.Size = New System.Drawing.Size(72, 30)
+        Me.btnCraftEquipment.TabIndex = 13
+        Me.btnCraftEquipment.Text = "craft"
+        Me.btnCraftEquipment.UseVisualStyleBackColor = False
+        '
+        'lblCraftName
+        '
+        Me.lblCraftName.BackColor = System.Drawing.Color.Transparent
+        Me.lblCraftName.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCraftName.ForeColor = System.Drawing.Color.White
+        Me.lblCraftName.Location = New System.Drawing.Point(0, 0)
+        Me.lblCraftName.Name = "lblCraftName"
+        Me.lblCraftName.Padding = New System.Windows.Forms.Padding(3, 0, 0, 0)
+        Me.lblCraftName.Size = New System.Drawing.Size(370, 72)
+        Me.lblCraftName.TabIndex = 2
+        Me.lblCraftName.Text = "Chestplate"
+        Me.lblCraftName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.Silver
+        Me.Panel2.Controls.Add(Me.PictureBox2)
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Location = New System.Drawing.Point(0, 1000)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(349, 90)
+        Me.Panel2.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(96, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(240, 72)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Unpheasant Chestplate"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'pnlCraftingList
+        '
+        Me.pnlCraftingList.BackColor = System.Drawing.Color.DarkGray
+        Me.pnlCraftingList.Controls.Add(Me.scrlCraftingList)
+        Me.pnlCraftingList.Controls.Add(Me.pnlScrollFrame)
+        Me.pnlCraftingList.Controls.Add(Me.pnlCraftNegativeOne)
+        Me.pnlCraftingList.Location = New System.Drawing.Point(124, 101)
+        Me.pnlCraftingList.Name = "pnlCraftingList"
+        Me.pnlCraftingList.Size = New System.Drawing.Size(370, 540)
+        Me.pnlCraftingList.TabIndex = 0
+        '
+        'scrlCraftingList
+        '
+        Me.scrlCraftingList.LargeChange = 1
+        Me.scrlCraftingList.Location = New System.Drawing.Point(348, 0)
+        Me.scrlCraftingList.Maximum = 0
+        Me.scrlCraftingList.Name = "scrlCraftingList"
+        Me.scrlCraftingList.Size = New System.Drawing.Size(21, 540)
+        Me.scrlCraftingList.TabIndex = 3
+        '
+        'pnlScrollFrame
+        '
+        Me.pnlScrollFrame.Location = New System.Drawing.Point(0, 0)
+        Me.pnlScrollFrame.Name = "pnlScrollFrame"
+        Me.pnlScrollFrame.Size = New System.Drawing.Size(349, 23)
+        Me.pnlScrollFrame.TabIndex = 4
+        '
+        'pnlCraftNegativeOne
+        '
+        Me.pnlCraftNegativeOne.BackColor = System.Drawing.Color.Silver
+        Me.pnlCraftNegativeOne.Controls.Add(Me.picCraft0)
+        Me.pnlCraftNegativeOne.Controls.Add(Me.lblCraft0)
+        Me.pnlCraftNegativeOne.Location = New System.Drawing.Point(0, 1000)
+        Me.pnlCraftNegativeOne.Name = "pnlCraftNegativeOne"
+        Me.pnlCraftNegativeOne.Size = New System.Drawing.Size(349, 90)
+        Me.pnlCraftNegativeOne.TabIndex = 2
+        '
+        'lblCraft0
+        '
+        Me.lblCraft0.BackColor = System.Drawing.Color.Transparent
+        Me.lblCraft0.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCraft0.ForeColor = System.Drawing.Color.White
+        Me.lblCraft0.Location = New System.Drawing.Point(96, 9)
+        Me.lblCraft0.Name = "lblCraft0"
+        Me.lblCraft0.Size = New System.Drawing.Size(240, 72)
+        Me.lblCraft0.TabIndex = 1
+        Me.lblCraft0.Text = "Unpheasant Chestplate"
+        Me.lblCraft0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'picComponent4
+        '
+        Me.picComponent4.Controls.Add(Me.lblCraftingComponent4)
+        Me.picComponent4.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
+        Me.picComponent4.Location = New System.Drawing.Point(243, 341)
+        Me.picComponent4.Name = "picComponent4"
+        Me.picComponent4.Size = New System.Drawing.Size(72, 72)
+        Me.picComponent4.TabIndex = 12
+        Me.picComponent4.TabStop = False
+        '
+        'lblCraftingComponent4
+        '
+        Me.lblCraftingComponent4.AutoSize = True
+        Me.lblCraftingComponent4.BackColor = System.Drawing.Color.Transparent
+        Me.lblCraftingComponent4.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCraftingComponent4.Location = New System.Drawing.Point(43, 52)
+        Me.lblCraftingComponent4.Name = "lblCraftingComponent4"
+        Me.lblCraftingComponent4.Size = New System.Drawing.Size(29, 20)
+        Me.lblCraftingComponent4.TabIndex = 13
+        Me.lblCraftingComponent4.Text = "x1"
+        Me.lblCraftingComponent4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'picComponent3
+        '
+        Me.picComponent3.Controls.Add(Me.lblCraftingComponent3)
+        Me.picComponent3.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
+        Me.picComponent3.Location = New System.Drawing.Point(146, 440)
+        Me.picComponent3.Name = "picComponent3"
+        Me.picComponent3.Size = New System.Drawing.Size(72, 72)
+        Me.picComponent3.TabIndex = 7
+        Me.picComponent3.TabStop = False
+        '
+        'lblCraftingComponent3
+        '
+        Me.lblCraftingComponent3.AutoSize = True
+        Me.lblCraftingComponent3.BackColor = System.Drawing.Color.Transparent
+        Me.lblCraftingComponent3.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCraftingComponent3.Location = New System.Drawing.Point(43, 52)
+        Me.lblCraftingComponent3.Name = "lblCraftingComponent3"
+        Me.lblCraftingComponent3.Size = New System.Drawing.Size(29, 20)
+        Me.lblCraftingComponent3.TabIndex = 11
+        Me.lblCraftingComponent3.Text = "x1"
+        Me.lblCraftingComponent3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'picComponent2
+        '
+        Me.picComponent2.Controls.Add(Me.lblCraftingComponent2)
+        Me.picComponent2.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
+        Me.picComponent2.Location = New System.Drawing.Point(146, 341)
+        Me.picComponent2.Name = "picComponent2"
+        Me.picComponent2.Size = New System.Drawing.Size(72, 72)
+        Me.picComponent2.TabIndex = 6
+        Me.picComponent2.TabStop = False
+        '
+        'lblCraftingComponent2
+        '
+        Me.lblCraftingComponent2.AutoSize = True
+        Me.lblCraftingComponent2.BackColor = System.Drawing.Color.Transparent
+        Me.lblCraftingComponent2.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCraftingComponent2.Location = New System.Drawing.Point(43, 52)
+        Me.lblCraftingComponent2.Name = "lblCraftingComponent2"
+        Me.lblCraftingComponent2.Size = New System.Drawing.Size(29, 20)
+        Me.lblCraftingComponent2.TabIndex = 10
+        Me.lblCraftingComponent2.Text = "x1"
+        Me.lblCraftingComponent2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'picComponent1
+        '
+        Me.picComponent1.Controls.Add(Me.lblCraftingComponent1)
+        Me.picComponent1.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
+        Me.picComponent1.Location = New System.Drawing.Point(49, 440)
+        Me.picComponent1.Name = "picComponent1"
+        Me.picComponent1.Size = New System.Drawing.Size(72, 72)
+        Me.picComponent1.TabIndex = 5
+        Me.picComponent1.TabStop = False
+        '
+        'lblCraftingComponent1
+        '
+        Me.lblCraftingComponent1.AutoSize = True
+        Me.lblCraftingComponent1.BackColor = System.Drawing.Color.Transparent
+        Me.lblCraftingComponent1.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCraftingComponent1.Location = New System.Drawing.Point(43, 52)
+        Me.lblCraftingComponent1.Name = "lblCraftingComponent1"
+        Me.lblCraftingComponent1.Size = New System.Drawing.Size(29, 20)
+        Me.lblCraftingComponent1.TabIndex = 9
+        Me.lblCraftingComponent1.Text = "x1"
+        Me.lblCraftingComponent1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'picComponent0
+        '
+        Me.picComponent0.Controls.Add(Me.lblCraftingComponent0)
+        Me.picComponent0.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
+        Me.picComponent0.Location = New System.Drawing.Point(49, 341)
+        Me.picComponent0.Name = "picComponent0"
+        Me.picComponent0.Size = New System.Drawing.Size(72, 72)
+        Me.picComponent0.TabIndex = 4
+        Me.picComponent0.TabStop = False
+        '
+        'lblCraftingComponent0
+        '
+        Me.lblCraftingComponent0.AutoSize = True
+        Me.lblCraftingComponent0.BackColor = System.Drawing.Color.Transparent
+        Me.lblCraftingComponent0.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCraftingComponent0.ForeColor = System.Drawing.Color.White
+        Me.lblCraftingComponent0.Location = New System.Drawing.Point(43, 52)
+        Me.lblCraftingComponent0.Name = "lblCraftingComponent0"
+        Me.lblCraftingComponent0.Size = New System.Drawing.Size(29, 20)
+        Me.lblCraftingComponent0.TabIndex = 8
+        Me.lblCraftingComponent0.Text = "x1"
+        Me.lblCraftingComponent0.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'picCraftPic
+        '
+        Me.picCraftPic.Controls.Add(Me.lblCraftStats)
+        Me.picCraftPic.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorTail1
+        Me.picCraftPic.Location = New System.Drawing.Point(59, 59)
+        Me.picCraftPic.Name = "picCraftPic"
+        Me.picCraftPic.Size = New System.Drawing.Size(256, 256)
+        Me.picCraftPic.TabIndex = 3
+        Me.picCraftPic.TabStop = False
+        '
+        'lblCraftStats
+        '
+        Me.lblCraftStats.BackColor = System.Drawing.Color.Transparent
+        Me.lblCraftStats.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCraftStats.ForeColor = System.Drawing.Color.White
+        Me.lblCraftStats.Location = New System.Drawing.Point(0, 0)
+        Me.lblCraftStats.Name = "lblCraftStats"
+        Me.lblCraftStats.Padding = New System.Windows.Forms.Padding(3, 0, 0, 0)
+        Me.lblCraftStats.Size = New System.Drawing.Size(260, 256)
+        Me.lblCraftStats.TabIndex = 8
+        Me.lblCraftStats.Text = "Health +25" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Defense +10" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Luck: +5" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lblCraftStats.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorBone1_InventorySmall
+        Me.PictureBox2.Location = New System.Drawing.Point(12, 9)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(72, 72)
+        Me.PictureBox2.TabIndex = 1
+        Me.PictureBox2.TabStop = False
+        '
+        'picCraft0
+        '
+        Me.picCraft0.BackColor = System.Drawing.Color.Transparent
+        Me.picCraft0.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorBone1_InventorySmall
+        Me.picCraft0.Location = New System.Drawing.Point(12, 9)
+        Me.picCraft0.Name = "picCraft0"
+        Me.picCraft0.Size = New System.Drawing.Size(72, 72)
+        Me.picCraft0.TabIndex = 1
+        Me.picCraft0.TabStop = False
         '
         'pnlInventory
         '
@@ -368,7 +581,7 @@ Partial Class frmMain
         Me.pnlInventory.Controls.Add(Me.picInvSlot16)
         Me.pnlInventory.Controls.Add(Me.picInvSlot8)
         Me.pnlInventory.Controls.Add(Me.picInvSlot0)
-        Me.pnlInventory.Location = New System.Drawing.Point(0, 0)
+        Me.pnlInventory.Location = New System.Drawing.Point(1000, 1000)
         Me.pnlInventory.Name = "pnlInventory"
         Me.pnlInventory.Size = New System.Drawing.Size(1000, 750)
         Me.pnlInventory.TabIndex = 6
@@ -795,7 +1008,7 @@ Partial Class frmMain
         Me.pnlFight.Controls.Add(Me.pnlDropMenu)
         Me.pnlFight.Controls.Add(Me.pnlMob)
         Me.pnlFight.Controls.Add(Me.picFighting)
-        Me.pnlFight.Location = New System.Drawing.Point(0, 0)
+        Me.pnlFight.Location = New System.Drawing.Point(1000, 1000)
         Me.pnlFight.Name = "pnlFight"
         Me.pnlFight.Size = New System.Drawing.Size(1000, 750)
         Me.pnlFight.TabIndex = 5
@@ -1057,14 +1270,29 @@ Partial Class frmMain
         'pnlFujiCity
         '
         Me.pnlFujiCity.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.fujiCity
+        Me.pnlFujiCity.Controls.Add(Me.btnFightMutahraptor)
         Me.pnlFujiCity.Controls.Add(Me.btnFightUnpheasantRaptor)
         Me.pnlFujiCity.Controls.Add(Me.PictureBox1)
         Me.pnlFujiCity.Controls.Add(Me.btnCrafting)
         Me.pnlFujiCity.Controls.Add(Me.btnInventory)
-        Me.pnlFujiCity.Location = New System.Drawing.Point(757, 148)
+        Me.pnlFujiCity.Location = New System.Drawing.Point(0, 0)
         Me.pnlFujiCity.Name = "pnlFujiCity"
         Me.pnlFujiCity.Size = New System.Drawing.Size(1000, 750)
         Me.pnlFujiCity.TabIndex = 4
+        '
+        'btnFightMutahraptor
+        '
+        Me.btnFightMutahraptor.BackColor = System.Drawing.Color.Transparent
+        Me.btnFightMutahraptor.FlatAppearance.BorderSize = 0
+        Me.btnFightMutahraptor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btnFightMutahraptor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btnFightMutahraptor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnFightMutahraptor.Image = Global.FalloutMonsterHunter.My.Resources.Resources.fmhRaptorHead2_86Icon
+        Me.btnFightMutahraptor.Location = New System.Drawing.Point(710, 554)
+        Me.btnFightMutahraptor.Name = "btnFightMutahraptor"
+        Me.btnFightMutahraptor.Size = New System.Drawing.Size(99, 99)
+        Me.btnFightMutahraptor.TabIndex = 7
+        Me.btnFightMutahraptor.UseVisualStyleBackColor = False
         '
         'btnFightUnpheasantRaptor
         '
@@ -1117,6 +1345,88 @@ Partial Class frmMain
         Me.btnInventory.TabIndex = 2
         Me.btnInventory.Text = "inventory"
         Me.btnInventory.UseVisualStyleBackColor = False
+        '
+        'picIntro
+        '
+        Me.picIntro.Controls.Add(Me.pnlDialog)
+        Me.picIntro.Image = Global.FalloutMonsterHunter.My.Resources.Resources.falloutMonsterHunterIntroCutscene
+        Me.picIntro.Location = New System.Drawing.Point(0, 0)
+        Me.picIntro.Name = "picIntro"
+        Me.picIntro.Size = New System.Drawing.Size(1000, 750)
+        Me.picIntro.TabIndex = 0
+        Me.picIntro.TabStop = False
+        '
+        'pnlDialog
+        '
+        Me.pnlDialog.BackColor = System.Drawing.Color.Transparent
+        Me.pnlDialog.Controls.Add(Me.txtUserIn)
+        Me.pnlDialog.Controls.Add(Me.lblDialog)
+        Me.pnlDialog.Controls.Add(Me.lblBigOutline)
+        Me.pnlDialog.Controls.Add(Me.lblSpeaker)
+        Me.pnlDialog.Location = New System.Drawing.Point(74, 423)
+        Me.pnlDialog.Name = "pnlDialog"
+        Me.pnlDialog.Size = New System.Drawing.Size(852, 253)
+        Me.pnlDialog.TabIndex = 3
+        Me.pnlDialog.Visible = False
+        '
+        'txtUserIn
+        '
+        Me.txtUserIn.BackColor = System.Drawing.Color.Black
+        Me.txtUserIn.Font = New System.Drawing.Font("Courier New", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUserIn.ForeColor = System.Drawing.Color.White
+        Me.txtUserIn.Location = New System.Drawing.Point(17, 208)
+        Me.txtUserIn.Name = "txtUserIn"
+        Me.txtUserIn.Size = New System.Drawing.Size(276, 28)
+        Me.txtUserIn.TabIndex = 4
+        Me.txtUserIn.Visible = False
+        '
+        'lblDialog
+        '
+        Me.lblDialog.BackColor = System.Drawing.Color.Black
+        Me.lblDialog.Controls.Add(Me.lblClickCont)
+        Me.lblDialog.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDialog.ForeColor = System.Drawing.Color.White
+        Me.lblDialog.Location = New System.Drawing.Point(3, 39)
+        Me.lblDialog.Name = "lblDialog"
+        Me.lblDialog.Padding = New System.Windows.Forms.Padding(10, 10, 0, 0)
+        Me.lblDialog.Size = New System.Drawing.Size(846, 211)
+        Me.lblDialog.TabIndex = 1
+        '
+        'lblClickCont
+        '
+        Me.lblClickCont.AutoSize = True
+        Me.lblClickCont.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblClickCont.ForeColor = System.Drawing.Color.White
+        Me.lblClickCont.Location = New System.Drawing.Point(650, 174)
+        Me.lblClickCont.Name = "lblClickCont"
+        Me.lblClickCont.Size = New System.Drawing.Size(179, 20)
+        Me.lblClickCont.TabIndex = 5
+        Me.lblClickCont.Tag = "650, 174"
+        Me.lblClickCont.Text = "click to continue"
+        Me.lblClickCont.Visible = False
+        '
+        'lblBigOutline
+        '
+        Me.lblBigOutline.BackColor = System.Drawing.Color.White
+        Me.lblBigOutline.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBigOutline.ForeColor = System.Drawing.Color.White
+        Me.lblBigOutline.Location = New System.Drawing.Point(0, 36)
+        Me.lblBigOutline.Name = "lblBigOutline"
+        Me.lblBigOutline.Padding = New System.Windows.Forms.Padding(10, 10, 0, 0)
+        Me.lblBigOutline.Size = New System.Drawing.Size(852, 217)
+        Me.lblBigOutline.TabIndex = 3
+        Me.lblBigOutline.Text = "Hello? Hello?? Is anybody there???"
+        '
+        'lblSpeaker
+        '
+        Me.lblSpeaker.BackColor = System.Drawing.Color.Black
+        Me.lblSpeaker.Font = New System.Drawing.Font("Courier New", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSpeaker.ForeColor = System.Drawing.Color.White
+        Me.lblSpeaker.Location = New System.Drawing.Point(0, 0)
+        Me.lblSpeaker.Name = "lblSpeaker"
+        Me.lblSpeaker.Size = New System.Drawing.Size(224, 37)
+        Me.lblSpeaker.TabIndex = 2
+        Me.lblSpeaker.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'pnlMainMenu
         '
@@ -1184,300 +1494,6 @@ Partial Class frmMain
         Me.picFader.TabIndex = 4
         Me.picFader.TabStop = False
         '
-        'pnlCraftingMenu
-        '
-        Me.pnlCraftingMenu.BackColor = System.Drawing.Color.DimGray
-        Me.pnlCraftingMenu.Controls.Add(Me.lblCloseCrafting)
-        Me.pnlCraftingMenu.Controls.Add(Me.pnlCraftingItem)
-        Me.pnlCraftingMenu.Controls.Add(Me.pnlCraftingList)
-        Me.pnlCraftingMenu.Location = New System.Drawing.Point(0, 1000)
-        Me.pnlCraftingMenu.Name = "pnlCraftingMenu"
-        Me.pnlCraftingMenu.Size = New System.Drawing.Size(1000, 750)
-        Me.pnlCraftingMenu.TabIndex = 7
-        '
-        'lblCloseCrafting
-        '
-        Me.lblCloseCrafting.AutoSize = True
-        Me.lblCloseCrafting.BackColor = System.Drawing.Color.DarkGray
-        Me.lblCloseCrafting.Font = New System.Drawing.Font("Courier New", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCloseCrafting.ForeColor = System.Drawing.Color.White
-        Me.lblCloseCrafting.Location = New System.Drawing.Point(933, 20)
-        Me.lblCloseCrafting.Name = "lblCloseCrafting"
-        Me.lblCloseCrafting.Size = New System.Drawing.Size(42, 43)
-        Me.lblCloseCrafting.TabIndex = 31
-        Me.lblCloseCrafting.Text = "X"
-        Me.lblCloseCrafting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'pnlCraftingItem
-        '
-        Me.pnlCraftingItem.BackColor = System.Drawing.Color.DarkGray
-        Me.pnlCraftingItem.Controls.Add(Me.btnCraftEquipment)
-        Me.pnlCraftingItem.Controls.Add(Me.picComponent4)
-        Me.pnlCraftingItem.Controls.Add(Me.picComponent3)
-        Me.pnlCraftingItem.Controls.Add(Me.picComponent2)
-        Me.pnlCraftingItem.Controls.Add(Me.picComponent1)
-        Me.pnlCraftingItem.Controls.Add(Me.picComponent0)
-        Me.pnlCraftingItem.Controls.Add(Me.picCraftPic)
-        Me.pnlCraftingItem.Controls.Add(Me.lblCraftName)
-        Me.pnlCraftingItem.Controls.Add(Me.Panel2)
-        Me.pnlCraftingItem.Location = New System.Drawing.Point(494, 101)
-        Me.pnlCraftingItem.Name = "pnlCraftingItem"
-        Me.pnlCraftingItem.Size = New System.Drawing.Size(370, 540)
-        Me.pnlCraftingItem.TabIndex = 3
-        '
-        'btnCraftEquipment
-        '
-        Me.btnCraftEquipment.BackColor = System.Drawing.Color.Gainsboro
-        Me.btnCraftEquipment.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnCraftEquipment.FlatAppearance.BorderSize = 0
-        Me.btnCraftEquipment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCraftEquipment.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCraftEquipment.ForeColor = System.Drawing.Color.Black
-        Me.btnCraftEquipment.Location = New System.Drawing.Point(243, 461)
-        Me.btnCraftEquipment.Name = "btnCraftEquipment"
-        Me.btnCraftEquipment.Size = New System.Drawing.Size(72, 30)
-        Me.btnCraftEquipment.TabIndex = 13
-        Me.btnCraftEquipment.Text = "craft"
-        Me.btnCraftEquipment.UseVisualStyleBackColor = False
-        '
-        'picComponent4
-        '
-        Me.picComponent4.Controls.Add(Me.lblCraftingComponent4)
-        Me.picComponent4.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
-        Me.picComponent4.Location = New System.Drawing.Point(243, 341)
-        Me.picComponent4.Name = "picComponent4"
-        Me.picComponent4.Size = New System.Drawing.Size(72, 72)
-        Me.picComponent4.TabIndex = 12
-        Me.picComponent4.TabStop = False
-        '
-        'lblCraftingComponent4
-        '
-        Me.lblCraftingComponent4.AutoSize = True
-        Me.lblCraftingComponent4.BackColor = System.Drawing.Color.Transparent
-        Me.lblCraftingComponent4.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCraftingComponent4.Location = New System.Drawing.Point(43, 52)
-        Me.lblCraftingComponent4.Name = "lblCraftingComponent4"
-        Me.lblCraftingComponent4.Size = New System.Drawing.Size(29, 20)
-        Me.lblCraftingComponent4.TabIndex = 13
-        Me.lblCraftingComponent4.Text = "x1"
-        Me.lblCraftingComponent4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'picComponent3
-        '
-        Me.picComponent3.Controls.Add(Me.lblCraftingComponent3)
-        Me.picComponent3.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
-        Me.picComponent3.Location = New System.Drawing.Point(146, 440)
-        Me.picComponent3.Name = "picComponent3"
-        Me.picComponent3.Size = New System.Drawing.Size(72, 72)
-        Me.picComponent3.TabIndex = 7
-        Me.picComponent3.TabStop = False
-        '
-        'lblCraftingComponent3
-        '
-        Me.lblCraftingComponent3.AutoSize = True
-        Me.lblCraftingComponent3.BackColor = System.Drawing.Color.Transparent
-        Me.lblCraftingComponent3.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCraftingComponent3.Location = New System.Drawing.Point(43, 52)
-        Me.lblCraftingComponent3.Name = "lblCraftingComponent3"
-        Me.lblCraftingComponent3.Size = New System.Drawing.Size(29, 20)
-        Me.lblCraftingComponent3.TabIndex = 11
-        Me.lblCraftingComponent3.Text = "x1"
-        Me.lblCraftingComponent3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'picComponent2
-        '
-        Me.picComponent2.Controls.Add(Me.lblCraftingComponent2)
-        Me.picComponent2.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
-        Me.picComponent2.Location = New System.Drawing.Point(146, 341)
-        Me.picComponent2.Name = "picComponent2"
-        Me.picComponent2.Size = New System.Drawing.Size(72, 72)
-        Me.picComponent2.TabIndex = 6
-        Me.picComponent2.TabStop = False
-        '
-        'lblCraftingComponent2
-        '
-        Me.lblCraftingComponent2.AutoSize = True
-        Me.lblCraftingComponent2.BackColor = System.Drawing.Color.Transparent
-        Me.lblCraftingComponent2.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCraftingComponent2.Location = New System.Drawing.Point(43, 52)
-        Me.lblCraftingComponent2.Name = "lblCraftingComponent2"
-        Me.lblCraftingComponent2.Size = New System.Drawing.Size(29, 20)
-        Me.lblCraftingComponent2.TabIndex = 10
-        Me.lblCraftingComponent2.Text = "x1"
-        Me.lblCraftingComponent2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'picComponent1
-        '
-        Me.picComponent1.Controls.Add(Me.lblCraftingComponent1)
-        Me.picComponent1.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
-        Me.picComponent1.Location = New System.Drawing.Point(49, 440)
-        Me.picComponent1.Name = "picComponent1"
-        Me.picComponent1.Size = New System.Drawing.Size(72, 72)
-        Me.picComponent1.TabIndex = 5
-        Me.picComponent1.TabStop = False
-        '
-        'lblCraftingComponent1
-        '
-        Me.lblCraftingComponent1.AutoSize = True
-        Me.lblCraftingComponent1.BackColor = System.Drawing.Color.Transparent
-        Me.lblCraftingComponent1.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCraftingComponent1.Location = New System.Drawing.Point(43, 52)
-        Me.lblCraftingComponent1.Name = "lblCraftingComponent1"
-        Me.lblCraftingComponent1.Size = New System.Drawing.Size(29, 20)
-        Me.lblCraftingComponent1.TabIndex = 9
-        Me.lblCraftingComponent1.Text = "x1"
-        Me.lblCraftingComponent1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'picComponent0
-        '
-        Me.picComponent0.Controls.Add(Me.lblCraftingComponent0)
-        Me.picComponent0.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorSkull1_InventorySmall
-        Me.picComponent0.Location = New System.Drawing.Point(49, 341)
-        Me.picComponent0.Name = "picComponent0"
-        Me.picComponent0.Size = New System.Drawing.Size(72, 72)
-        Me.picComponent0.TabIndex = 4
-        Me.picComponent0.TabStop = False
-        '
-        'lblCraftingComponent0
-        '
-        Me.lblCraftingComponent0.AutoSize = True
-        Me.lblCraftingComponent0.BackColor = System.Drawing.Color.Transparent
-        Me.lblCraftingComponent0.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCraftingComponent0.ForeColor = System.Drawing.Color.White
-        Me.lblCraftingComponent0.Location = New System.Drawing.Point(43, 52)
-        Me.lblCraftingComponent0.Name = "lblCraftingComponent0"
-        Me.lblCraftingComponent0.Size = New System.Drawing.Size(29, 20)
-        Me.lblCraftingComponent0.TabIndex = 8
-        Me.lblCraftingComponent0.Text = "x1"
-        Me.lblCraftingComponent0.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'picCraftPic
-        '
-        Me.picCraftPic.Controls.Add(Me.lblCraftStats)
-        Me.picCraftPic.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorTail1
-        Me.picCraftPic.Location = New System.Drawing.Point(59, 59)
-        Me.picCraftPic.Name = "picCraftPic"
-        Me.picCraftPic.Size = New System.Drawing.Size(256, 256)
-        Me.picCraftPic.TabIndex = 3
-        Me.picCraftPic.TabStop = False
-        '
-        'lblCraftStats
-        '
-        Me.lblCraftStats.BackColor = System.Drawing.Color.Transparent
-        Me.lblCraftStats.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCraftStats.ForeColor = System.Drawing.Color.White
-        Me.lblCraftStats.Location = New System.Drawing.Point(0, 0)
-        Me.lblCraftStats.Name = "lblCraftStats"
-        Me.lblCraftStats.Padding = New System.Windows.Forms.Padding(3, 0, 0, 0)
-        Me.lblCraftStats.Size = New System.Drawing.Size(260, 256)
-        Me.lblCraftStats.TabIndex = 8
-        Me.lblCraftStats.Text = "Health +25" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Defense +10" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Luck: +5" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.lblCraftStats.TextAlign = System.Drawing.ContentAlignment.BottomRight
-        '
-        'lblCraftName
-        '
-        Me.lblCraftName.BackColor = System.Drawing.Color.Transparent
-        Me.lblCraftName.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCraftName.ForeColor = System.Drawing.Color.White
-        Me.lblCraftName.Location = New System.Drawing.Point(0, 0)
-        Me.lblCraftName.Name = "lblCraftName"
-        Me.lblCraftName.Padding = New System.Windows.Forms.Padding(3, 0, 0, 0)
-        Me.lblCraftName.Size = New System.Drawing.Size(370, 72)
-        Me.lblCraftName.TabIndex = 2
-        Me.lblCraftName.Text = "Chestplate"
-        Me.lblCraftName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.Silver
-        Me.Panel2.Controls.Add(Me.PictureBox2)
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(0, 1000)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(349, 90)
-        Me.Panel2.TabIndex = 2
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorBone1_InventorySmall
-        Me.PictureBox2.Location = New System.Drawing.Point(12, 9)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(72, 72)
-        Me.PictureBox2.TabIndex = 1
-        Me.PictureBox2.TabStop = False
-        '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(96, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(240, 72)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Unpheasant Chestplate"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'pnlCraftingList
-        '
-        Me.pnlCraftingList.BackColor = System.Drawing.Color.DarkGray
-        Me.pnlCraftingList.Controls.Add(Me.scrlCraftingList)
-        Me.pnlCraftingList.Controls.Add(Me.pnlScrollFrame)
-        Me.pnlCraftingList.Controls.Add(Me.pnlCraftNegativeOne)
-        Me.pnlCraftingList.Location = New System.Drawing.Point(124, 101)
-        Me.pnlCraftingList.Name = "pnlCraftingList"
-        Me.pnlCraftingList.Size = New System.Drawing.Size(370, 540)
-        Me.pnlCraftingList.TabIndex = 0
-        '
-        'scrlCraftingList
-        '
-        Me.scrlCraftingList.LargeChange = 1
-        Me.scrlCraftingList.Location = New System.Drawing.Point(348, 0)
-        Me.scrlCraftingList.Maximum = 0
-        Me.scrlCraftingList.Name = "scrlCraftingList"
-        Me.scrlCraftingList.Size = New System.Drawing.Size(21, 540)
-        Me.scrlCraftingList.TabIndex = 3
-        '
-        'pnlScrollFrame
-        '
-        Me.pnlScrollFrame.Location = New System.Drawing.Point(0, 0)
-        Me.pnlScrollFrame.Name = "pnlScrollFrame"
-        Me.pnlScrollFrame.Size = New System.Drawing.Size(349, 23)
-        Me.pnlScrollFrame.TabIndex = 4
-        '
-        'pnlCraftNegativeOne
-        '
-        Me.pnlCraftNegativeOne.BackColor = System.Drawing.Color.Silver
-        Me.pnlCraftNegativeOne.Controls.Add(Me.picCraft0)
-        Me.pnlCraftNegativeOne.Controls.Add(Me.lblCraft0)
-        Me.pnlCraftNegativeOne.Location = New System.Drawing.Point(0, 1000)
-        Me.pnlCraftNegativeOne.Name = "pnlCraftNegativeOne"
-        Me.pnlCraftNegativeOne.Size = New System.Drawing.Size(349, 90)
-        Me.pnlCraftNegativeOne.TabIndex = 2
-        '
-        'picCraft0
-        '
-        Me.picCraft0.BackColor = System.Drawing.Color.Transparent
-        Me.picCraft0.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorBone1_InventorySmall
-        Me.picCraft0.Location = New System.Drawing.Point(12, 9)
-        Me.picCraft0.Name = "picCraft0"
-        Me.picCraft0.Size = New System.Drawing.Size(72, 72)
-        Me.picCraft0.TabIndex = 1
-        Me.picCraft0.TabStop = False
-        '
-        'lblCraft0
-        '
-        Me.lblCraft0.BackColor = System.Drawing.Color.Transparent
-        Me.lblCraft0.Font = New System.Drawing.Font("Courier New", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCraft0.ForeColor = System.Drawing.Color.White
-        Me.lblCraft0.Location = New System.Drawing.Point(96, 9)
-        Me.lblCraft0.Name = "lblCraft0"
-        Me.lblCraft0.Size = New System.Drawing.Size(240, 72)
-        Me.lblCraft0.TabIndex = 1
-        Me.lblCraft0.Text = "Unpheasant Chestplate"
-        Me.lblCraft0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -1498,12 +1514,31 @@ Partial Class frmMain
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Fallout Monster Hunter"
         Me.pnlIntro.ResumeLayout(False)
-        CType(Me.picIntro, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.picIntro.ResumeLayout(False)
-        Me.pnlDialog.ResumeLayout(False)
-        Me.pnlDialog.PerformLayout()
-        Me.lblDialog.ResumeLayout(False)
-        Me.lblDialog.PerformLayout()
+        Me.pnlCraftingMenu.ResumeLayout(False)
+        Me.pnlCraftingMenu.PerformLayout()
+        Me.pnlCraftingItem.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.pnlCraftingList.ResumeLayout(False)
+        Me.pnlCraftNegativeOne.ResumeLayout(False)
+        CType(Me.picComponent4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picComponent4.ResumeLayout(False)
+        Me.picComponent4.PerformLayout()
+        CType(Me.picComponent3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picComponent3.ResumeLayout(False)
+        Me.picComponent3.PerformLayout()
+        CType(Me.picComponent2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picComponent2.ResumeLayout(False)
+        Me.picComponent2.PerformLayout()
+        CType(Me.picComponent1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picComponent1.ResumeLayout(False)
+        Me.picComponent1.PerformLayout()
+        CType(Me.picComponent0, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picComponent0.ResumeLayout(False)
+        Me.picComponent0.PerformLayout()
+        CType(Me.picCraftPic, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picCraftPic.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picCraft0, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlInventory.ResumeLayout(False)
         Me.pnlInventory.PerformLayout()
         Me.pnlDeletion.ResumeLayout(False)
@@ -1570,37 +1605,18 @@ Partial Class frmMain
         CType(Me.picWeapon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlFujiCity.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picIntro, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.picIntro.ResumeLayout(False)
+        Me.pnlDialog.ResumeLayout(False)
+        Me.pnlDialog.PerformLayout()
+        Me.lblDialog.ResumeLayout(False)
+        Me.lblDialog.PerformLayout()
         Me.pnlMainMenu.ResumeLayout(False)
         CType(Me.picBackdrop, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picBackdrop.ResumeLayout(False)
         Me.picBackdrop.PerformLayout()
         CType(Me.picFader2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFader, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlCraftingMenu.ResumeLayout(False)
-        Me.pnlCraftingMenu.PerformLayout()
-        Me.pnlCraftingItem.ResumeLayout(False)
-        CType(Me.picComponent4, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.picComponent4.ResumeLayout(False)
-        Me.picComponent4.PerformLayout()
-        CType(Me.picComponent3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.picComponent3.ResumeLayout(False)
-        Me.picComponent3.PerformLayout()
-        CType(Me.picComponent2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.picComponent2.ResumeLayout(False)
-        Me.picComponent2.PerformLayout()
-        CType(Me.picComponent1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.picComponent1.ResumeLayout(False)
-        Me.picComponent1.PerformLayout()
-        CType(Me.picComponent0, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.picComponent0.ResumeLayout(False)
-        Me.picComponent0.PerformLayout()
-        CType(Me.picCraftPic, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.picCraftPic.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlCraftingList.ResumeLayout(False)
-        Me.pnlCraftNegativeOne.ResumeLayout(False)
-        CType(Me.picCraft0, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1721,4 +1737,5 @@ Partial Class frmMain
     Friend WithEvents lblDeleteConfirm As Label
     Friend WithEvents btnCancel As Button
     Friend WithEvents btnDelete As Button
+    Friend WithEvents btnFightMutahraptor As Button
 End Class

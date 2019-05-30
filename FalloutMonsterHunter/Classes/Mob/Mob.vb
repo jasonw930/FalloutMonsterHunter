@@ -19,12 +19,12 @@
     Public Shared mobRaptor3 As Mob
 
     Public Shared Sub initialize()
-        mobRaptor1 = New Mob("Unpheasant", 100, 5, 25, 5, My.Resources.fmhRaptor1)
+        mobRaptor1 = New Mob("Unpheasant", 100, 5, 25, 5, My.Resources.mobRaptor1)
         mobRaptor1.dropItems = {Item.itemRaptorClaws1, Item.itemRaptorHide1, Item.itemRaptorBone1, Item.itemRaptorSkull1, Item.itemRaptorTail1}
         mobRaptor1.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
         mobRaptor1.dropAmount = {6, 6, 6, 1.2, 1.2}
 
-        mobRaptor2 = New Mob("Mutahraptor", 200, 20, 60, 5, My.Resources.uziCartiBigBaller)
+        mobRaptor2 = New Mob("Mutahraptor", 200, 20, 60, 5, My.Resources.mobRaptor2)
         mobRaptor2.dropItems = {Item.itemRaptorClaws2, Item.itemRaptorHide2, Item.itemRaptorBone2, Item.itemRaptorSkull2, Item.itemRaptorTail2}
         mobRaptor2.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
         mobRaptor2.dropAmount = {6, 6, 6, 1.2, 1.2}

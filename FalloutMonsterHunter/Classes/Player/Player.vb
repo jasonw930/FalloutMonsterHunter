@@ -89,9 +89,9 @@ Public Class Player
 
         Me.luck = 0
 
-        If equippedArmor0.getItem().getTier() = equippedArmor1.getItem().getTier() = equippedArmor2.getItem().getTier() =
-            equippedArmor3.getItem().getTier() = equippedWeapon.getItem().getTier() Then
-            Select Case equippedArmor0.getItem().getTier()
+        If equippedArmor0.getItem().getItemTier() = equippedArmor1.getItem().getItemTier() = equippedArmor2.getItem().getItemTier() =
+            equippedArmor3.getItem().getItemTier() = equippedWeapon.getItem().getItemTier() Then
+            Select Case equippedArmor0.getItem().getItemTier()
                 Case 1
                     Me.health += 10
                     Me.defense += 5

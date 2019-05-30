@@ -259,6 +259,9 @@
   <data name="raptorWeapon1_Small72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\raptorWeapon1-Small72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fmhRaptorHead2_86Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fmhRaptorHead2-86Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="itemRaptorBone2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemRaptorBone2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -288,5 +291,38 @@
   </data>
   <data name="itemRaptorTail3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemRaptorTail3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mobRaptor2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mobRaptor2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="raptorBoots2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raptorBoots2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="raptorBoots2_Small160" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raptorBoots2-Small160.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="raptorChestplate2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raptorChestplate2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="raptorChestplate2_Small160" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raptorChestplate2-Small160.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="raptorHelmet2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raptorHelmet2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="raptorHelmet2_Small160" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raptorHelmet2-Small160.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="raptorLeggings2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raptorLeggings2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="raptorLeggings2_Small160" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raptorLeggings2-Small160.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="raptorWeapon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raptorWeapon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="raptorWeapon2_Small160" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raptorWeapon2-Small160.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
