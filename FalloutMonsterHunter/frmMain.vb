@@ -259,6 +259,7 @@
             'Player Attack
             attackValue = (player.attack - mob.defense) * If(Rnd() <= player.critChance / 100, 2, 1)
             attackValue += If(cheatGodMode, 9001, 0)
+            attackValue += Rnd() * attackValue * 0.05 - attackValue * 0.025
             mob.currentHealth -= attackValue
             Console.WriteLine(mob.currentHealth & " is Raptor's health")
 
@@ -277,6 +278,7 @@
 
             'Mob Attack
             attackValue = (mob.attack - player.defense) * If(Rnd() <= mob.critChance / 100, 2, 1)
+            attackValue += Rnd() * attackValue * 0.05 - attackValue * 0.025
             player.currentHealth -= attackValue
             Console.WriteLine(player.currentHealth & " is Player's health")
 

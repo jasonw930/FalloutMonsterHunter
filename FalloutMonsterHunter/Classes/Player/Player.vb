@@ -103,9 +103,9 @@ Public Class Player
                     Me.attack += 8
                     Me.critChance += 2
                 Case 3
-                    Me.health += 20
+                    Me.health += 30
                     Me.defense += 10
-                    Me.attack += 10
+                    Me.attack += 20
                     Me.critChance += 2
             End Select
         End If

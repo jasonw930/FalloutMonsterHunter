@@ -1090,7 +1090,7 @@ Partial Class frmMain
         Me.pnlFight.Controls.Add(Me.pnlDropMenu)
         Me.pnlFight.Controls.Add(Me.pnlMob)
         Me.pnlFight.Controls.Add(Me.picFighting)
-        Me.pnlFight.Location = New System.Drawing.Point(1000, 1000)
+        Me.pnlFight.Location = New System.Drawing.Point(0, 0)
         Me.pnlFight.Name = "pnlFight"
         Me.pnlFight.Size = New System.Drawing.Size(1000, 750)
         Me.pnlFight.TabIndex = 5
@@ -1510,6 +1510,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnlFujiCity)
         Me.Controls.Add(Me.pnlIntro)
         Me.Controls.Add(Me.pnlMainMenu)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
