@@ -127,7 +127,15 @@ Partial Class frmMain
         Me.picChestplate = New System.Windows.Forms.PictureBox()
         Me.picHelmet = New System.Windows.Forms.PictureBox()
         Me.picWeapon = New System.Windows.Forms.PictureBox()
+        Me.pnlEnding = New System.Windows.Forms.Panel()
+        Me.picSon = New System.Windows.Forms.PictureBox()
+        Me.picFather = New System.Windows.Forms.PictureBox()
+        Me.pnlWin = New System.Windows.Forms.Panel()
+        Me.btnExitGame = New System.Windows.Forms.Button()
+        Me.btnKeepFighting = New System.Windows.Forms.Button()
+        Me.lblBeatGame = New System.Windows.Forms.Label()
         Me.pnlFujiCity = New System.Windows.Forms.Panel()
+        Me.btnFightMobBoss = New System.Windows.Forms.Button()
         Me.btnFightUzirappter = New System.Windows.Forms.Button()
         Me.btnFightMutahraptor = New System.Windows.Forms.Button()
         Me.btnFightUnpheasantRaptor = New System.Windows.Forms.Button()
@@ -225,6 +233,10 @@ Partial Class frmMain
         CType(Me.picHelmet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picHelmet.SuspendLayout()
         CType(Me.picWeapon, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlEnding.SuspendLayout()
+        CType(Me.picSon, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picFather, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlWin.SuspendLayout()
         Me.pnlFujiCity.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMainMenu.SuspendLayout()
@@ -1349,19 +1361,117 @@ Partial Class frmMain
         Me.picWeapon.TabIndex = 1
         Me.picWeapon.TabStop = False
         '
+        'pnlEnding
+        '
+        Me.pnlEnding.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.fmhEnding
+        Me.pnlEnding.Controls.Add(Me.picSon)
+        Me.pnlEnding.Controls.Add(Me.picFather)
+        Me.pnlEnding.Controls.Add(Me.pnlWin)
+        Me.pnlEnding.Location = New System.Drawing.Point(0, 0)
+        Me.pnlEnding.Name = "pnlEnding"
+        Me.pnlEnding.Size = New System.Drawing.Size(1000, 750)
+        Me.pnlEnding.TabIndex = 6
+        '
+        'picSon
+        '
+        Me.picSon.BackColor = System.Drawing.Color.Transparent
+        Me.picSon.Image = Global.FalloutMonsterHunter.My.Resources.Resources.Son
+        Me.picSon.Location = New System.Drawing.Point(770, 495)
+        Me.picSon.Name = "picSon"
+        Me.picSon.Size = New System.Drawing.Size(160, 200)
+        Me.picSon.TabIndex = 2
+        Me.picSon.TabStop = False
+        Me.picSon.Visible = False
+        '
+        'picFather
+        '
+        Me.picFather.BackColor = System.Drawing.Color.Transparent
+        Me.picFather.Image = Global.FalloutMonsterHunter.My.Resources.Resources.Player_Small160
+        Me.picFather.Location = New System.Drawing.Point(600, 495)
+        Me.picFather.Name = "picFather"
+        Me.picFather.Size = New System.Drawing.Size(160, 200)
+        Me.picFather.TabIndex = 1
+        Me.picFather.TabStop = False
+        '
+        'pnlWin
+        '
+        Me.pnlWin.BackColor = System.Drawing.Color.DimGray
+        Me.pnlWin.Controls.Add(Me.btnExitGame)
+        Me.pnlWin.Controls.Add(Me.btnKeepFighting)
+        Me.pnlWin.Controls.Add(Me.lblBeatGame)
+        Me.pnlWin.Location = New System.Drawing.Point(200, 275)
+        Me.pnlWin.Name = "pnlWin"
+        Me.pnlWin.Size = New System.Drawing.Size(600, 200)
+        Me.pnlWin.TabIndex = 0
+        Me.pnlWin.Visible = False
+        '
+        'btnExitGame
+        '
+        Me.btnExitGame.BackColor = System.Drawing.Color.Silver
+        Me.btnExitGame.FlatAppearance.BorderSize = 0
+        Me.btnExitGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExitGame.Font = New System.Drawing.Font("Courier New", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExitGame.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnExitGame.Location = New System.Drawing.Point(330, 120)
+        Me.btnExitGame.Name = "btnExitGame"
+        Me.btnExitGame.Size = New System.Drawing.Size(140, 33)
+        Me.btnExitGame.TabIndex = 2
+        Me.btnExitGame.Text = "Exit Game"
+        Me.btnExitGame.UseVisualStyleBackColor = False
+        '
+        'btnKeepFighting
+        '
+        Me.btnKeepFighting.BackColor = System.Drawing.Color.Silver
+        Me.btnKeepFighting.FlatAppearance.BorderSize = 0
+        Me.btnKeepFighting.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnKeepFighting.Font = New System.Drawing.Font("Courier New", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnKeepFighting.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnKeepFighting.Location = New System.Drawing.Point(130, 120)
+        Me.btnKeepFighting.Name = "btnKeepFighting"
+        Me.btnKeepFighting.Size = New System.Drawing.Size(180, 33)
+        Me.btnKeepFighting.TabIndex = 1
+        Me.btnKeepFighting.Text = "Keep Fighting"
+        Me.btnKeepFighting.UseVisualStyleBackColor = False
+        '
+        'lblBeatGame
+        '
+        Me.lblBeatGame.Font = New System.Drawing.Font("Courier New", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBeatGame.ForeColor = System.Drawing.Color.White
+        Me.lblBeatGame.Location = New System.Drawing.Point(0, 25)
+        Me.lblBeatGame.Name = "lblBeatGame"
+        Me.lblBeatGame.Size = New System.Drawing.Size(600, 92)
+        Me.lblBeatGame.TabIndex = 0
+        Me.lblBeatGame.Text = "You Beat Fallout Monster Hunter!"
+        Me.lblBeatGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'pnlFujiCity
         '
         Me.pnlFujiCity.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.fujiCity
+        Me.pnlFujiCity.Controls.Add(Me.btnFightMobBoss)
         Me.pnlFujiCity.Controls.Add(Me.btnFightUzirappter)
         Me.pnlFujiCity.Controls.Add(Me.btnFightMutahraptor)
         Me.pnlFujiCity.Controls.Add(Me.btnFightUnpheasantRaptor)
         Me.pnlFujiCity.Controls.Add(Me.PictureBox1)
         Me.pnlFujiCity.Controls.Add(Me.btnCrafting)
         Me.pnlFujiCity.Controls.Add(Me.btnInventory)
-        Me.pnlFujiCity.Location = New System.Drawing.Point(1000, 750)
+        Me.pnlFujiCity.Location = New System.Drawing.Point(0, 0)
         Me.pnlFujiCity.Name = "pnlFujiCity"
         Me.pnlFujiCity.Size = New System.Drawing.Size(1000, 750)
         Me.pnlFujiCity.TabIndex = 4
+        '
+        'btnFightMobBoss
+        '
+        Me.btnFightMobBoss.BackColor = System.Drawing.Color.Transparent
+        Me.btnFightMobBoss.FlatAppearance.BorderSize = 0
+        Me.btnFightMobBoss.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btnFightMobBoss.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btnFightMobBoss.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnFightMobBoss.Image = Global.FalloutMonsterHunter.My.Resources.Resources.fmhBossHead_86Icon
+        Me.btnFightMobBoss.Location = New System.Drawing.Point(77, 395)
+        Me.btnFightMobBoss.Name = "btnFightMobBoss"
+        Me.btnFightMobBoss.Size = New System.Drawing.Size(99, 99)
+        Me.btnFightMobBoss.TabIndex = 9
+        Me.btnFightMobBoss.UseVisualStyleBackColor = False
         '
         'btnFightUzirappter
         '
@@ -1503,7 +1613,9 @@ Partial Class frmMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1000, 750)
+        Me.Controls.Add(Me.pnlEnding)
         Me.Controls.Add(Me.pnlCraftingMenu)
         Me.Controls.Add(Me.pnlInventory)
         Me.Controls.Add(Me.pnlFight)
@@ -1613,6 +1725,10 @@ Partial Class frmMain
         CType(Me.picHelmet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.picHelmet.ResumeLayout(False)
         CType(Me.picWeapon, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlEnding.ResumeLayout(False)
+        CType(Me.picSon, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picFather, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlWin.ResumeLayout(False)
         Me.pnlFujiCity.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMainMenu.ResumeLayout(False)
@@ -1642,8 +1758,6 @@ Partial Class frmMain
     Friend WithEvents picMob As PictureBox
     Friend WithEvents picPlayer As PictureBox
     Friend WithEvents pnlMob As Panel
-    Friend WithEvents pnlPlayer As Panel
-    Friend WithEvents picFighting As PictureBox
     Friend WithEvents timerMove As Timer
     Friend WithEvents waitTimer As Timer
     Friend WithEvents pnlInventory As Panel
@@ -1724,11 +1838,6 @@ Partial Class frmMain
     Friend WithEvents picComponent4 As PictureBox
     Friend WithEvents btnCraftEquipment As Button
     Friend WithEvents lblCloseCrafting As Label
-    Friend WithEvents picBoots As PictureBox
-    Friend WithEvents picLeggings As PictureBox
-    Friend WithEvents picChestplate As PictureBox
-    Friend WithEvents picHelmet As PictureBox
-    Friend WithEvents picWeapon As PictureBox
     Friend WithEvents pnlPlayerPreview As Panel
     Friend WithEvents picBigBoots As PictureBox
     Friend WithEvents picBigLeggings As PictureBox
@@ -1741,4 +1850,19 @@ Partial Class frmMain
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnFightMutahraptor As Button
     Friend WithEvents btnFightUzirappter As Button
+    Friend WithEvents btnFightMobBoss As Button
+    Friend WithEvents pnlPlayer As Panel
+    Friend WithEvents picBoots As PictureBox
+    Friend WithEvents picLeggings As PictureBox
+    Friend WithEvents picChestplate As PictureBox
+    Friend WithEvents picHelmet As PictureBox
+    Friend WithEvents picWeapon As PictureBox
+    Friend WithEvents picFighting As PictureBox
+    Friend WithEvents pnlEnding As Panel
+    Friend WithEvents pnlWin As Panel
+    Friend WithEvents btnExitGame As Button
+    Friend WithEvents btnKeepFighting As Button
+    Friend WithEvents lblBeatGame As Label
+    Friend WithEvents picFather As PictureBox
+    Friend WithEvents picSon As PictureBox
 End Class

@@ -140,6 +140,9 @@
     <None Include="Resources\cortez.png" />
     <None Include="Resources\cortez-Small160.png" />
     <None Include="Resources\arms.png" />
+    <None Include="Resources\fmhFinalFightScene.png" />
+    <None Include="Resources\fmhBossHead-86Icon.png" />
+    <None Include="Resources\fmhEnding.png" />
     <Content Include="Resources\fmhRaptor1.png" />
     <None Include="Resources\mobRaptor1.png" />
     <None Include="Resources\pnlInventory.png" />
@@ -208,6 +211,12 @@
     <None Include="Resources\raptorWeapon3.png" />
     <None Include="Resources\raptorWeapon3-Small320.png" />
     <None Include="Resources\fmhRaptorHead3-86Icon.png" />
+    <None Include="Resources\mobFinalDino.png" />
+    <None Include="Resources\mobFinalDinoDefeated.png" />
+    <None Include="Resources\mobFinalDino2.png" />
+    <None Include="Resources\mobFinalDinoDefeated2.png" />
+    <None Include="Resources\mobFinalDinoDefeated3.png" />
+    <None Include="Resources\Son.png" />
     <Content Include="Resources\uziCartiBigBaller.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

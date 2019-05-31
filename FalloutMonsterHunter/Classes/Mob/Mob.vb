@@ -36,7 +36,7 @@
         mobRaptor3.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
         mobRaptor3.dropAmount = {6, 6, 6, 1.2, 1.2}
 
-        mobBoss = New Mob("Boss", 420, 80, 160, 12, My.Resources.uziCartiBigBaller)
+        mobBoss = New Mob("MobBoss", 420, 80, 160, 12, My.Resources.mobFinalDino2)
         mobBoss.dropItems = {}
         mobBoss.dropChance = {}
         mobBoss.dropAmount = {}
@@ -59,6 +59,8 @@
                 Return mobRaptor2
             Case "Uzirappter"
                 Return mobRaptor3
+            Case "MobBoss"
+                Return mobBoss
             Case Else
                 Return Nothing
         End Select

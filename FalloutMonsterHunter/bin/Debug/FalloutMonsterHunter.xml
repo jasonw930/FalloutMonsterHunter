@@ -47,7 +47,22 @@ FalloutMonsterHunter
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.fmhBossHead_86Icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.fmhEnding">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.fmhFightScene">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.fmhFinalFightScene">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -178,6 +193,31 @@ FalloutMonsterHunter
 </summary>
 </member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.itemRaptorTail3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.mobFinalDino">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.mobFinalDino2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.mobFinalDinoDefeated">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.mobFinalDinoDefeated2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.mobFinalDinoDefeated3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -418,6 +458,11 @@ FalloutMonsterHunter
 </summary>
 </member>
 <member name="P:FalloutMonsterHunter.My.Resources.Resources.raptorWeapon3_Small320">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:FalloutMonsterHunter.My.Resources.Resources.Son">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

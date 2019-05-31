@@ -28,6 +28,8 @@
     Dim componentImage As New List(Of PictureBox)
     Dim componentLabel As New List(Of Label)
 
+    Dim beatBoss As Boolean
+
     'Form Load--------------------------------------------------------------------------------------------
     Public Function resizeImage(source As Bitmap, x As Integer, y As Integer)
         'Dim sourceImg As Bitmap
@@ -109,7 +111,7 @@
         ' usrIn --> wait for user to input something (that is not "", even when trimmed) and click before continuing
         ' delayAutoCont --> wait for 500 milliseconds before continuing to next line automatically. if user clicks to interrupt, stop typing (whole line will not be displayed) and wait 500 milliseconds before going to next line
 
-        'key: 0-21 = intro; 
+        'key: 0-21 = intro; 22-23 = pre-boss fight; 24-end = after boss fight victory
         dialogLines = {
             "<Walkie-Talkie>Hello? Hello?? Is anybody there???(clkCont)",
             "<You>[Tiredly] Yes. Who is this?(clkCont)",
@@ -132,7 +134,16 @@
             "<Misa>Our child is safe. But the second machine...(clkCont)",
             "<You>No...(clkCont)",
             "<Misa>I am sorry, my love. You must survive this. You must survive to ensure our child does, too. I love you, " & "|" & ", I always will. I lo--(atomBlast)",
-            "<...>[You hear a deafening burst]" & vbCrLf & vbCrLf & "[Your vision fills with white]" & vbCrLf & vbCrLf & "[You start to feel yourself slipping...](clkCont)"
+            "<...>[You hear a deafening burst]" & vbCrLf & vbCrLf & "[Your vision fills with white]" & vbCrLf & vbCrLf & "[You start to feel yourself slipping...](clkCont)",
+            "<You>My son should be in here somewhere...(clkCont)",
+            "<You>But this beast stands in my way...(clkCont)",
+            "<You>My son, I have finally found you!(sonAppear)",
+            "<Son>...(clkCont)",
+            "<Son>Dad?(clkCont)",
+            "<You>Yes, son..." & vbCrLf & vbCrLf & "[You start to tear up](clkCont)",
+            "<You>Your mother, she...(clkCont)",
+            "<You>... she didn't make it...(clkCont)",
+            "<You>... let's go home...(clkCont)"
         }
 
         Item.initialize()
@@ -204,6 +215,7 @@
         componentLabel.Add(lblCraftingComponent3)
         componentLabel.Add(lblCraftingComponent4)
 
+        beatBoss = False
     End Sub
 
     'Procedures-------------------------------------------------------------------------------------------
@@ -250,6 +262,22 @@
         pnlPlayer.BackgroundImage = If(TypeOf Player.player.equippedArmor3.getItem() Is ItemArmor, My.Resources.Player_Shoeless_Small160, My.Resources.Player_Small160)
 
         pnlMob.BackgroundImage = mob.mobSprite
+        pnlMob.Size = If(mob IsNot Mob.mobBoss, New Point(440, 180), New Point(715, 264))
+        pnlMob.Location = If(mob IsNot Mob.mobBoss, New Point(470, 499), New Point(235, 431))
+        Console.WriteLine(pnlMob.Location.Y)
+        pnlPlayer.Location = If(mob IsNot Mob.mobBoss, New Point(90, 479), New Point(35, 495))
+
+        pnlFight.BackgroundImage = If(mob Is Mob.mobBoss, My.Resources.fmhFinalFightScene, My.Resources.fmhFightScene)
+        picFighting.Image = If(mob Is Mob.mobBoss, My.Resources.fmhFinalFightScene, My.Resources.fmhFightScene)
+        picFighting.Controls.Add(pnlMob)
+        Me.BackgroundImage = If(mob Is Mob.mobBoss, My.Resources.fmhFinalFightScene, My.Resources.fmhFightScene)
+
+        If mob Is Mob.mobBoss Then
+            Me.picFighting.Controls.Add(pnlDialog)
+            pnlDialog.BringToFront()
+            pnlDialog.Location = New Point(pnlDialog.Location.X, pnlDialog.Location.Y - 300)
+            displayText(22, 23)
+        End If
 
         Do While True
             Randomize()
@@ -261,13 +289,13 @@
             attackValue += If(cheatGodMode, 9001, 0)
             attackValue += Rnd() * attackValue * 0.05 - attackValue * 0.025
             mob.currentHealth -= attackValue
-            Console.WriteLine(mob.currentHealth & " is Raptor's health")
+            Console.WriteLine(mob.currentHealth & " Is Raptor's health")
 
 
-            pnlPlayer.Location = New Point(290, 479)
+            pnlPlayer.Location = If(mob Is Mob.mobBoss, New Point(75, 495), New Point(290, 479))
             wait(animationSpeed)
             Application.DoEvents()
-            pnlPlayer.Location = New Point(90, 479)
+            pnlPlayer.Location = If(mob Is Mob.mobBoss, New Point(35, 495), New Point(90, 479))
             wait(animationSpeed)
             Application.DoEvents()
 
@@ -282,10 +310,10 @@
             player.currentHealth -= attackValue
             Console.WriteLine(player.currentHealth & " is Player's health")
 
-            pnlMob.Location = New Point(270, 499)
+            pnlMob.Location = If(mob Is Mob.mobBoss, New Point(195, 431), New Point(270, 499))
             wait(animationSpeed)
             Application.DoEvents()
-            pnlMob.Location = New Point(470, 499)
+            pnlMob.Location = If(mob Is Mob.mobBoss, New Point(235, 431), New Point(470, 499))
             wait(animationSpeed)
             Application.DoEvents()
 
@@ -298,7 +326,21 @@
             Application.DoEvents()
         Loop
         'Result
-        If result Then
+        If result And mob Is Mob.mobBoss Then
+            Console.WriteLine(result)
+            pnlMob.BackgroundImage = My.Resources.mobFinalDinoDefeated3
+            pnlWin.Visible = False
+            picSon.Visible = False
+            wait(3000)
+            transition(pnlEnding)
+            pnlEnding.Controls.Add(pnlDialog)
+            pnlEnding.BringToFront()
+            wait(1000)
+            pnlDialog.BringToFront()
+            displayText(24, 30)
+            pnlWin.Visible = True
+        ElseIf result Then
+            pnlDropMenu.Visible = True
             lblReceived.Text = "You Won!"
             Dim numDrops As Integer = 0
             For x = 0 To mob.dropItems.Length - 1
@@ -316,11 +358,12 @@
                 End If
             Next
         Else
+            pnlDropMenu.Visible = True
             lblReceived.Text = "Defeat!"
         End If
         Console.WriteLine("finished fighting")
         isFighting = False
-        pnlDropMenu.Visible = True
+        beatBoss = mob Is Mob.mobBoss And result
     End Sub
 
     Dim toVisible As Object
@@ -369,6 +412,15 @@
                     Threading.Thread.Sleep(10)
                     Application.DoEvents()
                 Loop
+                hasClickedToContinue = False
+                lblClickCont.Visible = False
+            ElseIf contMethod.Equals("sonAppear") Then
+                lblClickCont.Visible = True
+                Do Until hasClickedToContinue
+                    Threading.Thread.Sleep(10)
+                    Application.DoEvents()
+                Loop
+                picSon.Visible = True
                 hasClickedToContinue = False
                 lblClickCont.Visible = False
             ElseIf contMethod.Equals("usrIn") Then
@@ -556,5 +608,13 @@
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Player.player.finalDelete = 0
         Player.player.deleteItem(Player.player.toDelete)
+    End Sub
+
+    Private Sub keepFighting_Click() Handles btnKeepFighting.Click
+        transition(currentCity)
+    End Sub
+
+    Private Sub exitGame_Click() Handles btnExitGame.Click
+        Application.Exit
     End Sub
 End Class
