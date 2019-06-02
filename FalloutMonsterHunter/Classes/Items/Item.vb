@@ -26,7 +26,7 @@
     Public Shared allCraftables(30) As Item
 
     Public Shared Sub initialize()
-        itemNull = New Item("nil", 0, My.Resources.uziCartiBigBaller)
+        itemNull = New Item("nil", 0, Nothing)
 
         itemRaptorClaws1 = New Item("Unpheasant Claw", 1, My.Resources.itemRaptorClaws1_InventorySmall)
         itemRaptorHide1 = New Item("Unpheasant Hide", 1, My.Resources.itemRaptorHide1_InventorySmall)

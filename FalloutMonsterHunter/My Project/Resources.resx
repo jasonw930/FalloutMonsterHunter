@@ -124,26 +124,11 @@
   <data name="falloutMonsterHunterMainMenu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\falloutMonsterHunterMainMenu11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="uziCartiBigBaller" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\uziCartiBigBaller.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="fujiCity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fujiCity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fmhRaptor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fmhRaptor1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="itemRaptorClaws1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\itemRaptorClaws1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="itemRaptorHide1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\itemRaptorHide1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="itemRaptorSkull1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\itemRaptorSkull1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="itemRaptorTail1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\itemRaptorTail1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fmhFightScene" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fmhFightScene.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -153,9 +138,6 @@
   </data>
   <data name="pnlInventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pnlInventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="itemRaptorBone1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\itemRaptorBone1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="itemRaptorBone1_InventorySmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemRaptorBone1-InventorySmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -180,12 +162,6 @@
   </data>
   <data name="arms" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arms.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cortez" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cortez.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cortez_Small160" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cortez-Small160.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Player" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,6 +235,15 @@
   <data name="raptorWeapon1_Small72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\raptorWeapon1-Small72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="atomBlast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\atomBlast.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bossDefeat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bossDefeat.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bossYell" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bossYell.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="fmhBossHead_86Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fmhBossHead-86Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -304,17 +289,8 @@
   <data name="itemRaptorTail3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemRaptorTail3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mobFinalDino" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mobFinalDino.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="mobFinalDino2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mobFinalDino2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mobFinalDinoDefeated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mobFinalDinoDefeated.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mobFinalDinoDefeated2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mobFinalDinoDefeated2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mobFinalDinoDefeated3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mobFinalDinoDefeated3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -385,7 +361,13 @@
   <data name="raptorWeapon3_Small320" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\raptorWeapon3-Small320.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="raptorYell" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raptorYell.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Son" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Son.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="swordClash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drop Sword-SoundBible.com-768774345.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

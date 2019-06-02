@@ -42,7 +42,7 @@ Public Class Player
         Me.defense = 10
         Me.attack = 25
         Me.critChance = 5
-        Me.luck = 0
+        Me.luck = If(frmMain.cheatAlwaysDrop, 100, 0)
 
         Me.attributeVitality = 0
         Me.attributeToughness = 0
@@ -87,7 +87,7 @@ Public Class Player
         Me.critChance = 5
         Me.critChance += If(TypeOf equippedWeapon.getItem() Is ItemWeapon, DirectCast(equippedWeapon.getItem(), ItemWeapon).getCritChance, 0)
 
-        Me.luck = 0
+        Me.luck = If(frmMain.cheatAlwaysDrop, 100, 0)
 
         If equippedArmor0.getItem().getItemTier() = equippedArmor1.getItem().getItemTier() = equippedArmor2.getItem().getItemTier() =
             equippedArmor3.getItem().getItemTier() = equippedWeapon.getItem().getItemTier() Then
@@ -404,7 +404,7 @@ Public Class Player
     Public toDelete As Integer = 24
     Public finalDelete As Integer = -1
 
-    Public Function deleteItem(pos As Integer)
+    Public Sub deleteItem(pos As Integer)
         If pos <= 23 And pos >= 0 Then
             Select Case finalDelete
                 Case -1
@@ -426,7 +426,7 @@ Public Class Player
                     finalDelete = -1
             End Select
         End If
-    End Function
+    End Sub
 
     Public Sub inventorySlot_MouseDoubleClick(sender As Object, e As EventArgs)
         If Not isDeleting Then

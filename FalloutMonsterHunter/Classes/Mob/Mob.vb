@@ -28,15 +28,16 @@
 
         mobRaptor2 = New Mob("Mutahraptor", 200, 20, 60, 5, My.Resources.mobRaptor2)
         mobRaptor2.dropItems = {Item.itemRaptorClaws2, Item.itemRaptorHide2, Item.itemRaptorBone2, Item.itemRaptorSkull2, Item.itemRaptorTail2}
+        mobRaptor2.dropItems = {Item.itemRaptorClaws2, Item.itemRaptorHide2, Item.itemRaptorBone2, Item.itemRaptorSkull2, Item.itemRaptorTail2}
         mobRaptor2.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
         mobRaptor2.dropAmount = {6, 6, 6, 1.2, 1.2}
 
-        mobRaptor3 = New Mob("Uzirappter", 350, 70, 110, 10, My.Resources.mobRaptor3)
+        mobRaptor3 = New Mob("Uzirappter", 350, 40, 110, 10, My.Resources.mobRaptor3)
         mobRaptor3.dropItems = {Item.itemRaptorClaws3, Item.itemRaptorHide3, Item.itemRaptorBone3, Item.itemRaptorSkull3, Item.itemRaptorTail3}
         mobRaptor3.dropChance = {0.3, 0.5, 0.5, 0.08, 0.08}
         mobRaptor3.dropAmount = {6, 6, 6, 1.2, 1.2}
 
-        mobBoss = New Mob("MobBoss", 420, 80, 160, 12, My.Resources.mobFinalDino2)
+        mobBoss = New Mob("MobBoss", 420, 70, 160, 12, My.Resources.mobFinalDino2)
         mobBoss.dropItems = {}
         mobBoss.dropChance = {}
         mobBoss.dropAmount = {}

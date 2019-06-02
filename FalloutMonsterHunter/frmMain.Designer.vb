@@ -515,7 +515,7 @@ Partial Class frmMain
         'picCraftPic
         '
         Me.picCraftPic.Controls.Add(Me.lblCraftStats)
-        Me.picCraftPic.Image = Global.FalloutMonsterHunter.My.Resources.Resources.itemRaptorTail1
+        Me.picCraftPic.Image = Nothing
         Me.picCraftPic.Location = New System.Drawing.Point(59, 59)
         Me.picCraftPic.Name = "picCraftPic"
         Me.picCraftPic.Size = New System.Drawing.Size(256, 256)

@@ -21,6 +21,7 @@
     Dim cheatSkipCutscene As Boolean
     Dim cheatFastFight As Boolean
     Dim cheatGodMode As Boolean
+    Public cheatAlwaysDrop As Boolean
 
     Dim craftingMenuItems As New List(Of Panel)
     Dim selectedCraftingItem As Item
@@ -275,7 +276,7 @@
         If mob Is Mob.mobBoss Then
             Me.picFighting.Controls.Add(pnlDialog)
             pnlDialog.BringToFront()
-            pnlDialog.Location = New Point(pnlDialog.Location.X, pnlDialog.Location.Y - 300)
+            pnlDialog.Location = New Point(74, 123)
             displayText(22, 23)
         End If
 
@@ -290,7 +291,7 @@
             attackValue += Rnd() * attackValue * 0.05 - attackValue * 0.025
             mob.currentHealth -= attackValue
             Console.WriteLine(mob.currentHealth & " Is Raptor's health")
-
+            My.Computer.Audio.Play(My.Resources.swordClash, AudioPlayMode.Background)
 
             pnlPlayer.Location = If(mob Is Mob.mobBoss, New Point(75, 495), New Point(290, 479))
             wait(animationSpeed)
@@ -309,7 +310,7 @@
             attackValue += Rnd() * attackValue * 0.05 - attackValue * 0.025
             player.currentHealth -= attackValue
             Console.WriteLine(player.currentHealth & " is Player's health")
-
+            My.Computer.Audio.Play(If(mob Is Mob.mobBoss, My.Resources.bossYell, My.Resources.raptorYell), AudioPlayMode.Background)
             pnlMob.Location = If(mob Is Mob.mobBoss, New Point(195, 431), New Point(270, 499))
             wait(animationSpeed)
             Application.DoEvents()
@@ -329,6 +330,7 @@
         If result And mob Is Mob.mobBoss Then
             Console.WriteLine(result)
             pnlMob.BackgroundImage = My.Resources.mobFinalDinoDefeated3
+            My.Computer.Audio.Play(My.Resources.bossDefeat, AudioPlayMode.Background)
             pnlWin.Visible = False
             picSon.Visible = False
             wait(3000)
@@ -346,7 +348,7 @@
             For x = 0 To mob.dropItems.Length - 1
                 Randomize()
                 Dim item As Item = mob.dropItems(x)
-                Dim amount As Integer = If(Rnd() <= mob.dropChance(x), Int(Rnd() * mob.dropAmount(x)) + 1, 0)
+                Dim amount As Integer = If(Rnd() <= (mob.dropChance(x) + Player.player.luck), Int(Rnd() * mob.dropAmount(x)) + 1 + Player.player.luck, 0)
                 Dim itemStack As ItemStack = If(amount > 0, New ItemStack(item, amount), New ItemStack(Item.itemNull, 1))
                 player.addItemToInventory(itemStack)
                 Console.WriteLine(itemStack.getSize() & " " & itemStack.getItem().getItemName() & " was dropped")
@@ -437,6 +439,7 @@
                 cheatSkipCutscene = Player.player.playerName.Contains("skipCutscene") Or Player.player.playerName.Contains("ALL")
                 cheatFastFight = Player.player.playerName.Contains("fastFight") Or Player.player.playerName.Contains("ALL")
                 cheatGodMode = Player.player.playerName.Contains("godMode") Or Player.player.playerName.Contains("ALL")
+                cheatAlwaysDrop = Player.player.playerName.Contains("alwaysDrop") Or Player.player.playerName.Contains("ALL")
 
                 txtUserIn.Visible = False
                 lblClickCont.Visible = False
@@ -452,7 +455,7 @@
                 Threading.Thread.Sleep(500)
                 Application.DoEvents()
                 Dim currentPicbox As PictureBox = panelsAndPics.Item(currentScene)
-                Console.WriteLine(currentPicbox.Name)
+                My.Computer.Audio.Play(My.Resources.atomBlast, AudioPlayMode.Background)
                 currentPicbox.Image = Nothing
                 currentPicbox.BackColor = Color.White
                 Threading.Thread.Sleep(2000)
@@ -472,7 +475,7 @@
     Private Sub updateCraftability()
         If TypeOf selectedCraftingItem Is ItemArmor Then
             Dim craftItem As ItemArmor = DirectCast(selectedCraftingItem, ItemArmor)
-            lblCraftStats.Text = "Health +" & craftItem.getBonusHealth().ToString() & vbCrLf & vbCrLf & "Defence +" & craftItem.getDefence().ToString() & vbCrLf & vbCrLf & "Luck: +0"
+            lblCraftStats.Text = "Health +" & craftItem.getBonusHealth().ToString() & vbCrLf & vbCrLf & "Defence +" & craftItem.getDefence().ToString() & vbCrLf & vbCrLf & "Crits +0%"
             For index As Integer = 0 To 4
                 If index < craftItem.craftingComponents.Length Then
                     componentImage(index).Image = resizeImage(craftItem.craftingComponents(index).getItem().getItemSprite(), 72, 72)
@@ -491,7 +494,7 @@
             picCraftPic.Image = craftItem.getItemSprite()
         ElseIf TypeOf selectedCraftingItem Is ItemWeapon Then
             Dim craftItem As ItemWeapon = DirectCast(selectedCraftingItem, ItemWeapon)
-            lblCraftStats.Text = "Attack +" & craftItem.getDamage().ToString() & vbCrLf & vbCrLf & "Criticals +" & craftItem.getCritChance().ToString()
+            lblCraftStats.Text = "Attack +" & craftItem.getDamage().ToString() & vbCrLf & vbCrLf & "Crits +" & craftItem.getCritChance().ToString() & "%"
             For index As Integer = 0 To 4
                 If index < craftItem.craftingComponents.Length Then
                     componentImage(index).Image = resizeImage(craftItem.craftingComponents(index).getItem().getItemSprite(), 72, 72)
