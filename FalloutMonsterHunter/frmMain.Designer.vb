@@ -127,6 +127,7 @@ Partial Class frmMain
         Me.picChestplate = New System.Windows.Forms.PictureBox()
         Me.picHelmet = New System.Windows.Forms.PictureBox()
         Me.picWeapon = New System.Windows.Forms.PictureBox()
+        Me.lblPlayerHealth = New System.Windows.Forms.Label()
         Me.pnlEnding = New System.Windows.Forms.Panel()
         Me.picSon = New System.Windows.Forms.PictureBox()
         Me.picFather = New System.Windows.Forms.PictureBox()
@@ -147,6 +148,7 @@ Partial Class frmMain
         Me.btnPlay = New System.Windows.Forms.Button()
         Me.picFader2 = New System.Windows.Forms.PictureBox()
         Me.picFader = New System.Windows.Forms.PictureBox()
+        Me.lblMobHealth = New System.Windows.Forms.Label()
         Me.pnlIntro.SuspendLayout()
         CType(Me.picIntro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.picIntro.SuspendLayout()
@@ -515,7 +517,6 @@ Partial Class frmMain
         'picCraftPic
         '
         Me.picCraftPic.Controls.Add(Me.lblCraftStats)
-        Me.picCraftPic.Image = Nothing
         Me.picCraftPic.Location = New System.Drawing.Point(59, 59)
         Me.picCraftPic.Name = "picCraftPic"
         Me.picCraftPic.Size = New System.Drawing.Size(256, 256)
@@ -1099,7 +1100,9 @@ Partial Class frmMain
         '
         Me.pnlFight.BackColor = System.Drawing.Color.Transparent
         Me.pnlFight.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.fmhFightScene
+        Me.pnlFight.Controls.Add(Me.lblMobHealth)
         Me.pnlFight.Controls.Add(Me.pnlDropMenu)
+        Me.pnlFight.Controls.Add(Me.lblPlayerHealth)
         Me.pnlFight.Controls.Add(Me.pnlMob)
         Me.pnlFight.Controls.Add(Me.picFighting)
         Me.pnlFight.Location = New System.Drawing.Point(0, 0)
@@ -1361,13 +1364,21 @@ Partial Class frmMain
         Me.picWeapon.TabIndex = 1
         Me.picWeapon.TabStop = False
         '
+        'lblPlayerHealth
+        '
+        Me.lblPlayerHealth.BackColor = System.Drawing.Color.Green
+        Me.lblPlayerHealth.Location = New System.Drawing.Point(90, 459)
+        Me.lblPlayerHealth.Name = "lblPlayerHealth"
+        Me.lblPlayerHealth.Size = New System.Drawing.Size(160, 17)
+        Me.lblPlayerHealth.TabIndex = 3
+        '
         'pnlEnding
         '
         Me.pnlEnding.BackgroundImage = Global.FalloutMonsterHunter.My.Resources.Resources.fmhEnding
         Me.pnlEnding.Controls.Add(Me.picSon)
         Me.pnlEnding.Controls.Add(Me.picFather)
         Me.pnlEnding.Controls.Add(Me.pnlWin)
-        Me.pnlEnding.Location = New System.Drawing.Point(0, 0)
+        Me.pnlEnding.Location = New System.Drawing.Point(1000, 750)
         Me.pnlEnding.Name = "pnlEnding"
         Me.pnlEnding.Size = New System.Drawing.Size(1000, 750)
         Me.pnlEnding.TabIndex = 6
@@ -1606,6 +1617,14 @@ Partial Class frmMain
         Me.picFader.Size = New System.Drawing.Size(1000, 750)
         Me.picFader.TabIndex = 4
         Me.picFader.TabStop = False
+        '
+        'lblMobHealth
+        '
+        Me.lblMobHealth.BackColor = System.Drawing.Color.Green
+        Me.lblMobHealth.Location = New System.Drawing.Point(750, 479)
+        Me.lblMobHealth.Name = "lblMobHealth"
+        Me.lblMobHealth.Size = New System.Drawing.Size(160, 17)
+        Me.lblMobHealth.TabIndex = 6
         '
         'frmMain
         '
@@ -1865,4 +1884,6 @@ Partial Class frmMain
     Friend WithEvents lblBeatGame As Label
     Friend WithEvents picFather As PictureBox
     Friend WithEvents picSon As PictureBox
+    Friend WithEvents lblPlayerHealth As Label
+    Friend WithEvents lblMobHealth As Label
 End Class

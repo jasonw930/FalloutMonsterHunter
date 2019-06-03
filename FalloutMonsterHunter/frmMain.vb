@@ -247,6 +247,11 @@
         waitDone = False
     End Sub
 
+    Public Function mapFromZero(toMap As Integer, mapRangeHigh As Integer, toMapHigh As Integer)
+        Dim k As Double = (toMap / mapRangeHigh) * toMapHigh
+        Return k
+    End Function
+
     Public Sub fight(player As Player, mob As Mob, Optional prevCity As Panel = Nothing)
         Dim result As Boolean
         'Fight
@@ -273,6 +278,13 @@
         picFighting.Controls.Add(pnlMob)
         Me.BackgroundImage = If(mob Is Mob.mobBoss, My.Resources.fmhFinalFightScene, My.Resources.fmhFightScene)
 
+        lblMobHealth.Size = New Point(pnlMob.Size.Width, 17)
+        lblMobHealth.Location = New Point(pnlMob.Location.X, pnlMob.Location.Y - 25)
+        lblMobHealth.BackColor = Color.FromArgb(255, 0, 255, 0)
+        lblPlayerHealth.Size = New Point(pnlPlayer.Size.Width, 17)
+        lblPlayerHealth.Location = New Point(pnlPlayer.Location.X, pnlPlayer.Location.Y - 17)
+        lblPlayerHealth.BackColor = Color.FromArgb(255, 0, 255, 0)
+
         If mob Is Mob.mobBoss Then
             Me.picFighting.Controls.Add(pnlDialog)
             pnlDialog.BringToFront()
@@ -289,8 +301,24 @@
             attackValue = (player.attack - mob.defense) * If(Rnd() <= player.critChance / 100, 2, 1)
             attackValue += If(cheatGodMode, 9001, 0)
             attackValue += Rnd() * attackValue * 0.05 - attackValue * 0.025
+            attackValue = Math.Max(0, attackValue)
+            Console.WriteLine(attackValue.ToString())
             mob.currentHealth -= attackValue
-            Console.WriteLine(mob.currentHealth & " Is Raptor's health")
+
+            If mob.currentHealth <= 0 Then
+                lblMobHealth.Size = New Point(mapFromZero(mob.currentHealth, mob.health, 160), 17)
+                lblMobHealth.BackColor = Color.Transparent
+                result = True
+                Exit Do
+            End If
+
+            lblMobHealth.Size = New Point(mapFromZero(mob.currentHealth, mob.health, pnlMob.Size.Width), 17)
+            Dim mobRedValue As Integer = mapFromZero(mob.currentHealth, mob.health, 510)
+            mobRedValue = Math.Min(mobRedValue, 255)
+            Dim mobGreenValue As Integer = mapFromZero(mob.currentHealth, mob.health, 510) - 255
+            mobGreenValue = Math.Max(mobGreenValue, 0)
+            lblMobHealth.BackColor = Color.FromArgb(255, mobRedValue, mobGreenValue, 0)
+            Console.WriteLine(mob.currentHealth & " is Mob's health")
             My.Computer.Audio.Play(My.Resources.swordClash, AudioPlayMode.Background)
 
             pnlPlayer.Location = If(mob Is Mob.mobBoss, New Point(75, 495), New Point(290, 479))
@@ -300,15 +328,25 @@
             wait(animationSpeed)
             Application.DoEvents()
 
-            If mob.currentHealth <= 0 Then
-                result = True
-                Exit Do
-            End If
 
             'Mob Attack
             attackValue = (mob.attack - player.defense) * If(Rnd() <= mob.critChance / 100, 2, 1)
             attackValue += Rnd() * attackValue * 0.05 - attackValue * 0.025
+            attackValue = Math.Max(0, attackValue)
             player.currentHealth -= attackValue
+
+            If player.currentHealth <= 0 Then
+                lblPlayerHealth.BackColor = Color.Transparent
+                result = False
+                Exit Do
+            End If
+
+            lblPlayerHealth.Size = New Point(mapFromZero(player.currentHealth, player.health, 160), 17)
+            Dim playerRedValue As Integer = mapFromZero(player.currentHealth, player.health, 510)
+            playerRedValue = Math.Min(playerRedValue, 255)
+            Dim playerGreenValue As Integer = mapFromZero(player.currentHealth, player.health, 510) - 255
+            playerGreenValue = Math.Max(playerGreenValue, 0)
+            lblPlayerHealth.BackColor = Color.FromArgb(255, playerRedValue, playerGreenValue, 0)
             Console.WriteLine(player.currentHealth & " is Player's health")
             My.Computer.Audio.Play(If(mob Is Mob.mobBoss, My.Resources.bossYell, My.Resources.raptorYell), AudioPlayMode.Background)
             pnlMob.Location = If(mob Is Mob.mobBoss, New Point(195, 431), New Point(270, 499))
@@ -318,10 +356,7 @@
             wait(animationSpeed)
             Application.DoEvents()
 
-            If player.currentHealth <= 0 Then
-                result = False
-                Exit Do
-            End If
+
 
             Threading.Thread.Sleep(1000)
             Application.DoEvents()
@@ -342,6 +377,7 @@
             displayText(24, 30)
             pnlWin.Visible = True
         ElseIf result Then
+            pnlDropMenu.BringToFront()
             pnlDropMenu.Visible = True
             lblReceived.Text = "You Won!"
             Dim numDrops As Integer = 0
@@ -360,6 +396,7 @@
                 End If
             Next
         Else
+            pnlDropMenu.BringToFront()
             pnlDropMenu.Visible = True
             lblReceived.Text = "Defeat!"
         End If
